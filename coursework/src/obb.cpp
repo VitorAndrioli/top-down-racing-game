@@ -22,11 +22,6 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	update();
 }
 
-void OBB::draw()
-{
-
-}
-
 Vector<double> OBB::getHalfExtents()
 {
 	return m_dvHalfExtents;

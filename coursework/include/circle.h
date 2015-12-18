@@ -12,13 +12,9 @@ protected:
 public:
 	Circle();
 	Circle(double dPosX, double dPosY, double dRadius);
-	void draw();
+	void move(Vector<double> newPosition);
 	double getRadius();
 	void update();
-	void moveRight();
-	void moveLeft();
-	void moveUp();
-	void moveDown();
 };
 
 #endif

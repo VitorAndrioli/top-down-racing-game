@@ -11,8 +11,6 @@ public:
 	OBB();
 	OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle);
 	Vector<double> getHalfExtents();
-private:
-	void draw();
 	void update();
 };
 

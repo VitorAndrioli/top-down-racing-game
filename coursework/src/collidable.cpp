@@ -1,5 +1,5 @@
 #include "collidable.h"
-
+#include <iostream>
 
 Collidable::Collidable()
 {
@@ -8,6 +8,14 @@ Collidable::Collidable()
 void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(m_vaPoints, states);
+}
+
+void Collidable::accelerate() {
+	m_dAcceleration = 80;
+}
+
+void Collidable::decelerate() {
+	m_dAcceleration = -80;
 }
 
 Vector<double> Collidable::getPosition()
@@ -20,7 +28,7 @@ Vector<double> Collidable::getVelocity()
 }
 Vector<double> Collidable::getAcceleration()
 {
-	return m_dvAceleration;
+	return m_dvAcceleration;
 }
 double Collidable::getInverseMass()
 {

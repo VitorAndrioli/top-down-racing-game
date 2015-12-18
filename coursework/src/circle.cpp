@@ -16,38 +16,14 @@ Circle::Circle(double dPosX, double dPosY, double dRadius)
 	update();
 }
 
-void Circle::draw()
-{
-
-}
-
 double Circle::getRadius()
 {
 	return m_dRadius;
 }
 
-void Circle::moveRight()
+void Circle::move(Vector<double> newPosition)
 {
-	m_dvPosition.setX(m_dvPosition.getX() + 10);
-	update();
-}
-
-void Circle::moveLeft()
-{
-	m_dvPosition.setX(m_dvPosition.getX() - 10);
-	update();
-}
-
-void Circle::moveUp()
-{
-	m_dvPosition.setY(m_dvPosition.getY() - 10);
-	update();
-}
-
-void Circle::moveDown()
-{
-	m_dvPosition.setY(m_dvPosition.getY() + 10);
-	update();
+	m_dvPosition = m_dvPosition.sum(&newPosition);
 }
 
 void Circle::update()

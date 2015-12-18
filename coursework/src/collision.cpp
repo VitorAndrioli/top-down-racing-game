@@ -13,8 +13,8 @@ Collision::Collision()
 bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 {
 
-	array<double, 4> rotationMatrix1 = { cos(obb1->getAngle()), sin(obb1->getAngle()), -sin(obb1->getAngle()), cos(obb1->getAngle()) };
-	array<double, 4> rotationMatrix2 = { cos(obb2->getAngle()), sin(obb2->getAngle()), -sin(obb2->getAngle()), cos(obb2->getAngle()) };
+	array<double, 4> rotationMatrix1 = { cos(obb1->getAngle()), -sin(obb1->getAngle()), sin(obb1->getAngle()), cos(obb1->getAngle()) };
+	array<double, 4> rotationMatrix2 = { cos(obb2->getAngle()), -sin(obb2->getAngle()), sin(obb2->getAngle()), cos(obb2->getAngle()) };
 
 
 	array<Vector<double>, 4> obb1points;
@@ -40,6 +40,7 @@ bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 		obb1->getPosition().getY() - obb1->getHalfExtents().getX() * rotationMatrix1[2] - obb1->getHalfExtents().getY() * rotationMatrix1[3]
 		);
 
+	
 	obb2points[0] = Vector<double>(
 		obb2->getPosition().getX() - obb2->getHalfExtents().getX() * rotationMatrix2[0] + obb2->getHalfExtents().getY() * rotationMatrix2[1],
 		obb2->getPosition().getY() - obb2->getHalfExtents().getX() * rotationMatrix2[2] + obb2->getHalfExtents().getY() * rotationMatrix2[3]
@@ -119,6 +120,7 @@ bool Collision::checkCollision(OBB * obb, Circle * circle)
 
 	if (diff.squaredMagnitude() < std::pow(circle->getRadius(), 2))
 	{
+		circle->move(diff);
 		cout << "Circle collision!!" << endl;
 		return true;
 	}

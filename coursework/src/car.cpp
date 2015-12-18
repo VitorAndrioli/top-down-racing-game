@@ -12,50 +12,48 @@ Car::Car(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	m_dvPosition = { dPosX, dPosY };
 	m_dvHalfExtents = { dHalfExtentX, dHalfExtentY };
 	m_dAngle = dAngle * M_PI / 180;
-
+	m_dInverseMass = 1 / 50;
+	m_dAcceleration = 0;
+	m_dVelocity = 0;
 	m_vaPoints.resize(5);
 	m_vaPoints.setPrimitiveType(LinesStrip);
 
-	update();
 }
 
-void Car::rotate()
+void Car::turnRight()
 {
-	setAngle(m_dAngle += (10 * M_PI / 180));
+	setAngle(m_dAngle += (5 * M_PI / 180));
+}
+
+void Car::turnLeft()
+{
+	setAngle(m_dAngle -= (5 * M_PI / 180));
 }
 
 void Car::setAngle(double angle) {
 	m_dAngle = angle;
-	update();
 }
 
-void Car::moveRight()
+void Car::update(sf::Time elapsed)
 {
-	m_dvPosition.setX(m_dvPosition.getX() + 10);
-	update();
-}
+	double maxVelocity = 130;
+	double minVelocity = 0;
 
-void Car::moveLeft()
-{
-	m_dvPosition.setX(m_dvPosition.getX() - 10);
-	update();
-}
+	m_dVelocity = m_dVelocity + m_dAcceleration*elapsed.asSeconds();
+	
+	if (m_dVelocity > maxVelocity) m_dVelocity = maxVelocity;
+	if (m_dVelocity < minVelocity) m_dVelocity = minVelocity;
 
-void Car::moveUp()
-{
-	m_dvPosition.setY(m_dvPosition.getY() - 10);
-	update();
-}
+	std::cout << m_dVelocity << std::endl;
 
-void Car::moveDown()
-{
-	m_dvPosition.setY(m_dvPosition.getY() + 10);
-	update();
-}
+	m_dvVelocity.setX(cos(m_dAngle)*m_dVelocity);
+	m_dvVelocity.setY(sin(m_dAngle)*m_dVelocity);
 
-void Car::update()
-{
+	m_dvPosition.setX(m_dvPosition.getX() + m_dvVelocity.getX() * elapsed.asSeconds());
+	m_dvPosition.setY(m_dvPosition.getY() + m_dvVelocity.getY() * elapsed.asSeconds());
 
+	
+	
 	Vector<double> rotationMatrixLine1(cos(m_dAngle), -sin(m_dAngle));
 	Vector<double> rotationMatrixLine2(sin(m_dAngle), cos(m_dAngle));
 
