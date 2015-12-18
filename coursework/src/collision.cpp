@@ -120,7 +120,6 @@ bool Collision::checkCollision(OBB * obb, Circle * circle)
 
 	if (diff.squaredMagnitude() < std::pow(circle->getRadius(), 2))
 	{
-		circle->move(diff);
 		cout << "Circle collision!!" << endl;
 		return true;
 	}
@@ -131,8 +130,27 @@ bool Collision::checkCollision(OBB * obb, Circle * circle)
 
 bool Collision::checkCollision(Circle * circle1, Circle * circle2)
 {
-	double centreDist = (circle1->getPosition().difference(&circle2->getPosition())).squaredMagnitude();
-	double radiiSumSquared = circle1->getRadius()*circle1->getRadius() + circle2->getRadius()*circle2->getRadius();
+	double centreDist = sqrt( (circle1->getPosition().difference(&circle2->getPosition())).squaredMagnitude() );
+	double radiiSum = circle1->getRadius() + circle2->getRadius();
 
-	return centreDist < radiiSumSquared;
+	double diff = centreDist - radiiSum;
+
+	if (diff < 0)
+	{
+		
+		Vector<double> collisionNormal = circle1->getPosition().difference(&circle2->getPosition());
+		double restitution = 0.7;
+		double mass = 20;
+		double impulse = (-(1 + restitution) * (circle1->getPosition().difference(&circle2->getPosition()).dotProduct(&collisionNormal))) / (1 / mass + 1 / mass);
+		
+		circle1->setPosition(Vector<double>(circle1->getPosition().getX()+diff, circle1->getPosition().getY()));
+
+		Vector<double> v1 = circle1->getVelocity().sum( &(collisionNormal.multiply(impulse)).divide(mass) );
+		Vector<double> v2 = circle2->getVelocity().difference( &(collisionNormal.multiply(impulse)).divide(mass) );
+
+	}
+	
+	
+
+	return true;
 }

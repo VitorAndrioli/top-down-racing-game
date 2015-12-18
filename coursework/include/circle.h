@@ -12,9 +12,8 @@ protected:
 public:
 	Circle();
 	Circle(double dPosX, double dPosY, double dRadius);
-	void move(Vector<double> newPosition);
 	double getRadius();
-	void update();
+	void update(sf::Time elapsed);
 };
 
 #endif

@@ -16,7 +16,6 @@ protected:
 	double m_dInverseMass;
 	double m_dAngle;
 	sf::VertexArray m_vaPoints;
-
 public:
 	Collidable();
 	Vector<double> getPosition();
@@ -24,9 +23,12 @@ public:
 	Vector<double> getAcceleration();
 	double getInverseMass();
 	double getAngle();
-	void setPosition(Vector<double> newPosition);
 	void accelerate();
 	void decelerate();
+	void turnRight();
+	void turnLeft();
+	void setPosition(Vector<double> position);
+	void setVelocity(Vector<double> velocity);
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

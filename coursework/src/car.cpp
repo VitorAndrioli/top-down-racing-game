@@ -20,20 +20,6 @@ Car::Car(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 
 }
 
-void Car::turnRight()
-{
-	setAngle(m_dAngle += (5 * M_PI / 180));
-}
-
-void Car::turnLeft()
-{
-	setAngle(m_dAngle -= (5 * M_PI / 180));
-}
-
-void Car::setAngle(double angle) {
-	m_dAngle = angle;
-}
-
 void Car::update(sf::Time elapsed)
 {
 	double maxVelocity = 130;
@@ -52,8 +38,6 @@ void Car::update(sf::Time elapsed)
 	m_dvPosition.setX(m_dvPosition.getX() + m_dvVelocity.getX() * elapsed.asSeconds());
 	m_dvPosition.setY(m_dvPosition.getY() + m_dvVelocity.getY() * elapsed.asSeconds());
 
-	
-	
 	Vector<double> rotationMatrixLine1(cos(m_dAngle), -sin(m_dAngle));
 	Vector<double> rotationMatrixLine2(sin(m_dAngle), cos(m_dAngle));
 

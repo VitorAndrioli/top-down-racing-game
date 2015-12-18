@@ -19,7 +19,9 @@ int main()
 		obbs[i] = OBB(rand() % 800, rand() % 800, rand() % 40, rand() % 15, rand() % 360);
 	}
 
-	Car car(400, 300, 30, 19, 0);
+	//Car car(400, 300, 30, 19, 0);
+	Circle car(400, 300, 25);
+	Circle circle(700, 300, 30);
 	Collision collision;
 
 	sf::Clock clock;
@@ -57,13 +59,18 @@ int main()
 		car.update(elapsed);
 		window.draw(car);
 		
+		circle.update(elapsed);
+		window.draw(circle);
+
+		collision.checkCollision(&car, &circle);
+
 		for (int i = 0; i < tyres.size(); i++)
 		{
-			tyres[i].update();
-			//obbs[i].update();
-			window.draw(tyres[i]);
+			//tyres[i].update(elapsed);
+			//obbs[i].update(elapsed);
+			//window.draw(tyres[i]);
 			//window.draw(obbs[i]);
-			collision.checkCollision(&car, &tyres[i]);
+			//collision.checkCollision(&car, &tyres[i]);
 			//collision.checkCollision(&car, &obbs[i]);
 		}
 

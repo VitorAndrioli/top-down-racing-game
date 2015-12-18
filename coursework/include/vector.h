@@ -13,6 +13,8 @@ public:
 	double dotProduct(Vector<G> * vector);
 	Vector<G> difference(Vector<G> * vector);
 	Vector<G> sum(Vector<G> * vector);
+	Vector<G> multiply(double x);
+	Vector<G> divide(double x);
 	double squaredMagnitude();
 	G getX();
 	G getY();
@@ -31,6 +33,18 @@ Vector<G>::Vector(G x, G y)
 {
 	m_dX = x;
 	m_dY = y;
+}
+
+template<class G>
+Vector<G> Vector<G>::multiply(double x)
+{
+	return Vector<double>(m_dX*x, m_dY*x);
+}
+
+template<class G>
+Vector<G> Vector<G>::divide(double x)
+{
+	return Vector<double>(m_dX/x, m_dY/x);
 }
 
 template <class G>
