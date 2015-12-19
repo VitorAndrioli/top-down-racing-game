@@ -6,6 +6,7 @@
 class Car : public OBB
 {
 public:
+	Car();
 	Car(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle);
 	void update(sf::Time elapsed);
 	void setAngle(double angle);

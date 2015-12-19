@@ -8,10 +8,11 @@ Circle::Circle()
 
 }
 
-Circle::Circle(double dPosX, double dPosY, double dRadius)
+Circle::Circle(double dPosX, double dPosY, double dRadius, double dAngle)
 {
 	m_dvPosition = { dPosX, dPosY };
 	m_dRadius = dRadius;
+	m_dAngle = dAngle  * M_PI / 180;
 }
 
 void Circle::update(sf::Time elapsed)
@@ -19,10 +20,10 @@ void Circle::update(sf::Time elapsed)
 	double maxVelocity = 130;
 	double minVelocity = 0;
 
-	//m_dVelocity = m_dVelocity + m_dAcceleration*elapsed.asSeconds();
+	m_dVelocity = m_dVelocity + m_dAcceleration*elapsed.asSeconds();
 
-	//if (m_dVelocity > maxVelocity) m_dVelocity = maxVelocity;
-	//if (m_dVelocity < minVelocity) m_dVelocity = minVelocity;
+	if (m_dVelocity > maxVelocity) m_dVelocity = maxVelocity;
+	if (m_dVelocity < minVelocity) m_dVelocity = minVelocity;
 
 	//std::cout << m_dVelocity << std::endl;
 

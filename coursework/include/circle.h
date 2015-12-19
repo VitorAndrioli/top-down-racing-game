@@ -11,7 +11,7 @@ protected:
 	double m_dRadius;
 public:
 	Circle();
-	Circle(double dPosX, double dPosY, double dRadius);
+	Circle(double dPosX, double dPosY, double dRadius, double dAngle);
 	double getRadius();
 	void update(sf::Time elapsed);
 };

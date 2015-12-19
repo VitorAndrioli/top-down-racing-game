@@ -56,7 +56,7 @@
     <ClInclude Include="include\car.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vector.h">
+    <ClInclude Include="include\vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

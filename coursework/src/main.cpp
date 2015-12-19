@@ -2,7 +2,7 @@
 #include "circle.h"
 #include "car.h"
 #include "collision.h"
-#include "vector.h"
+#include "vector2D.h"
 #include <iostream>
 #include <array>
 
@@ -15,13 +15,13 @@ int main()
 
 	for (int i = 0; i < tyres.size(); i++)
 	{
-		tyres[i] = Circle(rand() % 800, rand() % 800, rand() % 50);
+		tyres[i] = Circle(rand() % 800, rand() % 800, rand() % 50, 0);
 		obbs[i] = OBB(rand() % 800, rand() % 800, rand() % 40, rand() % 15, rand() % 360);
 	}
 
-	//Car car(400, 300, 30, 19, 0);
-	Circle car(400, 300, 25);
-	Circle circle(700, 300, 30);
+	//Car car(200, 300, 30, 19, 90);
+	Circle car(100, 100, 25, 45);
+	Circle circle(300, 300, 30, 0);
 	Collision collision;
 
 	sf::Clock clock;

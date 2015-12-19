@@ -12,12 +12,12 @@ void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	target.draw(m_vaPoints, states);
 }
 
-void Collidable::setPosition(Vector<double> position)
+void Collidable::setPosition(Vector2D<double> position)
 {
 	m_dvPosition = position;
 }
 
-void Collidable::setVelocity(Vector<double> velocity)
+void Collidable::setVelocity(Vector2D<double> velocity)
 {
 	m_dvPosition = velocity;
 }
@@ -40,15 +40,15 @@ void Collidable::turnLeft()
 	m_dAngle -= (5 * M_PI / 180);
 }
 
-Vector<double> Collidable::getPosition()
+Vector2D<double> Collidable::getPosition()
 {
 	return m_dvPosition;
 }
-Vector<double> Collidable::getVelocity()
+Vector2D<double> Collidable::getVelocity()
 {
 	return m_dvVelocity;
 }
-Vector<double> Collidable::getAcceleration()
+Vector2D<double> Collidable::getAcceleration()
 {
 	return m_dvAcceleration;
 }

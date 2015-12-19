@@ -2,14 +2,14 @@
 #define COLLIDABLE_H
 
 #include <SFML/Graphics.hpp>
-#include "vector.h"
+#include "vector2D.h"
 
 class Collidable : public sf::Drawable
 {
 protected:
-	Vector<double> m_dvPosition;
-	Vector<double> m_dvVelocity;
-	Vector<double> m_dvAcceleration;
+	Vector2D<double> m_dvPosition;
+	Vector2D<double> m_dvVelocity;
+	Vector2D<double> m_dvAcceleration;
 	double m_dForce;
 	double m_dAcceleration;
 	double m_dVelocity;
@@ -18,17 +18,17 @@ protected:
 	sf::VertexArray m_vaPoints;
 public:
 	Collidable();
-	Vector<double> getPosition();
-	Vector<double> getVelocity();
-	Vector<double> getAcceleration();
+	Vector2D<double> getPosition();
+	Vector2D<double> getVelocity();
+	Vector2D<double> getAcceleration();
 	double getInverseMass();
 	double getAngle();
 	void accelerate();
 	void decelerate();
 	void turnRight();
 	void turnLeft();
-	void setPosition(Vector<double> position);
-	void setVelocity(Vector<double> velocity);
+	void setPosition(Vector2D<double> position);
+	void setVelocity(Vector2D<double> velocity);
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

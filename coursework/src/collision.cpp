@@ -1,5 +1,5 @@
 #include "collision.h"
-#include "vector.h"
+#include "vector2D.h"
 #include <iostream>
 #include <array>
 
@@ -17,55 +17,55 @@ bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 	array<double, 4> rotationMatrix2 = { cos(obb2->getAngle()), -sin(obb2->getAngle()), sin(obb2->getAngle()), cos(obb2->getAngle()) };
 
 
-	array<Vector<double>, 4> obb1points;
-	array<Vector<double>, 4> obb2points;
+	array<Vector2D<double>, 4> obb1points;
+	array<Vector2D<double>, 4> obb2points;
 
-	obb1points[0] = Vector<double>(
+	obb1points[0] = Vector2D<double>(
 		obb1->getPosition().getX() - obb1->getHalfExtents().getX() * rotationMatrix1[0] + obb1->getHalfExtents().getY() * rotationMatrix1[1],
 		obb1->getPosition().getY() - obb1->getHalfExtents().getX() * rotationMatrix1[2] + obb1->getHalfExtents().getY() * rotationMatrix1[3]
 		);
 
-	obb1points[1] = Vector<double>(
+	obb1points[1] = Vector2D<double>(
 		obb1->getPosition().getX() + obb1->getHalfExtents().getX() * rotationMatrix1[0] + obb1->getHalfExtents().getY() * rotationMatrix1[1],
 		obb1->getPosition().getY() + obb1->getHalfExtents().getX() * rotationMatrix1[2] + obb1->getHalfExtents().getY() * rotationMatrix1[3]
 		);
 
-	obb1points[2] = Vector<double>(
+	obb1points[2] = Vector2D<double>(
 		obb1->getPosition().getX() + obb1->getHalfExtents().getX() * rotationMatrix1[0] - obb1->getHalfExtents().getY() * rotationMatrix1[1],
 		obb1->getPosition().getY() + obb1->getHalfExtents().getX() * rotationMatrix1[2] - obb1->getHalfExtents().getY() * rotationMatrix1[3]
 		);
 
-	obb1points[3] = Vector<double>(
+	obb1points[3] = Vector2D<double>(
 		obb1->getPosition().getX() - obb1->getHalfExtents().getX() * rotationMatrix1[0] - obb1->getHalfExtents().getY() * rotationMatrix1[1],
 		obb1->getPosition().getY() - obb1->getHalfExtents().getX() * rotationMatrix1[2] - obb1->getHalfExtents().getY() * rotationMatrix1[3]
 		);
 
 	
-	obb2points[0] = Vector<double>(
+	obb2points[0] = Vector2D<double>(
 		obb2->getPosition().getX() - obb2->getHalfExtents().getX() * rotationMatrix2[0] + obb2->getHalfExtents().getY() * rotationMatrix2[1],
 		obb2->getPosition().getY() - obb2->getHalfExtents().getX() * rotationMatrix2[2] + obb2->getHalfExtents().getY() * rotationMatrix2[3]
 		);
 
-	obb2points[1] = Vector<double>(
+	obb2points[1] = Vector2D<double>(
 		obb2->getPosition().getX() + obb2->getHalfExtents().getX() * rotationMatrix2[0] + obb2->getHalfExtents().getY() * rotationMatrix2[1],
 		obb2->getPosition().getY() + obb2->getHalfExtents().getX() * rotationMatrix2[2] + obb2->getHalfExtents().getY() * rotationMatrix2[3]
 		);
 
-	obb2points[2] = Vector<double>(
+	obb2points[2] = Vector2D<double>(
 		obb2->getPosition().getX() + obb2->getHalfExtents().getX() * rotationMatrix2[0] - obb2->getHalfExtents().getY() * rotationMatrix2[1],
 		obb2->getPosition().getY() + obb2->getHalfExtents().getX() * rotationMatrix2[2] - obb2->getHalfExtents().getY() * rotationMatrix2[3]
 		);
 
-	obb2points[3] = Vector<double>(
+	obb2points[3] = Vector2D<double>(
 		obb2->getPosition().getX() - obb2->getHalfExtents().getX() * rotationMatrix2[0] - obb2->getHalfExtents().getY() * rotationMatrix2[1],
 		obb2->getPosition().getY() - obb2->getHalfExtents().getX() * rotationMatrix2[2] - obb2->getHalfExtents().getY() * rotationMatrix2[3]
 		);
 
-	array<Vector<double>, 4> axis = {
-		Vector<double>(rotationMatrix1[0], rotationMatrix1[2]),
-		Vector<double>(rotationMatrix1[1], rotationMatrix1[3]),
-		Vector<double>(rotationMatrix2[0], rotationMatrix2[2]),
-		Vector<double>(rotationMatrix2[1], rotationMatrix2[3])
+	array<Vector2D<double>, 4> axis = {
+		Vector2D<double>(rotationMatrix1[0], rotationMatrix1[2]),
+		Vector2D<double>(rotationMatrix1[1], rotationMatrix1[3]),
+		Vector2D<double>(rotationMatrix2[0], rotationMatrix2[2]),
+		Vector2D<double>(rotationMatrix2[1], rotationMatrix2[3])
 	};
 
 	for (int j = 0; j < 4; j++)
@@ -101,22 +101,22 @@ bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 
 bool Collision::checkCollision(OBB * obb, Circle * circle)
 {
-	Vector<double> newPosition = circle->getPosition().difference(&obb->getPosition());
+	Vector2D<double> newPosition = circle->getPosition().subtract(&obb->getPosition());
 	
-	Vector <double> inverseRotationMatrixLine1(cos(-obb->getAngle()), -sin(-obb->getAngle()));
-	Vector <double> inverseRotationMatrixLine2(sin(-obb->getAngle()), cos(-obb->getAngle()));
+	Vector2D <double> inverseRotationMatrixLine1(cos(-obb->getAngle()), -sin(-obb->getAngle()));
+	Vector2D <double> inverseRotationMatrixLine2(sin(-obb->getAngle()), cos(-obb->getAngle()));
 
-	Vector<double> newPosition2(newPosition.dotProduct(&inverseRotationMatrixLine1), newPosition.dotProduct(&inverseRotationMatrixLine2));
+	Vector2D<double> newPosition2(newPosition.dotProduct(&inverseRotationMatrixLine1), newPosition.dotProduct(&inverseRotationMatrixLine2));
 	
-	Vector<double> dist = newPosition2;
-	Vector<double> clamp;
+	Vector2D<double> dist = newPosition2;
+	Vector2D<double> clamp;
 	
 	if (dist.getX() < 0) clamp.setX(max(dist.getX(), -obb->getHalfExtents().getX()));
 	if (dist.getX() >= 0) clamp.setX(min(dist.getX(), obb->getHalfExtents().getX()));
 	if (dist.getY() < 0) clamp.setY(max(dist.getY(), -obb->getHalfExtents().getY()));
 	if (dist.getY() >= 0) clamp.setY(min(dist.getY(), obb->getHalfExtents().getY()));
 
-	Vector<double> diff = dist.difference( &clamp );
+	Vector2D<double> diff = dist.subtract( &clamp );
 
 	if (diff.squaredMagnitude() < std::pow(circle->getRadius(), 2))
 	{
@@ -130,7 +130,7 @@ bool Collision::checkCollision(OBB * obb, Circle * circle)
 
 bool Collision::checkCollision(Circle * circle1, Circle * circle2)
 {
-	double centreDist = sqrt( (circle1->getPosition().difference(&circle2->getPosition())).squaredMagnitude() );
+	double centreDist = sqrt( (circle1->getPosition().subtract(&circle2->getPosition())).squaredMagnitude() );
 	double radiiSum = circle1->getRadius() + circle2->getRadius();
 
 	double diff = centreDist - radiiSum;
@@ -138,15 +138,29 @@ bool Collision::checkCollision(Circle * circle1, Circle * circle2)
 	if (diff < 0)
 	{
 		
-		Vector<double> collisionNormal = circle1->getPosition().difference(&circle2->getPosition());
-		double restitution = 0.7;
-		double mass = 20;
-		double impulse = (-(1 + restitution) * (circle1->getPosition().difference(&circle2->getPosition()).dotProduct(&collisionNormal))) / (1 / mass + 1 / mass);
+		Vector2D<double> collisionNormal = circle1->getPosition().subtract(&circle2->getPosition());
+		//double restitution = 0.7;
+		//double mass = 20;
+		//double impulse = (-(1 + restitution) * (circle1->getPosition().subtract(&circle2->getPosition()).dotProduct(&collisionNormal))) / (1 / mass + 1 / mass);
 		
-		circle1->setPosition(Vector<double>(circle1->getPosition().getX()+diff, circle1->getPosition().getY()));
+		
+		double ca = circle2->getPosition().getX() - circle1->getPosition().getX();
+		double co = circle2->getPosition().getY() - circle1->getPosition().getY();
 
-		Vector<double> v1 = circle1->getVelocity().sum( &(collisionNormal.multiply(impulse)).divide(mass) );
-		Vector<double> v2 = circle2->getVelocity().difference( &(collisionNormal.multiply(impulse)).divide(mass) );
+		double sin = co / sqrt(collisionNormal.squaredMagnitude());
+		double cos = ca / sqrt(collisionNormal.squaredMagnitude());
+		
+		double x = cos * abs(diff);
+		double y = sin * abs(diff);
+
+		cout << cos << endl;
+		
+		circle1->setPosition(Vector2D<double>(circle1->getPosition().getX()-x, circle1->getPosition().getY()-y));
+
+
+
+		//Vector2D<double> v1 = circle1->getVelocity().sum( &(collisionNormal.multiply(impulse)).divide(mass) );
+		//Vector2D<double> v2 = circle2->getVelocity().subtract( &(collisionNormal.multiply(impulse)).divide(mass) );
 
 	}
 	

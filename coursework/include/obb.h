@@ -6,11 +6,11 @@
 class OBB : public Collidable
 {
 protected:
-	Vector<double> m_dvHalfExtents;
+	Vector2D<double> m_dvHalfExtents;
 public:
 	OBB();
 	OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle);
-	Vector<double> getHalfExtents();
+	Vector2D<double> getHalfExtents();
 	void update();
 };
 
