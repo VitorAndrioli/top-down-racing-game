@@ -20,8 +20,9 @@ int main()
 	}
 
 	Car car(200, 300, 30, 19, 0);
-
+	//Circle car(200, 300, 15, 0);
 	Circle circle(300, 300, 30, 0);
+	//OBB circle(300, 300, 30, 25, 119);
 	Collision collision;
 	
 	sf::Clock clock;

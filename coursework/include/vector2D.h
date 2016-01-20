@@ -15,6 +15,7 @@ public:
 	Vector2D<G> add(Vector2D<G> * vector2d);
 	Vector2D<G> multiplyScalar(double dScalar);
 	Vector2D<G> divideScalar(double dScalar);
+	Vector2D<G> unitVector();
 	double squaredMagnitude();
 	double magnitude();
 	void rotate(double dAngle);
@@ -71,6 +72,14 @@ Vector2D<G> Vector2D<G>::divideScalar(double dScalar)
 	return Vector2D<double>(m_dX / dScalar, m_dY / dScalar);
 }
 
+template<class G>
+Vector2D<G> Vector2D<G>::unitVector()
+{
+	double x = m_dX / magnitude();
+	double y = m_dY / magnitude();
+	return Vector2D<G>(x, y);
+}
+
 template <class G>
 double Vector2D<G>::squaredMagnitude()
 {
@@ -90,8 +99,8 @@ void Vector2D<G>::rotate(double dAngle)
 		Vector2D<double>(cos(dAngle), -sin(dAngle)),
 		Vector2D<double>(sin(dAngle), cos(dAngle)));
 
-	m_dX = this->dotProduct(&rotationMatrix[0]);
-	m_dY = this->dotProduct(&rotationMatrix[1]);
+	m_dX = this->dotProduct(&rotationMatrix.getX());
+	m_dY = this->dotProduct(&rotationMatrix.getY());
 }
 
 template <class G>

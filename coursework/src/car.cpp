@@ -43,9 +43,6 @@ void Car::update(sf::Time elapsed)
 	m_dVelocity = m_dVelocity + m_dAcceleration*elapsed.asSeconds();
 
 
-	//std::cout << m_dVelocity << std::endl;
-
-	
 	if (m_dVelocity > maxVelocity) m_dVelocity = maxVelocity;
 	if (abs(m_dVelocity) < minVelocity) m_dVelocity = 0;
 
@@ -94,4 +91,5 @@ void Car::update(sf::Time elapsed)
 		-getHalfExtents().getX() * rotationMatrixLine2.getX() - getHalfExtents().getY() * rotationMatrixLine2.getY());
 	m_vaPoints[3].position.x = tempVector2D.add(&getPosition()).getX();
 	m_vaPoints[3].position.y = tempVector2D.add(&getPosition()).getY();
+
 }

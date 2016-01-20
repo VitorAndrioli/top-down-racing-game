@@ -19,7 +19,7 @@ void Collidable::setPosition(Vector2D<double> position)
 
 void Collidable::setVelocity(Vector2D<double> velocity)
 {
-	m_dvPosition = velocity;
+	m_dvVelocity = velocity;
 }
 
 void Collidable::accelerate() {

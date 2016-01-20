@@ -68,6 +68,7 @@ bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 		Vector2D<double>(rotationMatrix2[1], rotationMatrix2[3])
 	};
 
+	Vector2D<double> moveVector(99999,99999);
 	for (int j = 0; j < 4; j++)
 	{
 		double obb1min = 20000000;
@@ -88,11 +89,18 @@ bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 
 		}
 		
-		//cout << obb1min << " -- " << obb1max << " -- " << obb2min << " -- " << obb2max << " -- " << (obb1max < obb2min || obb2max < obb1min) << endl;
-
 		if (obb1max < obb2min || obb2max < obb1min) return false;
+
+		double overlap1 = obb1max - obb2min;
+		double overlap2 = obb2max - obb1min;
+		double overlap = min(overlap1, overlap2);
+
+		Vector2D<double> newVector(axis[j].unitVector().multiplyScalar(-overlap));
+		if (newVector.squaredMagnitude() < moveVector.squaredMagnitude()) moveVector = newVector;
+
 	}
 
+	obb1->setPosition(obb1->getPosition().add(&moveVector));
 	cout << "OBB Collision" << endl;
 	return true;
 	
@@ -117,10 +125,14 @@ bool Collision::checkCollision(OBB * obb, Circle * circle)
 	if (dist.getY() >= 0) clamp.setY(min(dist.getY(), obb->getHalfExtents().getY()));
 
 	Vector2D<double> diff = dist.subtract( &clamp );
+	double distance = diff.magnitude() - circle->getRadius();
 
-	if (diff.squaredMagnitude() < std::pow(circle->getRadius(), 2))
+	if (distance < 0)
 	{
-		cout << "Circle collision!!" << endl;
+		Vector2D<double> collisionNormal = circle->getPosition().subtract(&obb->getPosition().add(&clamp));
+		Vector2D<double> moveVector = collisionNormal.unitVector().multiplyScalar(distance);
+
+		obb->setPosition(obb->getPosition().add(&moveVector));
 		return true;
 	}
 
@@ -139,32 +151,16 @@ bool Collision::checkCollision(Circle * circle1, Circle * circle2)
 	{
 		
 		Vector2D<double> collisionNormal = circle1->getPosition().subtract(&circle2->getPosition());
-		//double restitution = 0.7;
-		//double mass = 20;
-		//double impulse = (-(1 + restitution) * (circle1->getPosition().subtract(&circle2->getPosition()).dotProduct(&collisionNormal))) / (1 / mass + 1 / mass);
-		
-		
-		double ca = circle2->getPosition().getX() - circle1->getPosition().getX();
-		double co = circle2->getPosition().getY() - circle1->getPosition().getY();
+		Vector2D<double> moveVector = collisionNormal.unitVector().multiplyScalar(-diff);
 
-		double sin = co / sqrt(collisionNormal.squaredMagnitude());
-		double cos = ca / sqrt(collisionNormal.squaredMagnitude());
-		
-		double x = cos * abs(diff);
-		double y = sin * abs(diff);
-
-		cout << cos << endl;
-		
-		circle1->setPosition(Vector2D<double>(circle1->getPosition().getX()-x, circle1->getPosition().getY()-y));
-
-
-
-		//Vector2D<double> v1 = circle1->getVelocity().sum( &(collisionNormal.multiply(impulse)).divide(mass) );
-		//Vector2D<double> v2 = circle2->getVelocity().subtract( &(collisionNormal.multiply(impulse)).divide(mass) );
-
+		circle1->setPosition(circle1->getPosition().add(&moveVector));
+		return true;
 	}
 	
-	
+	return false;
+}
 
-	return true;
+bool Collision::checkCollision(Circle * circle, OBB * obb)
+{
+	return checkCollision(obb, circle);
 }
