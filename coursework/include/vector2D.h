@@ -25,7 +25,7 @@ public:
 };
 
 template <class G>
-Vector2D<G>::Vector2D<G>()
+Vector2D<G>::Vector2D()
 {
 
 }

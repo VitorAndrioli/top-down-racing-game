@@ -19,11 +19,11 @@ int main()
 		obbs[i] = OBB(rand() % 800, rand() % 800, rand() % 40, rand() % 15, rand() % 360);
 	}
 
-	//Car car(200, 300, 30, 19, 90);
-	Circle car(100, 100, 25, 45);
+	Car car(200, 300, 30, 19, 0);
+
 	Circle circle(300, 300, 30, 0);
 	Collision collision;
-
+	
 	sf::Clock clock;
 	
 	
@@ -42,13 +42,14 @@ int main()
 			if (event.type == sf::Event::KeyPressed)
 			{
 				if (event.key.code == sf::Keyboard::Up) car.accelerate();
+				if (event.key.code == sf::Keyboard::Down) car.reverse();
 				if (event.key.code == sf::Keyboard::Right) car.turnRight();
 				if (event.key.code == sf::Keyboard::Left) car.turnLeft();
 			}
 
 			if (event.type == sf::Event::KeyReleased)
 			{
-				if (event.key.code == sf::Keyboard::Right) car.decelerate();
+				if (event.key.code == sf::Keyboard::Up || event.key.code == sf::Keyboard::Down) car.decelerate();
 			}
 										
 		}
@@ -66,12 +67,12 @@ int main()
 
 		for (int i = 0; i < tyres.size(); i++)
 		{
-			//tyres[i].update(elapsed);
-			//obbs[i].update(elapsed);
-			//window.draw(tyres[i]);
-			//window.draw(obbs[i]);
-			//collision.checkCollision(&car, &tyres[i]);
-			//collision.checkCollision(&car, &obbs[i]);
+			tyres[i].update(elapsed);
+			obbs[i].update(elapsed);
+			window.draw(tyres[i]);
+			window.draw(obbs[i]);
+			collision.checkCollision(&car, &tyres[i]);
+			collision.checkCollision(&car, &obbs[i]);
 		}
 
 		

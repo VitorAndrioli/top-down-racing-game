@@ -22,7 +22,7 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	m_vaPoints.resize(5);
 	m_vaPoints.setPrimitiveType(sf::LinesStrip);
 
-	update();
+	
 }
 
 Vector2D<double> OBB::getHalfExtents()
@@ -30,7 +30,7 @@ Vector2D<double> OBB::getHalfExtents()
 	return m_dvHalfExtents;
 }
 
-void OBB::update()
+void OBB::update(sf::Time elapsed)
 {
 
 	Vector2D<double> rotationMatrixLine1(cos(m_dAngle), -sin(m_dAngle));

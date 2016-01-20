@@ -23,11 +23,19 @@ void Collidable::setVelocity(Vector2D<double> velocity)
 }
 
 void Collidable::accelerate() {
-	m_dAcceleration = 80;
+	m_dThrust = 100;
+	m_dvThrust = Vector2D<double>(100, 0);
+	
+	m_dvThrust.rotate(m_dAngle);
 }
 
 void Collidable::decelerate() {
-	m_dAcceleration = -80;
+	m_dThrust = 0;
+}
+
+void Collidable::reverse() {
+	m_dThrust = -100;
+	
 }
 
 void Collidable::turnRight()

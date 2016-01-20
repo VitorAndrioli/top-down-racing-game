@@ -11,7 +11,7 @@ public:
 	OBB();
 	OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle);
 	Vector2D<double> getHalfExtents();
-	void update();
+	void update(sf::Time elapsed);
 };
 
 #endif
