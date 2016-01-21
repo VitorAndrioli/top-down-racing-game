@@ -13,7 +13,7 @@ public:
 	Circle();
 	Circle(double dPosX, double dPosY, double dRadius, double dAngle);
 	double getRadius();
-	void update(sf::Time elapsed);
+	void update(float elapsed);
 };
 
 #endif

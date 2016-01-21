@@ -101,7 +101,6 @@ bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 	}
 
 	obb1->setPosition(obb1->getPosition().add(&moveVector));
-	cout << "OBB Collision" << endl;
 	return true;
 	
 }

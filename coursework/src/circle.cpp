@@ -22,30 +22,10 @@ Circle::Circle(double dPosX, double dPosY, double dRadius, double dAngle)
 
 }
 
-void Circle::update(sf::Time elapsed)
+void Circle::update(float elapsed)
 {
-	double maxVelocity = 130;
-	double minVelocity = 0.005;
-
-	double mu = 0.4;
-	double friction = mu * m_dVelocity;
+	Collidable::update(elapsed);
 	
-	m_dAcceleration = m_dThrust - friction;
-
-	m_dVelocity = m_dVelocity + m_dAcceleration*elapsed.asSeconds();
-
-
-	if (m_dVelocity > maxVelocity) m_dVelocity = maxVelocity;
-	if (abs(m_dVelocity) < minVelocity) m_dVelocity = 0;
-
-	m_dvVelocity.setX(cos(m_dAngle)*m_dVelocity);
-	m_dvVelocity.setY(sin(m_dAngle)*m_dVelocity);
-
-	m_dvPosition.setX(m_dvPosition.getX() + m_dvVelocity.getX() * elapsed.asSeconds());
-	m_dvPosition.setY(m_dvPosition.getY() + m_dvVelocity.getY() * elapsed.asSeconds());
-
-	
-
 	int iCirclePointNumber = 31;
 	m_vaPoints.resize(iCirclePointNumber);
 	for (int i = 0; i < iCirclePointNumber; i++) {

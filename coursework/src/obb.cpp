@@ -30,7 +30,7 @@ Vector2D<double> OBB::getHalfExtents()
 	return m_dvHalfExtents;
 }
 
-void OBB::update(sf::Time elapsed)
+void OBB::update(float elapsed)
 {
 
 	Vector2D<double> rotationMatrixLine1(cos(m_dAngle), -sin(m_dAngle));
