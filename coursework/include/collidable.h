@@ -12,10 +12,6 @@ protected:
 	Vector2D<double> m_dvVelocity;
 	Vector2D<double> m_dvAcceleration;
 	Vector2D<double> m_dvThrust;
-	double m_dForce;
-	double m_dThrust;
-	double m_dAcceleration;
-	double m_dVelocity;
 	double m_dInverseMass;
 	double m_dAngle;
 	sf::VertexArray m_vaPoints;

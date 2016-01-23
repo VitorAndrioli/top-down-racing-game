@@ -10,16 +10,13 @@ Circle::Circle()
 
 Circle::Circle(double dPosX, double dPosY, double dRadius, double dAngle)
 {
-	m_dvPosition = { dPosX, dPosY };
+	m_dvPosition.setX(dPosX);
+	m_dvPosition.setY(dPosY);
 	m_dRadius = dRadius;
 	m_dAngle = dAngle  * M_PI / 180;
 
-	m_dInverseMass = 1 / 50;
-	m_dAcceleration = 0;
-	m_dVelocity = 0;
-	m_dThrust = 0;
-	m_vaPoints.setPrimitiveType(sf::LinesStrip);
-
+	m_dInverseMass = 1.0 / 50.0;
+	
 }
 
 void Circle::update(float elapsed)

@@ -128,10 +128,31 @@ bool Collision::checkCollision(OBB * obb, Circle * circle)
 
 	if (distance < 0)
 	{
-		Vector2D<double> collisionNormal = circle->getPosition().subtract(&obb->getPosition().add(&clamp));
-		Vector2D<double> moveVector = collisionNormal.unitVector().multiplyScalar(distance);
+		Vector2D<double> collisionNormal = (circle->getPosition().subtract(&obb->getPosition().add(&clamp))).unitVector();
+		Vector2D<double> moveVector = collisionNormal.multiplyScalar(distance);
 
 		obb->setPosition(obb->getPosition().add(&moveVector));
+
+
+
+		double e = 0.6;
+
+		double j;
+
+		Vector2D<double> va_vb;
+		va_vb = obb->getVelocity().subtract(&circle->getVelocity());
+
+		j = (-(1+e) * va_vb.dotProduct(&collisionNormal)) / (obb->getInverseMass() + circle->getInverseMass());
+		
+		Vector2D<double> newVa = obb->getVelocity().add( &collisionNormal.multiplyScalar(j).divideScalar(1/obb->getInverseMass()) );
+		Vector2D<double> newVb = circle->getVelocity().subtract(&collisionNormal.multiplyScalar(j).divideScalar(1/circle->getInverseMass()));
+		
+		cout << newVa.getX() << "  " << newVa.getY() << endl;
+		cout << newVb.getX() << "  " << newVb.getY() << endl;
+
+		obb->setVelocity(newVa);
+		circle->setVelocity(newVb);
+		
 		return true;
 	}
 

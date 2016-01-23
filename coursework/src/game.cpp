@@ -9,10 +9,10 @@ using namespace std;
 Game::Game()
 {
 
-	car = Car(200, 300, 30, 19, 0);
+	car = Car(50, 300, 0);
 	
-	circle = Circle(300, 300, 30, 0);
-	obb = OBB(500, 500, 50, 15, 15);
+	circle = Circle(350, 300, 30, 0);
+	obb = OBB(500, 300, 50, 15, 15);
 
 }
 
@@ -26,11 +26,11 @@ void Game::draw(RenderTarget &target, RenderStates states) const
 void Game::update(float timestep)
 {
 	car.update(timestep);
-	car.print();
 	circle.update(timestep);
 	obb.update(timestep);
 	collision.checkCollision(&car, &circle);
 	collision.checkCollision(&car, &obb);
+	collision.checkCollision(&circle, &obb);
 }
 
 void Game::processKeyPress(Keyboard::Key code)

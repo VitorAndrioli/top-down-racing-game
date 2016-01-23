@@ -1,7 +1,7 @@
 /**
-@file vector2D.h
+* /file vector2D.h
 
-@brief Brief explanation
+* /class Brief explanation
 
 
 */
@@ -92,8 +92,7 @@ Vector2D<G> Vector2D<G>::unitVector()
 template <class G>
 double Vector2D<G>::squaredMagnitude()
 {
-	dotProduct(this);
-	return m_x * m_x + m_y * m_y;
+	return dotProduct(this);
 }
 
 template <class G>
@@ -105,12 +104,11 @@ double Vector2D<G>::magnitude()
 template <class G>
 void Vector2D<G>::rotate(double fAngle)
 {
-	Vector2D<Vector2D<double>> rotationMatrix(
-		Vector2D<double>(cos(fAngle), -sin(fAngle)),
-		Vector2D<double>(sin(fAngle), cos(fAngle)));
+	double tempX = m_x;
+	double tempY = m_y;
 
-	m_x = this->dotProduct(&rotationMatrix.getX());
-	m_y = this->dotProduct(&rotationMatrix.getY());
+	m_x = cos(fAngle)*tempX - sin(fAngle)*tempY;
+	m_y = sin(fAngle)*tempX + cos(fAngle)*tempY;
 }
 
 template <class G>

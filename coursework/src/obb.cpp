@@ -11,17 +11,17 @@ OBB::OBB()
 OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle)
 {
 
-	m_dvPosition.setX(dPosX);
-	m_dvPosition.setY(dPosY);
-
 	m_dvHalfExtents.setX(dHalfExtentX);
 	m_dvHalfExtents.setY(dHalfExtentY);
-
+	
+	m_dvPosition.setX(dPosX);
+	m_dvPosition.setY(dPosY);
+		
 	m_dAngle = dAngle * M_PI / 180;
-
+	m_dInverseMass = 1.0 / 50.0;
+	
 	m_vaPoints.resize(5);
-	m_vaPoints.setPrimitiveType(sf::LinesStrip);
-
+	
 	
 }
 
@@ -32,6 +32,7 @@ Vector2D<double> OBB::getHalfExtents()
 
 void OBB::update(float elapsed)
 {
+	Collidable::update(elapsed);
 
 	Vector2D<double> rotationMatrixLine1(cos(m_dAngle), -sin(m_dAngle));
 	Vector2D<double> rotationMatrixLine2(sin(m_dAngle), cos(m_dAngle));
