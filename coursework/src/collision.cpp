@@ -9,9 +9,27 @@ Collision::Collision()
 {
 }
 
-bool Collision::checkCollision(Collidable * collidable1, Collidable * collidable2)
+void Collision::resolveImpulses(Collidable * collidable1, Collidable * collidable2, Vector2D<double> * collisionNormal)
 {
-	return true;
+	double e = 0.6;
+
+	double j;
+
+	Vector2D<double> va_vb;
+	va_vb = collidable1->getVelocity().subtract(&collidable2->getVelocity());
+
+	j = (-(1 + e) * va_vb.dotProduct(collisionNormal)) / (collidable1->getInverseMass() + collidable2->getInverseMass());
+
+	Vector2D<double> newVa = collidable1->getVelocity().add(&collisionNormal->multiplyScalar(j).divideScalar(1 / collidable1->getInverseMass()));
+	Vector2D<double> newVb = collidable2->getVelocity().subtract(&collisionNormal->multiplyScalar(j).divideScalar(1 / collidable2->getInverseMass()));
+
+	collidable1->setVelocity(newVa);
+	collidable2->setVelocity(newVb);
+
+}
+
+void Collision::checkCollision(Collidable * collidable1, Collidable * collidable2)
+{
 }
 
 bool Collision::checkCollision(OBB * obb1, OBB * obb2)
@@ -109,27 +127,12 @@ bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 
 	obb1->setPosition(obb1->getPosition().add(&moveVector));
 
-	double e = 0.6;
-
-	double j;
-
-	Vector2D<double> va_vb;
-	va_vb = obb1->getVelocity().subtract(&obb2->getVelocity());
-
-	j = (-(1 + e) * va_vb.dotProduct(&collisionNormal)) / (obb1->getInverseMass() + obb2->getInverseMass());
-
-	Vector2D<double> newVa = obb1->getVelocity().add(&collisionNormal.multiplyScalar(j).divideScalar(1 / obb1->getInverseMass()));
-	Vector2D<double> newVb = obb2->getVelocity().subtract(&collisionNormal.multiplyScalar(j).divideScalar(1 / obb2->getInverseMass()));
-
-	obb1->setVelocity(newVa);
-	obb2->setVelocity(newVb);
-	
+	resolveImpulses(obb1, obb2, &collisionNormal);
 	return true;
-	
 }
 
 
-bool Collision::checkCollision(OBB * obb, Circle * circle)
+void Collision::checkCollision(OBB * obb, Circle * circle)
 {
 	Vector2D<double> newPosition = circle->getPosition().subtract(&obb->getPosition());
 	
@@ -156,34 +159,11 @@ bool Collision::checkCollision(OBB * obb, Circle * circle)
 
 		obb->setPosition(obb->getPosition().add(&moveVector));
 
-
-
-		double e = 0.6;
-
-		double j;
-
-		Vector2D<double> va_vb;
-		va_vb = obb->getVelocity().subtract(&circle->getVelocity());
-
-		j = (-(1+e) * va_vb.dotProduct(&collisionNormal)) / (obb->getInverseMass() + circle->getInverseMass());
-		
-		Vector2D<double> newVa = obb->getVelocity().add( &collisionNormal.multiplyScalar(j).divideScalar(1/obb->getInverseMass()) );
-		Vector2D<double> newVb = circle->getVelocity().subtract(&collisionNormal.multiplyScalar(j).divideScalar(1/circle->getInverseMass()));
-		
-		cout << newVa.getX() << "  " << newVa.getY() << endl;
-		cout << newVb.getX() << "  " << newVb.getY() << endl;
-
-		obb->setVelocity(newVa);
-		circle->setVelocity(newVb);
-		
-		return true;
+		resolveImpulses(obb, circle, &collisionNormal);
 	}
-
-	return false;
-	
 }
 
-bool Collision::checkCollision(Circle * circle1, Circle * circle2)
+void Collision::checkCollision(Circle * circle1, Circle * circle2)
 {
 	double centreDist = sqrt( (circle1->getPosition().subtract(&circle2->getPosition())).squaredMagnitude() );
 	double radiiSum = circle1->getRadius() + circle2->getRadius();
@@ -198,28 +178,11 @@ bool Collision::checkCollision(Circle * circle1, Circle * circle2)
 
 		circle1->setPosition(circle1->getPosition().add(&moveVector));
 
-		double e = 0.6;
-
-		double j;
-
-		Vector2D<double> va_vb;
-		va_vb = circle1->getVelocity().subtract(&circle2->getVelocity());
-
-		j = (-(1 + e) * va_vb.dotProduct(&collisionNormal)) / (circle1->getInverseMass() + circle2->getInverseMass());
-
-		Vector2D<double> newVa = circle1->getVelocity().add(&collisionNormal.multiplyScalar(j).divideScalar(1 / circle1->getInverseMass()));
-		Vector2D<double> newVb = circle2->getVelocity().subtract(&collisionNormal.multiplyScalar(j).divideScalar(1 / circle2->getInverseMass()));
-
-		circle1->setVelocity(newVa);
-		circle2->setVelocity(newVb);
-
-		return true;
+		resolveImpulses(circle1, circle2, &collisionNormal);
 	}
-	
-	return false;
 }
 
-bool Collision::checkCollision(Circle * circle, OBB * obb)
+void Collision::checkCollision(Circle * circle, OBB * obb)
 {
-	return checkCollision(obb, circle);
+	checkCollision(obb, circle);
 }

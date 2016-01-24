@@ -56,7 +56,7 @@ void Collidable::update(float elapsed)
 	
 	m_dvPosition = m_dvPosition.add(&m_dvVelocity.multiplyScalar(elapsed));
 
-	
+	updatePoints();
 
 }
 

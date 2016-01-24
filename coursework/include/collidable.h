@@ -30,7 +30,7 @@ public:
 	void turnLeft();
 	void setPosition(Vector2D<double> position);
 	void setVelocity(Vector2D<double> velocity);
-	virtual void updatePoints() = 0;
+	virtual void updatePoints() {};
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

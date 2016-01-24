@@ -8,10 +8,11 @@ class Collision
 {
 public:
 	Collision();
-	bool checkCollision(OBB * obb, Circle * circle);
-	bool checkCollision(Circle * circle, OBB * obb);
+	void checkCollision(OBB * obb, Circle * circle);
+	void checkCollision(Circle * circle, OBB * obb);
 	bool checkCollision(OBB * obb1, OBB * obb2);
-	bool checkCollision(Circle * circle1, Circle * circle2);
-	bool checkCollision(Collidable * collidable1, Collidable * collidable2);
+	void checkCollision(Circle * circle1, Circle * circle2);
+	void checkCollision(Collidable * collidable1, Collidable * collidable2);
+	void resolveImpulses(Collidable * collidable1, Collidable * collidable2, Vector2D<double> * collisionNormal);
 };
 

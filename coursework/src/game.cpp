@@ -10,13 +10,14 @@ Game::Game()
 {
 
 	car = Car(50, 300, 0);
-	circle = Circle(0, 0, 50, 0);
-	ptr_circle = new Circle(350, 300, 30, 0);
-	obstacles.at(0) = new Circle(350, 300, 30, 0);
+	ptr_circle2 = new Circle(200, 300, 50, 0);
+	ptr_circle = new Circle(350, 290, 30, 0);
+	ptr_obb = new OBB(600, 310, 70, 15, 90);
+	/*obstacles.at(0) = new Circle(350, 300, 30, 0);
 	obstacles.at(1) = new Circle(400, 310, 30, 0);
 	obstacles.at(2) = new Circle(400, 290, 30, 0);
 	obstacles.at(3) = new OBB(500, 100, 50, 15, 15);
-	obstacles.at(4) = new OBB(500, 600, 70, 15, 90);
+	obstacles.at(4) = new OBB(500, 600, 70, 15, 90);*/
 	
 	
 }
@@ -24,20 +25,37 @@ Game::Game()
 void Game::draw(RenderTarget &target, RenderStates states) const
 {
 	target.draw(car);
-	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
+	target.draw(*ptr_circle);
+	target.draw(*ptr_circle2);
+	target.draw(*ptr_obb);
+	
+	/*for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{
 		target.draw(*(*it));
-	}
+	}*/
 	
 }
 
 void Game::update(float timestep)
 {
-	car.updatePoints();
 	car.update(timestep);
-	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
+	ptr_circle->update(timestep);
+	ptr_circle2->update(timestep);
+	ptr_obb->update(timestep);
+	
+
+	collision.checkCollision(&car, ptr_circle);
+	collision.checkCollision(&car, ptr_circle2);
+	collision.checkCollision(&car, ptr_obb);
+
+	collision.checkCollision(ptr_circle, ptr_circle2);
+	collision.checkCollision(ptr_circle, ptr_obb);
+
+	collision.checkCollision(ptr_circle2, ptr_obb);
+
+	
+	/*for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{
-		(*it)->updatePoints();
 		(*it)->update(timestep);
 	}
 
@@ -50,7 +68,7 @@ void Game::update(float timestep)
 				collision.checkCollision(*it, *it2);
 			}
 		}
-	}
+	}*/
 
 
 }
