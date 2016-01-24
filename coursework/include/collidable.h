@@ -7,7 +7,6 @@
 class Collidable : public sf::Drawable
 {
 protected:
-	void update(float elapsed);
 	Vector2D<double> m_dvPosition;
 	Vector2D<double> m_dvVelocity;
 	Vector2D<double> m_dvAcceleration;
@@ -16,8 +15,9 @@ protected:
 	double m_dAngle;
 	sf::VertexArray m_vaPoints;
 public:
-	void print(); 
+	void print();
 	Collidable();
+	void update(float elapsed);
 	Vector2D<double> getPosition();
 	Vector2D<double> getVelocity();
 	Vector2D<double> getAcceleration();
@@ -30,6 +30,7 @@ public:
 	void turnLeft();
 	void setPosition(Vector2D<double> position);
 	void setVelocity(Vector2D<double> velocity);
+	virtual void updatePoints() = 0;
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

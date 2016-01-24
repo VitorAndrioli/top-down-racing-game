@@ -19,6 +19,7 @@ void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Collidable::update(float elapsed)
 {
+
 	Vector2D<double> oldVelocity = m_dvVelocity;
 	double oldAngle = m_dAngle;
 

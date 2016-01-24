@@ -10,8 +10,8 @@ protected:
 public:
 	OBB();
 	OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle);
+	void updatePoints();
 	Vector2D<double> getHalfExtents();
-	void update(float elapsed);
 };
 
 #endif

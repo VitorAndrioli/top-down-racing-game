@@ -9,6 +9,10 @@ Collision::Collision()
 {
 }
 
+bool Collision::checkCollision(Collidable * collidable1, Collidable * collidable2)
+{
+	return true;
+}
 
 bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 {
@@ -69,6 +73,7 @@ bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 	};
 
 	Vector2D<double> moveVector(99999,99999);
+	Vector2D<double> collisionNormal;
 	for (int j = 0; j < 4; j++)
 	{
 		double obb1min = 20000000;
@@ -95,12 +100,30 @@ bool Collision::checkCollision(OBB * obb1, OBB * obb2)
 		double overlap2 = obb2max - obb1min;
 		double overlap = min(overlap1, overlap2);
 
-		Vector2D<double> newVector(axis[j].unitVector().multiplyScalar(-overlap));
+
+		collisionNormal = axis[j].unitVector();
+		Vector2D<double> newVector(collisionNormal.multiplyScalar(-overlap));
 		if (newVector.squaredMagnitude() < moveVector.squaredMagnitude()) moveVector = newVector;
 
 	}
 
 	obb1->setPosition(obb1->getPosition().add(&moveVector));
+
+	double e = 0.6;
+
+	double j;
+
+	Vector2D<double> va_vb;
+	va_vb = obb1->getVelocity().subtract(&obb2->getVelocity());
+
+	j = (-(1 + e) * va_vb.dotProduct(&collisionNormal)) / (obb1->getInverseMass() + obb2->getInverseMass());
+
+	Vector2D<double> newVa = obb1->getVelocity().add(&collisionNormal.multiplyScalar(j).divideScalar(1 / obb1->getInverseMass()));
+	Vector2D<double> newVb = obb2->getVelocity().subtract(&collisionNormal.multiplyScalar(j).divideScalar(1 / obb2->getInverseMass()));
+
+	obb1->setVelocity(newVa);
+	obb2->setVelocity(newVb);
+	
 	return true;
 	
 }
@@ -170,10 +193,26 @@ bool Collision::checkCollision(Circle * circle1, Circle * circle2)
 	if (diff < 0)
 	{
 		
-		Vector2D<double> collisionNormal = circle1->getPosition().subtract(&circle2->getPosition());
-		Vector2D<double> moveVector = collisionNormal.unitVector().multiplyScalar(-diff);
+		Vector2D<double> collisionNormal = circle1->getPosition().subtract(&circle2->getPosition()).unitVector();
+		Vector2D<double> moveVector = collisionNormal.multiplyScalar(-diff);
 
 		circle1->setPosition(circle1->getPosition().add(&moveVector));
+
+		double e = 0.6;
+
+		double j;
+
+		Vector2D<double> va_vb;
+		va_vb = circle1->getVelocity().subtract(&circle2->getVelocity());
+
+		j = (-(1 + e) * va_vb.dotProduct(&collisionNormal)) / (circle1->getInverseMass() + circle2->getInverseMass());
+
+		Vector2D<double> newVa = circle1->getVelocity().add(&collisionNormal.multiplyScalar(j).divideScalar(1 / circle1->getInverseMass()));
+		Vector2D<double> newVb = circle2->getVelocity().subtract(&collisionNormal.multiplyScalar(j).divideScalar(1 / circle2->getInverseMass()));
+
+		circle1->setVelocity(newVa);
+		circle2->setVelocity(newVb);
+
 		return true;
 	}
 	

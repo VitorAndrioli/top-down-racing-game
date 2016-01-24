@@ -12,8 +12,8 @@ protected:
 public:
 	Circle();
 	Circle(double dPosX, double dPosY, double dRadius, double dAngle);
+	void updatePoints();
 	double getRadius();
-	void update(float elapsed);
 };
 
 #endif

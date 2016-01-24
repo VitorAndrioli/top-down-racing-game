@@ -21,8 +21,6 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	m_dInverseMass = 1.0 / 50.0;
 	
 	m_vaPoints.resize(5);
-	
-	
 }
 
 Vector2D<double> OBB::getHalfExtents()
@@ -30,13 +28,11 @@ Vector2D<double> OBB::getHalfExtents()
 	return m_dvHalfExtents;
 }
 
-void OBB::update(float elapsed)
+void OBB::updatePoints()
 {
-	Collidable::update(elapsed);
-
+	
 	Vector2D<double> rotationMatrixLine1(cos(m_dAngle), -sin(m_dAngle));
 	Vector2D<double> rotationMatrixLine2(sin(m_dAngle), cos(m_dAngle));
-
 
 	Vector2D<double> tempVector(
 		-getHalfExtents().getX() * rotationMatrixLine1.getX() + getHalfExtents().getY() * rotationMatrixLine1.getY(),

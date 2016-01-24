@@ -19,10 +19,8 @@ Circle::Circle(double dPosX, double dPosY, double dRadius, double dAngle)
 	
 }
 
-void Circle::update(float elapsed)
+void Circle::updatePoints()
 {
-	Collidable::update(elapsed);
-	
 	int iCirclePointNumber = 31;
 	m_vaPoints.resize(iCirclePointNumber);
 	for (int i = 0; i < iCirclePointNumber; i++) {
@@ -30,7 +28,6 @@ void Circle::update(float elapsed)
 		double x = m_dvPosition.getX() + m_dRadius * cos(angle);
 		double y = m_dvPosition.getY() + m_dRadius * sin(angle);
 		m_vaPoints[i].position = sf::Vector2f(x, y);
-
 	}
 }
 
