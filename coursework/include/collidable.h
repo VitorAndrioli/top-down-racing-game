@@ -13,6 +13,7 @@ protected:
 	Vector2D<double> m_dvThrust;
 	double m_dInverseMass;
 	double m_dAngle;
+	float m_fFrictionCoef;
 	sf::VertexArray m_vaPoints;
 public:
 	void print();
@@ -23,11 +24,11 @@ public:
 	Vector2D<double> getAcceleration();
 	double getInverseMass();
 	double getAngle();
-	void accelerate();
+	/*void accelerate();
 	void decelerate();
 	void reverse();
 	void turnRight();
-	void turnLeft();
+	void turnLeft();*/
 	void setPosition(Vector2D<double> position);
 	void setVelocity(Vector2D<double> velocity);
 	virtual void updatePoints() {};

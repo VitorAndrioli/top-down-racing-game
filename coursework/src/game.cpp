@@ -25,7 +25,7 @@ Game::Game()
 void Game::draw(RenderTarget &target, RenderStates states) const
 {
 	target.draw(car);
-	target.draw(*ptr_circle);
+	/*target.draw(*ptr_circle);
 	target.draw(*ptr_circle2);
 	target.draw(*ptr_obb);
 	
@@ -39,7 +39,8 @@ void Game::draw(RenderTarget &target, RenderStates states) const
 void Game::update(float timestep)
 {
 	car.update(timestep);
-	ptr_circle->update(timestep);
+	car.print();
+	/*ptr_circle->update(timestep);
 	ptr_circle2->update(timestep);
 	ptr_obb->update(timestep);
 	
