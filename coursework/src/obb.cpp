@@ -2,6 +2,7 @@
 #include "SFML\Graphics.hpp"
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <iostream>
 
 OBB::OBB()
 {
@@ -17,7 +18,7 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	m_dvPosition.setX(dPosX);
 	m_dvPosition.setY(dPosY);
 		
-	m_dAngle = dAngle * M_PI / 180;
+	m_dAngle = dAngle * M_PI / 180; // angle is stored in radians
 	m_dInverseMass = 1.0 / 50.0;
 	
 	m_vaPoints.resize(5);

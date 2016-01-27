@@ -12,7 +12,7 @@ Game::Game()
 	car = Car(50, 300, 0);
 	ptr_circle2 = new Circle(200, 300, 50, 0);
 	ptr_circle = new Circle(350, 290, 30, 0);
-	ptr_obb = new OBB(600, 310, 70, 15, 90);
+	//ptr_obb = new OBB(600, 310, 70, 15, 90);
 	/*obstacles.at(0) = new Circle(350, 300, 30, 0);
 	obstacles.at(1) = new Circle(400, 310, 30, 0);
 	obstacles.at(2) = new Circle(400, 290, 30, 0);
@@ -39,7 +39,7 @@ void Game::draw(RenderTarget &target, RenderStates states) const
 void Game::update(float timestep)
 {
 	car.update(timestep);
-	car.print();
+	//car.print();
 	/*ptr_circle->update(timestep);
 	ptr_circle2->update(timestep);
 	ptr_obb->update(timestep);

@@ -31,6 +31,7 @@ public:
 	void turnLeft();*/
 	void setPosition(Vector2D<double> position);
 	void setVelocity(Vector2D<double> velocity);
+	void setAngle(double angle);
 	virtual void updatePoints() {};
 
 private:

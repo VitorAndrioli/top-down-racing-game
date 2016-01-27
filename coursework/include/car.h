@@ -16,6 +16,9 @@ public:
 	void turnRight();
 	void turnLeft();
 	bool m_bReverse;
+	double m_fSteeringAngle;
+	OBB * frontWheel;
+	OBB * backWheel;
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

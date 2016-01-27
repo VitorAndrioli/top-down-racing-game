@@ -20,7 +20,7 @@ void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Collidable::print()
 {
-	std::cout << m_dvVelocity.magnitude() << std::endl;
+	std::cout << m_dvPosition.getX() << " -- " << m_dvPosition.getY() << std::endl;
 }
 
 void Collidable::update(float elapsed)
@@ -91,4 +91,8 @@ double Collidable::getInverseMass()
 double Collidable::getAngle()
 {
 	return m_dAngle;
+}
+void Collidable::setAngle(double angle)
+{
+	m_dAngle = angle;
 }
