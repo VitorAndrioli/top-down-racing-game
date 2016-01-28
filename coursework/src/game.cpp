@@ -9,7 +9,7 @@ using namespace std;
 Game::Game()
 {
 
-	car = Car(50, 300, 0);
+	car = Car(50, 50, 0);
 	ptr_circle2 = new Circle(200, 300, 50, 0);
 	ptr_circle = new Circle(350, 290, 30, 0);
 	//ptr_obb = new OBB(600, 310, 70, 15, 90);
@@ -85,4 +85,5 @@ void Game::processKeyPress(Keyboard::Key code)
 void Game::processKeyRelease(Keyboard::Key code)
 {
 	if (code == sf::Keyboard::Up || code == sf::Keyboard::Down) car.decelerate();
+	if (code == sf::Keyboard::Right || code == sf::Keyboard::Left) car.stopTurning();
 }

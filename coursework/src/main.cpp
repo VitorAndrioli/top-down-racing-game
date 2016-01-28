@@ -17,7 +17,7 @@ using namespace sf;
 int main()
 {
 
-	RenderWindow window(VideoMode(800, 600), "IMAT2605 Course work");
+	RenderWindow window(VideoMode(1200, 700), "IMAT2605 Course work");
 	
 	Game game;
 
@@ -37,7 +37,7 @@ int main()
 										
 		}
 
-		if (clock.getElapsedTime().asSeconds() > 0.005)
+		if (clock.getElapsedTime().asSeconds() > 0.0005)
 		{
 			game.update(clock.getElapsedTime().asSeconds());
 			clock.restart();

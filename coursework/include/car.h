@@ -15,7 +15,9 @@ public:
 	void reverse();
 	void turnRight();
 	void turnLeft();
+	void stopTurning();
 	bool m_bReverse;
+	bool m_bTurning;
 	double m_fSteeringAngle;
 	OBB * frontWheel;
 	OBB * backWheel;

@@ -24,11 +24,23 @@ void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 	target.draw(m_vaPoints, states);
 	
-	target.draw(*frontWheel);
+	//target.draw(*frontWheel);
 }
 
 void Car::update(float elapsed)
 {
+	if (!m_bTurning)
+	{
+		//std::cout << m_fSteeringAngle << std::endl;
+		if (m_fSteeringAngle > m_dAngle + 0.05)
+			m_fSteeringAngle -= 1 * M_PI / 180;
+		else if (m_fSteeringAngle < m_dAngle - 0.05)
+			m_fSteeringAngle += 1 * M_PI / 180;
+		else
+			m_fSteeringAngle = m_dAngle;
+		
+	}
+
 	Vector2D<double> friction = m_dvVelocity.multiplyScalar(m_fFrictionCoef);
 	m_dvAcceleration = m_dvThrust.subtract(&friction);
 	m_dvVelocity = m_dvVelocity.add(&m_dvAcceleration.multiplyScalar(elapsed));
@@ -72,7 +84,7 @@ void Car::update(float elapsed)
 	
 	Vector2D<double> minVel(0.1, 0.1);
 
-	Vector2D<double> maxVel(130, 0);
+	Vector2D<double> maxVel(230, 0);
 	maxVel.rotate(m_dAngle);
 
 	if (abs(m_dvVelocity.squaredMagnitude()) > maxVel.squaredMagnitude())
@@ -85,16 +97,16 @@ void Car::update(float elapsed)
 		m_dvVelocity = Vector2D<double>(0, 0);
 	}
 
-	frontWheel->update(elapsed);
-	frontWheel->setPosition(frontWheelPos);
-	frontWheel->setAngle(m_fSteeringAngle);
+	//frontWheel->update(elapsed);
+	//frontWheel->setPosition(frontWheelPos);
+	//frontWheel->setAngle(m_fSteeringAngle);
 
 
 	updatePoints();
 }
 
 void Car::accelerate() {
-	m_dvThrust = Vector2D<double>(100, 0);
+	m_dvThrust = Vector2D<double>(200, 0);
 	m_dvThrust.rotate(m_dAngle);
 }
 
@@ -109,13 +121,25 @@ void Car::reverse() {
 
 void Car::turnRight()
 {
-	if (m_fSteeringAngle < (45 * M_PI / 180))
+	//std::cout << "turnRight()" << std::endl;
+	m_bTurning = true;
+	if (m_fSteeringAngle < m_dAngle + (25 * M_PI / 180))
 		m_fSteeringAngle += (5 * M_PI / 180);
 }
 
 void Car::turnLeft()
 {
-	if (m_fSteeringAngle > (-45 * M_PI / 180))
+	//std::cout << "turnLeft()" << std::endl;
+	m_bTurning = true;
+	if (m_fSteeringAngle > m_dAngle - (25 * M_PI / 180))
 		m_fSteeringAngle -= (5 * M_PI / 180);
+}
+
+void Car::stopTurning()
+{
+	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+		//std::cout << "stopTurning()" << std::endl;
+		m_bTurning = false;
+	}
 }
 
