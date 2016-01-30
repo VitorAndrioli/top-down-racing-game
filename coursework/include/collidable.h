@@ -4,6 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include "vector2D.h"
 
+class Circle;
+class OBB;
+
 class Collidable : public sf::Drawable
 {
 protected:
@@ -24,15 +27,14 @@ public:
 	Vector2D<double> getAcceleration();
 	double getInverseMass();
 	double getAngle();
-	/*void accelerate();
-	void decelerate();
-	void reverse();
-	void turnRight();
-	void turnLeft();*/
 	void setPosition(Vector2D<double> position);
 	void setVelocity(Vector2D<double> velocity);
 	void setAngle(double angle);
 	virtual void updatePoints() {};
+	virtual void checkCollision(Collidable * collidable) = 0;
+	virtual void checkCollision(Circle * circle) = 0;
+	virtual void checkCollision(OBB * obb) = 0;
+	void resolveImpulse(Collidable * collidable, Vector2D<double> * collisionNormal);
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

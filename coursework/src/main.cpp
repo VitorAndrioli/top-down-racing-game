@@ -17,7 +17,7 @@ using namespace sf;
 int main()
 {
 
-	RenderWindow window(VideoMode(1200, 700), "IMAT2605 Course work");
+	RenderWindow window(VideoMode(700, 600), "IMAT2605 Course work");
 	
 	Game game;
 

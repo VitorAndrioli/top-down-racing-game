@@ -18,6 +18,12 @@ public:
 	void stopTurning();
 	bool m_bReverse;
 	bool m_bTurning;
+	bool m_bTurningRight;
+	bool m_bTurningLeft;
+	bool m_bAccelerating;
+	bool m_bReversing;
+	bool m_bMovingForward;
+	bool m_bMovingBackwards;
 	double m_fSteeringAngle;
 	OBB * frontWheel;
 	OBB * backWheel;

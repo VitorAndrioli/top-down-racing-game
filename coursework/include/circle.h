@@ -14,6 +14,9 @@ public:
 	Circle(double dPosX, double dPosY, double dRadius, double dAngle);
 	void updatePoints();
 	double getRadius();
+	void checkCollision(Collidable * collidable);
+	void checkCollision(Circle * circle);
+	void checkCollision(OBB * obb);
 };
 
 #endif

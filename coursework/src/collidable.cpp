@@ -35,6 +35,25 @@ void Collidable::update(float elapsed)
 
 }
 
+void Collidable::resolveImpulse(Collidable * collidable, Vector2D<double> * collisionNormal)
+{
+	double e = 0.6;
+
+	double j;
+
+	Vector2D<double> va_vb;
+	va_vb = getVelocity().subtract(&collidable->getVelocity());
+
+	j = (-(1 + e) * va_vb.dotProduct(collisionNormal)) / (getInverseMass() + collidable->getInverseMass());
+
+	Vector2D<double> newVa = getVelocity().add(&collisionNormal->multiplyScalar(j).divideScalar(1 / getInverseMass()));
+	Vector2D<double> newVb = collidable->getVelocity().subtract(&collisionNormal->multiplyScalar(j).divideScalar(1 / collidable->getInverseMass()));
+
+	setVelocity(newVa);
+	collidable->setVelocity(newVb);
+
+}
+
 void Collidable::setPosition(Vector2D<double> position)
 {
 	m_dvPosition = position;
