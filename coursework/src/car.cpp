@@ -20,144 +20,118 @@ Car::Car(double dPosX, double dPosY, double dAngle) : OBB(dPosX, dPosY, 30, 19, 
 	m_bTurningRight = false;
 	m_bMovingBackwards = false;
 	m_bMovingForward = false;
-	m_fSteeringAngle = dAngle * M_PI / 180;;
+	m_fMaxVelocity = 130;
+	m_fWheelBase = 45;
+	m_fSteeringAngle = dAngle * M_PI / 180;
+	newCarAngle = m_fSteeringAngle;
 	frontWheel = new OBB(dPosX + 20, dPosY, 6, 3.5, 0);
-	backWheel = new OBB(dPosX - 20, dPosY, 6, 3.5, 0);
 }
 
 void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-
 	target.draw(m_vaPoints, states);
-	
 	target.draw(*frontWheel);
+}
+
+void Car::controlInput()
+{
+	if (!m_bReversing && !m_bAccelerating)
+	{
+		m_fvThrust.setX(0);
+	}
+	else if (m_bAccelerating && m_bReversing)
+	{
+		m_fvThrust.setX(30);
+	}
+	else if (m_bAccelerating)
+	{
+		m_fvThrust.setX(130);
+	}
+	else
+	{
+		m_fvThrust.setX(-100);
+	}
+
+	m_fvThrust.rotate(m_fAngle);
+
+
+	if (m_bTurningLeft)
+		if (m_fSteeringAngle > m_fAngle - (25 * M_PI / 180))
+			m_fSteeringAngle -= (0.02 * M_PI / 180);
+
+	if (m_bTurningRight)
+		if (m_fSteeringAngle < m_fAngle + (25 * M_PI / 180))
+			m_fSteeringAngle += (0.02 * M_PI / 180);
+
+	if (!m_bTurningRight && !m_bTurningLeft)
+		if (m_fSteeringAngle > m_fAngle + 0.05)
+			m_fSteeringAngle -= 0.08 * M_PI / 180;
+		else if (m_fSteeringAngle < m_fAngle - 0.05)
+			m_fSteeringAngle += 0.08 * M_PI / 180;
+		else
+			m_fSteeringAngle = m_fAngle;
+
 }
 
 void Car::update(float elapsed)
 {
+	controlInput();
 
-	if (!m_bReversing && !m_bAccelerating) m_dvThrust.setX(0);
-	else if (m_bAccelerating && m_bReversing) m_dvThrust.setX(30);
-	else if (m_bReversing) m_dvThrust.setX(-100);
-	else m_dvThrust.setX(130);
-	m_dvThrust.rotate(m_dAngle);
+	Vector2D<double> friction = m_fvVelocity.multiplyScalar(1);
+	setAcceleration(m_fvThrust.subtract(&friction));
+	setVelocity(m_fvVelocity.add(&m_fvAcceleration.multiplyScalar(elapsed)));
 
-
-	Vector2D<double> friction = m_dvVelocity.multiplyScalar(1);
-	m_dvAcceleration = m_dvThrust.subtract(&friction);
-	m_dvVelocity = m_dvVelocity.add(&m_dvAcceleration.multiplyScalar(elapsed));
-
-	double w = 40;
-
-	Vector2D<double> carOr(cos(m_dAngle), sin(m_dAngle));
+	Vector2D<double> carOr(cos(m_fAngle), sin(m_fAngle));
 	Vector2D<double> steeringOr(cos(m_fSteeringAngle), sin(m_fSteeringAngle));
 
-	Vector2D<double> frontWheelPos = getPosition().add(&carOr.multiplyScalar(w / 2));
-	Vector2D<double> rearWheelPos = getPosition().subtract(&carOr.multiplyScalar(w / 2));
+	Vector2D<double> frontWheelPos = getPosition().add(&carOr.multiplyScalar(m_fWheelBase / 2));
+	Vector2D<double> rearWheelPos = getPosition().subtract(&carOr.multiplyScalar(m_fWheelBase / 2));
 
-	double i = 1;
-	if (m_bMovingBackwards) i = -1;
-	
-	Vector2D<double> frontWheel2 = frontWheelPos.add(&steeringOr.multiplyScalar(m_dvVelocity.magnitude()*elapsed*i));
-	Vector2D<double> rearWheel2 = rearWheelPos.add(&carOr.multiplyScalar(m_dvVelocity.magnitude()*elapsed*i));
-	
-	m_dvPosition = frontWheel2.add(&rearWheel2).divideScalar(2);
+	double velocity = m_fvVelocity.magnitude();
 
+	double fx = frontWheelPos.getX() + (steeringOr.getX() * velocity * elapsed);
+	double fy = frontWheelPos.getY() + (steeringOr.getY() * velocity * elapsed);
+	Vector2D<double> frontWheel2(fx, fy);
 	
+	double rx = rearWheelPos.getX() + (carOr.getX() * velocity * elapsed);
+	double ry = rearWheelPos.getY() + (carOr.getY() * velocity * elapsed);
+	Vector2D<double> rearWheel2(rx, ry);
 	
-	/*if (m_bTurningLeft)
-		if (m_fSteeringAngle > m_dAngle - (25 * M_PI / 180))
-			m_fSteeringAngle -= (0.02 * M_PI / 180);
-	
-	if (m_bTurningRight)
-		if (m_fSteeringAngle < m_dAngle + (25 * M_PI / 180))
-			m_fSteeringAngle += (0.02 * M_PI / 180);
-	
-	
-	if (!m_bTurningRight && !m_bTurningLeft)
-		if (m_fSteeringAngle > m_dAngle + 0.05)
-			m_fSteeringAngle -= 0.08 * M_PI / 180;
-		else if (m_fSteeringAngle < m_dAngle - 0.05)
-			m_fSteeringAngle += 0.08 * M_PI / 180;
-			else
-				m_fSteeringAngle = m_dAngle;
-	
-	
-	
-	
-	
-	
-	std::cout << friction.getX() << "  " << m_dvAcceleration.getX() << std::endl;
-	
-	///*
-	
-	std::cout << friction.getX() << "  " << m_dvAcceleration.getX() << std::endl;
+	//std::cout << m_bAccelerating << "  " << m_bReversing << "  " << std::endl;
 
+	/*Vector2D<double> frontWheel2 = frontWheelPos.add(&steeringOr.multiplyScalar(m_fvVelocity.magnitude()*elapsed*i));
+	Vector2D<double> rearWheel2 = rearWheelPos.add(&carOr.multiplyScalar(m_fvVelocity.magnitude()*elapsed*i));
+	*/
+	setPosition(frontWheel2.add(&rearWheel2).divideScalar(2));
 
-	double newCarAngle = atan2( (fy-ry), (fx-rx) );
-	double newSteeringAngle = m_fSteeringAngle + (newCarAngle-m_dAngle);
+	newCarAngle = atan2((frontWheel2.getY() - rearWheel2.getY()), (frontWheel2.getX() - rearWheel2.getX()));
+	double newSteeringAngle = m_fSteeringAngle + (newCarAngle-m_fAngle);
 	
-	m_dAngle = newCarAngle;
+	setAngle(newCarAngle);
 	m_fSteeringAngle = newSteeringAngle;
-	//*/
-	/*Vector2D<double> minVel(0.1, 0.1);
-
-	Vector2D<double> maxVel(230, 0);
-	maxVel.rotate(m_dAngle);
-
-	if (abs(m_dvVelocity.squaredMagnitude()) > maxVel.squaredMagnitude() && m_bAccelerating)
-	{
-		m_dvVelocity = maxVel;
-	}
 	
-	if (abs(m_dvVelocity.squaredMagnitude()) < minVel.squaredMagnitude())
-	{
-		m_dvVelocity = Vector2D<double>(0, 0);
-	}
-
-	///*
+	
 	frontWheel->update(elapsed);
 	frontWheel->setPosition(frontWheelPos);
 	frontWheel->setAngle(m_fSteeringAngle);
-	*/
-
+	
 	updatePoints();
 }
 
-void Car::accelerate() {
-	m_bAccelerating = true;
-	m_bMovingForward = true;
-	m_bMovingBackwards = false;
-}
-
-void Car::decelerate() {
-	
-}
-
-void Car::reverse() {
-	m_bReversing = true;
-	m_bMovingForward = false;
-	m_bMovingBackwards = true;
-}
-
-void Car::turnRight()
+void Car::setVelocity(Vector2D<double> velocity)
 {
-	m_bTurning = true;
-	if (m_fSteeringAngle < m_dAngle + (25 * M_PI / 180))
-		m_fSteeringAngle += (5 * M_PI / 180);
-}
+	m_fvVelocity = velocity;
 
-void Car::turnLeft()
-{
-	m_bTurning = true;
-	if (m_fSteeringAngle > m_dAngle - (25 * M_PI / 180))
-		m_fSteeringAngle -= (5 * M_PI / 180);
-}
-
-void Car::stopTurning()
-{
-	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-		m_bTurning = false;
+	if (abs(m_fvVelocity.squaredMagnitude()) > m_fMaxVelocity*m_fMaxVelocity && m_bAccelerating)
+	{
+		m_fvVelocity.setX(m_fMaxVelocity*cos(m_fAngle));
+		m_fvVelocity.setY(m_fMaxVelocity*sin(m_fAngle));
 	}
-}
 
+	if (abs(m_fvVelocity.squaredMagnitude()) < 0.1*0.1)
+	{
+		m_fvVelocity = Vector2D<double>(0, 0);
+	}
+
+	//std::cout << m_fvVelocity.magnitude() << std::endl;
+}

@@ -5,9 +5,9 @@
 
 Collidable::Collidable()
 {
-	m_dvVelocity = Vector2D<double>(0, 0);
-	m_dvAcceleration = Vector2D<double>(0, 0);
-	m_dvThrust = Vector2D<double>(0, 0);
+	m_fvVelocity = Vector2D<double>(0, 0);
+	m_fvAcceleration = Vector2D<double>(0, 0);
+	m_fvThrust = Vector2D<double>(0, 0);
 	m_fFrictionCoef = 0.4;
 
 	m_vaPoints.setPrimitiveType(sf::LinesStrip);
@@ -20,16 +20,16 @@ void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Collidable::print()
 {
-	std::cout << m_dvPosition.getX() << " -- " << m_dvPosition.getY() << std::endl;
+	std::cout << m_fvPosition.getX() << " -- " << m_fvPosition.getY() << std::endl;
 }
 
 void Collidable::update(float elapsed)
 {
-	Vector2D<double> friction = m_dvVelocity.multiplyScalar(m_fFrictionCoef);
+	Vector2D<double> friction = m_fvVelocity.multiplyScalar(m_fFrictionCoef);
 	
-	m_dvAcceleration = m_dvThrust.subtract(&friction);
-	m_dvVelocity = m_dvVelocity.add(&m_dvAcceleration.multiplyScalar(elapsed));
-	m_dvPosition = m_dvPosition.add(&m_dvVelocity.multiplyScalar(elapsed));
+	m_fvAcceleration = m_fvThrust.subtract(&friction);
+	m_fvVelocity = m_fvVelocity.add(&m_fvAcceleration.multiplyScalar(elapsed));
+	m_fvPosition = m_fvPosition.add(&m_fvVelocity.multiplyScalar(elapsed));
 
 	updatePoints();
 
@@ -56,62 +56,40 @@ void Collidable::resolveImpulse(Collidable * collidable, Vector2D<double> * coll
 
 void Collidable::setPosition(Vector2D<double> position)
 {
-	m_dvPosition = position;
+	m_fvPosition = position;
 }
 
 void Collidable::setVelocity(Vector2D<double> velocity)
 {
-	m_dvVelocity = velocity;
+	m_fvVelocity = velocity;
 }
 
-/*void Collidable::accelerate() {
-	m_dvThrust = Vector2D<double>(100, 0);
-	
-	m_dvThrust.rotate(m_dAngle);
-}
-
-void Collidable::decelerate() {
-	m_dvThrust = Vector2D<double>(0, 0);
-}
-
-void Collidable::reverse() {
-	m_dvThrust = Vector2D<double>(-100, 0);
-
-	m_dvThrust.rotate(m_dAngle);
-	
-}
-
-void Collidable::turnRight()
+void Collidable::setAcceleration(Vector2D<double> acceleration)
 {
-	m_dAngle += (5 * M_PI / 180);
+	m_fvAcceleration = acceleration;
 }
-
-void Collidable::turnLeft()
-{
-	m_dAngle -= (5 * M_PI / 180);
-}*/
 
 Vector2D<double> Collidable::getPosition()
 {
-	return m_dvPosition;
+	return m_fvPosition;
 }
 Vector2D<double> Collidable::getVelocity()
 {
-	return m_dvVelocity;
+	return m_fvVelocity;
 }
 Vector2D<double> Collidable::getAcceleration()
 {
-	return m_dvAcceleration;
+	return m_fvAcceleration;
 }
 double Collidable::getInverseMass()
 {
-	return m_dInverseMass;
+	return m_fInverseMass;
 }
 double Collidable::getAngle()
 {
-	return m_dAngle;
+	return m_fAngle;
 }
 void Collidable::setAngle(double angle)
 {
-	m_dAngle = angle;
+	m_fAngle = angle;
 }

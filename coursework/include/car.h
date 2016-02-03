@@ -8,14 +8,8 @@ class Car : public OBB
 public:
 	Car();
 	Car(double dPosX, double dPosY, double dAngle);
-	void setAngle(double angle);
 	void update(float elapsed);
-	void accelerate();
-	void decelerate();
-	void reverse();
-	void turnRight();
-	void turnLeft();
-	void stopTurning();
+	double newCarAngle;
 	bool m_bReverse;
 	bool m_bTurning;
 	bool m_bTurningRight;
@@ -25,9 +19,12 @@ public:
 	bool m_bMovingForward;
 	bool m_bMovingBackwards;
 	double m_fSteeringAngle;
+	double m_fWheelBase;
 	OBB * frontWheel;
-	OBB * backWheel;
+	void setVelocity(Vector2D<double> velocity);
 private:
+	double m_fMaxVelocity;
+	void controlInput();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };
 

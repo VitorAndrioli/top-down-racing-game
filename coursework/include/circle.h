@@ -8,10 +8,10 @@
 class Circle : public Collidable
 {
 protected:
-	double m_dRadius;
+	double m_fRadius;
 public:
 	Circle();
-	Circle(double dPosX, double dPosY, double dRadius, double dAngle);
+	Circle(double fPosX, double fPosY, double fRadius, double fAngle);
 	void updatePoints();
 	double getRadius();
 	void checkCollision(Collidable * collidable);

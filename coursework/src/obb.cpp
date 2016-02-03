@@ -13,28 +13,28 @@ OBB::OBB()
 OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle)
 {
 
-	m_dvHalfExtents.setX(dHalfExtentX);
-	m_dvHalfExtents.setY(dHalfExtentY);
+	m_fvHalfExtents.setX(dHalfExtentX);
+	m_fvHalfExtents.setY(dHalfExtentY);
 	
-	m_dvPosition.setX(dPosX);
-	m_dvPosition.setY(dPosY);
+	m_fvPosition.setX(dPosX);
+	m_fvPosition.setY(dPosY);
 		
-	m_dAngle = dAngle * M_PI / 180; // angle is stored in radians
-	m_dInverseMass = 1.0 / 50.0;
+	m_fAngle = dAngle * M_PI / 180; // angle is stored in radians
+	m_fInverseMass = 1.0 / 50.0;
 	
 	m_vaPoints.resize(5);
 }
 
 Vector2D<double> OBB::getHalfExtents()
 {
-	return m_dvHalfExtents;
+	return m_fvHalfExtents;
 }
 
 void OBB::updatePoints()
 {
 	
-	Vector2D<double> rotationMatrixLine1(cos(m_dAngle), -sin(m_dAngle));
-	Vector2D<double> rotationMatrixLine2(sin(m_dAngle), cos(m_dAngle));
+	Vector2D<double> rotationMatrixLine1(cos(m_fAngle), -sin(m_fAngle));
+	Vector2D<double> rotationMatrixLine2(sin(m_fAngle), cos(m_fAngle));
 
 	Vector2D<double> tempVector(
 		-getHalfExtents().getX() * rotationMatrixLine1.getX() + getHalfExtents().getY() * rotationMatrixLine1.getY(),
@@ -89,7 +89,7 @@ void OBB::checkCollision(Circle * circle)
 	if (distance < 0)
 	{
 		Vector2D<double> collisionNormal = (circle->getPosition().subtract(&getPosition().add(&clamp))).unitVector();
-		Vector2D<double> moveVector = collisionNormal.multiplyScalar(distance);
+		Vector2D<double> moveVector = getVelocity().unitVector().multiplyScalar(distance);
 
 		setPosition(getPosition().add(&moveVector));
 

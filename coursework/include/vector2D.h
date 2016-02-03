@@ -1,14 +1,18 @@
-/**
-* /file vector2D.h
-
-* /class Brief explanation
-
-
+/*!
+* \file vector2D.h
+* \class Vector2D
+*
+*
+* \brief Small text that appears on Classes page.
+*
+* Longer text that appears on
+* description section
+*
+*
 */
 
 #ifndef VECTOR_H
 #define VECTOR_H
-
 
 template <class G>
 class Vector2D
@@ -37,20 +41,21 @@ public:
 template <class G>
 Vector2D<G>::Vector2D()
 {
-
+	setX(0);
+	setY(0);
 }
 
 template <class G>
 Vector2D<G>::Vector2D(G x, G y)
 {
-	m_x = x;
-	m_y = y;
+	setX(x);
+	setY(y);
 }
 
 template <class G>
 double Vector2D<G>::dotProduct(Vector2D<G> * vector2d)
 {
-	return m_x * vector2d->getX() + m_y * vector2d->getY();
+	return getX() * vector2d->getX() + getY() * vector2d->getY();
 }
 
 template <class G>

@@ -1,3 +1,17 @@
+/**
+* \file collidable.h
+*
+* \class Collidable
+*
+*
+* \brief Small text that appears on Classes page.
+*
+* Longer text that appears on
+* description section
+*
+*
+*/
+
 #ifndef COLLIDABLE_H
 #define COLLIDABLE_H
 
@@ -10,13 +24,13 @@ class OBB;
 class Collidable : public sf::Drawable
 {
 protected:
-	Vector2D<double> m_dvPosition;
-	Vector2D<double> m_dvVelocity;
-	Vector2D<double> m_dvAcceleration;
-	Vector2D<double> m_dvThrust;
-	double m_dInverseMass;
-	double m_dAngle;
-	float m_fFrictionCoef;
+	Vector2D<double> m_fvPosition;
+	Vector2D<double> m_fvVelocity;
+	Vector2D<double> m_fvAcceleration;
+	Vector2D<double> m_fvThrust;
+	double m_fInverseMass;
+	double m_fAngle;
+	double m_fFrictionCoef;
 	sf::VertexArray m_vaPoints;
 public:
 	void print();
@@ -29,6 +43,7 @@ public:
 	double getAngle();
 	void setPosition(Vector2D<double> position);
 	void setVelocity(Vector2D<double> velocity);
+	void setAcceleration(Vector2D<double> acceleration);
 	void setAngle(double angle);
 	virtual void updatePoints() {};
 	virtual void checkCollision(Collidable * collidable) = 0;

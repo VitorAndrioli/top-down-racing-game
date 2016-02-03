@@ -2,7 +2,7 @@ var indexSectionsWithContent =
 {
   0: "cdgmopuv",
   1: "cgov",
-  2: "gmv",
+  2: "cgmv",
   3: "dgpuv",
   4: "c"
 };

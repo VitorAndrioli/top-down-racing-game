@@ -8,32 +8,32 @@ Circle::Circle()
 
 }
 
-Circle::Circle(double dPosX, double dPosY, double dRadius, double dAngle)
+Circle::Circle(double fPosX, double fPosY, double fRadius, double fAngle)
 {
-	m_dvPosition.setX(dPosX);
-	m_dvPosition.setY(dPosY);
-	m_dRadius = dRadius;
-	m_dAngle = dAngle  * M_PI / 180;
+	m_fvPosition.setX(fPosX);
+	m_fvPosition.setY(fPosY);
+	m_fRadius = fRadius;
+	m_fAngle = fAngle  * M_PI / 180;
 
-	m_dInverseMass = 1.0 / 50.0;
+	m_fInverseMass = 1.0 / 50.0;
 	
 }
 
-void Circle::updatePoints()
+void Circle::updatePoints() 
 {
 	int iCirclePointNumber = 31;
 	m_vaPoints.resize(iCirclePointNumber);
 	for (int i = 0; i < iCirclePointNumber; i++) {
 		double angle = (2 * M_PI) / (iCirclePointNumber - 1) * i; // Degrees or Radians?
-		double x = m_dvPosition.getX() + m_dRadius * cos(angle);
-		double y = m_dvPosition.getY() + m_dRadius * sin(angle);
+		double x = m_fvPosition.getX() + m_fRadius * cos(angle);
+		double y = m_fvPosition.getY() + m_fRadius * sin(angle);
 		m_vaPoints[i].position = sf::Vector2f(x, y);
 	}
 }
 
 double Circle::getRadius()
 {
-	return m_dRadius;
+	return m_fRadius;
 }
 
 void Circle::checkCollision(Collidable * collidable)
@@ -87,7 +87,7 @@ void Circle::checkCollision(OBB * obb)
 
 		obb->setPosition(obb->getPosition().add(&moveVector));
 
-		resolveImpulse(obb, &collisionNormal);
+		//resolveImpulse(obb, &collisionNormal);
 	}
 }
 
