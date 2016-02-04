@@ -22,7 +22,7 @@ Car::Car(double dPosX, double dPosY, double dAngle) : OBB(dPosX, dPosY, 30, 19, 
 	m_bMovingForward = false;
 	m_fMaxVelocity = 130;
 	m_fWheelBase = 45;
-	m_fSteeringAngle = dAngle * M_PI / 180;
+	setSteeringAngle(dAngle);
 	newCarAngle = m_fSteeringAngle;
 	frontWheel = new OBB(dPosX + 20, dPosY, 6, 3.5, 0);
 }
@@ -56,20 +56,20 @@ void Car::controlInput()
 
 
 	if (m_bTurningLeft)
-		if (m_fSteeringAngle > m_fAngle - (25 * M_PI / 180))
-			m_fSteeringAngle -= (0.02 * M_PI / 180);
+	if (getSteeringAngle() > getAngle() * 180 / M_PI - 25)
+		setSteeringAngle(getSteeringAngle() - 0.02);
 
 	if (m_bTurningRight)
-		if (m_fSteeringAngle < m_fAngle + (25 * M_PI / 180))
-			m_fSteeringAngle += (0.02 * M_PI / 180);
+	if (getSteeringAngle() < getAngle() * 180 / M_PI + 25)
+			setSteeringAngle(getSteeringAngle() + 0.02);
 
 	if (!m_bTurningRight && !m_bTurningLeft)
-		if (m_fSteeringAngle > m_fAngle + 0.05)
-			m_fSteeringAngle -= 0.08 * M_PI / 180;
-		else if (m_fSteeringAngle < m_fAngle - 0.05)
-			m_fSteeringAngle += 0.08 * M_PI / 180;
+		if (getSteeringAngle() > getAngle() * 180 / M_PI + 0.05)
+			setSteeringAngle(getSteeringAngle() - 0.08);
+		else if (getSteeringAngle() < getAngle() * 180 / M_PI - 0.05)
+			setSteeringAngle(getSteeringAngle() + 0.08);
 		else
-			m_fSteeringAngle = m_fAngle;
+			setSteeringAngle(getAngle() * 180 / M_PI);
 
 }
 
@@ -77,7 +77,7 @@ void Car::update(float elapsed)
 {
 	controlInput();
 
-	Vector2D<double> friction = m_fvVelocity.multiplyScalar(1);
+	Vector2D<double> friction = m_fvVelocity.multiplyScalar(getFrictionCoefficient());
 	setAcceleration(m_fvThrust.subtract(&friction));
 	setVelocity(m_fvVelocity.add(&m_fvAcceleration.multiplyScalar(elapsed)));
 
@@ -107,13 +107,13 @@ void Car::update(float elapsed)
 	newCarAngle = atan2((frontWheel2.getY() - rearWheel2.getY()), (frontWheel2.getX() - rearWheel2.getX()));
 	double newSteeringAngle = m_fSteeringAngle + (newCarAngle-m_fAngle);
 	
-	setAngle(newCarAngle);
+	setAngle(newCarAngle * 180 / M_PI);
 	m_fSteeringAngle = newSteeringAngle;
 	
 	
 	frontWheel->update(elapsed);
 	frontWheel->setPosition(frontWheelPos);
-	frontWheel->setAngle(m_fSteeringAngle);
+	frontWheel->setAngle(m_fSteeringAngle * 180 / M_PI);
 	
 	updatePoints();
 }
@@ -134,4 +134,13 @@ void Car::setVelocity(Vector2D<double> velocity)
 	}
 
 	//std::cout << m_fvVelocity.magnitude() << std::endl;
+}
+
+void Car::setSteeringAngle(double fAngle)
+{
+	m_fSteeringAngle = fAngle * M_PI / 180; //converts to radians
+}
+double Car::getSteeringAngle()
+{
+	return m_fSteeringAngle * 180 / M_PI;
 }

@@ -19,8 +19,8 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	m_fvPosition.setX(dPosX);
 	m_fvPosition.setY(dPosY);
 		
-	m_fAngle = dAngle * M_PI / 180; // angle is stored in radians
-	m_fInverseMass = 1.0 / 50.0;
+	setAngle(dAngle);
+	setMass(50.0);
 	
 	m_vaPoints.resize(5);
 }
@@ -68,7 +68,7 @@ void OBB::checkCollision(Collidable * collidable)
 
 void OBB::checkCollision(Circle * circle)
 {
-	Vector2D<double> newPosition = circle->getPosition().subtract(&getPosition());
+	/*Vector2D<double> newPosition = circle->getPosition().subtract(&getPosition());
 
 	Vector2D <double> inverseRotationMatrixLine1(cos(-getAngle()), -sin(-getAngle()));
 	Vector2D <double> inverseRotationMatrixLine2(sin(-getAngle()), cos(-getAngle()));
@@ -89,12 +89,12 @@ void OBB::checkCollision(Circle * circle)
 	if (distance < 0)
 	{
 		Vector2D<double> collisionNormal = (circle->getPosition().subtract(&getPosition().add(&clamp))).unitVector();
-		Vector2D<double> moveVector = getVelocity().unitVector().multiplyScalar(distance);
+		Vector2D<double> moveVector = collisionNormal.multiplyScalar(distance);
 
 		setPosition(getPosition().add(&moveVector));
 
-		resolveImpulse(circle, &collisionNormal);
-	}
+		//resolveImpulse(circle, &collisionNormal);
+	}*/
 }
 
 void OBB::checkCollision(OBB * obb)

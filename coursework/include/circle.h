@@ -14,6 +14,7 @@ public:
 	Circle(double fPosX, double fPosY, double fRadius, double fAngle);
 	void updatePoints();
 	double getRadius();
+	void setRadius(double fRadius);
 	void checkCollision(Collidable * collidable);
 	void checkCollision(Circle * circle);
 	void checkCollision(OBB * obb);

@@ -22,6 +22,8 @@ public:
 	double m_fWheelBase;
 	OBB * frontWheel;
 	void setVelocity(Vector2D<double> velocity);
+	void setSteeringAngle(double fAngle);
+	double getSteeringAngle();
 private:
 	double m_fMaxVelocity;
 	void controlInput();

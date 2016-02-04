@@ -12,28 +12,10 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fAngle)
 {
 	m_fvPosition.setX(fPosX);
 	m_fvPosition.setY(fPosY);
-	m_fRadius = fRadius;
-	m_fAngle = fAngle  * M_PI / 180;
-
-	m_fInverseMass = 1.0 / 50.0;
+	setRadius(fRadius);
+	setAngle(fAngle);
+	setMass(50);
 	
-}
-
-void Circle::updatePoints() 
-{
-	int iCirclePointNumber = 31;
-	m_vaPoints.resize(iCirclePointNumber);
-	for (int i = 0; i < iCirclePointNumber; i++) {
-		double angle = (2 * M_PI) / (iCirclePointNumber - 1) * i; // Degrees or Radians?
-		double x = m_fvPosition.getX() + m_fRadius * cos(angle);
-		double y = m_fvPosition.getY() + m_fRadius * sin(angle);
-		m_vaPoints[i].position = sf::Vector2f(x, y);
-	}
-}
-
-double Circle::getRadius()
-{
-	return m_fRadius;
 }
 
 void Circle::checkCollision(Collidable * collidable)
@@ -67,9 +49,9 @@ void Circle::checkCollision(OBB * obb)
 	Vector2D <double> inverseRotationMatrixLine1(cos(-obb->getAngle()), -sin(-obb->getAngle()));
 	Vector2D <double> inverseRotationMatrixLine2(sin(-obb->getAngle()), cos(-obb->getAngle()));
 
-	Vector2D<double> newPosition2(newPosition.dotProduct(&inverseRotationMatrixLine1), newPosition.dotProduct(&inverseRotationMatrixLine2));
+	
 
-	Vector2D<double> dist = newPosition2;
+	Vector2D<double> dist(newPosition.dotProduct(&inverseRotationMatrixLine1), newPosition.dotProduct(&inverseRotationMatrixLine2));
 	Vector2D<double> clamp;
 
 	if (dist.getX() < 0) clamp.setX(std::max(dist.getX(), -obb->getHalfExtents().getX()));
@@ -86,8 +68,31 @@ void Circle::checkCollision(OBB * obb)
 		Vector2D<double> moveVector = collisionNormal.multiplyScalar(distance);
 
 		obb->setPosition(obb->getPosition().add(&moveVector));
-
-		//resolveImpulse(obb, &collisionNormal);
+		
+		resolveImpulse(obb, &collisionNormal);
 	}
 }
 
+void Circle::updatePoints()
+{
+	int iCirclePointNumber = 31;
+	m_vaPoints.resize(iCirclePointNumber);
+	for (int i = 0; i < iCirclePointNumber; i++) {
+		double angle = (2 * M_PI) / (iCirclePointNumber - 1) * i;
+		double x = m_fvPosition.getX() + m_fRadius * cos(angle);
+		double y = m_fvPosition.getY() + m_fRadius * sin(angle);
+		m_vaPoints[i].position = sf::Vector2f(x, y);
+	}
+}
+
+double Circle::getRadius()
+{
+	return m_fRadius;
+}
+void Circle::setRadius(double fRadius)
+{
+	if (fRadius >= 0)
+		m_fRadius = fRadius;
+	else
+		m_fRadius = 1;
+}
