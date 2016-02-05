@@ -15,7 +15,6 @@ OBB::OBB()
 
 OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle)
 {
-
 	m_fvHalfExtents.setX(dHalfExtentX);
 	m_fvHalfExtents.setY(dHalfExtentY);
 	
@@ -26,11 +25,6 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	setMass(50.0);
 	
 	m_vaPoints.resize(5);
-}
-
-Vector2D<double> OBB::getHalfExtents()
-{
-	return m_fvHalfExtents;
 }
 
 void OBB::updatePoints()
@@ -199,3 +193,9 @@ void OBB::checkCollision(OBB * obb)
 	resolveImpulse(obb, &collisionNormal);
 
 }
+
+Vector2D<double> OBB::getHalfExtents()
+{
+	return m_fvHalfExtents;
+}
+

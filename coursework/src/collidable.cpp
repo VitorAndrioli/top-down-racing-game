@@ -25,9 +25,9 @@ void Collidable::update(float elapsed)
 {
 	Vector2D<double> friction = m_fvVelocity * getFrictionCoefficient();
 	
-	m_fvAcceleration = m_fvThrust - friction;
-	m_fvVelocity += m_fvAcceleration * elapsed;
-	m_fvPosition += m_fvVelocity * elapsed;
+	setAcceleration(getThrust() - friction);
+	m_fvVelocity += getAcceleration() * elapsed;
+	m_fvPosition += getVelocity() * elapsed;
 
 	updatePoints();
 }
@@ -37,15 +37,11 @@ void Collidable::resolveImpulse(Collidable * collidable, Vector2D<double> * coll
 	double fElasticity = min(getElasticity(), collidable->getElasticity());
 	
 	Vector2D<double> vaMinusVb = getVelocity() - collidable->getVelocity();
-	double j = (-(1 + fElasticity) * vaMinusVb.dotProduct(collisionNormal)) / (getInverseMass() + collidable->getInverseMass());
+	double j = -(1 + fElasticity) * vaMinusVb.dotProduct(collisionNormal) / (getInverseMass() + collidable->getInverseMass());
 
-	Vector2D<double> newVa = getVelocity() + (*collisionNormal * j / getMass());
-	Vector2D<double> newVb = collidable->getVelocity() - (*collisionNormal * j / collidable->getMass());
-
-	setVelocity(newVa);
-	collidable->setVelocity(newVb);
+	setVelocity(getVelocity() + (*collisionNormal * j / getMass()));
+	collidable->setVelocity(collidable->getVelocity() - (*collisionNormal * j / collidable->getMass()));
 }
-
 
 
 void Collidable::setPosition(Vector2D<double> position)
@@ -75,6 +71,15 @@ Vector2D<double> Collidable::getAcceleration()
 	return m_fvAcceleration;
 }
 
+void Collidable::setThrust(Vector2D<double> fvThrust)
+{
+	m_fvThrust = fvThrust;
+}
+Vector2D<double> Collidable::getThrust()
+{
+	return m_fvThrust;
+}
+
 void Collidable::setMass(double fMass)
 {
 	m_fInverseMass = 1.0 / fMass;
@@ -90,11 +95,11 @@ double Collidable::getInverseMass()
 
 void Collidable::setAngle(double angle)
 {
-	m_fAngle = angle; // *M_PI / 180; //converts to radians
+	m_fAngle = angle;
 }
 double Collidable::getAngle()
 {
-	return m_fAngle;// *180 / M_PI; // convert to degrees
+	return m_fAngle;
 }
 
 void Collidable::setFrictionCoefficient(double fFrictionCoefficient)
@@ -113,9 +118,4 @@ void Collidable::setElasticity(double fRestitution)
 double Collidable::getElasticity()
 {
 	return m_fElasticity;
-}
-
-void Collidable::setThrust(Vector2D<double> fvThrust)
-{
-	m_fvThrust = fvThrust;
 }

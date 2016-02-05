@@ -1,7 +1,6 @@
 #include "circle.h"
 #define _USE_MATH_DEFINES
 #include <math.h>
-#include <iostream>
 
 Circle::Circle()
 {
@@ -15,7 +14,6 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fAngle)
 	setRadius(fRadius);
 	setAngle(fAngle);
 	setMass(fRadius*2);
-	
 }
 
 void Circle::checkCollision(Collidable * collidable)
@@ -28,14 +26,13 @@ void Circle::checkCollision(Circle * circle)
 	double centreDistSquared = (getPosition() - circle->getPosition()).squaredMagnitude();
 	double radiiSumSquared = (getRadius() + circle->getRadius()) * (getRadius() + circle->getRadius());
 
-	double diff = centreDistSquared - radiiSumSquared;
-
-	if (diff < 0)
+	if (centreDistSquared - radiiSumSquared < 0)
 	{
-		Vector2D<double> collisionNormal = (getPosition() - circle->getPosition()).unitVector();
-		Vector2D<double> moveVector = collisionNormal * -diff;
+		double centreDist = (getPosition() - circle->getPosition()).magnitude();
+		double radiiSum = getRadius() + circle->getRadius();
 
-		setPosition(getPosition() + moveVector);
+		Vector2D<double> collisionNormal = (getPosition() - circle->getPosition()).unitVector();
+		setPosition(getPosition() - collisionNormal * (centreDist - radiiSum));
 
 		resolveImpulse(circle, &collisionNormal);
 	}
@@ -47,7 +44,6 @@ void Circle::checkCollision(OBB * obb)
 	dist.rotate(-obb->getAngle());
 	
 	Vector2D<double> clamp;
-
 	if (dist.getX() < 0) clamp.setX(std::max(dist.getX(), -obb->getHalfExtents().getX()));
 	if (dist.getX() >= 0) clamp.setX(std::min(dist.getX(), obb->getHalfExtents().getX()));
 	if (dist.getY() < 0) clamp.setY(std::max(dist.getY(), -obb->getHalfExtents().getY()));
@@ -59,9 +55,8 @@ void Circle::checkCollision(OBB * obb)
 	if (distance < 0)
 	{
 		Vector2D<double> collisionNormal = (getPosition() - obb->getPosition() + clamp).unitVector();
-		Vector2D<double> moveVector = collisionNormal * (distance*2);
-
-		obb->setPosition(obb->getPosition() + moveVector);
+		
+		obb->setPosition(obb->getPosition() + collisionNormal * (distance * 2));
 		resolveImpulse(obb, &collisionNormal);
 	}
 }

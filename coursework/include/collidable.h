@@ -47,6 +47,7 @@ public:
 	Vector2D<double> getPosition();
 	Vector2D<double> getVelocity();
 	Vector2D<double> getAcceleration();
+	Vector2D<double> getThrust();
 	double getInverseMass();
 	double getMass();
 	double getAngle();
