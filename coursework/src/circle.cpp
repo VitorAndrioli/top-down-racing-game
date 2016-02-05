@@ -14,7 +14,7 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fAngle)
 	m_fvPosition.setY(fPosY);
 	setRadius(fRadius);
 	setAngle(fAngle);
-	setMass(50);
+	setMass(fRadius*2);
 	
 }
 
@@ -25,18 +25,17 @@ void Circle::checkCollision(Collidable * collidable)
 
 void Circle::checkCollision(Circle * circle)
 {
-	double centreDist = sqrt((getPosition().subtract(&circle->getPosition())).squaredMagnitude());
-	double radiiSum = getRadius() + circle->getRadius();
+	double centreDistSquared = (getPosition() - circle->getPosition()).squaredMagnitude();
+	double radiiSumSquared = (getRadius() + circle->getRadius()) * (getRadius() + circle->getRadius());
 
-	double diff = centreDist - radiiSum;
+	double diff = centreDistSquared - radiiSumSquared;
 
 	if (diff < 0)
 	{
+		Vector2D<double> collisionNormal = (getPosition() - circle->getPosition()).unitVector();
+		Vector2D<double> moveVector = collisionNormal * -diff;
 
-		Vector2D<double> collisionNormal = getPosition().subtract(&circle->getPosition()).unitVector();
-		Vector2D<double> moveVector = collisionNormal.multiplyScalar(-diff);
-
-		setPosition(getPosition().add(&moveVector));
+		setPosition(getPosition() + moveVector);
 
 		resolveImpulse(circle, &collisionNormal);
 	}
@@ -44,14 +43,9 @@ void Circle::checkCollision(Circle * circle)
 
 void Circle::checkCollision(OBB * obb)
 {
-	Vector2D<double> newPosition = getPosition().subtract(&obb->getPosition());
-
-	Vector2D <double> inverseRotationMatrixLine1(cos(-obb->getAngle()), -sin(-obb->getAngle()));
-	Vector2D <double> inverseRotationMatrixLine2(sin(-obb->getAngle()), cos(-obb->getAngle()));
-
+	Vector2D<double> dist = getPosition() - obb->getPosition();
+	dist.rotate(-obb->getAngle());
 	
-
-	Vector2D<double> dist(newPosition.dotProduct(&inverseRotationMatrixLine1), newPosition.dotProduct(&inverseRotationMatrixLine2));
 	Vector2D<double> clamp;
 
 	if (dist.getX() < 0) clamp.setX(std::max(dist.getX(), -obb->getHalfExtents().getX()));
@@ -59,16 +53,15 @@ void Circle::checkCollision(OBB * obb)
 	if (dist.getY() < 0) clamp.setY(std::max(dist.getY(), -obb->getHalfExtents().getY()));
 	if (dist.getY() >= 0) clamp.setY(std::min(dist.getY(), obb->getHalfExtents().getY()));
 
-	Vector2D<double> diff = dist.subtract(&clamp);
+	Vector2D<double> diff = dist - clamp;
 	double distance = diff.magnitude() - getRadius();
 
 	if (distance < 0)
 	{
-		Vector2D<double> collisionNormal = (getPosition().subtract(&obb->getPosition().add(&clamp))).unitVector();
-		Vector2D<double> moveVector = collisionNormal.multiplyScalar(distance);
+		Vector2D<double> collisionNormal = (getPosition() - obb->getPosition() + clamp).unitVector();
+		Vector2D<double> moveVector = collisionNormal * (distance*2);
 
-		obb->setPosition(obb->getPosition().add(&moveVector));
-		
+		obb->setPosition(obb->getPosition() + moveVector);
 		resolveImpulse(obb, &collisionNormal);
 	}
 }

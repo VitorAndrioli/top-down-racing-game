@@ -1,4 +1,4 @@
-#include "collision.h"
+/*#include "collision.h"
 #include "vector2D.h"
 #include <iostream>
 #include <array>
@@ -186,3 +186,4 @@ void Collision::checkCollision(Circle * circle, OBB * obb)
 {
 	checkCollision(obb, circle);
 }
+*/

@@ -10,11 +10,11 @@ Game::Game()
 {
 
 	car = Car(50, 310, 0);
-	obstacles.push_back(new Circle(350, 280, 30, 0));
-	obstacles.push_back(new Circle(450, 260, 30, 0));
-	/*obstacles.push_back(new Circle(420, 290, 30, 0));
-	obstacles.push_back(new OBB(560, 300, 50, 15, 15));
-	obstacles.push_back(new OBB(500, 600, 70, 15, 90));
+	obstacles.push_back(new Circle(510, 310, 5, 0));
+	obstacles.push_back(new Circle(550, 310, 25, 0));
+	obstacles.push_back(new Circle(300, 310, 45, 0));
+	//obstacles.push_back(new OBB(400, 310, 50, 50, 0));
+	//obstacles.push_back(new OBB(500, 600, 70, 15, 90));
 	//*/
 	
 }

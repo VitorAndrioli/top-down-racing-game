@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include "car.h"
 #include "circle.h"
@@ -16,3 +16,4 @@ public:
 	void resolveImpulses(Collidable * collidable1, Collidable * collidable2, Vector2D<double> * collisionNormal);
 };
 
+*/

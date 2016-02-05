@@ -15,6 +15,7 @@ public:
 	void checkCollision(Collidable * collidable);
 	void checkCollision(Circle * circle);
 	void checkCollision(OBB * obb);
+	bool checkObbCollision(OBB * obb);
 };
 
 #endif

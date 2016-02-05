@@ -46,69 +46,75 @@ void Collidable::resolveImpulse(Collidable * collidable, Vector2D<double> * coll
 	collidable->setVelocity(newVb);
 }
 
+
+
 void Collidable::setPosition(Vector2D<double> position)
 {
 	m_fvPosition = position;
+}
+Vector2D<double> Collidable::getPosition()
+{
+	return m_fvPosition;
 }
 
 void Collidable::setVelocity(Vector2D<double> velocity)
 {
 	m_fvVelocity = velocity;
 }
+Vector2D<double> Collidable::getVelocity()
+{
+	return m_fvVelocity;
+}
 
 void Collidable::setAcceleration(Vector2D<double> acceleration)
 {
 	m_fvAcceleration = acceleration;
 }
-
-Vector2D<double> Collidable::getPosition()
-{
-	return m_fvPosition;
-}
-Vector2D<double> Collidable::getVelocity()
-{
-	return m_fvVelocity;
-}
 Vector2D<double> Collidable::getAcceleration()
 {
 	return m_fvAcceleration;
 }
-double Collidable::getInverseMass()
+
+void Collidable::setMass(double fMass)
 {
-	return m_fInverseMass;
+	m_fInverseMass = 1.0 / fMass;
 }
 double Collidable::getMass()
 {
 	return 1/m_fInverseMass;
 }
-void Collidable::setMass(double fMass)
+double Collidable::getInverseMass()
 {
-	m_fInverseMass = 1.0 / fMass;
+	return m_fInverseMass;
+}
+
+void Collidable::setAngle(double angle)
+{
+	m_fAngle = angle; // *M_PI / 180; //converts to radians
 }
 double Collidable::getAngle()
 {
 	return m_fAngle;// *180 / M_PI; // convert to degrees
 }
-void Collidable::setAngle(double angle)
+
+void Collidable::setFrictionCoefficient(double fFrictionCoefficient)
 {
-	m_fAngle = angle * M_PI / 180; //converts to radians
+	m_fFrictionCoefficient = fFrictionCoefficient;
 }
 double Collidable::getFrictionCoefficient()
 {
 	return m_fFrictionCoefficient;
 }
-void Collidable::setFrictionCoefficient(double fFrictionCoefficient)
+
+void Collidable::setElasticity(double fRestitution)
 {
-	m_fFrictionCoefficient = fFrictionCoefficient;
+	m_fElasticity = fRestitution;
 }
 double Collidable::getElasticity()
 {
 	return m_fElasticity;
 }
-void Collidable::setElasticity(double fRestitution)
-{
-	m_fElasticity = fRestitution;
-}
+
 void Collidable::setThrust(Vector2D<double> fvThrust)
 {
 	m_fvThrust = fvThrust;
