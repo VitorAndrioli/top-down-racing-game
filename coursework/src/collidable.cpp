@@ -23,11 +23,11 @@ void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Collidable::update(float elapsed)
 {
-	Vector2D<double> friction = m_fvVelocity.multiplyScalar(m_fFrictionCoefficient);
+	Vector2D<double> friction = m_fvVelocity * getFrictionCoefficient();
 	
-	m_fvAcceleration = m_fvThrust.subtract(&friction);
-	m_fvVelocity = m_fvVelocity.add(&m_fvAcceleration.multiplyScalar(elapsed));
-	m_fvPosition = m_fvPosition.add(&m_fvVelocity.multiplyScalar(elapsed));
+	m_fvAcceleration = m_fvThrust - friction;
+	m_fvVelocity += m_fvAcceleration * elapsed;
+	m_fvPosition += m_fvVelocity * elapsed;
 
 	updatePoints();
 }
@@ -36,11 +36,11 @@ void Collidable::resolveImpulse(Collidable * collidable, Vector2D<double> * coll
 {
 	double fElasticity = min(getElasticity(), collidable->getElasticity());
 	
-	Vector2D<double> vaMinusVb = getVelocity().subtract(&collidable->getVelocity());
+	Vector2D<double> vaMinusVb = getVelocity() - collidable->getVelocity();
 	double j = (-(1 + fElasticity) * vaMinusVb.dotProduct(collisionNormal)) / (getInverseMass() + collidable->getInverseMass());
 
-	Vector2D<double> newVa = getVelocity().add(&collisionNormal->multiplyScalar(j).divideScalar(getMass()));
-	Vector2D<double> newVb = collidable->getVelocity().subtract(&collisionNormal->multiplyScalar(j).divideScalar(collidable->getMass()));
+	Vector2D<double> newVa = getVelocity() + (*collisionNormal * j / getMass());
+	Vector2D<double> newVb = collidable->getVelocity() - (*collisionNormal * j / collidable->getMass());
 
 	setVelocity(newVa);
 	collidable->setVelocity(newVb);

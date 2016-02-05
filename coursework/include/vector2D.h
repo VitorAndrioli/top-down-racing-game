@@ -36,6 +36,13 @@ public:
 	G getY();
 	void setX(G x);
 	void setY(G y);
+
+	Vector2D<G> operator+ (Vector2D<G>& other);
+	Vector2D<G> operator- (Vector2D<G>& other);
+	void operator+= (Vector2D<G>& other);
+	void operator-= (Vector2D<G>& other);
+	Vector2D<G> operator* (double scalar);
+	Vector2D<G> operator/ (double scalar);
 };
 
 template <class G>
@@ -139,5 +146,52 @@ void Vector2D<G>::setY(G y)
 {
 	m_y = y;
 }
+
+template <class G>
+Vector2D<G> Vector2D<G>::operator+(Vector2D<G>& other)
+{
+	G x = m_x + other.getX();
+	G y = m_y + other.getY();
+	return Vector2D<G>(x, y);
+}
+
+template <class G>
+Vector2D<G> Vector2D<G>::operator-(Vector2D<G>& other)
+{
+	G x = m_x - other.getX();
+	G y = m_y - other.getY();
+	return Vector2D<G>(x, y);
+}
+
+template <class G>
+Vector2D<G> Vector2D<G>::operator*(double scalar)
+{
+	G x = m_x * scalar;
+	G y = m_y * scalar;
+	return Vector2D<G>(x, y);
+}
+
+template <class G>
+Vector2D<G> Vector2D<G>::operator/(double scalar)
+{
+	G x = m_x / scalar;
+	G y = m_y / scalar;
+	return Vector2D<G>(x, y);
+}
+
+template <class G>
+void Vector2D<G>::operator+=(Vector2D<G>& other)
+{
+	m_x = m_x + other.getX();
+	m_y = m_y + other.getY();
+}
+
+template <class G>
+void Vector2D<G>::operator-=(Vector2D<G>& other)
+{
+	m_x = m_x - other.getX();
+	m_y = m_y - other.getY();
+}
+
 
 #endif

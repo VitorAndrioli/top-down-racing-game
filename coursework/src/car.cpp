@@ -25,12 +25,13 @@ Car::Car(double dPosX, double dPosY, double dAngle) : OBB(dPosX, dPosY, 30, 19, 
 	setSteeringAngle(dAngle);
 	newCarAngle = m_fSteeringAngle;
 	frontWheel = new OBB(dPosX + 20, dPosY, 6, 3.5, 0);
+	setFrictionCoefficient(0.4);
 }
 
 void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(m_vaPoints, states);
-	target.draw(*frontWheel);
+	//target.draw(*frontWheel);
 }
 
 void Car::controlInput()
@@ -76,7 +77,7 @@ void Car::controlInput()
 void Car::update(float elapsed)
 {
 	controlInput();
-
+	//std::cout << "oioi" << std::endl;
 	Vector2D<double> friction = m_fvVelocity.multiplyScalar(getFrictionCoefficient());
 	setAcceleration(m_fvThrust.subtract(&friction));
 	setVelocity(m_fvVelocity.add(&m_fvAcceleration.multiplyScalar(elapsed)));
@@ -111,8 +112,8 @@ void Car::update(float elapsed)
 	m_fSteeringAngle = newSteeringAngle;
 	
 	
-	frontWheel->update(elapsed);
-	frontWheel->setPosition(frontWheelPos);
+	//frontWheel->update(elapsed);
+	//frontWheel->setPosition(frontWheelPos);
 	frontWheel->setAngle(m_fSteeringAngle * 180 / M_PI);
 	
 	updatePoints();
