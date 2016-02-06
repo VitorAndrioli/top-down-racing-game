@@ -22,8 +22,10 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	m_fvPosition.setY(dPosY);
 		
 	setAngle(dAngle);
-	setMass(50.0);
+	setMass(dHalfExtentX*dHalfExtentY);
 	
+	m_fvInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
+
 	m_vaPoints.resize(5);
 }
 
@@ -62,27 +64,22 @@ void OBB::checkCollision(Collidable * collidable)
 
 void OBB::checkCollision(Circle * circle)
 {
+	Vector2D<double> fvCentreDistance = getPosition() - circle->getPosition();
+	fvCentreDistance.rotate(-getAngle());
 
-	Vector2D<double> dist = circle->getPosition() - getPosition();
-	dist.rotate(getAngle());
+	Vector2D<double> fvClamp;
+	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -getHalfExtents().getX()));
+	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), getHalfExtents().getX()));
+	if (fvCentreDistance.getY() < 0) fvClamp.setY(std::max(fvCentreDistance.getY(), -getHalfExtents().getY()));
+	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), getHalfExtents().getY()));
 
-	Vector2D<double> clamp;
-
-	if (dist.getX() < 0) clamp.setX(std::max(dist.getX(), -getHalfExtents().getX()));
-	if (dist.getX() >= 0) clamp.setX(std::min(dist.getX(), getHalfExtents().getX()));
-	if (dist.getY() < 0) clamp.setY(std::max(dist.getY(), -getHalfExtents().getY()));
-	if (dist.getY() >= 0) clamp.setY(std::min(dist.getY(), getHalfExtents().getY()));
-
-	Vector2D<double> diff = dist - clamp;
-	double distance = diff.magnitude() - circle->getRadius();
-
-	if (distance < 0)
+	Vector2D<double> fvDiff = fvCentreDistance - fvClamp;
+	
+	if (fvDiff.squaredMagnitude() < (circle->getRadius()*circle->getRadius()))
 	{
-		Vector2D<double> collisionNormal = (circle->getPosition() - getPosition() + clamp).unitVector();
-		Vector2D<double> moveVector = collisionNormal * (distance * 2);
-
-		setPosition(getPosition() + moveVector);
-		resolveImpulse(circle, &collisionNormal);
+		double fOverlap = fvDiff.magnitude() - circle->getRadius();
+		Vector2D<double> collisionNormal = (circle->getPosition() - getPosition() + fvClamp).unitVector();
+		resolveCollision(circle, &collisionNormal, -fOverlap);
 	}
 }
 
@@ -120,7 +117,7 @@ void OBB::checkCollision(OBB * obb)
 
 	Vector2D<double> collisionNormal;
 	double finalOverlap = 999999;
-
+	
 	for (auto it = axis.begin(); it != axis.end(); ++it)
 	{
 		double obb1min = 20000000;
@@ -146,19 +143,18 @@ void OBB::checkCollision(OBB * obb)
 		double overlap2 = obb2max - obb1min;
 		double overlap = min(overlap1, overlap2);
 
-		if (overlap <= finalOverlap)
+		if (overlap < finalOverlap)
 		{
 			collisionNormal = (*it).unitVector();
-			finalOverlap = overlap;
+			finalOverlap = -overlap;
 		}
-		
 	}
 	
-	if (collisionNormal.dotProduct(&obb->getVelocity()) > 0) finalOverlap *= -1;
-	obb->setPosition(obb->getPosition() + collisionNormal * finalOverlap);
-
-	resolveImpulse(obb, &collisionNormal);
-
+	if (collisionNormal.dotProduct(&obb->getVelocity()) <= 0)
+		obb->resolveCollision(this, &collisionNormal, finalOverlap);
+	else
+		resolveCollision(obb, &collisionNormal, finalOverlap);
+	
 }
 
 Vector2D<double> OBB::getHalfExtents()

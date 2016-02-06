@@ -32,12 +32,20 @@ void Collidable::update(float elapsed)
 	updatePoints();
 }
 
-void Collidable::resolveImpulse(Collidable * collidable, Vector2D<double> * collisionNormal)
+void Collidable::resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap)
 {
+	
+	setPosition(getPosition() - (*collisionNormal * overlap));
+	
 	double fElasticity = min(getElasticity(), collidable->getElasticity());
 	
-	Vector2D<double> vaMinusVb = getVelocity() - collidable->getVelocity();
-	double j = -(1 + fElasticity) * vaMinusVb.dotProduct(collisionNormal) / (getInverseMass() + collidable->getInverseMass());
+	Vector2D<double> relVelocity = getVelocity() - collidable->getVelocity();
+	
+	double velAlongNormal = relVelocity.dotProduct(collisionNormal);
+
+	if (velAlongNormal > 0) return;
+
+	double j = -(1 + fElasticity) * relVelocity.dotProduct(collisionNormal) / (getInverseMass() + collidable->getInverseMass());
 
 	setVelocity(getVelocity() + (*collisionNormal * j / getMass()));
 	collidable->setVelocity(collidable->getVelocity() - (*collisionNormal * j / collidable->getMass()));

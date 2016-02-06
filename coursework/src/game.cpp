@@ -9,12 +9,12 @@ using namespace std;
 Game::Game()
 {
 
-	car = Car(50, 310, 0);
-	obstacles.push_back(new Circle(470, 310, 5, 0));
-	//obstacles.push_back(new Circle(550, 310, 25, 0));
+	car = Car(50, 250, 0);
+	//obstacles.push_back(new Circle(470, 310, 25, 0));
+	//obstacles.push_back(new Circle(470, 380, 25, 0));
 	//obstacles.push_back(new Circle(300, 310, 45, 0));
-	obstacles.push_back(new OBB(400, 270, 50, 50, 3.1416/4));
-	//obstacles.push_back(new OBB(500, 600, 70, 15, 90));
+	obstacles.push_back(new OBB(400, 260, 20, 20, 1*3.14159/4));
+	obstacles.push_back(new OBB(600, 350, 15, 100, 1*3.14159/4));
 	//*/
 	
 }
@@ -40,11 +40,13 @@ void Game::update(float timestep)
 	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{
 		if (car.isMoving()) car.checkCollision(*it);
+		//(*it)->print();
 		for (auto it2 = obstacles.begin(); it2 != obstacles.end(); ++it2)
 		{
 			if (it2 != it)
 			{
-				if((*it)->isMoving()) (*it)->checkCollision(*it2);
+				(*it)->checkCollision(*it2);
+				
 			}
 		}
 	}

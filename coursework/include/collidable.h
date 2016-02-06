@@ -17,6 +17,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "vector2D.h"
+#include <iostream>
 
 class Circle;
 class OBB;
@@ -34,7 +35,7 @@ protected:
 	double m_fElasticity;
 	sf::VertexArray m_vaPoints;
 	
-	void resolveImpulse(Collidable * collidable, Vector2D<double> * collisionNormal);
+	void resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap);
 
 public:
 	Collidable();
@@ -44,6 +45,13 @@ public:
 	virtual void checkCollision(Circle * circle) = 0;
 	virtual void checkCollision(OBB * obb) = 0;
 	bool isMoving();
+
+	void print() { std::cout << getVelocity().getX() << " | " << getVelocity().getY() << std::endl; }
+	Vector2D<double> m_fvAngularPosition;
+	Vector2D<double> m_fvAngularVelocity;
+	Vector2D<double> m_fvAngularAcceleration;
+	Vector2D<double> m_fvTorque;
+	double m_fvInertia;
 
 	Vector2D<double> getPosition();
 	Vector2D<double> getVelocity();

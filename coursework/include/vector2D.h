@@ -24,6 +24,7 @@ public:
 	Vector2D(); //!< Basic constructor that creates an empty vector
 	Vector2D(G x, G y); //!< Constructor that creates and vector with X and Y values
 	double dotProduct(Vector2D<G> * vector2d); //!< Calculates the dot product of this vector with another one received by reference as a paremeter
+	double crossProduct(Vector2D<G> * vector2d);
 	Vector2D<G> unitVector(); //!<
 	double squaredMagnitude(); //!<
 	double magnitude(); //!<
@@ -59,6 +60,12 @@ template <class G>
 double Vector2D<G>::dotProduct(Vector2D<G> * vector2d)
 {
 	return getX() * vector2d->getX() + getY() * vector2d->getY();
+}
+
+template <class G>
+double Vector2D<G>::crossProduct(Vector2D<G> * vector2d)
+{
+	return getX() * vector2d->getY() - getY() * vector2d->getX();
 }
 
 template<class G>

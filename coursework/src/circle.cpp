@@ -14,6 +14,8 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fAngle)
 	setRadius(fRadius);
 	setAngle(fAngle);
 	setMass(fRadius*2);
+
+	m_fvInertia = (getMass()*pow(getRadius(), 4)) / 4;
 }
 
 void Circle::checkCollision(Collidable * collidable)
@@ -23,41 +25,38 @@ void Circle::checkCollision(Collidable * collidable)
 
 void Circle::checkCollision(Circle * circle)
 {
-	double centreDistSquared = (getPosition() - circle->getPosition()).squaredMagnitude();
-	double radiiSumSquared = (getRadius() + circle->getRadius()) * (getRadius() + circle->getRadius());
+	double fCentreDistSquared = (getPosition() - circle->getPosition()).squaredMagnitude();
+	double fRadiiSumSquared = (getRadius() + circle->getRadius()) * (getRadius() + circle->getRadius());
 
-	if (centreDistSquared - radiiSumSquared < 0)
+	if (fCentreDistSquared - fRadiiSumSquared <= 0)
 	{
-		double centreDist = (getPosition() - circle->getPosition()).magnitude();
-		double radiiSum = getRadius() + circle->getRadius();
-
-		Vector2D<double> collisionNormal = (getPosition() - circle->getPosition()).unitVector();
-		setPosition(getPosition() - collisionNormal * (centreDist - radiiSum));
-
-		resolveImpulse(circle, &collisionNormal);
+		double fCentreDist = (getPosition() - circle->getPosition()).magnitude();
+		double fRadiiSum = getRadius() + circle->getRadius();
+		double fOverlap = fCentreDist - fRadiiSum;
+		Vector2D<double> fvCollisionNormal = (getPosition() - circle->getPosition()).unitVector();
+		
+		resolveCollision(circle, &fvCollisionNormal, fOverlap);
 	}
 }
 
 void Circle::checkCollision(OBB * obb)
 {
-	Vector2D<double> dist = getPosition() - obb->getPosition();
-	dist.rotate(-obb->getAngle());
+	Vector2D<double> fvCentreDistance = getPosition() - obb->getPosition();
+	fvCentreDistance.rotate(-obb->getAngle());
 	
-	Vector2D<double> clamp;
-	if (dist.getX() < 0) clamp.setX(std::max(dist.getX(), -obb->getHalfExtents().getX()));
-	if (dist.getX() >= 0) clamp.setX(std::min(dist.getX(), obb->getHalfExtents().getX()));
-	if (dist.getY() < 0) clamp.setY(std::max(dist.getY(), -obb->getHalfExtents().getY()));
-	if (dist.getY() >= 0) clamp.setY(std::min(dist.getY(), obb->getHalfExtents().getY()));
+	Vector2D<double> fvClamp;
+	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -obb->getHalfExtents().getX()));
+	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), obb->getHalfExtents().getX()));
+	if (fvCentreDistance.getY() < 0) fvClamp.setY(std::max(fvCentreDistance.getY(), -obb->getHalfExtents().getY()));
+	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), obb->getHalfExtents().getY()));
 
-	Vector2D<double> diff = dist - clamp;
-	double distance = diff.magnitude() - getRadius();
-
-	if (distance < 0)
+	Vector2D<double> fvDiff = fvCentreDistance - fvClamp;
+	
+	if (fvDiff.squaredMagnitude() < (getRadius()*getRadius()))
 	{
-		Vector2D<double> collisionNormal = (getPosition() - obb->getPosition() + clamp).unitVector();
-		
-		obb->setPosition(obb->getPosition() + collisionNormal * (distance * 2));
-		resolveImpulse(obb, &collisionNormal);
+		double fOverlap = fvDiff.magnitude() - getRadius();
+		Vector2D<double> fvCollisionNormal = (getPosition() - obb->getPosition() + fvClamp).unitVector();
+		resolveCollision(obb, &fvCollisionNormal, fOverlap);
 	}
 }
 
