@@ -43,6 +43,11 @@ void Collidable::resolveImpulse(Collidable * collidable, Vector2D<double> * coll
 	collidable->setVelocity(collidable->getVelocity() - (*collisionNormal * j / collidable->getMass()));
 }
 
+bool Collidable::isMoving()
+{
+	return getVelocity().squaredMagnitude() > 0;
+}
+
 
 void Collidable::setPosition(Vector2D<double> position)
 {

@@ -30,9 +30,6 @@
     <ClCompile Include="src\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\collision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\car.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,9 +45,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\car.h">

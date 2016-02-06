@@ -43,6 +43,7 @@ public:
 	virtual void checkCollision(Collidable * collidable) = 0;
 	virtual void checkCollision(Circle * circle) = 0;
 	virtual void checkCollision(OBB * obb) = 0;
+	bool isMoving();
 
 	Vector2D<double> getPosition();
 	Vector2D<double> getVelocity();

@@ -8,7 +8,6 @@
 #include "circle.h"
 #include "collidable.h"
 #include "car.h"
-#include "collision.h"
 #include "vector2D.h"
 #include <iostream>
 #include <array>

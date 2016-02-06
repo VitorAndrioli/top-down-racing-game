@@ -33,27 +33,23 @@ void OBB::updatePoints()
 	Vector2D<double> rotationMatrixLine1(cos(getAngle()), -sin(getAngle()));
 	Vector2D<double> rotationMatrixLine2(sin(getAngle()), cos(getAngle()));
 
-	Vector2D<double> tempVector(
-		-getHalfExtents().getX() * rotationMatrixLine1.getX() + getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		-getHalfExtents().getX() * rotationMatrixLine2.getX() + getHalfExtents().getY() * rotationMatrixLine2.getY());
+	Vector2D<double> tempVector(-getHalfExtents().getX(), getHalfExtents().getY());
+	tempVector.rotate(getAngle());
 	m_vaPoints[0].position.x = m_vaPoints[4].position.x = (tempVector + getPosition()).getX();
 	m_vaPoints[0].position.y = m_vaPoints[4].position.y = (tempVector + getPosition()).getY();
 
-	tempVector = Vector2D<double>(
-		getHalfExtents().getX() * rotationMatrixLine1.getX() + getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		getHalfExtents().getX() * rotationMatrixLine2.getX() + getHalfExtents().getY() * rotationMatrixLine2.getY());
+	tempVector = Vector2D<double>(getHalfExtents().getX(), getHalfExtents().getY());
+	tempVector.rotate(getAngle());
 	m_vaPoints[1].position.x = (tempVector + getPosition()).getX();
 	m_vaPoints[1].position.y = (tempVector + getPosition()).getY();
 
-	tempVector = Vector2D<double>(
-		getHalfExtents().getX() * rotationMatrixLine1.getX() - getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		getHalfExtents().getX() * rotationMatrixLine2.getX() - getHalfExtents().getY() * rotationMatrixLine2.getY());
+	tempVector = Vector2D<double>(getHalfExtents().getX(), -getHalfExtents().getY());
+	tempVector.rotate(getAngle());
 	m_vaPoints[2].position.x = (tempVector + getPosition()).getX();
 	m_vaPoints[2].position.y = (tempVector + getPosition()).getY();
 
-	tempVector = Vector2D<double>(
-		-getHalfExtents().getX() * rotationMatrixLine1.getX() - getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		-getHalfExtents().getX() * rotationMatrixLine2.getX() - getHalfExtents().getY() * rotationMatrixLine2.getY());
+	tempVector = Vector2D<double>(-getHalfExtents().getX(), -getHalfExtents().getY());
+	tempVector.rotate(getAngle());
 	m_vaPoints[3].position.x = (tempVector + getPosition()).getX();
 	m_vaPoints[3].position.y = (tempVector + getPosition()).getY();
 
@@ -95,52 +91,25 @@ void OBB::checkCollision(OBB * obb)
 	array<Vector2D<double>, 4> obb1points;
 	array<Vector2D<double>, 4> obb2points;
 
-	Vector2D<double> rotationMatrixLine1(cos(getAngle()), -sin(getAngle()));
-	Vector2D<double> rotationMatrixLine2(sin(getAngle()), cos(getAngle()));
+	obb1points[0] = Vector2D<double>(getHalfExtents().getX(), getHalfExtents().getY());
+	obb1points[1] = Vector2D<double>(getHalfExtents().getX(), -getHalfExtents().getY());
+	obb1points[2] = Vector2D<double>(-getHalfExtents().getX(), getHalfExtents().getY());
+	obb1points[3] = Vector2D<double>(-getHalfExtents().getX(), -getHalfExtents().getY());
+	for (auto it = obb1points.begin(); it != obb1points.end(); ++it)
+	{
+		(*it).rotate(getAngle());
+		(*it) += getPosition();
+	}
 
-	Vector2D<double> tempVector(
-		-getHalfExtents().getX() * rotationMatrixLine1.getX() + getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		-getHalfExtents().getX() * rotationMatrixLine2.getX() + getHalfExtents().getY() * rotationMatrixLine2.getY());
-	obb1points[0] = tempVector + getPosition();
-	
-	tempVector = Vector2D<double>(
-		getHalfExtents().getX() * rotationMatrixLine1.getX() + getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		getHalfExtents().getX() * rotationMatrixLine2.getX() + getHalfExtents().getY() * rotationMatrixLine2.getY());
-	obb1points[1] = tempVector + getPosition();
-	
-	tempVector = Vector2D<double>(
-		getHalfExtents().getX() * rotationMatrixLine1.getX() - getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		getHalfExtents().getX() * rotationMatrixLine2.getX() - getHalfExtents().getY() * rotationMatrixLine2.getY());
-	obb1points[2] = tempVector + getPosition();
-	
-	tempVector = Vector2D<double>(
-		-getHalfExtents().getX() * rotationMatrixLine1.getX() - getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		-getHalfExtents().getX() * rotationMatrixLine2.getX() - getHalfExtents().getY() * rotationMatrixLine2.getY());
-	obb1points[3] = tempVector + getPosition();
-	
-	rotationMatrixLine1 = Vector2D<double>(cos(obb->getAngle()), -sin(obb->getAngle()));
-	rotationMatrixLine2 = Vector2D<double>(sin(obb->getAngle()), cos(obb->getAngle()));
-
-	tempVector = Vector2D<double>(
-		-obb->getHalfExtents().getX() * rotationMatrixLine1.getX() + obb->getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		-obb->getHalfExtents().getX() * rotationMatrixLine2.getX() + obb->getHalfExtents().getY() * rotationMatrixLine2.getY());
-	obb2points[0] = tempVector + obb->getPosition();
-
-	tempVector = Vector2D<double>(
-		obb->getHalfExtents().getX() * rotationMatrixLine1.getX() + obb->getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		obb->getHalfExtents().getX() * rotationMatrixLine2.getX() + obb->getHalfExtents().getY() * rotationMatrixLine2.getY());
-	obb2points[1] = tempVector + obb->getPosition();
-
-	tempVector = Vector2D<double>(
-		obb->getHalfExtents().getX() * rotationMatrixLine1.getX() - obb->getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		obb->getHalfExtents().getX() * rotationMatrixLine2.getX() - obb->getHalfExtents().getY() * rotationMatrixLine2.getY());
-	obb2points[2] = tempVector + obb->getPosition();
-
-	tempVector = Vector2D<double>(
-		-obb->getHalfExtents().getX() * rotationMatrixLine1.getX() - obb->getHalfExtents().getY() * rotationMatrixLine1.getY(),
-		-obb->getHalfExtents().getX() * rotationMatrixLine2.getX() - obb->getHalfExtents().getY() * rotationMatrixLine2.getY());
-	obb2points[3] = tempVector + obb->getPosition();
-
+	obb2points[0] = Vector2D<double>(obb->getHalfExtents().getX(), obb->getHalfExtents().getY());
+	obb2points[1] = Vector2D<double>(obb->getHalfExtents().getX(), -obb->getHalfExtents().getY());
+	obb2points[2] = Vector2D<double>(-obb->getHalfExtents().getX(), obb->getHalfExtents().getY());
+	obb2points[3] = Vector2D<double>(-obb->getHalfExtents().getX(), -obb->getHalfExtents().getY());
+	for (auto it = obb2points.begin(); it != obb2points.end(); ++it)
+	{
+		(*it).rotate(obb->getAngle());
+		(*it) += obb->getPosition();
+	}
 
 	array<Vector2D<double>, 4> axis = {
 		Vector2D<double>(cos(getAngle()), sin(getAngle())),
@@ -152,7 +121,7 @@ void OBB::checkCollision(OBB * obb)
 	Vector2D<double> collisionNormal;
 	double finalOverlap = 999999;
 
-	for (int i = 0; i < 4; i++)
+	for (auto it = axis.begin(); it != axis.end(); ++it)
 	{
 		double obb1min = 20000000;
 		double obb1max = -20000000;
@@ -162,14 +131,13 @@ void OBB::checkCollision(OBB * obb)
 
 		for (int j = 0; j < 4; j++)
 		{
-			double dotProduct1 = axis[i].dotProduct(&obb1points[j]);
+			double dotProduct1 = (*it).dotProduct(&obb1points[j]);
 			if (dotProduct1 < obb1min) obb1min = dotProduct1;
 			if (dotProduct1 > obb1max) obb1max = dotProduct1;
 
-			double dotProduct2 = axis[i].dotProduct(&obb2points[j]);
+			double dotProduct2 = (*it).dotProduct(&obb2points[j]);
 			if (dotProduct2 < obb2min) obb2min = dotProduct2;
 			if (dotProduct2 > obb2max) obb2max = dotProduct2;
-
 		}
 
 		if (obb1max < obb2min || obb2max < obb1min) return;
@@ -180,14 +148,13 @@ void OBB::checkCollision(OBB * obb)
 
 		if (overlap <= finalOverlap)
 		{
-			collisionNormal = axis[i].unitVector();
+			collisionNormal = (*it).unitVector();
 			finalOverlap = overlap;
 		}
 		
 	}
 	
 	if (collisionNormal.dotProduct(&obb->getVelocity()) > 0) finalOverlap *= -1;
-
 	obb->setPosition(obb->getPosition() + collisionNormal * finalOverlap);
 
 	resolveImpulse(obb, &collisionNormal);

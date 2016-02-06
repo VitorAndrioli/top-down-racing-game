@@ -104,10 +104,6 @@ void Car::update(float elapsed)
 	Vector2D<double> rearWheel2 = rearWheelPos + (carOr * displacement);
 	setPosition((frontWheel2 + rearWheel2) / 2);
 	
-
-	//std::cout << m_bReverse << "  " << getVelocity().magnitude() << std::endl;
-	
-
 	newCarAngle = atan2((frontWheel2.getY() - rearWheel2.getY()), (frontWheel2.getX() - rearWheel2.getX()));
 	double newSteeringAngle = m_fSteeringAngle + (newCarAngle-m_fAngle);
 	
