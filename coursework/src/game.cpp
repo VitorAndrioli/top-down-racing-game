@@ -13,8 +13,8 @@ Game::Game()
 	//obstacles.push_back(new Circle(470, 310, 25, 0));
 	//obstacles.push_back(new Circle(470, 380, 25, 0));
 	//obstacles.push_back(new Circle(300, 310, 45, 0));
-	obstacles.push_back(new OBB(400, 260, 20, 20, 1*3.14159/4));
-	obstacles.push_back(new OBB(600, 350, 15, 100, 1*3.14159/4));
+	obstacles.push_back(new OBB(400, 260, 50, 50, 0*3.14159/2));
+	//obstacles.push_back(new OBB(600, 350, 15, 100, 1*3.14159/4));
 	//*/
 	
 }

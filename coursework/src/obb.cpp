@@ -117,7 +117,8 @@ void OBB::checkCollision(OBB * obb)
 
 	Vector2D<double> collisionNormal;
 	double finalOverlap = 999999;
-	
+	double axisIndex = 0;
+
 	for (auto it = axis.begin(); it != axis.end(); ++it)
 	{
 		double obb1min = 20000000;
@@ -143,17 +144,16 @@ void OBB::checkCollision(OBB * obb)
 		double overlap2 = obb2max - obb1min;
 		double overlap = min(overlap1, overlap2);
 
-		if (overlap < finalOverlap)
+		if (overlap <= finalOverlap)
 		{
 			collisionNormal = (*it).unitVector();
-			finalOverlap = -overlap;
+			finalOverlap = overlap;
+			axisIndex = it - axis.begin();
 		}
 	}
 	
-	if (collisionNormal.dotProduct(&obb->getVelocity()) <= 0)
-		obb->resolveCollision(this, &collisionNormal, finalOverlap);
-	else
-		resolveCollision(obb, &collisionNormal, finalOverlap);
+	if (collisionNormal.dotProduct(&obb->getVelocity()) >= 0) finalOverlap *= -1;
+	resolveCollision(obb, &collisionNormal, finalOverlap);
 	
 }
 
