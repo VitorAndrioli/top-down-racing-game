@@ -26,7 +26,7 @@ Car::Car(double dPosX, double dPosY, double dAngle) : OBB(dPosX, dPosY, 30, 19, 
 	m_fWheelBase = 45;
 	setSteeringAngle(dAngle);
 	newCarAngle = m_fSteeringAngle;
-	frontWheel = new OBB(dPosX + 20, dPosY, 6, 3.5, 0);
+	frontWheel = new OBB(dPosX + 20, dPosY, 6, 19, 0);
 	setFrictionCoefficient(0.4);
 	setMass(2050.0);
 }

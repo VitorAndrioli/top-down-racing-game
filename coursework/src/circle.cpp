@@ -41,6 +41,9 @@ void Circle::checkCollision(Circle * circle)
 
 void Circle::checkCollision(OBB * obb)
 {
+	//obb->checkCollision(this);
+	//return;
+	//std::cout << "circle" << std::endl;
 	Vector2D<double> fvCentreDistance = getPosition() - obb->getPosition();
 	fvCentreDistance.rotate(-obb->getAngle());
 	
@@ -55,8 +58,30 @@ void Circle::checkCollision(OBB * obb)
 	if (fvDiff.squaredMagnitude() < (getRadius()*getRadius()))
 	{
 		double fOverlap = fvDiff.magnitude() - getRadius();
-		Vector2D<double> fvCollisionNormal = (getPosition() - obb->getPosition() + fvClamp).unitVector();
-		resolveCollision(obb, &fvCollisionNormal, fOverlap);
+		Vector2D<double> fvCollisionNormal;// = (fvClamp - circle->getPosition()).unitVector();
+		if (fvClamp.getY() == -obb->getHalfExtents().getY()) fvCollisionNormal = Vector2D<double>(-sin(obb->getAngle()), cos(obb->getAngle()));
+		else if (fvClamp.getY() == obb->getHalfExtents().getY()) fvCollisionNormal = Vector2D<double>(sin(obb->getAngle()), -cos(obb->getAngle()));
+		else if (fvClamp.getX() == -obb->getHalfExtents().getX()) fvCollisionNormal = Vector2D<double>(cos(obb->getAngle()), -sin(obb->getAngle()));
+		else if (fvClamp.getX() == obb->getHalfExtents().getX()) fvCollisionNormal = Vector2D<double>(-cos(obb->getAngle()), sin(obb->getAngle()));
+
+		obb->setPosition(obb->getPosition() + (fvCollisionNormal * -fOverlap));
+
+		double fElasticity = 1;// min(getElasticity(), circle->getElasticity());
+		Vector2D<double> relVelocity = getVelocity() - obb->getVelocity();
+
+		double velAlongNormal = relVelocity.dotProduct(&fvCollisionNormal);
+		std::cout << velAlongNormal << " | " << relVelocity.getX() << " | " << relVelocity.getY() << std::endl;
+
+		if (velAlongNormal > 0) return;
+
+		double j = -(1 + fElasticity) * relVelocity.dotProduct(&fvCollisionNormal) / (getInverseMass() + obb->getInverseMass());
+
+		setVelocity(getVelocity() + (fvCollisionNormal * j * getInverseMass()));
+		obb->setVelocity(obb->getVelocity() - (fvCollisionNormal * j * obb->getInverseMass()));
+
+
+
+		//resolveCollision(obb, &fvCollisionNormal, fOverlap);
 	}
 }
 

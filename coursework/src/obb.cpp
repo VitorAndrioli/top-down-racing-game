@@ -22,7 +22,7 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	m_fvPosition.setY(dPosY);
 		
 	setAngle(dAngle);
-	setMass(dHalfExtentX*dHalfExtentY);
+	setMass(dHalfExtentX*0);
 	
 	m_fvInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
 
@@ -64,7 +64,8 @@ void OBB::checkCollision(Collidable * collidable)
 
 void OBB::checkCollision(Circle * circle)
 {
-	Vector2D<double> fvCentreDistance = getPosition() - circle->getPosition();
+	//std::cout << "obb" << std::endl;
+	Vector2D<double> fvCentreDistance = circle->getPosition() - getPosition();
 	fvCentreDistance.rotate(-getAngle());
 
 	Vector2D<double> fvClamp;
@@ -72,14 +73,54 @@ void OBB::checkCollision(Circle * circle)
 	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), getHalfExtents().getX()));
 	if (fvCentreDistance.getY() < 0) fvClamp.setY(std::max(fvCentreDistance.getY(), -getHalfExtents().getY()));
 	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), getHalfExtents().getY()));
-
-	Vector2D<double> fvDiff = fvCentreDistance - fvClamp;
 	
+	Vector2D<double> fvDiff = fvCentreDistance - fvClamp;
 	if (fvDiff.squaredMagnitude() < (circle->getRadius()*circle->getRadius()))
 	{
 		double fOverlap = fvDiff.magnitude() - circle->getRadius();
-		Vector2D<double> collisionNormal = (circle->getPosition() - getPosition() + fvClamp).unitVector();
-		resolveCollision(circle, &collisionNormal, -fOverlap);
+		
+		Vector2D<double> fvCollisionNormal;// = (fvClamp - circle->getPosition()).unitVector();
+		if (fvClamp.getY() == -getHalfExtents().getY())
+		{
+			fvCollisionNormal = Vector2D<double>(sin(-getAngle()), -cos(-getAngle()));
+			std::cout << " 1 " << std::endl;
+		}
+		else if (fvClamp.getY() == getHalfExtents().getY())
+		{
+			fvCollisionNormal = Vector2D<double>(-sin(-getAngle()), cos(-getAngle()));
+			std::cout << " 2 " << std::endl;
+		}
+		else if (fvClamp.getX() == -getHalfExtents().getX())
+		{
+			fvCollisionNormal = Vector2D<double>(cos(-getAngle()), -sin(-getAngle()));
+			std::cout << " 3 " << std::endl;
+		}
+		else if (fvClamp.getX() == getHalfExtents().getX())
+		{
+			fvCollisionNormal = Vector2D<double>(-cos(-getAngle()), sin(-getAngle()));
+			std::cout << " 4 " << std::endl;
+		}
+		
+		circle->setPosition(circle->getPosition() + (fvCollisionNormal * fOverlap));
+
+		double fElasticity = 1;// min(getElasticity(), circle->getElasticity());
+		Vector2D<double> relVelocity = getVelocity() - circle->getVelocity();
+
+		double velAlongNormal = relVelocity.dotProduct(&fvCollisionNormal);
+		//std::cout << (fvClamp.getY() == -getHalfExtents().getY()) << " | " << relVelocity.getX() << " | " << relVelocity.getY() << std::endl;
+
+		if (velAlongNormal > 0) return;
+
+		double j = -(1 + fElasticity) * relVelocity.dotProduct(&fvCollisionNormal) / (getInverseMass() + circle->getInverseMass());
+
+		setVelocity(getVelocity() + (fvCollisionNormal * j * getInverseMass()));
+		circle->setVelocity(circle->getVelocity() - (fvCollisionNormal * j * circle->getInverseMass()));
+		
+		
+
+		//circle->setVelocity(Vector2D<double>(-50, 50));
+
+		//resolveCollision(circle, &fvCollisionNormal, fOverlap);
 	}
 }
 

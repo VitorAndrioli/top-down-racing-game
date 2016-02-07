@@ -10,7 +10,7 @@ Collidable::Collidable()
 	setVelocity(Vector2D<double>(0, 0));
 	setAcceleration(Vector2D<double>(0, 0));
 	setThrust(Vector2D<double>(0, 0));
-	setFrictionCoefficient(0.4);
+	setFrictionCoefficient(0);
 	setElasticity(0.6);
 
 	m_vaPoints.setPrimitiveType(sf::LinesStrip);
@@ -34,8 +34,8 @@ void Collidable::update(float elapsed)
 
 void Collidable::resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap)
 {
-	
-	setPosition(getPosition() - (*collisionNormal * overlap));
+	//return;
+	collidable->setPosition(collidable->getPosition() + (*collisionNormal * overlap));
 	
 	double fElasticity = min(getElasticity(), collidable->getElasticity());
 	
@@ -95,7 +95,8 @@ Vector2D<double> Collidable::getThrust()
 
 void Collidable::setMass(double fMass)
 {
-	m_fInverseMass = 1.0 / fMass;
+	if (fMass <= 0) m_fInverseMass = 0;
+	else m_fInverseMass = 1.0 / fMass;
 }
 double Collidable::getMass()
 {
