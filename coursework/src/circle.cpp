@@ -2,6 +2,8 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
+using namespace std;
+
 Circle::Circle()
 {
 
@@ -13,7 +15,7 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fAngle)
 	m_fvPosition.setY(fPosY);
 	setRadius(fRadius);
 	setAngle(fAngle);
-	setMass(fRadius*2);
+	setMass(fRadius*0);
 
 	m_fvInertia = (getMass()*pow(getRadius(), 4)) / 4;
 }
@@ -41,9 +43,6 @@ void Circle::checkCollision(Circle * circle)
 
 void Circle::checkCollision(OBB * obb)
 {
-	//obb->checkCollision(this);
-	//return;
-	//std::cout << "circle" << std::endl;
 	Vector2D<double> fvCentreDistance = getPosition() - obb->getPosition();
 	fvCentreDistance.rotate(-obb->getAngle());
 	
@@ -54,32 +53,25 @@ void Circle::checkCollision(OBB * obb)
 	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), obb->getHalfExtents().getY()));
 
 	Vector2D<double> fvDiff = fvCentreDistance - fvClamp;
-	
 	if (fvDiff.squaredMagnitude() < (getRadius()*getRadius()))
 	{
 		double fOverlap = fvDiff.magnitude() - getRadius();
-		Vector2D<double> fvCollisionNormal;// = (fvClamp - circle->getPosition()).unitVector();
-		if (fvClamp.getY() == -obb->getHalfExtents().getY()) fvCollisionNormal = Vector2D<double>(-sin(obb->getAngle()), cos(obb->getAngle()));
-		else if (fvClamp.getY() == obb->getHalfExtents().getY()) fvCollisionNormal = Vector2D<double>(sin(obb->getAngle()), -cos(obb->getAngle()));
-		else if (fvClamp.getX() == -obb->getHalfExtents().getX()) fvCollisionNormal = Vector2D<double>(cos(obb->getAngle()), -sin(obb->getAngle()));
-		else if (fvClamp.getX() == obb->getHalfExtents().getX()) fvCollisionNormal = Vector2D<double>(-cos(obb->getAngle()), sin(obb->getAngle()));
 
-		obb->setPosition(obb->getPosition() + (fvCollisionNormal * -fOverlap));
+		fvClamp.rotate(obb->getAngle());
+		Vector2D<double> fvCollisionNormal = (getPosition() - fvClamp - obb->getPosition()).unitVector();
 
-		double fElasticity = 1;// min(getElasticity(), circle->getElasticity());
+		obb->setPosition(obb->getPosition() + (fvCollisionNormal * fOverlap));
+
+		double fElasticity = min(getElasticity(), obb->getElasticity());
 		Vector2D<double> relVelocity = getVelocity() - obb->getVelocity();
 
 		double velAlongNormal = relVelocity.dotProduct(&fvCollisionNormal);
-		std::cout << velAlongNormal << " | " << relVelocity.getX() << " | " << relVelocity.getY() << std::endl;
-
 		if (velAlongNormal > 0) return;
 
 		double j = -(1 + fElasticity) * relVelocity.dotProduct(&fvCollisionNormal) / (getInverseMass() + obb->getInverseMass());
 
 		setVelocity(getVelocity() + (fvCollisionNormal * j * getInverseMass()));
 		obb->setVelocity(obb->getVelocity() - (fvCollisionNormal * j * obb->getInverseMass()));
-
-
 
 		//resolveCollision(obb, &fvCollisionNormal, fOverlap);
 	}
