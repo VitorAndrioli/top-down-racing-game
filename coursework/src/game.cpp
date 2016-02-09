@@ -9,12 +9,12 @@ using namespace std;
 Game::Game()
 {
 
-	car = Car(50, -310, 0);
-	//obstacles.push_back(new Circle(470, 310, 25, 0));
-	//obstacles.push_back(new Circle(470, 380, 25, 0));
-	obstacles.push_back(new Circle(700, 300, 45, 0));
+	car = Car(50, 310, 0 * 3.14159 / 180);
+	/*obstacles.push_back(new Circle(470, 310, 25, 0));
+	obstacles.push_back(new Circle(470, 380, 25, 0));
+	obstacles.push_back(new Circle(310, 300, 45, 0));
 	obstacles.push_back(new OBB(350, 300, 50, 50, 45*3.14159/180));
-	/*obstacles.push_back(new OBB(300, 600, 40, 20, 3 * 3.14159 / 4));
+	obstacles.push_back(new OBB(300, 600, 40, 20, 3 * 3.14159 / 4));
 	obstacles.push_back(new OBB(222, 423, 40, 20, 1 * 3.14159 / 4));
 	obstacles.push_back(new OBB(540, 320, 40, 20, -123 * 3.14159/180));
 	obstacles.push_back(new OBB(620, 150, 40, 20, 1 * 3.14159 / 4));
@@ -65,7 +65,7 @@ void Game::processKeyPress(Keyboard::Key code)
 	if (code == sf::Keyboard::Down) car.m_bReversing = true; //car.reverse();
 	if (code == sf::Keyboard::Right) car.m_bTurningRight = true;
 	if (code == sf::Keyboard::Left) car.m_bTurningLeft = true;
-	if (code == sf::Keyboard::Space) (obstacles.front())->setVelocity(Vector2D<double>(-150, 0));
+	if (code == sf::Keyboard::Space) car.m_bBraking = true;// (obstacles.front())->setVelocity(Vector2D<double>(-150, 0));
 }
 
 void Game::processKeyRelease(Keyboard::Key code)
@@ -74,4 +74,5 @@ void Game::processKeyRelease(Keyboard::Key code)
 	if (code == sf::Keyboard::Down) car.m_bReversing = false;
 	if (code == sf::Keyboard::Right)  car.m_bTurningRight = false;
 	if (code == sf::Keyboard::Left)  car.m_bTurningLeft = false;
+	if (code == sf::Keyboard::Space) car.m_bBraking = false;
 }
