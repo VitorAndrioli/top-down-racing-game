@@ -82,20 +82,7 @@ void OBB::checkCollision(Circle * circle)
 		fvClamp.rotate(getAngle());
 		Vector2D<double> fvCollisionNormal = (fvClamp + getPosition() - circle->getPosition()).unitVector();
 		
-		circle->setPosition(circle->getPosition() + (fvCollisionNormal * fOverlap));
-
-		double fElasticity = min(getElasticity(), circle->getElasticity());
-		Vector2D<double> relVelocity = getVelocity() - circle->getVelocity();
-
-		double velAlongNormal = relVelocity.dotProduct(&fvCollisionNormal);
-		if (velAlongNormal > 0) return;
-		
-		double j = -(1 + fElasticity) * relVelocity.dotProduct(&fvCollisionNormal) / (getInverseMass() + circle->getInverseMass());
-		
-		setVelocity(getVelocity() + (fvCollisionNormal * j * getInverseMass()));
-		circle->setVelocity(circle->getVelocity() - (fvCollisionNormal * j * circle->getInverseMass()));
-		
-		//resolveCollision(circle, &fvCollisionNormal, fOverlap);
+		resolveCollision(circle, &fvCollisionNormal, fOverlap);
 	}
 }
 

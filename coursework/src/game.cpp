@@ -65,7 +65,7 @@ void Game::processKeyPress(Keyboard::Key code)
 	if (code == sf::Keyboard::Down) car.m_bReversing = true; //car.reverse();
 	if (code == sf::Keyboard::Right) car.m_bTurningRight = true;
 	if (code == sf::Keyboard::Left) car.m_bTurningLeft = true;
-	if (code == sf::Keyboard::Space) (obstacles.back())->setVelocity(Vector2D<double>(150, 0));
+	if (code == sf::Keyboard::Space) (obstacles.front())->setVelocity(Vector2D<double>(-150, 0));
 }
 
 void Game::processKeyRelease(Keyboard::Key code)

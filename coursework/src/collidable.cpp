@@ -34,7 +34,6 @@ void Collidable::update(float elapsed)
 
 void Collidable::resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap)
 {
-	//return;
 	collidable->setPosition(collidable->getPosition() + (*collisionNormal * overlap));
 	
 	double fElasticity = min(getElasticity(), collidable->getElasticity());
@@ -42,7 +41,6 @@ void Collidable::resolveCollision(Collidable * collidable, Vector2D<double> * co
 	Vector2D<double> relVelocity = getVelocity() - collidable->getVelocity();
 	
 	double velAlongNormal = relVelocity.dotProduct(collisionNormal);
-
 	if (velAlongNormal > 0) return;
 
 	double j = -(1 + fElasticity) * relVelocity.dotProduct(collisionNormal) / (getInverseMass() + collidable->getInverseMass());

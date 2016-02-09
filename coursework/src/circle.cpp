@@ -15,7 +15,7 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fAngle)
 	m_fvPosition.setY(fPosY);
 	setRadius(fRadius);
 	setAngle(fAngle);
-	setMass(fRadius*0);
+	setMass(fRadius*2);
 
 	m_fvInertia = (getMass()*pow(getRadius(), 4)) / 4;
 }
@@ -60,20 +60,7 @@ void Circle::checkCollision(OBB * obb)
 		fvClamp.rotate(obb->getAngle());
 		Vector2D<double> fvCollisionNormal = (getPosition() - fvClamp - obb->getPosition()).unitVector();
 
-		obb->setPosition(obb->getPosition() + (fvCollisionNormal * fOverlap));
-
-		double fElasticity = min(getElasticity(), obb->getElasticity());
-		Vector2D<double> relVelocity = getVelocity() - obb->getVelocity();
-
-		double velAlongNormal = relVelocity.dotProduct(&fvCollisionNormal);
-		if (velAlongNormal > 0) return;
-
-		double j = -(1 + fElasticity) * relVelocity.dotProduct(&fvCollisionNormal) / (getInverseMass() + obb->getInverseMass());
-
-		setVelocity(getVelocity() + (fvCollisionNormal * j * getInverseMass()));
-		obb->setVelocity(obb->getVelocity() - (fvCollisionNormal * j * obb->getInverseMass()));
-
-		//resolveCollision(obb, &fvCollisionNormal, fOverlap);
+		resolveCollision(obb, &fvCollisionNormal, fOverlap);
 	}
 }
 
