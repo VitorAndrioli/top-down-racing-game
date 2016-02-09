@@ -33,8 +33,10 @@ protected:
 	double m_fAngle;
 	double m_fFrictionCoefficient;
 	double m_fElasticity;
+	double m_fRadius;
 	sf::VertexArray m_vaPoints;
 	
+	bool broadCollisionCheck(Collidable * collidable);
 	void resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap);
 
 public:
@@ -62,6 +64,7 @@ public:
 	double getAngle();
 	double getElasticity();
 	double getFrictionCoefficient();
+	double getRadius();
 	void setPosition(Vector2D<double> fvPosition);
 	void setVelocity(Vector2D<double> fvVelocity);
 	void setAcceleration(Vector2D<double> fvAcceleration);
@@ -70,7 +73,7 @@ public:
 	void setMass(double fMass);
 	void setFrictionCoefficient(double fFrictionCoefficient);
 	void setElasticity(double fRestitution);
-
+	void setRadius(double fRadius);
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

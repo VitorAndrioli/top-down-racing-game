@@ -10,7 +10,7 @@ Collidable::Collidable()
 	setVelocity(Vector2D<double>(0, 0));
 	setAcceleration(Vector2D<double>(0, 0));
 	setThrust(Vector2D<double>(0, 0));
-	setFrictionCoefficient(0);
+	setFrictionCoefficient(0.4);
 	setElasticity(0.6);
 
 	m_vaPoints.setPrimitiveType(sf::LinesStrip);
@@ -30,6 +30,16 @@ void Collidable::update(float elapsed)
 	m_fvPosition += getVelocity() * elapsed;
 
 	updatePoints();
+}
+
+bool Collidable::broadCollisionCheck(Collidable * collidable)
+{
+	double fCentreDistSquared = (getPosition() - collidable->getPosition()).squaredMagnitude();
+	double fRadiiSumSquared = (getRadius() + collidable->getRadius()) * (getRadius() + collidable->getRadius());
+
+	if (fCentreDistSquared - fRadiiSumSquared <= 0) return true;
+	else return false;
+	
 }
 
 void Collidable::resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap)
@@ -67,6 +77,7 @@ Vector2D<double> Collidable::getPosition()
 void Collidable::setVelocity(Vector2D<double> velocity)
 {
 	m_fvVelocity = velocity;
+	if (abs(m_fvVelocity.squaredMagnitude()) < 5) m_fvVelocity = Vector2D<double>(0, 0);
 }
 Vector2D<double> Collidable::getVelocity()
 {
@@ -131,3 +142,19 @@ double Collidable::getElasticity()
 {
 	return m_fElasticity;
 }
+
+
+
+
+double Collidable::getRadius()
+{
+	return m_fRadius;
+}
+void Collidable::setRadius(double fRadius)
+{
+	if (fRadius >= 0)
+		m_fRadius = fRadius;
+	else
+		m_fRadius = 1;
+}
+

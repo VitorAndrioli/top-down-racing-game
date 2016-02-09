@@ -27,7 +27,7 @@ Car::Car(double dPosX, double dPosY, double dAngle) : OBB(dPosX, dPosY, 30, 19, 
 	newCarAngle = m_fSteeringAngle;
 	frontWheel = new OBB(dPosX + 20, dPosY, 6, 19, 0);
 	setFrictionCoefficient(0.4);
-	setMass(2050.0);
+	setMass(250.0);
 }
 
 void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -87,7 +87,6 @@ void Car::update(float elapsed)
 void Car::setVelocity(Vector2D<double> velocity)
 {
 	m_fvVelocity = velocity;
-	print();
 	
 	if (m_bMovingForward && abs(m_fvVelocity.squaredMagnitude()) > m_fMaxVelocity*m_fMaxVelocity)
 	{

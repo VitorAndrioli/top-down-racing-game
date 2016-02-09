@@ -23,7 +23,8 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 		
 	setAngle(dAngle);
 	setMass(dHalfExtentX*2);
-	
+	setRadius(m_fvHalfExtents.magnitude());
+
 	m_fvInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
 
 	m_vaPoints.resize(5);
@@ -64,6 +65,8 @@ void OBB::checkCollision(Collidable * collidable)
 
 void OBB::checkCollision(Circle * circle)
 {
+	if (!broadCollisionCheck(circle)) return;
+
 	Vector2D<double> fvCentreDistance = circle->getPosition() - getPosition();
 	fvCentreDistance.rotate(-getAngle());
 
@@ -88,6 +91,8 @@ void OBB::checkCollision(Circle * circle)
 
 void OBB::checkCollision(OBB * obb)
 {
+	if (!broadCollisionCheck(obb)) return;
+
 	array<Vector2D<double>, 4> obb1points;
 	array<Vector2D<double>, 4> obb2points;
 

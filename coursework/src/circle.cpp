@@ -27,22 +27,23 @@ void Circle::checkCollision(Collidable * collidable)
 
 void Circle::checkCollision(Circle * circle)
 {
-	double fCentreDistSquared = (getPosition() - circle->getPosition()).squaredMagnitude();
-	double fRadiiSumSquared = (getRadius() + circle->getRadius()) * (getRadius() + circle->getRadius());
-
-	if (fCentreDistSquared - fRadiiSumSquared <= 0)
+	if (broadCollisionCheck(circle))
 	{
 		double fCentreDist = (getPosition() - circle->getPosition()).magnitude();
 		double fRadiiSum = getRadius() + circle->getRadius();
 		double fOverlap = fCentreDist - fRadiiSum;
 		Vector2D<double> fvCollisionNormal = (getPosition() - circle->getPosition()).unitVector();
-		
+
 		resolveCollision(circle, &fvCollisionNormal, fOverlap);
 	}
+
 }
 
 void Circle::checkCollision(OBB * obb)
 {
+	
+	if (!broadCollisionCheck(obb)) return;
+
 	Vector2D<double> fvCentreDistance = getPosition() - obb->getPosition();
 	fvCentreDistance.rotate(-obb->getAngle());
 	
@@ -74,16 +75,4 @@ void Circle::updatePoints()
 		double y = m_fvPosition.getY() + m_fRadius * sin(angle);
 		m_vaPoints[i].position = sf::Vector2f(x, y);
 	}
-}
-
-double Circle::getRadius()
-{
-	return m_fRadius;
-}
-void Circle::setRadius(double fRadius)
-{
-	if (fRadius >= 0)
-		m_fRadius = fRadius;
-	else
-		m_fRadius = 1;
 }
