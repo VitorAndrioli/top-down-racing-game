@@ -7,6 +7,7 @@
 
 #include "circle.h"
 #include "collidable.h"
+#include "collidableFactory.h"
 #include "car.h"
 #include "vector2D.h"
 #include <iostream>

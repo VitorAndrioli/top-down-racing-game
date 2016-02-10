@@ -77,6 +77,7 @@
     <ClCompile Include="src\car.cpp" />
     <ClCompile Include="src\circle.cpp" />
     <ClCompile Include="src\collidable.cpp" />
+    <ClCompile Include="src\collidableFactory.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\obb.cpp" />
@@ -85,6 +86,7 @@
     <ClInclude Include="include\car.h" />
     <ClInclude Include="include\circle.h" />
     <ClInclude Include="include\collidable.h" />
+    <ClInclude Include="include\collidableFactory.h" />
     <ClInclude Include="include\game.h" />
     <ClInclude Include="include\obb.h" />
     <ClInclude Include="include\vector2D.h" />
