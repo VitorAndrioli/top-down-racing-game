@@ -13,6 +13,11 @@ Collidable::Collidable()
 	setFrictionCoefficient(0.4);
 	setElasticity(0.6);
 
+	m_fAngularVelocity = 0;
+	m_fTorque = 0;
+	m_fInverseMomentOfInertia = 0;
+
+
 	m_vaPoints.setPrimitiveType(sf::LinesStrip);
 }
 
@@ -27,7 +32,12 @@ void Collidable::update(float elapsed)
 	
 	setAcceleration(getThrust() - friction);
 	m_fvVelocity += getAcceleration() * elapsed;
+
+	m_fAngularVelocity += m_fTorque * m_fInverseMomentOfInertia * elapsed;
+
 	m_fvPosition += getVelocity() * elapsed;
+
+	m_fAngle += m_fAngularVelocity * elapsed;
 
 	updatePoints();
 }

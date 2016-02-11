@@ -34,6 +34,7 @@ protected:
 	double m_fFrictionCoefficient;
 	double m_fElasticity;
 	double m_fRadius;
+	
 	sf::VertexArray m_vaPoints;
 	
 	bool broadCollisionCheck(Collidable * collidable);
@@ -54,6 +55,12 @@ public:
 	Vector2D<double> m_fvAngularAcceleration;
 	Vector2D<double> m_fvTorque;
 	double m_fvInertia;
+
+	double m_fAngularVelocity;
+	double m_fTorque;
+	double m_fInverseMomentOfInertia;
+
+
 
 	Vector2D<double> getPosition();
 	Vector2D<double> getVelocity();

@@ -86,6 +86,10 @@ void OBB::checkCollision(Circle * circle)
 		Vector2D<double> fvCollisionNormal = (fvClamp + getPosition() - circle->getPosition()).unitVector();
 		
 		resolveCollision(circle, &fvCollisionNormal, fOverlap);
+
+
+
+
 	}
 }
 
