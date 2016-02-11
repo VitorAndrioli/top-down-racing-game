@@ -37,7 +37,6 @@ Game::Game()
 
 	car = Car(50, 310, 0 * 3.14159 / 180);
 
-
 	obstacles.push_back(new Circle(550, 380, 35, 0));
 	obstacles.push_back(new Circle(470, 310, 25, 0));
 	obstacles.push_back(new Circle(360, 300, 40, 0));
@@ -97,12 +96,12 @@ void Game::processKeyPress(Keyboard::Key code)
 	if (code == sf::Keyboard::Right) car.m_bTurningRight = true;
 	if (code == sf::Keyboard::Left) car.m_bTurningLeft = true;
 	if (code == sf::Keyboard::Space) obstacles.back()->setVelocity(Vector2D<double>(0, 150)); //car.m_bBraking = true;
-
+	//*/
 	/*if (code == sf::Keyboard::Up) (obstacles.front())->setVelocity(Vector2D<double>(0, -150));
 	if (code == sf::Keyboard::Down) (obstacles.front())->setVelocity(Vector2D<double>(0, 150));
 	if (code == sf::Keyboard::Right) (obstacles.front())->setVelocity(Vector2D<double>(150, 0));
 	if (code == sf::Keyboard::Left) (obstacles.front())->setVelocity(Vector2D<double>(-150, 0));
-	if (code == sf::Keyboard::Space) car.m_bBraking = true;*/
+	//*/
 }
 
 void Game::processKeyRelease(Keyboard::Key code)

@@ -156,32 +156,15 @@ void OBB::checkCollision(OBB * obb)
 		{
 			collisionNormal = (*it).unitVector();
 			finalOverlap = overlap;
-			if (overlap1 <= overlap2) collisionNormal.flip();
-			
 		}
 				
 	}
 	
 	//std::cout << collisionNormal.getX() << " | " << collisionNormal.getY() << " | " << endl;
-
-	obb->setPosition(obb->getPosition() + (collisionNormal * -finalOverlap));
-
-	double fElasticity = min(getElasticity(), obb->getElasticity());
-
 	Vector2D<double> relVelocity = getVelocity() - obb->getVelocity();
+	if (relVelocity.dotProduct(&collisionNormal) > 0) collisionNormal.flip();
 
-	double velAlongNormal = relVelocity.dotProduct(&collisionNormal);
-	if (velAlongNormal > 0) return;
-
-	double j = -(1 + fElasticity) * relVelocity.dotProduct(&collisionNormal) / (getInverseMass() + obb->getInverseMass());
-
-	setVelocity(getVelocity() + (collisionNormal * j / getMass()));
-	obb->setVelocity(obb->getVelocity() - (collisionNormal * j / obb->getMass()));
-	
-	
-	
-	
-	//resolveCollision(obb, &collisionNormal, finalOverlap);
+	resolveCollision(obb, &collisionNormal, -finalOverlap);
 	
 }
 

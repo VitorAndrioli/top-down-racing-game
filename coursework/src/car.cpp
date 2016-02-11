@@ -27,7 +27,7 @@ Car::Car(double dPosX, double dPosY, double dAngle) : OBB(dPosX, dPosY, 30, 19, 
 	newCarAngle = m_fSteeringAngle;
 	frontWheel = new OBB(dPosX + 20, dPosY, 6, 19, 0);
 	setFrictionCoefficient(0.4);
-	setMass(250.0);
+	setMass(2500.0);
 }
 
 void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
