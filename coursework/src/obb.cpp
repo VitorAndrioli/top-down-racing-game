@@ -22,7 +22,7 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 	m_fvPosition.setY(dPosY);
 		
 	setAngle(dAngle);
-	setMass(dHalfExtentX*2);
+	setMass(dHalfExtentX*dHalfExtentY);
 	setRadius(m_fvHalfExtents.magnitude());
 
 	m_fvInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
@@ -125,7 +125,7 @@ void OBB::checkCollision(OBB * obb)
 
 	Vector2D<double> collisionNormal;
 	double finalOverlap = 999999;
-	double axisIndex = 0;
+	bool flip = false;
 
 	for (auto it = axis.begin(); it != axis.end(); ++it)
 	{
@@ -156,12 +156,32 @@ void OBB::checkCollision(OBB * obb)
 		{
 			collisionNormal = (*it).unitVector();
 			finalOverlap = overlap;
-			axisIndex = it - axis.begin();
+			if (overlap1 <= overlap2) collisionNormal.flip();
+			
 		}
+				
 	}
 	
-	if (collisionNormal.dotProduct(&obb->getVelocity()) >= 0) finalOverlap *= -1;
-	resolveCollision(obb, &collisionNormal, finalOverlap);
+	//std::cout << collisionNormal.getX() << " | " << collisionNormal.getY() << " | " << endl;
+
+	obb->setPosition(obb->getPosition() + (collisionNormal * -finalOverlap));
+
+	double fElasticity = min(getElasticity(), obb->getElasticity());
+
+	Vector2D<double> relVelocity = getVelocity() - obb->getVelocity();
+
+	double velAlongNormal = relVelocity.dotProduct(&collisionNormal);
+	if (velAlongNormal > 0) return;
+
+	double j = -(1 + fElasticity) * relVelocity.dotProduct(&collisionNormal) / (getInverseMass() + obb->getInverseMass());
+
+	setVelocity(getVelocity() + (collisionNormal * j / getMass()));
+	obb->setVelocity(obb->getVelocity() - (collisionNormal * j / obb->getMass()));
+	
+	
+	
+	
+	//resolveCollision(obb, &collisionNormal, finalOverlap);
 	
 }
 

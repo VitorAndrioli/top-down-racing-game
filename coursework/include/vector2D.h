@@ -29,6 +29,7 @@ public:
 	double squaredMagnitude(); //!<
 	double magnitude(); //!<
 	void rotate(double fAngle); //!<
+	void flip();
 	G getX();
 	G getY();
 	void setX(G x);
@@ -96,6 +97,13 @@ void Vector2D<G>::rotate(double fAngle)
 
 	setX(cos(fAngle)*tempX - sin(fAngle)*tempY);
 	setY(sin(fAngle)*tempX + cos(fAngle)*tempY);
+}
+
+template <class G>
+void Vector2D<G>::flip()
+{
+	setX(-getX());
+	setY(-getY());
 }
 
 template <class G>

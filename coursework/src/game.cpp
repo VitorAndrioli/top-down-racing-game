@@ -12,7 +12,7 @@ using namespace std;
 
 Game::Game()
 {
-	string obstaclesFile = ".\\assets\\text\\obstacles.txt";
+	/*string obstaclesFile = ".\\assets\\text\\obstacles.txt";
 
 	ifstream fileReader; // File reading tool
 	istringstream parser; // String reading tool
@@ -32,22 +32,24 @@ Game::Game()
 			parser.clear();
 		}
 		fileReader.close();
-	}
+	}*/
 
 
 	car = Car(50, 310, 0 * 3.14159 / 180);
 
 
-	//obstacles.push_back(new Circle(350, 300, 25, 0));
-	//obstacles.push_back(new Circle(470, 310, 25, 0));
-	//obstacles.push_back(new Circle(310, 300, 45, 0));
-	//obstacles.push_back(new OBB(350, 300, 50, 200, 0*3.14159/180));
-	/*obstacles.push_back(new OBB(300, 600, 40, 20, 3 * 3.14159 / 4));
+	obstacles.push_back(new Circle(550, 380, 35, 0));
+	obstacles.push_back(new Circle(470, 310, 25, 0));
+	obstacles.push_back(new Circle(360, 300, 40, 0));
+	obstacles.push_back(new OBB(200, 300, 25, 20, 20*3.14159/180));
+	obstacles.push_back(new OBB(350, 300, 5, 5, 45*3.14159/180));
 	obstacles.push_back(new OBB(222, 423, 40, 20, 1 * 3.14159 / 4));
 	obstacles.push_back(new OBB(540, 320, 40, 20, -123 * 3.14159/180));
 	obstacles.push_back(new OBB(620, 150, 40, 20, 1 * 3.14159 / 4));
 	//*/
 	
+	//(obstacles.back())->setMass(0);
+
 }
 
 void Game::draw(RenderTarget &target, RenderStates states) const
@@ -71,14 +73,15 @@ void Game::update(float timestep)
 	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{
 		if (car.isMoving()) car.checkCollision(*it);
-			//(*it)->checkCollision(&car);
-		//(*it)->print();
 		for (auto it2 = obstacles.begin(); it2 != obstacles.end(); ++it2)
 		{
 			if (it2 != it)
 			{
 				if ((*it)->isMoving())
+				{
 					(*it)->checkCollision(*it2);
+					(*it)->checkCollision(&car);
+				}
 				
 			}
 		}
@@ -89,11 +92,17 @@ void Game::update(float timestep)
 
 void Game::processKeyPress(Keyboard::Key code)
 {
-	if (code == sf::Keyboard::Up) car.m_bAccelerating = true; //car.accelerate();
-	if (code == sf::Keyboard::Down) car.m_bReversing = true; //car.reverse();
+	if (code == sf::Keyboard::Up) car.m_bAccelerating = true;
+	if (code == sf::Keyboard::Down) car.m_bReversing = true;
 	if (code == sf::Keyboard::Right) car.m_bTurningRight = true;
 	if (code == sf::Keyboard::Left) car.m_bTurningLeft = true;
-	if (code == sf::Keyboard::Space) car.m_bBraking = true;// (obstacles.front())->setVelocity(Vector2D<double>(-150, 0));
+	if (code == sf::Keyboard::Space) obstacles.back()->setVelocity(Vector2D<double>(0, 150)); //car.m_bBraking = true;
+
+	/*if (code == sf::Keyboard::Up) (obstacles.front())->setVelocity(Vector2D<double>(0, -150));
+	if (code == sf::Keyboard::Down) (obstacles.front())->setVelocity(Vector2D<double>(0, 150));
+	if (code == sf::Keyboard::Right) (obstacles.front())->setVelocity(Vector2D<double>(150, 0));
+	if (code == sf::Keyboard::Left) (obstacles.front())->setVelocity(Vector2D<double>(-150, 0));
+	if (code == sf::Keyboard::Space) car.m_bBraking = true;*/
 }
 
 void Game::processKeyRelease(Keyboard::Key code)
