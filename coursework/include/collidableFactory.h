@@ -1,19 +1,22 @@
-#pragma once
+#ifndef COLLIDABLE_FACTORY_H
+#define COLLIDABLE_FACTORY_H
 
 #include <collidable.h>
 #include <obb.h>
 #include <circle.h>
+#include "rapidxml.hpp"
+#include "rapidxml_iterators.hpp"
+#include "rapidxml_print.hpp"
+#include "rapidxml_utils.hpp"
+
+using namespace std;
 
 class CollidableFactory
 {
 public:
-	static Collidable * NewCollidable(const std::string &description)
-	{
-		if (description == "obb")
-			return new OBB(450, 300, 20, 200, 0 * 3.14159 / 180);
-		if (description == "circle")
-			return new Circle(300, 300, 25, 0);
-		return NULL;
-	}
+	static Collidable * NewCollidable(const rapidxml::xml_node<>* pNode);
+	static Collidable * NewCollidable(const std::string &description);
+	static string split(const std::string parameter, char delim);
 };
 
+#endif

@@ -1,15 +1,22 @@
 #ifndef CAR_H
 #define CAR_H
 
+#define TO_RADIANS  M_PI / 180
+#define MAXIMUM_SPEED_SQUARED 130 * 130
+#define STOPPING_SPEED 0.1
+#define MAXIMUM_REVERSE_SPEED_SQUARED 100 * 100
+#define TYRE_MAXIMUM_ORIENTATION 25 * TO_RADIANS
+#define TYRE_STOPPING_ORIENTATION 0.05 * TO_RADIANS
+#define TYRE_MOVEMENT 0.5 * TO_RADIANS
+
 #include "obb.h"
 
 class Car : public OBB
 {
 public:
 	Car();
-	Car(double dPosX, double dPosY, double dAngle);
+	Car(double fPosX, double fPosY, double fOrientation);
 	void update(float elapsed);
-	double newCarAngle;
 	bool m_bMovingForward;
 	
 	bool m_bTurningRight;
@@ -18,12 +25,12 @@ public:
 	bool m_bReversing;
 	bool m_bBraking;
 		
-	double m_fSteeringAngle;
+	double m_fSteeringOrientation;
 	double m_fWheelBase;
 	OBB * frontWheel;
 	void setVelocity(Vector2D<double> velocity);
-	void setSteeringAngle(double fAngle);
-	double getSteeringAngle();
+	void setSteeringOrientation(double fOrientation);
+	double getSteeringOrientation();
 	double getFrictionCoefficient();
 	void steer();
 private:

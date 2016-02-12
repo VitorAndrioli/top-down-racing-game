@@ -30,6 +30,7 @@ public:
 	double magnitude(); //!<
 	void rotate(double fAngle); //!<
 	void flip();
+	void normalize();
 	G getX();
 	G getY();
 	void setX(G x);
@@ -46,34 +47,34 @@ public:
 template <class G>
 Vector2D<G>::Vector2D()
 {
-	setX(0);
-	setY(0);
+	m_x = 0;
+	m_y = 0;
 }
 
 template <class G>
 Vector2D<G>::Vector2D(G x, G y)
 {
-	setX(x);
-	setY(y);
+	m_x = x;
+	m_y = y;
 }
 
 template <class G>
 double Vector2D<G>::dotProduct(Vector2D<G> * vector2d)
 {
-	return getX() * vector2d->getX() + getY() * vector2d->getY();
+	return m_x * vector2d->getX() + m_y * vector2d->getY();
 }
 
 template <class G>
 double Vector2D<G>::crossProduct(Vector2D<G> * vector2d)
 {
-	return getX() * vector2d->getY() - getY() * vector2d->getX();
+	return m_x * vector2d->getY() - m_y * vector2d->getX();
 }
 
 template<class G>
 Vector2D<G> Vector2D<G>::unitVector()
 {
-	double x = getX() / magnitude();
-	double y = getY() / magnitude();
+	G x = m_x / magnitude();
+	G y = m_y / magnitude();
 	return Vector2D<G>(x, y);
 }
 
@@ -92,18 +93,27 @@ double Vector2D<G>::magnitude()
 template <class G>
 void Vector2D<G>::rotate(double fAngle)
 {
-	double tempX = getX();
-	double tempY = getY();
+	G tempX = m_x;
+	G tempY = m_y;
 
-	setX(cos(fAngle)*tempX - sin(fAngle)*tempY);
-	setY(sin(fAngle)*tempX + cos(fAngle)*tempY);
+	m_x = cos(fAngle)*tempX - sin(fAngle)*tempY;
+	m_y = sin(fAngle)*tempX + cos(fAngle)*tempY;
 }
 
 template <class G>
 void Vector2D<G>::flip()
 {
-	setX(-getX());
-	setY(-getY());
+	m_x = -m_x;
+	m_y = -m_y;
+}
+
+template <class G>
+void Vector2D<G>::normalize()
+{
+	G newX = m_x / magnitude();
+	G newY = m_y / magnitude();
+	m_x = newX;
+	m_y = newY;
 }
 
 template <class G>
@@ -133,47 +143,47 @@ void Vector2D<G>::setY(G y)
 template <class G>
 Vector2D<G> Vector2D<G>::operator+(Vector2D<G>& other)
 {
-	G x = getX() + other.getX();
-	G y = getY() + other.getY();
+	G x = m_x + other.getX();
+	G y = m_y + other.getY();
 	return Vector2D<G>(x, y);
 }
 
 template <class G>
 Vector2D<G> Vector2D<G>::operator-(Vector2D<G>& other)
 {
-	G x = getX() - other.getX();
-	G y = getY() - other.getY();
+	G x = m_x - other.getX();
+	G y = m_y - other.getY();
 	return Vector2D<G>(x, y);
 }
 
 template <class G>
 Vector2D<G> Vector2D<G>::operator*(double scalar)
 {
-	G x = getX() * scalar;
-	G y = getY() * scalar;
+	G x = m_x * scalar;
+	G y = m_y * scalar;
 	return Vector2D<G>(x, y);
 }
 
 template <class G>
 Vector2D<G> Vector2D<G>::operator/(double scalar)
 {
-	G x = getX() / scalar;
-	G y = getY() / scalar;
+	G x = m_x / scalar;
+	G y = m_y / scalar;
 	return Vector2D<G>(x, y);
 }
 
 template <class G>
 void Vector2D<G>::operator+=(Vector2D<G>& other)
 {
-	setX(getX() + other.getX());
-	setY(getY() + other.getY());
+	m_x = m_x + other.getX();
+	m_y = m_y + other.getY();
 }
 
 template <class G>
 void Vector2D<G>::operator-=(Vector2D<G>& other)
 {
-	setX(getX() - other.getX());
-	setY(getY() - other.getY());
+	m_x = m_x - other.getX();
+	m_y = m_y - other.getY();
 }
 
 #endif

@@ -10,8 +10,15 @@
 #include "collidableFactory.h"
 #include "car.h"
 #include "vector2D.h"
-#include <iostream>
+#include "rapidxml.hpp"
+#include "rapidxml_iterators.hpp"
+#include "rapidxml_print.hpp"
+#include "rapidxml_utils.hpp"
 #include <array>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 #include <SFML/Graphics.hpp>
 
@@ -28,6 +35,7 @@ public:
 	void update(float timestep); //!< Update all entities in the game
 	void processKeyPress(Keyboard::Key code); //!< Action any key presses
 	void processKeyRelease(Keyboard::Key code); //!< Action any key releases
+	View view1;
 	
 };
 

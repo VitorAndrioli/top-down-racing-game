@@ -9,15 +9,14 @@ Circle::Circle()
 
 }
 
-Circle::Circle(double fPosX, double fPosY, double fRadius, double fAngle)
+Circle::Circle(double fPosX, double fPosY, double fRadius, double fOrientation)
 {
-	m_fvPosition.setX(fPosX);
-	m_fvPosition.setY(fPosY);
-	setRadius(fRadius);
-	setAngle(fAngle);
-	setMass(fRadius*2);
+	m_fvPosition = Vector2D<double>(fPosX, fPosY);
+	m_fRadius = fRadius;
+	m_fOrientation = fOrientation;
+	m_fInverseMass = 1/(fRadius*2);
 
-	m_fvInertia = (getMass()*pow(getRadius(), 4)) / 4;
+	//m_fInverseMomentOfInertia = (getMass()*pow(getRadius(), 4)) / 4;
 }
 
 void Circle::checkCollision(Collidable * collidable)
@@ -29,11 +28,12 @@ void Circle::checkCollision(Circle * circle)
 {
 	if (broadCollisionCheck(circle))
 	{
-		double fCentreDist = (getPosition() - circle->getPosition()).magnitude();
-		double fRadiiSum = getRadius() + circle->getRadius();
+		Vector2D<double> fvCollisionNormal = (m_fvPosition - circle->getPosition());
+		double fCentreDist = fvCollisionNormal.magnitude();
+		double fRadiiSum = m_fRadius + circle->getRadius();
 		double fOverlap = fCentreDist - fRadiiSum;
-		Vector2D<double> fvCollisionNormal = (getPosition() - circle->getPosition()).unitVector();
-
+		
+		fvCollisionNormal.normalize();
 		resolveCollision(circle, &fvCollisionNormal, fOverlap);
 	}
 
@@ -44,8 +44,8 @@ void Circle::checkCollision(OBB * obb)
 	
 	if (!broadCollisionCheck(obb)) return;
 
-	Vector2D<double> fvCentreDistance = getPosition() - obb->getPosition();
-	fvCentreDistance.rotate(-obb->getAngle());
+	Vector2D<double> fvCentreDistance = m_fvPosition - obb->getPosition();
+	fvCentreDistance.rotate(-obb->getOrientation());
 	
 	Vector2D<double> fvClamp;
 	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -obb->getHalfExtents().getX()));
@@ -58,9 +58,9 @@ void Circle::checkCollision(OBB * obb)
 	{
 		double fOverlap = fvDiff.magnitude() - getRadius();
 
-		fvClamp.rotate(obb->getAngle());
-		Vector2D<double> fvCollisionNormal = (getPosition() - fvClamp - obb->getPosition()).unitVector();
-
+		fvClamp.rotate(obb->getOrientation());
+		Vector2D<double> fvCollisionNormal = m_fvPosition - fvClamp - obb->getPosition();
+		fvCollisionNormal.normalize();
 		resolveCollision(obb, &fvCollisionNormal, fOverlap);
 	}
 }

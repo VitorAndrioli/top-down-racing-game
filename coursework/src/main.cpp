@@ -21,6 +21,29 @@ int main()
 	
 	Game game;
 
+
+	sf::Texture texture;
+	texture.loadFromFile("assets/img/track_small.jpg");
+	
+	// Create a sprite
+	sf::Sprite sprite;
+	sprite.setTexture(texture);
+	sprite.setTextureRect(sf::IntRect(0, 0, 1500, 1600));
+	sprite.scale(2, 2);
+	sprite.setColor(sf::Color(255, 255, 255, 200));
+	sprite.setPosition(0, 0);
+	// Draw it
+	
+	sf::View mainView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
+	mainView.setViewport(sf::FloatRect(0, 0, 1, 1));
+
+	sf::View miniView(sf::FloatRect(0, 0, 1500, 1600));
+	miniView.setViewport(sf::FloatRect(0.8, 0, 0.2, 0.2));
+	
+	
+	
+
+	
 	Clock clock;
 	
 	while (window.isOpen())
@@ -44,9 +67,17 @@ int main()
 		}
 
 		window.clear(Color::Black);
-		
+
+		//window.setView(mainView);
+		//mainView.setCenter(game.car.getPosition().getX(), game.car.getPosition().getY());
+		//window.draw(sprite);
 		window.draw(game);
-		
+
+		/*window.setView(miniView);
+		window.draw(sprite);
+		window.draw(game);
+		*/
+
 		window.display();
 	}
 

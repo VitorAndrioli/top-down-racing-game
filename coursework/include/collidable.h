@@ -30,10 +30,18 @@ protected:
 	Vector2D<double> m_fvAcceleration;
 	Vector2D<double> m_fvThrust;
 	double m_fInverseMass;
-	double m_fAngle;
+	double m_fOrientation;
 	double m_fFrictionCoefficient;
 	double m_fElasticity;
 	double m_fRadius;
+	
+	Vector2D<double> m_fvAngularPosition;
+	Vector2D<double> m_fvAngularVelocity;
+	Vector2D<double> m_fvAngularAcceleration;
+	Vector2D<double> m_fvTorque;
+	double m_fAngularVelocity;
+	double m_fTorque;
+	double m_fInverseMomentOfInertia;
 	
 	sf::VertexArray m_vaPoints;
 	
@@ -49,26 +57,15 @@ public:
 	virtual void checkCollision(OBB * obb) = 0;
 	bool isMoving();
 
-	void print() { std::cout << getVelocity().getX() << " | " << getVelocity().getY() << std::endl; }
-	Vector2D<double> m_fvAngularPosition;
-	Vector2D<double> m_fvAngularVelocity;
-	Vector2D<double> m_fvAngularAcceleration;
-	Vector2D<double> m_fvTorque;
-	double m_fvInertia;
-
-	double m_fAngularVelocity;
-	double m_fTorque;
-	double m_fInverseMomentOfInertia;
-
-
-
+	void print() { std::cout << getAcceleration().getX() << " | " << getAcceleration().getY() << std::endl; }
+	
 	Vector2D<double> getPosition();
 	Vector2D<double> getVelocity();
 	Vector2D<double> getAcceleration();
 	Vector2D<double> getThrust();
 	double getInverseMass();
 	double getMass();
-	double getAngle();
+	double getOrientation();
 	double getElasticity();
 	double getFrictionCoefficient();
 	double getRadius();
@@ -76,7 +73,7 @@ public:
 	void setVelocity(Vector2D<double> fvVelocity);
 	void setAcceleration(Vector2D<double> fvAcceleration);
 	void setThrust(Vector2D<double> fvThrust);
-	void setAngle(double fAngle);
+	void setOrientation(double fOrientation);
 	void setMass(double fMass);
 	void setFrictionCoefficient(double fFrictionCoefficient);
 	void setElasticity(double fRestitution);

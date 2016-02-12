@@ -13,19 +13,17 @@ OBB::OBB()
 
 }
 
-OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle)
+OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation)
 {
-	m_fvHalfExtents.setX(dHalfExtentX);
-	m_fvHalfExtents.setY(dHalfExtentY);
-	
-	m_fvPosition.setX(dPosX);
-	m_fvPosition.setY(dPosY);
+	m_fvHalfExtents = Vector2D<double>(fHalfExtentX, fHalfExtentY);
+	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 		
-	setAngle(dAngle);
-	setMass(dHalfExtentX*dHalfExtentY);
-	setRadius(m_fvHalfExtents.magnitude());
+	m_fOrientation = fOrientation;
+	setMass(fHalfExtentX*fHalfExtentY);
+	m_fRadius = m_fvHalfExtents.magnitude();
+	m_fElasticity = 0.6;
 
-	m_fvInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
+	//m_fInverseMomentOfInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
 
 	m_vaPoints.resize(5);
 }
@@ -33,26 +31,26 @@ OBB::OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, d
 void OBB::updatePoints()
 {
 	
-	Vector2D<double> rotationMatrixLine1(cos(getAngle()), -sin(getAngle()));
-	Vector2D<double> rotationMatrixLine2(sin(getAngle()), cos(getAngle()));
+	Vector2D<double> rotationMatrixLine1(cos(m_fOrientation), -sin(m_fOrientation));
+	Vector2D<double> rotationMatrixLine2(sin(m_fOrientation), cos(m_fOrientation));
 
-	Vector2D<double> tempVector(-getHalfExtents().getX(), getHalfExtents().getY());
-	tempVector.rotate(getAngle());
+	Vector2D<double> tempVector(-m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
+	tempVector.rotate(m_fOrientation);
 	m_vaPoints[0].position.x = m_vaPoints[4].position.x = (tempVector + getPosition()).getX();
 	m_vaPoints[0].position.y = m_vaPoints[4].position.y = (tempVector + getPosition()).getY();
 
-	tempVector = Vector2D<double>(getHalfExtents().getX(), getHalfExtents().getY());
-	tempVector.rotate(getAngle());
+	tempVector = Vector2D<double>(m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
+	tempVector.rotate(m_fOrientation);
 	m_vaPoints[1].position.x = (tempVector + getPosition()).getX();
 	m_vaPoints[1].position.y = (tempVector + getPosition()).getY();
 
-	tempVector = Vector2D<double>(getHalfExtents().getX(), -getHalfExtents().getY());
-	tempVector.rotate(getAngle());
+	tempVector = Vector2D<double>(m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
+	tempVector.rotate(m_fOrientation);
 	m_vaPoints[2].position.x = (tempVector + getPosition()).getX();
 	m_vaPoints[2].position.y = (tempVector + getPosition()).getY();
 
-	tempVector = Vector2D<double>(-getHalfExtents().getX(), -getHalfExtents().getY());
-	tempVector.rotate(getAngle());
+	tempVector = Vector2D<double>(-m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
+	tempVector.rotate(m_fOrientation);
 	m_vaPoints[3].position.x = (tempVector + getPosition()).getX();
 	m_vaPoints[3].position.y = (tempVector + getPosition()).getY();
 
@@ -67,14 +65,14 @@ void OBB::checkCollision(Circle * circle)
 {
 	if (!broadCollisionCheck(circle)) return;
 
-	Vector2D<double> fvCentreDistance = circle->getPosition() - getPosition();
-	fvCentreDistance.rotate(-getAngle());
+	Vector2D<double> fvCentreDistance = circle->getPosition() - m_fvPosition;
+	fvCentreDistance.rotate(-m_fOrientation);
 
 	Vector2D<double> fvClamp;
-	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -getHalfExtents().getX()));
-	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), getHalfExtents().getX()));
-	if (fvCentreDistance.getY() < 0) fvClamp.setY(std::max(fvCentreDistance.getY(), -getHalfExtents().getY()));
-	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), getHalfExtents().getY()));
+	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -m_fvHalfExtents.getX()));
+	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), m_fvHalfExtents.getX()));
+	if (fvCentreDistance.getY() < 0) fvClamp.setY(std::max(fvCentreDistance.getY(), -m_fvHalfExtents.getY()));
+	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), m_fvHalfExtents.getY()));
 	
 
 	Vector2D<double> fvDiff = fvCentreDistance - fvClamp;
@@ -82,13 +80,10 @@ void OBB::checkCollision(Circle * circle)
 	{
 		double fOverlap = fvDiff.magnitude() - circle->getRadius();
 		
-		fvClamp.rotate(getAngle());
-		Vector2D<double> fvCollisionNormal = (fvClamp + getPosition() - circle->getPosition()).unitVector();
-		
+		fvClamp.rotate(m_fOrientation);
+		Vector2D<double> fvCollisionNormal = fvClamp + m_fvPosition - circle->getPosition();
+		fvCollisionNormal.normalize();
 		resolveCollision(circle, &fvCollisionNormal, fOverlap);
-
-
-
 
 	}
 }
@@ -100,14 +95,14 @@ void OBB::checkCollision(OBB * obb)
 	array<Vector2D<double>, 4> obb1points;
 	array<Vector2D<double>, 4> obb2points;
 
-	obb1points[0] = Vector2D<double>(getHalfExtents().getX(), getHalfExtents().getY());
-	obb1points[1] = Vector2D<double>(getHalfExtents().getX(), -getHalfExtents().getY());
-	obb1points[2] = Vector2D<double>(-getHalfExtents().getX(), getHalfExtents().getY());
-	obb1points[3] = Vector2D<double>(-getHalfExtents().getX(), -getHalfExtents().getY());
+	obb1points[0] = Vector2D<double>(m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
+	obb1points[1] = Vector2D<double>(m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
+	obb1points[2] = Vector2D<double>(-m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
+	obb1points[3] = Vector2D<double>(-m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
 	for (auto it = obb1points.begin(); it != obb1points.end(); ++it)
 	{
-		(*it).rotate(getAngle());
-		(*it) += getPosition();
+		(*it).rotate(m_fOrientation);
+		(*it) += m_fvPosition;
 	}
 
 	obb2points[0] = Vector2D<double>(obb->getHalfExtents().getX(), obb->getHalfExtents().getY());
@@ -116,18 +111,18 @@ void OBB::checkCollision(OBB * obb)
 	obb2points[3] = Vector2D<double>(-obb->getHalfExtents().getX(), -obb->getHalfExtents().getY());
 	for (auto it = obb2points.begin(); it != obb2points.end(); ++it)
 	{
-		(*it).rotate(obb->getAngle());
+		(*it).rotate(obb->getOrientation());
 		(*it) += obb->getPosition();
 	}
 
 	array<Vector2D<double>, 4> axis = {
-		Vector2D<double>(cos(getAngle()), sin(getAngle())),
-		Vector2D<double>(-sin(getAngle()), cos(getAngle())),
-		Vector2D<double>(cos(obb->getAngle()), sin(obb->getAngle())),
-		Vector2D<double>(-sin(obb->getAngle()), cos(obb->getAngle()))
+		Vector2D<double>(cos(m_fOrientation), sin(m_fOrientation)),
+		Vector2D<double>(-sin(m_fOrientation), cos(m_fOrientation)),
+		Vector2D<double>(cos(obb->getOrientation()), sin(obb->getOrientation())),
+		Vector2D<double>(-sin(obb->getOrientation()), cos(obb->getOrientation()))
 	};
 
-	Vector2D<double> collisionNormal;
+	Vector2D<double> fvCollisionNormal;
 	double finalOverlap = 999999;
 	bool flip = false;
 
@@ -156,19 +151,19 @@ void OBB::checkCollision(OBB * obb)
 		double overlap2 = obb2max - obb1min;
 		double overlap = min(overlap1, overlap2);
 
-		if (overlap <= finalOverlap)
+		if (overlap < finalOverlap)
 		{
-			collisionNormal = (*it).unitVector();
+			fvCollisionNormal = (*it).unitVector();
 			finalOverlap = overlap;
 		}
 				
 	}
 	
-	//std::cout << collisionNormal.getX() << " | " << collisionNormal.getY() << " | " << endl;
-	Vector2D<double> relVelocity = getVelocity() - obb->getVelocity();
-	if (relVelocity.dotProduct(&collisionNormal) > 0) collisionNormal.flip();
+	Vector2D<double> relativePosition = m_fvPosition - obb->getPosition();
+	if (relativePosition.dotProduct(&fvCollisionNormal) < 0) fvCollisionNormal.flip();
 
-	resolveCollision(obb, &collisionNormal, -finalOverlap);
+	//std::cout << collisionNormal.getX() << " | " << collisionNormal.getY() << " | " << (getPosition() - obb->getPosition()).dotProduct(&collisionNormal) << endl;
+	resolveCollision(obb, &fvCollisionNormal, -finalOverlap);
 	
 }
 

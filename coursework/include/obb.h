@@ -9,9 +9,10 @@ protected:
 	Vector2D<double> m_fvHalfExtents;
 public:
 	OBB();
-	OBB(double dPosX, double dPosY, double dHalfExtentX, double dHalfExtentY, double dAngle);
+	OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation);
 	void updatePoints();
 	Vector2D<double> getHalfExtents();
+	void setHalfExtents(Vector2D<double>);
 	void checkCollision(Collidable * collidable);
 	void checkCollision(Circle * circle);
 	void checkCollision(OBB * obb);

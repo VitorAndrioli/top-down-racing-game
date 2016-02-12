@@ -7,11 +7,11 @@ using namespace std;
 
 Collidable::Collidable()
 {
-	setVelocity(Vector2D<double>(0, 0));
-	setAcceleration(Vector2D<double>(0, 0));
-	setThrust(Vector2D<double>(0, 0));
-	setFrictionCoefficient(0.4);
-	setElasticity(0.6);
+	m_fvVelocity = Vector2D<double>(0, 0);
+	m_fvAcceleration = Vector2D<double>(0, 0);
+	m_fvThrust = Vector2D<double>(0, 0);
+	m_fFrictionCoefficient = 0.4;
+	m_fElasticity = 0.6;
 
 	m_fAngularVelocity = 0;
 	m_fTorque = 0;
@@ -28,27 +28,27 @@ void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Collidable::update(float elapsed)
 {
-	Vector2D<double> friction = m_fvVelocity * getFrictionCoefficient();
+	Vector2D<double> friction = m_fvVelocity * m_fFrictionCoefficient;
 	
-	setAcceleration(getThrust() - friction);
-	m_fvVelocity += getAcceleration() * elapsed;
+	m_fvAcceleration = (m_fvThrust - friction) * m_fInverseMass;
+	m_fvVelocity += m_fvAcceleration * elapsed;
 
 	m_fAngularVelocity += m_fTorque * m_fInverseMomentOfInertia * elapsed;
 
-	m_fvPosition += getVelocity() * elapsed;
+	m_fvPosition += m_fvVelocity * elapsed;
 
-	m_fAngle += m_fAngularVelocity * elapsed;
+	m_fOrientation += m_fAngularVelocity * elapsed;
 
 	updatePoints();
 }
 
 bool Collidable::broadCollisionCheck(Collidable * collidable)
 {
-	double fCentreDistSquared = (getPosition() - collidable->getPosition()).squaredMagnitude();
-	double fRadiiSumSquared = (getRadius() + collidable->getRadius()) * (getRadius() + collidable->getRadius());
+	double fCentreDistSquared = (m_fvPosition - collidable->getPosition()).squaredMagnitude();
+	double fRadiiSumSquared = (m_fRadius + collidable->getRadius()) * (m_fRadius + collidable->getRadius());
 
 	if (fCentreDistSquared - fRadiiSumSquared <= 0) return true;
-	else return false;
+	return false;
 	
 }
 
@@ -56,22 +56,22 @@ void Collidable::resolveCollision(Collidable * collidable, Vector2D<double> * co
 {
 	collidable->setPosition(collidable->getPosition() + (*collisionNormal * overlap));
 	
-	double fElasticity = min(getElasticity(), collidable->getElasticity());
+	double fElasticity = min(m_fElasticity, collidable->getElasticity());
 	
-	Vector2D<double> relVelocity = getVelocity() - collidable->getVelocity();
+	Vector2D<double> relVelocity = m_fvVelocity - collidable->getVelocity();
 	
 	double velAlongNormal = relVelocity.dotProduct(collisionNormal);
 	if (velAlongNormal > 0) return;
 
-	double j = -(1 + fElasticity) * relVelocity.dotProduct(collisionNormal) / (getInverseMass() + collidable->getInverseMass());
+	double j = -(1 + fElasticity) * relVelocity.dotProduct(collisionNormal) / (m_fInverseMass + collidable->getInverseMass());
 
-	setVelocity(getVelocity() + (*collisionNormal * j / getMass()));
-	collidable->setVelocity(collidable->getVelocity() - (*collisionNormal * j / collidable->getMass()));
+	m_fvVelocity += (*collisionNormal * j * m_fInverseMass);
+	collidable->setVelocity(collidable->getVelocity() - (*collisionNormal * j * collidable->getInverseMass()));
 }
 
 bool Collidable::isMoving()
 {
-	return getVelocity().squaredMagnitude() > 0;
+	return m_fvVelocity.squaredMagnitude() > 0;
 }
 
 
@@ -87,7 +87,7 @@ Vector2D<double> Collidable::getPosition()
 void Collidable::setVelocity(Vector2D<double> velocity)
 {
 	m_fvVelocity = velocity;
-	if (abs(m_fvVelocity.squaredMagnitude()) < 5) m_fvVelocity = Vector2D<double>(0, 0);
+	if (abs(m_fvVelocity.squaredMagnitude()) < 0.05) m_fvVelocity = Vector2D<double>(0, 0);
 }
 Vector2D<double> Collidable::getVelocity()
 {
@@ -126,13 +126,13 @@ double Collidable::getInverseMass()
 	return m_fInverseMass;
 }
 
-void Collidable::setAngle(double angle)
+void Collidable::setOrientation(double angle)
 {
-	m_fAngle = angle;
+	m_fOrientation = angle;
 }
-double Collidable::getAngle()
+double Collidable::getOrientation()
 {
-	return m_fAngle;
+	return m_fOrientation;
 }
 
 void Collidable::setFrictionCoefficient(double fFrictionCoefficient)
@@ -152,9 +152,6 @@ double Collidable::getElasticity()
 {
 	return m_fElasticity;
 }
-
-
-
 
 double Collidable::getRadius()
 {
