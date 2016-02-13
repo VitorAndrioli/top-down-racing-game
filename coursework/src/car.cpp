@@ -31,7 +31,7 @@ Car::Car(double dPosX, double dPosY, double dOrientation)
 
 	m_vaPoints.resize(5);
 	
-	m_fMaxVelocity = 130;
+	m_fMaxVelocity = MAXIMUM_SPEED;
 	m_fWheelBase = 45;
 	setSteeringOrientation(dOrientation);
 	
@@ -40,12 +40,17 @@ Car::Car(double dPosX, double dPosY, double dOrientation)
 	setFrictionCoefficient(0.4);
 	setMass(1500.0);
 	m_fElasticity = 0.6;
+
+	sf::Texture carTexture;
+	carTexture.loadFromFile("assets/img/tyre.jpg");
+	setTexture(&carTexture);
 }
 
 void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(m_vaPoints, states);
 	target.draw(*frontWheel);
+	target.draw(m_sprite);
 }
 
 void Car::controlInput()
@@ -67,7 +72,7 @@ void Car::update(float elapsed)
 	
 	Vector2D<double> fvFriction = m_fvVelocity * m_fFrictionCoefficient;
 	m_fvAcceleration = (m_fvThrust - fvFriction);
-	m_fvVelocity += m_fvAcceleration * elapsed;
+	setVelocity( m_fvVelocity + m_fvAcceleration * elapsed );
 
 
 	//std::cout << m_fvAcceleration.getX() << " | " << m_fvAcceleration.getY() << std::endl;
@@ -100,14 +105,14 @@ void Car::update(float elapsed)
 	frontWheel->setPosition(frontWheelPos);
 	frontWheel->setOrientation(m_fSteeringOrientation);
 	
-	updatePoints();
+	updateSprite();
 }
 
 void Car::setVelocity(Vector2D<double> velocity)
 {
 	m_fvVelocity = velocity;
-	
-	if (m_bMovingForward && abs(m_fvVelocity.squaredMagnitude()) > MAXIMUM_SPEED_SQUARED)
+
+	if (m_bMovingForward && abs(m_fvVelocity.squaredMagnitude()) > m_fMaxVelocity*m_fMaxVelocity)
 	{
 		m_fvVelocity.setX(m_fMaxVelocity*cos(getOrientation()));
 		m_fvVelocity.setY(m_fMaxVelocity*sin(getOrientation()));

@@ -21,9 +21,9 @@ int main()
 	
 	Game game;
 
-	sf::Texture tyreTexture;
-	tyreTexture.loadFromFile("assets/img/tyre.jpg");
-	game.tyre.m_sprite.setTexture(tyreTexture);
+	//sf::Texture tyreTexture;
+	//tyreTexture.loadFromFile("assets/img/tyre.jpg");
+	//game.tyre.m_sprite.setTexture(tyreTexture);
 
 	sf::Texture texture;
 	texture.loadFromFile("assets/img/track_small.jpg");

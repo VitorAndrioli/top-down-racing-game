@@ -26,6 +26,12 @@ OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, d
 	//m_fInverseMomentOfInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
 
 	m_vaPoints.resize(5);
+
+	sf::Texture carTexture;
+	carTexture.loadFromFile("assets/img/tyre.jpg");
+	setTexture(&carTexture);
+
+
 }
 
 void OBB::updatePoints()
@@ -166,6 +172,17 @@ void OBB::checkCollision(OBB * obb)
 	resolveCollision(obb, &fvCollisionNormal, -finalOverlap);
 	
 }
+
+void OBB::setTexture(sf::Texture * texture)
+{
+	m_sprite.setTexture(*texture);
+	m_sprite.setOrigin(m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
+	m_sprite.setTextureRect(sf::IntRect(0, 0, m_fvHalfExtents.getX() * 2, m_fvHalfExtents.getY() * 2));
+	m_sprite.scale(1, 1);
+	m_sprite.setColor(sf::Color(255, 255, 255, 128));
+
+}
+
 
 Vector2D<double> OBB::getHalfExtents()
 {

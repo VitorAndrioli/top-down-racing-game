@@ -14,6 +14,7 @@ public:
 	void checkCollision(Collidable * collidable);
 	void checkCollision(Circle * circle);
 	void checkCollision(OBB * obb);
+	void setTexture(sf::Texture * texture);
 };
 
 #endif

@@ -17,6 +17,9 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fOrientation)
 	m_fInverseMass = 1/(fRadius*2);
 
 	//m_fInverseMomentOfInertia = (getMass()*pow(getRadius(), 4)) / 4;
+	sf::Texture carTexture;
+	carTexture.loadFromFile("assets/img/tyre.jpg");
+	setTexture(&carTexture);
 }
 
 void Circle::checkCollision(Collidable * collidable)
@@ -62,6 +65,16 @@ void Circle::checkCollision(OBB * obb)
 		fvCollisionNormal.normalize();
 		resolveCollision(obb, &fvCollisionNormal, fOverlap);
 	}
+}
+
+void Circle::setTexture(sf::Texture * texture)
+{
+	m_sprite.setTexture(*texture);
+	m_sprite.setOrigin(getRadius(), getRadius());
+	m_sprite.setTextureRect(sf::IntRect(0, 0, getRadius() * 2, getRadius() * 2));
+	m_sprite.scale(1, 1);
+	m_sprite.setColor(sf::Color(255, 255, 255, 128));
+	m_sprite.setPosition(getPosition().getX(), getPosition().getY());
 }
 
 void Circle::updatePoints()

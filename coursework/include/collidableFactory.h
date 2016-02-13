@@ -4,6 +4,7 @@
 #include <collidable.h>
 #include <obb.h>
 #include <circle.h>
+#include <tyre.h>
 #include <SFML\Graphics.hpp>
 #include "rapidxml.hpp"
 #include "rapidxml_iterators.hpp"
@@ -16,6 +17,7 @@ class CollidableFactory
 {
 public:
 	static Collidable * NewCollidable(const rapidxml::xml_node<>* pNode);
+	static void LoadTextures();
 	static Collidable * NewCollidable(const std::string &description);
 	static string split(const std::string parameter, char delim);
 };

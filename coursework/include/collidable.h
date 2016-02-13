@@ -15,6 +15,9 @@
 #ifndef COLLIDABLE_H
 #define COLLIDABLE_H
 
+#define TO_RADIANS  M_PI / 180
+#define TO_DEGREES  180 / M_PI
+
 #include <SFML/Graphics.hpp>
 #include "vector2D.h"
 #include <iostream>
@@ -44,6 +47,8 @@ protected:
 	double m_fInverseMomentOfInertia;
 	
 	sf::VertexArray m_vaPoints;
+
+	void updateSprite();
 	
 	bool broadCollisionCheck(Collidable * collidable);
 	void resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap);
@@ -59,7 +64,7 @@ public:
 	virtual void checkCollision(OBB * obb) = 0;
 	bool isMoving();
 
-	void print() { std::cout << getAcceleration().getX() << " | " << getAcceleration().getY() << std::endl; }
+	void print() { std::cout << getVelocity().magnitude() << " | " << getAcceleration().getY() << std::endl; }
 	
 	Vector2D<double> getPosition();
 	Vector2D<double> getVelocity();
@@ -81,7 +86,7 @@ public:
 	void setElasticity(double fRestitution);
 	void setRadius(double fRadius);
 
-	void setTexture(sf::Texture texture);
+	virtual void setTexture(sf::Texture * texture) = 0;
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

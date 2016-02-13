@@ -40,9 +40,15 @@ void Collidable::update(float elapsed)
 
 	m_fOrientation += m_fAngularVelocity * elapsed;
 
-	m_sprite.setPosition(m_fvPosition.getX(), m_fvPosition.getY());
-	//m_sprite.setRotation(m_sprite.getRotation() + 1);
+	updateSprite();
 	updatePoints();
+}
+
+void Collidable::updateSprite()
+{
+	m_sprite.setPosition(m_fvPosition.getX(), m_fvPosition.getY());
+	m_sprite.setRotation(m_fOrientation * TO_DEGREES);
+
 }
 
 bool Collidable::broadCollisionCheck(Collidable * collidable)
@@ -166,9 +172,4 @@ void Collidable::setRadius(double fRadius)
 		m_fRadius = fRadius;
 	else
 		m_fRadius = 1;
-}
-
-void Collidable::setTexture(sf::Texture texture)
-{
-	
 }
