@@ -9,6 +9,7 @@
 #include "collidable.h"
 #include "collidableFactory.h"
 #include "car.h"
+#include "tyre.h"
 #include "vector2D.h"
 #include "rapidxml.hpp"
 #include "rapidxml_iterators.hpp"
@@ -28,6 +29,7 @@ class Game : public Drawable
 {
 public:
 	Car car;
+	Tyre tyre;
 	//std::array<Collidable*, 5> obstacles;
 	std::vector<Collidable*> obstacles;
 	Game(); //!< Constructor

@@ -2,6 +2,11 @@
 
 Collidable * CollidableFactory::NewCollidable(const rapidxml::xml_node<>* pNode)
 {
+
+	sf::Texture tyreTexture;
+	tyreTexture.loadFromFile("assets/img/tyre.jpg");
+
+
 	string sCollidableType = pNode->first_attribute("type")->value();
 
 	if (sCollidableType == "obb")
@@ -22,6 +27,15 @@ Collidable * CollidableFactory::NewCollidable(const rapidxml::xml_node<>* pNode)
 		double fOrientation = atof(pNode->first_attribute("orientation")->value());
 
 		return new Circle(fPosX, fPosY, fRadius, fOrientation);
+	}
+	if (sCollidableType == "tyre")
+	{
+		double fPosX = atof(pNode->first_attribute("posX")->value());
+		double fPosY = atof(pNode->first_attribute("posY")->value());
+		double fOrientation = atof(pNode->first_attribute("orientation")->value());
+		Circle * newCircle = new Circle(fPosX, fPosY, 20, fOrientation);
+		newCircle->setTexture(tyreTexture);
+		return newCircle;
 	}
 	return NULL;
 

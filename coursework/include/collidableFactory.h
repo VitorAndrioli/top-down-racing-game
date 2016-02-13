@@ -4,6 +4,7 @@
 #include <collidable.h>
 #include <obb.h>
 #include <circle.h>
+#include <SFML\Graphics.hpp>
 #include "rapidxml.hpp"
 #include "rapidxml_iterators.hpp"
 #include "rapidxml_print.hpp"

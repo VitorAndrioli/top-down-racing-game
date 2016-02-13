@@ -23,6 +23,7 @@ Collidable::Collidable()
 
 void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+	target.draw(m_sprite, states);
 	target.draw(m_vaPoints, states);
 }
 
@@ -30,7 +31,7 @@ void Collidable::update(float elapsed)
 {
 	Vector2D<double> friction = m_fvVelocity * m_fFrictionCoefficient;
 	
-	m_fvAcceleration = (m_fvThrust - friction) * m_fInverseMass;
+	m_fvAcceleration = (m_fvThrust - friction);
 	m_fvVelocity += m_fvAcceleration * elapsed;
 
 	m_fAngularVelocity += m_fTorque * m_fInverseMomentOfInertia * elapsed;
@@ -39,6 +40,8 @@ void Collidable::update(float elapsed)
 
 	m_fOrientation += m_fAngularVelocity * elapsed;
 
+	m_sprite.setPosition(m_fvPosition.getX(), m_fvPosition.getY());
+	//m_sprite.setRotation(m_sprite.getRotation() + 1);
 	updatePoints();
 }
 
@@ -165,3 +168,7 @@ void Collidable::setRadius(double fRadius)
 		m_fRadius = 1;
 }
 
+void Collidable::setTexture(sf::Texture texture)
+{
+	
+}

@@ -41,7 +41,6 @@ void Circle::checkCollision(Circle * circle)
 
 void Circle::checkCollision(OBB * obb)
 {
-	
 	if (!broadCollisionCheck(obb)) return;
 
 	Vector2D<double> fvCentreDistance = m_fvPosition - obb->getPosition();

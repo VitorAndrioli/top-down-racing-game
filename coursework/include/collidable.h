@@ -49,6 +49,8 @@ protected:
 	void resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap);
 
 public:
+	sf::Sprite m_sprite;
+	
 	Collidable();
 	void update(float elapsed);
 	virtual void updatePoints() {};
@@ -78,6 +80,8 @@ public:
 	void setFrictionCoefficient(double fFrictionCoefficient);
 	void setElasticity(double fRestitution);
 	void setRadius(double fRadius);
+
+	void setTexture(sf::Texture texture);
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

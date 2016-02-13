@@ -9,9 +9,14 @@ using namespace std;
 
 Game::Game()
 {
-
 	
 	car = Car(50, 310, 0 * 3.14159 / 180);
+
+	sf::Texture tyreTexture;
+	tyreTexture.loadFromFile("assets/img/tyre.jpg");
+
+	tyre = Tyre(350, 300, 0, tyreTexture);
+	obstacles.push_back(&tyre);
 	
 	//obstacles.push_back(new OBB(350, 300, 50, 50, 0 * 3.14159 / 180));
 
@@ -28,7 +33,7 @@ Game::Game()
 	//(obstacles.back())->setMass(250);
 
 	rapidxml::xml_document<> doc;
-	ifstream file(".\\assets\\text\\obstacles.xml");
+	ifstream file(".\\assets\\xml\\obstacles.xml");
 	stringstream buffer;
 	buffer << file.rdbuf();
 	file.close();
@@ -37,9 +42,9 @@ Game::Game()
 	rapidxml::xml_node<>* pRoot = doc.first_node();
 	for (rapidxml::xml_node<> *pNode = pRoot->first_node("collidable"); pNode; pNode = pNode->next_sibling())
 	{
-		Collidable * newObstacle = CollidableFactory::NewCollidable(pNode);
-		if (newObstacle != NULL)
-			obstacles.push_back(newObstacle);
+		//Collidable * newObstacle = CollidableFactory::NewCollidable(pNode);
+		//if (newObstacle != NULL)
+			//obstacles.push_back(newObstacle);
 	}
 
 }
@@ -47,7 +52,7 @@ Game::Game()
 void Game::draw(RenderTarget &target, RenderStates states) const
 {
 	target.draw(car);
-	
+	//target.draw(tyre);
 	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{
 		target.draw(**it);

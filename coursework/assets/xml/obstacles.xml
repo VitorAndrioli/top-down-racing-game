@@ -2,5 +2,7 @@
 <obstacles>
   <collidable type="obb" posX="300" posY="350" halfExtentX="20" halfExtentY="20" orientation="45" />
   <collidable type="circle" posX="0" posY="0" radius="80" orientation="0" />
+  <collidable type="tyre" posX="100" posY="200" orientation="0" />
+  <collidable type="tyre" posX="200" posY="100" orientation="0" />
   
 </obstacles>
