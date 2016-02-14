@@ -173,7 +173,7 @@ void OBB::setTexture(sf::Texture * texture)
 	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y/2);
 	//m_sprite.setTextureRect(sf::IntRect(0, 0, m_fvHalfExtents.getX() * 2, m_fvHalfExtents.getY() * 2));
 	m_sprite.scale(m_fvHalfExtents.getX() * 2 / texture->getSize().x, m_fvHalfExtents.getY() * 2 / texture->getSize().y);
-	m_sprite.setColor(sf::Color(255, 255, 255, 128));
+	//m_sprite.setColor(sf::Color(255, 255, 255, 128));
 
 }
 

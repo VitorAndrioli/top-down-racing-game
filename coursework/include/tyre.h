@@ -6,7 +6,7 @@
 class Tyre : public Circle
 {
 public:
-	Tyre(double fPosX, double fPosY, double fOrientation, sf::Texture& texture);
+	Tyre(double fPosX, double fPosY, double fOrientation);
 	Tyre();
 	~Tyre();
 };

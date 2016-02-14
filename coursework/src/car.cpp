@@ -22,7 +22,7 @@ Car::Car(double fPosX, double fPosY, double fOrientation)
 	m_bTurningRight = false;
 	m_bBraking = false;
 
-	m_fvHalfExtents = Vector2D<double>(30, 19);
+	m_fvHalfExtents = Vector2D<double>(42, 20);
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 
 	m_fOrientation = fOrientation;
@@ -35,8 +35,8 @@ Car::Car(double fPosX, double fPosY, double fOrientation)
 	m_fWheelBase = 45;
 	setSteeringOrientation(fOrientation);
 	
-	m_rightFrontWheel = new OBB(fPosX + 20, fPosY + 19, 6, 4, 0);
-	m_leftFrontWheel = new OBB(fPosX + 20, fPosY - 19, 6, 4, 0);
+	m_rightFrontWheel = new OBB(fPosX + 20, fPosY + 17, 6, 3, 0);
+	m_leftFrontWheel = new OBB(fPosX + 20, fPosY - 17, 6, 3, 0);
 	
 	setFrictionCoefficient(0.4);
 	setMass(1500.0);
@@ -61,6 +61,9 @@ void Car::controlInput()
 	else m_fvThrust.setX(-100);
 	
 	m_fvThrust.rotate(m_fOrientation);
+
+	if (m_bBraking) m_sprite.setTextureRect(sf::IntRect(0, m_sprite.getTexture()->getSize().y / 2, m_sprite.getTexture()->getSize().x, m_sprite.getTexture()->getSize().y / 2));
+	else m_sprite.setTextureRect(sf::IntRect(0,0, m_sprite.getTexture()->getSize().x, m_sprite.getTexture()->getSize().y / 2));
 
 }
 
@@ -103,7 +106,7 @@ void Car::update(float elapsed)
 	m_rightFrontWheel->updatePoints();
 	m_leftFrontWheel->updatePoints();
 
-	Vector2D<double> pos(0, 19);
+	Vector2D<double> pos(0, 17);
 	pos.rotate(m_fOrientation);
 
 	m_rightFrontWheel->setPosition(frontWheelPos + pos);
@@ -153,6 +156,19 @@ void Car::steer()
 			m_fSteeringOrientation = m_fOrientation;
 
 }
+
+
+void Car::setTexture(sf::Texture * texture)
+{
+	m_sprite.setTexture(*texture);
+	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y / 4);
+	m_sprite.setTextureRect(sf::IntRect(0, 0, texture->getSize().x, texture->getSize().y/2));
+	m_sprite.scale(m_fvHalfExtents.getX() * 2 / texture->getSize().x, m_fvHalfExtents.getY() * 4 / texture->getSize().y);
+	//m_sprite.setColor(sf::Color(255, 255, 255, 128));
+
+}
+
+
 
 void Car::setSteeringOrientation(double fOrientation)
 {

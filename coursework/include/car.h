@@ -19,6 +19,7 @@ public:
 	bool m_bMovingForward;
 
 	sf::Texture tyreTexture;
+	void setTexture(sf::Texture * texture);
 	
 	bool m_bTurningRight;
 	bool m_bTurningLeft;

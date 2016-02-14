@@ -30,7 +30,8 @@ class Game : public Drawable
 public:
 	Car car;
 	Tyre tyre;
-	sf::Texture texture;
+	sf::Texture tyreTexture;
+	sf::Texture carTexture;
 	sf::Texture carTyreTexture;
 	//std::array<Collidable*, 5> obstacles;
 	std::vector<Collidable*> obstacles;

@@ -71,18 +71,18 @@ void Circle::setTexture(sf::Texture * texture)
 	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y/2);
 	//m_sprite.setTextureRect(sf::IntRect(0, 0, texture->getSize().x, texture->getSize().y));
 	m_sprite.scale(m_fRadius*2 / texture->getSize().x, m_fRadius * 2 / texture->getSize().y);
-	m_sprite.setColor(sf::Color(255, 255, 255, 128));
+	//m_sprite.setColor(sf::Color(255, 255, 255, 128));
 	m_sprite.setPosition(getPosition().getX(), getPosition().getY());
 }
 
 void Circle::updatePoints()
 {
-	int iCirclePointNumber = 31;
+	/*int iCirclePointNumber = 31;
 	m_vaPoints.resize(iCirclePointNumber);
 	for (int i = 0; i < iCirclePointNumber; i++) {
 		double angle = (2 * M_PI) / (iCirclePointNumber - 1) * i;
 		double x = m_fvPosition.getX() + m_fRadius * cos(angle);
 		double y = m_fvPosition.getY() + m_fRadius * sin(angle);
 		m_vaPoints[i].position = sf::Vector2f(x, y);
-	}
+	}*/
 }

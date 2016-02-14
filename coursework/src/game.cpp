@@ -11,11 +11,17 @@ Game::Game()
 {
 	
 	car = Car(50, 310, 0 * 3.14159 / 180);
-	texture.loadFromFile("assets/img/tyre.jpg");
+	tyreTexture.loadFromFile("assets/img/tyre.png");
+	carTexture.loadFromFile("assets/img/car.png");
+	carTyreTexture.loadFromFile("assets/img/car_tyre.png");
 
-	car.setTexture(&texture);
+	tyreTexture.setSmooth(true);
+	carTexture.setSmooth(true);
+	carTyreTexture.setSmooth(true);
+
+	car.setTexture(&carTexture);
 	
-	carTyreTexture.loadFromFile("assets/img/car_tyre.jpg");
+	
 	car.m_rightFrontWheel->setTexture(&carTyreTexture);
 	car.m_leftFrontWheel->setTexture(&carTyreTexture);
 
@@ -33,7 +39,7 @@ Game::Game()
 		if (newObstacle != NULL)
 		{
 			obstacles.push_back(newObstacle);
-			obstacles.back()->setTexture(&texture);
+			obstacles.back()->setTexture(&tyreTexture);
 		}
 		//*/
 	}
@@ -86,7 +92,7 @@ void Game::processKeyPress(Keyboard::Key code)
 	if (code == sf::Keyboard::Down) car.m_bReversing = true;
 	if (code == sf::Keyboard::Right) car.m_bTurningRight = true;
 	if (code == sf::Keyboard::Left) car.m_bTurningLeft = true;
-	if (code == sf::Keyboard::Space) obstacles.back()->setVelocity(Vector2D<double>(0, 150)); //car.m_bBraking = true;
+	if (code == sf::Keyboard::Space) car.m_bBraking = true;
 	//*/
 	/*if (code == sf::Keyboard::Up) (obstacles.front())->setVelocity(Vector2D<double>(0, -150));
 	if (code == sf::Keyboard::Down) (obstacles.front())->setVelocity(Vector2D<double>(0, 150));
