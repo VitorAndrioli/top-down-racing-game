@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['course_20work_20_2d_20imat2605',['Course Work - IMAT2605',['../index.html',1,'']]]
+  ['my_20personal_20index_20page',['My Personal Index Page',['../index.html',1,'']]]
 ];

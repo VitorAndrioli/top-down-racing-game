@@ -1,3 +1,8 @@
+/**
+* \file collidable.cpp
+*
+*/
+
 #include "collidable.h"
 #include <iostream>
 #define _USE_MATH_DEFINES
@@ -11,7 +16,7 @@ Collidable::Collidable()
 	m_fvAcceleration = Vector2D<double>(0, 0);
 	m_fvThrust = Vector2D<double>(0, 0);
 	m_fFrictionCoefficient = 0.4;
-	m_fElasticity = 0.6;
+	m_fRestitution = 0.6;
 
 	m_fAngularVelocity = 0;
 	m_fTorque = 0;
@@ -51,31 +56,31 @@ void Collidable::updateSprite()
 
 }
 
-bool Collidable::broadCollisionCheck(Collidable * collidable)
+bool Collidable::broadCollisionCheck(Collidable * otherCollidable)
 {
-	double fCentreDistSquared = (m_fvPosition - collidable->getPosition()).squaredMagnitude();
-	double fRadiiSumSquared = (m_fRadius + collidable->getRadius()) * (m_fRadius + collidable->getRadius());
+	double fCentreDistSquared = (m_fvPosition - otherCollidable->getPosition()).squaredMagnitude();
+	double fRadiiSumSquared = (m_fRadius + otherCollidable->getRadius()) * (m_fRadius + otherCollidable->getRadius());
 
 	if (fCentreDistSquared - fRadiiSumSquared <= 0) return true;
 	return false;
 	
 }
 
-void Collidable::resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap)
+void Collidable::resolveCollision(Collidable * otherCollidable, Vector2D<double> * fvCollisionNormal, double fOverlap)
 {
-	collidable->setPosition(collidable->getPosition() + (*collisionNormal * overlap));
+	otherCollidable->setPosition(otherCollidable->getPosition() + (*fvCollisionNormal * fOverlap));
 	
-	double fElasticity = min(m_fElasticity, collidable->getElasticity());
+	double fRestitution = min(m_fRestitution, otherCollidable->getRestitution());
 	
-	Vector2D<double> relVelocity = m_fvVelocity - collidable->getVelocity();
+	Vector2D<double> relVelocity = m_fvVelocity - otherCollidable->getVelocity();
 	
-	double velAlongNormal = relVelocity.dotProduct(collisionNormal);
+	double velAlongNormal = relVelocity.dotProduct(fvCollisionNormal);
 	if (velAlongNormal > 0) return;
 
-	double j = -(1 + fElasticity) * relVelocity.dotProduct(collisionNormal) / (m_fInverseMass + collidable->getInverseMass());
+	double j = -(1 + fRestitution) * relVelocity.dotProduct(fvCollisionNormal) / (m_fInverseMass + otherCollidable->getInverseMass());
 
-	m_fvVelocity += (*collisionNormal * j * m_fInverseMass);
-	collidable->setVelocity(collidable->getVelocity() - (*collisionNormal * j * collidable->getInverseMass()));
+	m_fvVelocity += (*fvCollisionNormal * j * m_fInverseMass);
+	otherCollidable->setVelocity(otherCollidable->getVelocity() - (*fvCollisionNormal * j * otherCollidable->getInverseMass()));
 }
 
 bool Collidable::isMoving()
@@ -153,13 +158,13 @@ double Collidable::getFrictionCoefficient()
 	return m_fFrictionCoefficient;
 }
 
-void Collidable::setElasticity(double fRestitution)
+void Collidable::setRestitution(double fRestitution)
 {
-	m_fElasticity = fRestitution;
+	m_fRestitution = fRestitution;
 }
-double Collidable::getElasticity()
+double Collidable::getRestitution()
 {
-	return m_fElasticity;
+	return m_fRestitution;
 }
 
 double Collidable::getRadius()

@@ -14,10 +14,9 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fOrientation)
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 	m_fRadius = fRadius;
 	m_fOrientation = fOrientation;
-	m_fInverseMass = 1/(fRadius*2);
+	setMass(0);
 
 	//m_fInverseMomentOfInertia = (getMass()*pow(getRadius(), 4)) / 4;
-	//setTexture(&carTexture);
 }
 
 void Circle::checkCollision(Collidable * collidable)

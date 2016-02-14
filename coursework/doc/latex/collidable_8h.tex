@@ -2,8 +2,28 @@
 \label{collidable_8h}\index{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/collidable.\+h@{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/collidable.\+h}}
 {\ttfamily \#include $<$S\+F\+M\+L/\+Graphics.\+hpp$>$}\\*
 {\ttfamily \#include \char`\"{}vector2\+D.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_collidable}{Collidable}
-\begin{DoxyCompactList}\small\item\em Small text that appears on Classes page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Base class for every collidable object in the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{collidable_8h_adb239346b66785ddb0718881e4284206}{}\#define \hyperlink{collidable_8h_adb239346b66785ddb0718881e4284206}{T\+O\+\_\+\+R\+A\+D\+I\+A\+N\+S}~M\+\_\+\+P\+I / 180\label{collidable_8h_adb239346b66785ddb0718881e4284206}
+
+\begin{DoxyCompactList}\small\item\em Used to transform degrees to radians. \end{DoxyCompactList}\item 
+\#define \hyperlink{collidable_8h_a36cd60c08427f09487b7825432385d0d}{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S}~180 / M\+\_\+\+P\+I
+\begin{DoxyCompactList}\small\item\em Used transform radians to degrees. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{collidable_8h_a36cd60c08427f09487b7825432385d0d}{}\index{collidable.\+h@{collidable.\+h}!T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S@{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S}}
+\index{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S@{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S}!collidable.\+h@{collidable.\+h}}
+\subsubsection[{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S~180 / M\+\_\+\+P\+I}\label{collidable_8h_a36cd60c08427f09487b7825432385d0d}
+
+
+Used transform radians to degrees. 
+
+Forward declaration of child classes \hyperlink{class_circle}{Circle} and \hyperlink{class_o_b_b}{O\+B\+B} to be used as parameters in virtual function check\+Collision. 

@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -84,22 +85,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">collidable.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;SFML/Graphics.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="vector2_d_8h_source.html">vector2D.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div>
 <p><a href="collidable_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html">Collidable</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Small text that appears on Classes page.  <a href="class_collidable.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for every collidable object in the game.  <a href="class_collidable.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:adb239346b66785ddb0718881e4284206"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb239346b66785ddb0718881e4284206"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="collidable_8h.html#adb239346b66785ddb0718881e4284206">TO_RADIANS</a>&#160;&#160;&#160;M_PI / 180</td></tr>
+<tr class="memdesc:adb239346b66785ddb0718881e4284206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to transform degrees to radians. <br /></td></tr>
+<tr class="separator:adb239346b66785ddb0718881e4284206"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36cd60c08427f09487b7825432385d0d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="collidable_8h.html#a36cd60c08427f09487b7825432385d0d">TO_DEGREES</a>&#160;&#160;&#160;180 / M_PI</td></tr>
+<tr class="memdesc:a36cd60c08427f09487b7825432385d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used transform radians to degrees.  <a href="#a36cd60c08427f09487b7825432385d0d">More...</a><br /></td></tr>
+<tr class="separator:a36cd60c08427f09487b7825432385d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a36cd60c08427f09487b7825432385d0d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TO_DEGREES&#160;&#160;&#160;180 / M_PI</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Used transform radians to degrees. </p>
+<p>Forward declaration of child classes <a class="el" href="class_circle.html">Circle</a> and <a class="el" href="class_o_b_b.html">OBB</a> to be used as parameters in virtual function checkCollision. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

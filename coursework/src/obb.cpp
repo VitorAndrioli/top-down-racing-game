@@ -19,9 +19,9 @@ OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, d
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 		
 	m_fOrientation = fOrientation;
-	setMass(fHalfExtentX*fHalfExtentY);
+	setMass(0);
 	m_fRadius = m_fvHalfExtents.magnitude();
-	m_fElasticity = 0.6;
+	m_fRestitution = 0.6;
 
 	//m_fInverseMomentOfInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
 

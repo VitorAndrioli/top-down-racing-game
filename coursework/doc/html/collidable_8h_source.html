@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -88,55 +89,115 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="collidable_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef COLLIDABLE_H</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define COLLIDABLE_H</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vector2_d_8h.html">vector2D.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef COLLIDABLE_H</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define COLLIDABLE_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="collidable_8h.html#adb239346b66785ddb0718881e4284206">   17</a></span>&#160;<span class="preprocessor">#define TO_RADIANS  M_PI / 180 </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="collidable_8h.html#a36cd60c08427f09487b7825432385d0d">   18</a></span>&#160;<span class="preprocessor">#define TO_DEGREES  180 / M_PI </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span><a class="code" href="class_circle.html">Circle</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span><a class="code" href="class_o_b_b.html">OBB</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_collidable.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_collidable.html">Collidable</a> : <span class="keyword">public</span> sf::Drawable</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> m_dvPosition;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> m_dvVelocity;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> m_dvAcceleration;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> m_dvThrust;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> m_dInverseMass;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">double</span> m_dAngle;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">float</span> m_fFrictionCoef;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    sf::VertexArray m_vaPoints;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> print();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_collidable.html">Collidable</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> elapsed);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> getPosition();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> getVelocity();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> getAcceleration();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">double</span> getInverseMass();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">double</span> getAngle();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> setPosition(<a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> position);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> setVelocity(<a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> velocity);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> setAcceleration(<a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> acceleration);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> setAngle(<span class="keywordtype">double</span> angle);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> updatePoints() {};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> checkCollision(<a class="code" href="class_collidable.html">Collidable</a> * collidable) = 0;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> checkCollision(<a class="code" href="class_circle.html">Circle</a> * circle) = 0;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> checkCollision(<a class="code" href="class_o_b_b.html">OBB</a> * obb) = 0;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> resolveImpulse(<a class="code" href="class_collidable.html">Collidable</a> * collidable, <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> * collisionNormal);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> draw(sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vector2_d_8h.html">vector2D.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span><a class="code" href="class_circle.html">Circle</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span><a class="code" href="class_o_b_b.html">OBB</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_collidable.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_collidable.html">Collidable</a> : <span class="keyword">public</span> sf::Drawable</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">   32</a></span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> <a class="code" href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">m_fvPosition</a>; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">   33</a></span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> <a class="code" href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">m_fvVelocity</a>; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">   34</a></span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> <a class="code" href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">m_fvAcceleration</a>; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51">   35</a></span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> <a class="code" href="class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51">m_fvThrust</a>; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">   36</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">m_fInverseMass</a>;  </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">   37</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">m_fOrientation</a>; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">   38</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">m_fFrictionCoefficient</a>; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">   39</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">m_fRestitution</a>; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_collidable.html#a1dde2844bbacaaf23b8b0652bf5ce906">   40</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_collidable.html#a1dde2844bbacaaf23b8b0652bf5ce906">m_fRadius</a>; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> m_fvAngularPosition; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> m_fvAngularVelocity; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> m_fvAngularAcceleration; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> m_fvTorque; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">double</span> m_fAngularVelocity; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">double</span> m_fTorque; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">double</span> m_fInverseMomentOfInertia; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">   50</a></span>&#160;    sf::VertexArray <a class="code" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">m_vaPoints</a>; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">   51</a></span>&#160;    sf::Sprite <a class="code" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">m_sprite</a>; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_collidable.html#a3d3ce584cdb14485db044c81a792a966">broadCollisionCheck</a>(<a class="code" href="class_collidable.html">Collidable</a> * otherCollidable);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_collidable.html#a40089393c9a030b68042e3b72d8142e4">resolveCollision</a>(<a class="code" href="class_collidable.html">Collidable</a> * otherCollidable, <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> * fvCollisionNormal, <span class="keywordtype">double</span> fOverlap); </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="class_collidable.html#a92ce9e2b08086bb2f466168ffc69c9ed">Collidable</a>(); </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_collidable.html#ad636cf1a7fab85fb2dfedf08c02c7745">update</a>(<span class="keywordtype">float</span> elapsed); </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> updatePoints() {}; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_collidable.html#a656ce92dd3e3f1b1981eb79c97ed3115">updateSprite</a>(); </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_collidable.html#a25c916c15277425a1b2606d35c7405fe">checkCollision</a>(<a class="code" href="class_collidable.html">Collidable</a> * collidable) = 0; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_collidable.html#a25c916c15277425a1b2606d35c7405fe">checkCollision</a>(<a class="code" href="class_circle.html">Circle</a> * circle) = 0; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_collidable.html#a25c916c15277425a1b2606d35c7405fe">checkCollision</a>(<a class="code" href="class_o_b_b.html">OBB</a> * obb) = 0; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6">isMoving</a>(); </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">   78</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">print</a>() { std::cout &lt;&lt; getVelocity().magnitude() &lt;&lt; <span class="stringliteral">&quot; | &quot;</span> &lt;&lt; getAcceleration().getY() &lt;&lt; std::endl; } </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> getPosition();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> getVelocity();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> getAcceleration();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> getThrust();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">double</span> getInverseMass();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">double</span> getMass();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">double</span> getOrientation();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">double</span> getRestitution();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">double</span> getFrictionCoefficient();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_collidable.html#a265fb4ef01dc1997494374205181a6bb">getRadius</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> setPosition(<a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> fvPosition);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> setVelocity(<a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> fvVelocity);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> setAcceleration(<a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> fvAcceleration);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> setThrust(<a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> fvThrust);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> setOrientation(<span class="keywordtype">double</span> fOrientation);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> setMass(<span class="keywordtype">double</span> fMass);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> setFrictionCoefficient(<span class="keywordtype">double</span> fFrictionCoefficient);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> setRestitution(<span class="keywordtype">double</span> fRestitution);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> setRadius(<span class="keywordtype">double</span> fRadius);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTexture(sf::Texture * texture) = 0;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> draw(sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;};</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_collidable_html_ad88d617204dde9a1abc37e013e7c3d51"><div class="ttname"><a href="class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51">Collidable::m_fvThrust</a></div><div class="ttdeci">Vector2D&lt; double &gt; m_fvThrust</div><div class="ttdoc">Thrust vector. </div><div class="ttdef"><b>Definition:</b> collidable.h:35</div></div>
+<div class="ttc" id="class_collidable_html_af9cea5a59438b7b3604b8c7aa023380f"><div class="ttname"><a href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">Collidable::m_fOrientation</a></div><div class="ttdeci">double m_fOrientation</div><div class="ttdoc">Orientation of the collidable, in radians. </div><div class="ttdef"><b>Definition:</b> collidable.h:37</div></div>
 <div class="ttc" id="class_circle_html"><div class="ttname"><a href="class_circle.html">Circle</a></div><div class="ttdef"><b>Definition:</b> circle.h:8</div></div>
+<div class="ttc" id="class_collidable_html_a3a46aab76b8a8651ca93f601f62c05fd"><div class="ttname"><a href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">Collidable::m_fvVelocity</a></div><div class="ttdeci">Vector2D&lt; double &gt; m_fvVelocity</div><div class="ttdoc">Velocity vector. </div><div class="ttdef"><b>Definition:</b> collidable.h:33</div></div>
+<div class="ttc" id="class_collidable_html_a5392bcb0ef0fef2e60b68a447e4d0ae7"><div class="ttname"><a href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">Collidable::m_sprite</a></div><div class="ttdeci">sf::Sprite m_sprite</div><div class="ttdoc">Sprite to be drawn to the window. </div><div class="ttdef"><b>Definition:</b> collidable.h:51</div></div>
+<div class="ttc" id="class_collidable_html_a17a452821ac1a880542e596fbfcaae6a"><div class="ttname"><a href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">Collidable::m_fRestitution</a></div><div class="ttdeci">double m_fRestitution</div><div class="ttdoc">Restitution coefficient. </div><div class="ttdef"><b>Definition:</b> collidable.h:39</div></div>
+<div class="ttc" id="class_collidable_html_a3d3ce584cdb14485db044c81a792a966"><div class="ttname"><a href="class_collidable.html#a3d3ce584cdb14485db044c81a792a966">Collidable::broadCollisionCheck</a></div><div class="ttdeci">bool broadCollisionCheck(Collidable *otherCollidable)</div><div class="ttdoc">Perform a broad collision check with another collidable. </div><div class="ttdef"><b>Definition:</b> collidable.cpp:59</div></div>
+<div class="ttc" id="class_collidable_html_ac4597915c92e32ea10220808da31c750"><div class="ttname"><a href="class_collidable.html#ac4597915c92e32ea10220808da31c750">Collidable::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">to be removed </div><div class="ttdef"><b>Definition:</b> collidable.h:78</div></div>
+<div class="ttc" id="class_collidable_html_ad636cf1a7fab85fb2dfedf08c02c7745"><div class="ttname"><a href="class_collidable.html#ad636cf1a7fab85fb2dfedf08c02c7745">Collidable::update</a></div><div class="ttdeci">void update(float elapsed)</div><div class="ttdoc">Update method to be called every frame of the game. </div><div class="ttdef"><b>Definition:</b> collidable.cpp:35</div></div>
+<div class="ttc" id="class_collidable_html_a7d243411e75ff019385dea0a4ff153e9"><div class="ttname"><a href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">Collidable::m_fFrictionCoefficient</a></div><div class="ttdeci">double m_fFrictionCoefficient</div><div class="ttdoc">Friction coefficient of collidable. </div><div class="ttdef"><b>Definition:</b> collidable.h:38</div></div>
+<div class="ttc" id="class_collidable_html_a92ce9e2b08086bb2f466168ffc69c9ed"><div class="ttname"><a href="class_collidable.html#a92ce9e2b08086bb2f466168ffc69c9ed">Collidable::Collidable</a></div><div class="ttdeci">Collidable()</div><div class="ttdoc">Basic contructor. </div><div class="ttdef"><b>Definition:</b> collidable.cpp:13</div></div>
+<div class="ttc" id="class_collidable_html_a13a62d6d9fb69397c5ad03e6ec1c3b2d"><div class="ttname"><a href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">Collidable::m_vaPoints</a></div><div class="ttdeci">sf::VertexArray m_vaPoints</div><div class="ttdoc">Points to be drawn (to be removed) </div><div class="ttdef"><b>Definition:</b> collidable.h:50</div></div>
+<div class="ttc" id="class_collidable_html_a1dde2844bbacaaf23b8b0652bf5ce906"><div class="ttname"><a href="class_collidable.html#a1dde2844bbacaaf23b8b0652bf5ce906">Collidable::m_fRadius</a></div><div class="ttdeci">double m_fRadius</div><div class="ttdoc">Radius of collidable. Used for broad collision check for non circular child classes. </div><div class="ttdef"><b>Definition:</b> collidable.h:40</div></div>
 <div class="ttc" id="class_vector2_d_html"><div class="ttname"><a href="class_vector2_d.html">Vector2D&lt; double &gt;</a></div></div>
 <div class="ttc" id="class_o_b_b_html"><div class="ttname"><a href="class_o_b_b.html">OBB</a></div><div class="ttdef"><b>Definition:</b> obb.h:6</div></div>
-<div class="ttc" id="class_collidable_html"><div class="ttname"><a href="class_collidable.html">Collidable</a></div><div class="ttdoc">Small text that appears on Classes page. </div><div class="ttdef"><b>Definition:</b> collidable.h:24</div></div>
+<div class="ttc" id="class_collidable_html"><div class="ttname"><a href="class_collidable.html">Collidable</a></div><div class="ttdoc">Base class for every collidable object in the game. </div><div class="ttdef"><b>Definition:</b> collidable.h:29</div></div>
+<div class="ttc" id="class_collidable_html_a265fb4ef01dc1997494374205181a6bb"><div class="ttname"><a href="class_collidable.html#a265fb4ef01dc1997494374205181a6bb">Collidable::getRadius</a></div><div class="ttdeci">double getRadius()</div><div class="ttdoc">Set methods. </div><div class="ttdef"><b>Definition:</b> collidable.cpp:170</div></div>
 <div class="ttc" id="vector2_d_8h_html"><div class="ttname"><a href="vector2_d_8h.html">vector2D.h</a></div></div>
+<div class="ttc" id="class_collidable_html_ac72f55f30a447a47bf165ce8d7584027"><div class="ttname"><a href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">Collidable::m_fvPosition</a></div><div class="ttdeci">Vector2D&lt; double &gt; m_fvPosition</div><div class="ttdoc">Center position vector. </div><div class="ttdef"><b>Definition:</b> collidable.h:32</div></div>
+<div class="ttc" id="class_collidable_html_a656ce92dd3e3f1b1981eb79c97ed3115"><div class="ttname"><a href="class_collidable.html#a656ce92dd3e3f1b1981eb79c97ed3115">Collidable::updateSprite</a></div><div class="ttdeci">void updateSprite()</div><div class="ttdoc">to be removed </div><div class="ttdef"><b>Definition:</b> collidable.cpp:52</div></div>
+<div class="ttc" id="class_collidable_html_a43efbe42453578169f73f0b34cacc80c"><div class="ttname"><a href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">Collidable::m_fvAcceleration</a></div><div class="ttdeci">Vector2D&lt; double &gt; m_fvAcceleration</div><div class="ttdoc">Acceleration vector. </div><div class="ttdef"><b>Definition:</b> collidable.h:34</div></div>
+<div class="ttc" id="class_collidable_html_a40089393c9a030b68042e3b72d8142e4"><div class="ttname"><a href="class_collidable.html#a40089393c9a030b68042e3b72d8142e4">Collidable::resolveCollision</a></div><div class="ttdeci">void resolveCollision(Collidable *otherCollidable, Vector2D&lt; double &gt; *fvCollisionNormal, double fOverlap)</div><div class="ttdoc">Resolve collision between two collidable objects. </div><div class="ttdef"><b>Definition:</b> collidable.cpp:69</div></div>
+<div class="ttc" id="class_collidable_html_a8d46b697385b10bc9447f1ac18a587a6"><div class="ttname"><a href="class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6">Collidable::isMoving</a></div><div class="ttdeci">bool isMoving()</div><div class="ttdoc">Check if the collidable is moving. Called befor performing collision tests. </div><div class="ttdef"><b>Definition:</b> collidable.cpp:86</div></div>
+<div class="ttc" id="class_collidable_html_a7ea7747a2156545d13b4b7f6e06bfe38"><div class="ttname"><a href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">Collidable::m_fInverseMass</a></div><div class="ttdeci">double m_fInverseMass</div><div class="ttdoc">Inverse of collidable&#39;s mass. </div><div class="ttdef"><b>Definition:</b> collidable.h:36</div></div>
+<div class="ttc" id="class_collidable_html_a25c916c15277425a1b2606d35c7405fe"><div class="ttname"><a href="class_collidable.html#a25c916c15277425a1b2606d35c7405fe">Collidable::checkCollision</a></div><div class="ttdeci">virtual void checkCollision(Collidable *collidable)=0</div><div class="ttdoc">Virtual method to check collision with another Collidable object. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

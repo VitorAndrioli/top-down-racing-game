@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -96,23 +97,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_circle.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_circle.html">Circle</a> : <span class="keyword">public</span> <a class="code" href="class_collidable.html">Collidable</a></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">double</span> m_dRadius;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_circle.html">Circle</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_circle.html">Circle</a>(<span class="keywordtype">double</span> dPosX, <span class="keywordtype">double</span> dPosY, <span class="keywordtype">double</span> dRadius, <span class="keywordtype">double</span> dAngle);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> updatePoints();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">double</span> getRadius();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> checkCollision(<a class="code" href="class_collidable.html">Collidable</a> * collidable);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> checkCollision(<a class="code" href="class_circle.html">Circle</a> * circle);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> checkCollision(<a class="code" href="class_o_b_b.html">OBB</a> * obb);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_circle.html">Circle</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_circle.html">Circle</a>(<span class="keywordtype">double</span> fPosX, <span class="keywordtype">double</span> fPosY, <span class="keywordtype">double</span> fRadius, <span class="keywordtype">double</span> fOrientation);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> updatePoints();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_circle.html#a7b23c1ed107b8a309fc1c5d0f6635ae9">checkCollision</a>(<a class="code" href="class_collidable.html">Collidable</a> * collidable);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_circle.html#a7b23c1ed107b8a309fc1c5d0f6635ae9">checkCollision</a>(<a class="code" href="class_circle.html">Circle</a> * circle);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_circle.html#a7b23c1ed107b8a309fc1c5d0f6635ae9">checkCollision</a>(<a class="code" href="class_o_b_b.html">OBB</a> * obb);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> setTexture(sf::Texture * texture);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_circle_html_a7b23c1ed107b8a309fc1c5d0f6635ae9"><div class="ttname"><a href="class_circle.html#a7b23c1ed107b8a309fc1c5d0f6635ae9">Circle::checkCollision</a></div><div class="ttdeci">void checkCollision(Collidable *collidable)</div><div class="ttdoc">Virtual method to check collision with another Collidable object. </div><div class="ttdef"><b>Definition:</b> circle.cpp:22</div></div>
 <div class="ttc" id="class_circle_html"><div class="ttname"><a href="class_circle.html">Circle</a></div><div class="ttdef"><b>Definition:</b> circle.h:8</div></div>
 <div class="ttc" id="collidable_8h_html"><div class="ttname"><a href="collidable_8h.html">collidable.h</a></div></div>
 <div class="ttc" id="class_o_b_b_html"><div class="ttname"><a href="class_o_b_b.html">OBB</a></div><div class="ttdef"><b>Definition:</b> obb.h:6</div></div>
-<div class="ttc" id="class_collidable_html"><div class="ttname"><a href="class_collidable.html">Collidable</a></div><div class="ttdoc">Small text that appears on Classes page. </div><div class="ttdef"><b>Definition:</b> collidable.h:24</div></div>
+<div class="ttc" id="class_collidable_html"><div class="ttname"><a href="class_collidable.html">Collidable</a></div><div class="ttdoc">Base class for every collidable object in the game. </div><div class="ttdef"><b>Definition:</b> collidable.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

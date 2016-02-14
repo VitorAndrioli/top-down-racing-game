@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['car',['Car',['../class_car.html',1,'']]],
-  ['circle',['Circle',['../class_circle.html',1,'']]],
-  ['collidable',['Collidable',['../class_collidable.html',1,'']]],
-  ['collidable_2eh',['collidable.h',['../collidable_8h.html',1,'']]],
-  ['collision',['Collision',['../class_collision.html',1,'']]],
-  ['course_20work_20_2d_20imat2605',['Course Work - IMAT2605',['../index.html',1,'']]]
+  ['allocate_5fattribute',['allocate_attribute',['../classrapidxml_1_1memory__pool.html#a3de2a66c983336e006ea3844e244ed30',1,'rapidxml::memory_pool']]],
+  ['allocate_5fnode',['allocate_node',['../classrapidxml_1_1memory__pool.html#a4118581c29ee9a2f6b55ebf7dac185f8',1,'rapidxml::memory_pool']]],
+  ['allocate_5fstring',['allocate_string',['../classrapidxml_1_1memory__pool.html#a171941b39d55b868358da97462185f58',1,'rapidxml::memory_pool']]],
+  ['append_5fattribute',['append_attribute',['../classrapidxml_1_1xml__node.html#a33ce3386f8c42dd4db658b75cbb6e6c4',1,'rapidxml::xml_node']]],
+  ['append_5fnode',['append_node',['../classrapidxml_1_1xml__node.html#a8696d098ecc9c4d2a646b43e91d58e31',1,'rapidxml::xml_node']]],
+  ['attribute_5fiterator',['attribute_iterator',['../classrapidxml_1_1attribute__iterator.html',1,'rapidxml']]]
 ];

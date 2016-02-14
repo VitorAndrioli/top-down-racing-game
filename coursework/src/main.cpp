@@ -67,7 +67,7 @@ int main()
 		window.clear(Color::Magenta);
 
 		window.setView(mainView);
-		//mainView.setCenter(game.car.getPosition().getX(), game.car.getPosition().getY());
+		mainView.setCenter(game.car.getPosition().getX(), game.car.getPosition().getY());
 		//window.draw(sprite);
 		window.draw(game);
 

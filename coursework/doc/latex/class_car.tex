@@ -9,25 +9,37 @@ Inheritance diagram for Car\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_car_a50aa52b3551e1d832bfaa832abe2ca05}{}{\bfseries Car} (double d\+Pos\+X, double d\+Pos\+Y, double d\+Angle)\label{class_car_a50aa52b3551e1d832bfaa832abe2ca05}
+\hypertarget{class_car_a9be5c5406459bc96efcb7378909e5834}{}{\bfseries Car} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Orientation)\label{class_car_a9be5c5406459bc96efcb7378909e5834}
 
 \item 
 \hypertarget{class_car_ab7860fcfd5e75787d358128e04442464}{}void {\bfseries update} (float elapsed)\label{class_car_ab7860fcfd5e75787d358128e04442464}
 
 \item 
+\hypertarget{class_car_a12fd8199fd3380b685f28b0c63a65b7e}{}void {\bfseries set\+Texture} (sf\+::\+Texture $\ast$texture)\label{class_car_a12fd8199fd3380b685f28b0c63a65b7e}
+
+\item 
 \hypertarget{class_car_ac5fffcaa49fe357439427c37cb146c26}{}void {\bfseries set\+Velocity} (\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ velocity)\label{class_car_ac5fffcaa49fe357439427c37cb146c26}
+
+\item 
+\hypertarget{class_car_ae51f876eddd99c7d9b597d069ea4c505}{}void {\bfseries set\+Steering\+Orientation} (double f\+Orientation)\label{class_car_ae51f876eddd99c7d9b597d069ea4c505}
+
+\item 
+\hypertarget{class_car_a78cf0a9ccbbd8d4e51ed89b0afbc8895}{}double {\bfseries get\+Steering\+Orientation} ()\label{class_car_a78cf0a9ccbbd8d4e51ed89b0afbc8895}
+
+\item 
+\hypertarget{class_car_a47fe72f08097245751cd5c6eea31a9cb}{}double {\bfseries get\+Friction\+Coefficient} ()\label{class_car_a47fe72f08097245751cd5c6eea31a9cb}
+
+\item 
+\hypertarget{class_car_adeb86c141c0d22ab99c3bafc46f8e6d3}{}void {\bfseries steer} ()\label{class_car_adeb86c141c0d22ab99c3bafc46f8e6d3}
 
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_car_a289cdb8c2543e9a1d839b8ddcdaee6e9}{}double {\bfseries new\+Car\+Angle}\label{class_car_a289cdb8c2543e9a1d839b8ddcdaee6e9}
+\hypertarget{class_car_a7f45340643c43ddd543d96662fe88911}{}bool {\bfseries m\+\_\+b\+Moving\+Forward}\label{class_car_a7f45340643c43ddd543d96662fe88911}
 
 \item 
-\hypertarget{class_car_ad980480078835395aec6a141bf53cd27}{}bool {\bfseries m\+\_\+b\+Reverse}\label{class_car_ad980480078835395aec6a141bf53cd27}
-
-\item 
-\hypertarget{class_car_afaecfed34dc76325c243c8fad8107ad0}{}bool {\bfseries m\+\_\+b\+Turning}\label{class_car_afaecfed34dc76325c243c8fad8107ad0}
+\hypertarget{class_car_a983d81f940c2a10f6b7657a27ad89a48}{}sf\+::\+Texture {\bfseries tyre\+Texture}\label{class_car_a983d81f940c2a10f6b7657a27ad89a48}
 
 \item 
 \hypertarget{class_car_a1caa04bed661507cc92dcc465374aa40}{}bool {\bfseries m\+\_\+b\+Turning\+Right}\label{class_car_a1caa04bed661507cc92dcc465374aa40}
@@ -42,19 +54,19 @@ Inheritance diagram for Car\+:\begin{figure}[H]
 \hypertarget{class_car_a8a5ba2979820d7c0f2a00571fd7755de}{}bool {\bfseries m\+\_\+b\+Reversing}\label{class_car_a8a5ba2979820d7c0f2a00571fd7755de}
 
 \item 
-\hypertarget{class_car_a7f45340643c43ddd543d96662fe88911}{}bool {\bfseries m\+\_\+b\+Moving\+Forward}\label{class_car_a7f45340643c43ddd543d96662fe88911}
+\hypertarget{class_car_a0a5b2769f8000bc41da5ffacaff488bd}{}bool {\bfseries m\+\_\+b\+Braking}\label{class_car_a0a5b2769f8000bc41da5ffacaff488bd}
 
 \item 
-\hypertarget{class_car_aa0d61fbdec7ad2a76c1551fe26877cda}{}bool {\bfseries m\+\_\+b\+Moving\+Backwards}\label{class_car_aa0d61fbdec7ad2a76c1551fe26877cda}
-
-\item 
-\hypertarget{class_car_aad186bfd45a0f927e00b8e40440b56c4}{}double {\bfseries m\+\_\+f\+Steering\+Angle}\label{class_car_aad186bfd45a0f927e00b8e40440b56c4}
+\hypertarget{class_car_af67de6d3bb5203272670314409bd3ca8}{}double {\bfseries m\+\_\+f\+Steering\+Orientation}\label{class_car_af67de6d3bb5203272670314409bd3ca8}
 
 \item 
 \hypertarget{class_car_a7be779b298ee9803e8189e08f0cafc27}{}double {\bfseries m\+\_\+f\+Wheel\+Base}\label{class_car_a7be779b298ee9803e8189e08f0cafc27}
 
 \item 
-\hypertarget{class_car_a537806fdf2f561ff245bdbc72c271a81}{}\hyperlink{class_o_b_b}{O\+B\+B} $\ast$ {\bfseries front\+Wheel}\label{class_car_a537806fdf2f561ff245bdbc72c271a81}
+\hypertarget{class_car_aeee6d1517b9a5e209c06a2bcd5ff4041}{}\hyperlink{class_o_b_b}{O\+B\+B} $\ast$ {\bfseries m\+\_\+right\+Front\+Wheel}\label{class_car_aeee6d1517b9a5e209c06a2bcd5ff4041}
+
+\item 
+\hypertarget{class_car_a2ab8adbfc7ae82ff7552acf47e75fd55}{}\hyperlink{class_o_b_b}{O\+B\+B} $\ast$ {\bfseries m\+\_\+left\+Front\+Wheel}\label{class_car_a2ab8adbfc7ae82ff7552acf47e75fd55}
 
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}

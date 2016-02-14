@@ -9,7 +9,7 @@ Inheritance diagram for O\+B\+B\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_o_b_b_ab736691f196da32e5d29b39cc5f797a9}{}{\bfseries O\+B\+B} (double d\+Pos\+X, double d\+Pos\+Y, double d\+Half\+Extent\+X, double d\+Half\+Extent\+Y, double d\+Angle)\label{class_o_b_b_ab736691f196da32e5d29b39cc5f797a9}
+\hypertarget{class_o_b_b_a096b260dc12798e724dd9b2f670127f3}{}{\bfseries O\+B\+B} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Half\+Extent\+X, double f\+Half\+Extent\+Y, double f\+Orientation)\label{class_o_b_b_a096b260dc12798e724dd9b2f670127f3}
 
 \item 
 \hypertarget{class_o_b_b_a3103d775e6ba4b27a80263ea14826309}{}void {\bfseries update\+Points} ()\label{class_o_b_b_a3103d775e6ba4b27a80263ea14826309}
@@ -18,21 +18,28 @@ Inheritance diagram for O\+B\+B\+:\begin{figure}[H]
 \hypertarget{class_o_b_b_acb95cc5ca2f703da43444f6a029d117b}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries get\+Half\+Extents} ()\label{class_o_b_b_acb95cc5ca2f703da43444f6a029d117b}
 
 \item 
-\hypertarget{class_o_b_b_a2064e40dc401e8c04e3daad5c5aa62d2}{}void {\bfseries check\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$collidable)\label{class_o_b_b_a2064e40dc401e8c04e3daad5c5aa62d2}
+\hypertarget{class_o_b_b_a9008e3da97b4e62e47aba521e3a53b61}{}void {\bfseries set\+Half\+Extents} (\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$)\label{class_o_b_b_a9008e3da97b4e62e47aba521e3a53b61}
 
 \item 
-\hypertarget{class_o_b_b_ab55aa6044004c4ea4e5d8310727569c0}{}void {\bfseries check\+Collision} (\hyperlink{class_circle}{Circle} $\ast$circle)\label{class_o_b_b_ab55aa6044004c4ea4e5d8310727569c0}
+\hypertarget{class_o_b_b_a2064e40dc401e8c04e3daad5c5aa62d2}{}void \hyperlink{class_o_b_b_a2064e40dc401e8c04e3daad5c5aa62d2}{check\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$collidable)\label{class_o_b_b_a2064e40dc401e8c04e3daad5c5aa62d2}
 
-\item 
-\hypertarget{class_o_b_b_afe394e34d273c0c7b1dfa9a6e28f059f}{}void {\bfseries check\+Collision} (\hyperlink{class_o_b_b}{O\+B\+B} $\ast$obb)\label{class_o_b_b_afe394e34d273c0c7b1dfa9a6e28f059f}
+\begin{DoxyCompactList}\small\item\em Virtual method to check collision with another \hyperlink{class_collidable}{Collidable} object. \end{DoxyCompactList}\item 
+\hypertarget{class_o_b_b_ab55aa6044004c4ea4e5d8310727569c0}{}void \hyperlink{class_o_b_b_ab55aa6044004c4ea4e5d8310727569c0}{check\+Collision} (\hyperlink{class_circle}{Circle} $\ast$circle)\label{class_o_b_b_ab55aa6044004c4ea4e5d8310727569c0}
+
+\begin{DoxyCompactList}\small\item\em Virtual method to check collision with a \hyperlink{class_circle}{Circle} object. \end{DoxyCompactList}\item 
+\hypertarget{class_o_b_b_afe394e34d273c0c7b1dfa9a6e28f059f}{}void \hyperlink{class_o_b_b_afe394e34d273c0c7b1dfa9a6e28f059f}{check\+Collision} (\hyperlink{class_o_b_b}{O\+B\+B} $\ast$obb)\label{class_o_b_b_afe394e34d273c0c7b1dfa9a6e28f059f}
+
+\begin{DoxyCompactList}\small\item\em Virtual method to check collision with an \hyperlink{class_o_b_b}{O\+B\+B} object. \end{DoxyCompactList}\item 
+\hypertarget{class_o_b_b_a9d0c690a6d3825865b8dd4e023a7cec3}{}void {\bfseries set\+Texture} (sf\+::\+Texture $\ast$texture)\label{class_o_b_b_a9d0c690a6d3825865b8dd4e023a7cec3}
 
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_o_b_b_a4e81d2a5c71b24ee0b52cc176f48f272}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries m\+\_\+dv\+Half\+Extents}\label{class_o_b_b_a4e81d2a5c71b24ee0b52cc176f48f272}
+\hypertarget{class_o_b_b_a9bb0b948899d85dd6973d7526a574cc2}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries m\+\_\+fv\+Half\+Extents}\label{class_o_b_b_a9bb0b948899d85dd6973d7526a574cc2}
 
 \end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

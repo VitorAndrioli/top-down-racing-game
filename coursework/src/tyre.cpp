@@ -7,6 +7,7 @@ Tyre::Tyre(double fPosX, double fPosY, double fOrientation)
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 	m_fRadius = 10;
 	m_fOrientation = fOrientation;
+	m_fFrictionCoefficient = 2;
 	m_fInverseMass = 1.f / (m_fRadius * 2.f);
 }
 

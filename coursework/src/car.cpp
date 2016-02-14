@@ -27,7 +27,7 @@ Car::Car(double fPosX, double fPosY, double fOrientation)
 
 	m_fOrientation = fOrientation;
 	m_fRadius = m_fvHalfExtents.magnitude();
-	m_fElasticity = 0.6;
+	m_fRestitution = 0.6;
 
 	m_vaPoints.resize(5);
 	
@@ -40,7 +40,6 @@ Car::Car(double fPosX, double fPosY, double fOrientation)
 	
 	setFrictionCoefficient(0.4);
 	setMass(1500.0);
-	m_fElasticity = 0.6;
 
 }
 
@@ -72,7 +71,7 @@ void Car::update(float elapsed)
 	controlInput();
 	steer();
 	
-	Vector2D<double> fvFriction = m_fvVelocity * m_fFrictionCoefficient;
+	Vector2D<double> fvFriction = m_fvVelocity * getFrictionCoefficient();
 	m_fvAcceleration = (m_fvThrust - fvFriction);
 	setVelocity( m_fvVelocity + m_fvAcceleration * elapsed );
 
@@ -133,6 +132,7 @@ void Car::setVelocity(Vector2D<double> velocity)
 		m_fvVelocity.setY(-100 * sin(getOrientation()));
 	}
 
+
 	if (abs(m_fvVelocity.squaredMagnitude()) < STOPPING_SPEED) m_fvVelocity = Vector2D<double>(0, 0);
 	
 
@@ -181,6 +181,6 @@ double Car::getSteeringOrientation()
 
 double Car::getFrictionCoefficient()
 {
-	if (m_bBraking) return 8;
+	if (m_bBraking) return 15;
 	else return m_fFrictionCoefficient;
 }

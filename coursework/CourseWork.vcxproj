@@ -74,6 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\box.cpp" />
     <ClCompile Include="src\car.cpp" />
     <ClCompile Include="src\circle.cpp" />
     <ClCompile Include="src\collidable.cpp" />
@@ -84,6 +85,7 @@
     <ClCompile Include="src\tyre.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\box.h" />
     <ClInclude Include="include\car.h" />
     <ClInclude Include="include\circle.h" />
     <ClInclude Include="include\collidable.h" />

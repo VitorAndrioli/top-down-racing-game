@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <obstacles>
-  <collidable type="obb" posX="600" posY="350" halfExtentX="20" halfExtentY="20" orientation="45" />
-  <collidable type="circle" posX="350" posY="300" radius="80" orientation="0" />
-  <collidable type="tyre" posX="100" posY="500" orientation="0" />
-  <collidable type="tyre" posX="200" posY="600" orientation="0" />
-  
+  <collidable type="obbs" posX="600" posY="350" halfExtentX="20" halfExtentY="20" orientation="45" />
+  <collidable type="circles" posX="350" posY="300" radius="10" orientation="0" />
+  <collidable type="tyre" posX="350" posY="250" orientation="0" />
+  <collidable type="tyre" posX="350" posY="270" orientation="0" />
+  <collidable type="tyre" posX="350" posY="290" orientation="0" />
+  <collidable type="tyre" posX="350" posY="310" orientation="0" />
+  <collidable type="tyre" posX="350" posY="330" orientation="0" />
+  <collidable type="tyre" posX="350" posY="350" orientation="0" />
+
+  <collidable type="tyre" posX="370" posY="260" orientation="0" />
+  <collidable type="tyre" posX="370" posY="280" orientation="0" />
+  <collidable type="tyre" posX="370" posY="300" orientation="0" />
+  <collidable type="tyre" posX="370" posY="320" orientation="0" />
+  <collidable type="tyre" posX="370" posY="340" orientation="0" />
+  <collidable type="tyre" posX="370" posY="360" orientation="0" />
+
+  <collidable type="tyre" posX="390" posY="250" orientation="0" />
+  <collidable type="tyre" posX="390" posY="270" orientation="0" />
+  <collidable type="tyre" posX="390" posY="290" orientation="0" />
+  <collidable type="tyre" posX="390" posY="310" orientation="0" />
+  <collidable type="tyre" posX="390" posY="330" orientation="0" />
+  <collidable type="tyre" posX="390" posY="350" orientation="0" />
+
+  <collidable type="tyre" posX="410" posY="260" orientation="0" />
+  <collidable type="tyre" posX="410" posY="280" orientation="0" />
+  <collidable type="tyre" posX="410" posY="300" orientation="0" />
+  <collidable type="tyre" posX="410" posY="320" orientation="0" />
+  <collidable type="tyre" posX="410" posY="340" orientation="0" />
+  <collidable type="tyre" posX="410" posY="360" orientation="0" />
+
+  <collidable type="tyre" posX="430" posY="250" orientation="0" />
+  <collidable type="tyre" posX="430" posY="270" orientation="0" />
+  <collidable type="tyre" posX="430" posY="290" orientation="0" />
+  <collidable type="tyre" posX="430" posY="310" orientation="0" />
+  <collidable type="tyre" posX="430" posY="330" orientation="0" />
+  <collidable type="tyre" posX="430" posY="350" orientation="0" />
+
 </obstacles>

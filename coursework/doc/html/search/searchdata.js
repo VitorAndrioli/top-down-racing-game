@@ -1,10 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "cdgmopuv",
-  1: "cgov",
-  2: "cgmv",
-  3: "dgpuv",
-  4: "c"
+  0: "abcdfgilmnoprstuvwx~",
+  1: "abcfgmnoptvx",
+  2: "cgmrv",
+  3: "abcdfgilmnprstuvwx~",
+  4: "m",
+  5: "t",
+  6: "m"
 };
 
 var indexSectionNames =
@@ -13,7 +15,9 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "pages"
+  4: "variables",
+  5: "defines",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -22,6 +26,8 @@ var indexSectionLabels =
   1: "Classes",
   2: "Files",
   3: "Functions",
-  4: "Pages"
+  4: "Variables",
+  5: "Macros",
+  6: "Pages"
 };
 
