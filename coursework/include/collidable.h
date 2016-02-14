@@ -48,14 +48,14 @@ protected:
 	
 	sf::VertexArray m_vaPoints;
 
-	void updateSprite();
 	
 	bool broadCollisionCheck(Collidable * collidable);
 	void resolveCollision(Collidable * collidable, Vector2D<double> * collisionNormal, double overlap);
 
 public:
 	sf::Sprite m_sprite;
-	
+	void updateSprite();
+
 	Collidable();
 	void update(float elapsed);
 	virtual void updatePoints() {};

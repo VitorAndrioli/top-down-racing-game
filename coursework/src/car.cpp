@@ -13,7 +13,7 @@ Car::Car()
 
 }
 
-Car::Car(double dPosX, double dPosY, double dOrientation)
+Car::Car(double fPosX, double fPosY, double fOrientation)
 {
 	m_bMovingForward = false;
 	m_bReversing = false;
@@ -23,9 +23,9 @@ Car::Car(double dPosX, double dPosY, double dOrientation)
 	m_bBraking = false;
 
 	m_fvHalfExtents = Vector2D<double>(30, 19);
-	m_fvPosition = Vector2D<double>(dPosX, dPosY);
+	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 
-	m_fOrientation = dOrientation;
+	m_fOrientation = fOrientation;
 	m_fRadius = m_fvHalfExtents.magnitude();
 	m_fElasticity = 0.6;
 
@@ -33,23 +33,22 @@ Car::Car(double dPosX, double dPosY, double dOrientation)
 	
 	m_fMaxVelocity = MAXIMUM_SPEED;
 	m_fWheelBase = 45;
-	setSteeringOrientation(dOrientation);
+	setSteeringOrientation(fOrientation);
 	
-	frontWheel = new OBB(dPosX + 20, dPosY, 6, 19, 0);
+	m_rightFrontWheel = new OBB(fPosX + 20, fPosY + 19, 6, 4, 0);
+	m_leftFrontWheel = new OBB(fPosX + 20, fPosY - 19, 6, 4, 0);
 	
 	setFrictionCoefficient(0.4);
 	setMass(1500.0);
 	m_fElasticity = 0.6;
 
-	sf::Texture carTexture;
-	carTexture.loadFromFile("assets/img/tyre.jpg");
-	setTexture(&carTexture);
 }
 
 void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	target.draw(m_vaPoints, states);
-	target.draw(*frontWheel);
+	//target.draw(m_vaPoints, states);
+	target.draw(*m_rightFrontWheel);
+	target.draw(*m_leftFrontWheel);
 	target.draw(m_sprite);
 }
 
@@ -101,10 +100,18 @@ void Car::update(float elapsed)
 	setOrientation(newCarOrientation);
 	m_fSteeringOrientation = newSteeringOrientation;
 		
-	frontWheel->updatePoints();
-	frontWheel->setPosition(frontWheelPos);
-	frontWheel->setOrientation(m_fSteeringOrientation);
-	
+	m_rightFrontWheel->updatePoints();
+	m_leftFrontWheel->updatePoints();
+
+	Vector2D<double> pos(0, 19);
+	pos.rotate(m_fOrientation);
+
+	m_rightFrontWheel->setPosition(frontWheelPos + pos);
+	m_leftFrontWheel->setPosition(frontWheelPos - pos);
+	m_rightFrontWheel->setOrientation(m_fSteeringOrientation);
+	m_leftFrontWheel->setOrientation(m_fSteeringOrientation);
+	m_rightFrontWheel->updateSprite();
+	m_leftFrontWheel->updateSprite();
 	updateSprite();
 }
 

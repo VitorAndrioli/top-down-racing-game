@@ -11,7 +11,14 @@ Game::Game()
 {
 	
 	car = Car(50, 310, 0 * 3.14159 / 180);
+	texture.loadFromFile("assets/img/tyre.jpg");
+
+	car.setTexture(&texture);
 	
+	carTyreTexture.loadFromFile("assets/img/car_tyre.jpg");
+	car.m_rightFrontWheel->setTexture(&carTyreTexture);
+	car.m_leftFrontWheel->setTexture(&carTyreTexture);
+
 	rapidxml::xml_document<> doc;
 	ifstream file(".\\assets\\xml\\obstacles.xml");
 	stringstream buffer;
@@ -23,8 +30,11 @@ Game::Game()
 	for (rapidxml::xml_node<> *pNode = pRoot->first_node("collidable"); pNode; pNode = pNode->next_sibling())
 	{
 		Collidable * newObstacle = CollidableFactory::NewCollidable(pNode);
-		 if (newObstacle != NULL)
+		if (newObstacle != NULL)
+		{
 			obstacles.push_back(newObstacle);
+			obstacles.back()->setTexture(&texture);
+		}
 		//*/
 	}
 

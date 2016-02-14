@@ -17,6 +17,8 @@ public:
 	Car(double fPosX, double fPosY, double fOrientation);
 	void update(float elapsed);
 	bool m_bMovingForward;
+
+	sf::Texture tyreTexture;
 	
 	bool m_bTurningRight;
 	bool m_bTurningLeft;
@@ -26,7 +28,8 @@ public:
 		
 	double m_fSteeringOrientation;
 	double m_fWheelBase;
-	OBB * frontWheel;
+	OBB * m_rightFrontWheel;
+	OBB * m_leftFrontWheel;
 	void setVelocity(Vector2D<double> velocity);
 	void setSteeringOrientation(double fOrientation);
 	double getSteeringOrientation();

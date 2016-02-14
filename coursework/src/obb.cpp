@@ -26,18 +26,12 @@ OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, d
 	//m_fInverseMomentOfInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
 
 	m_vaPoints.resize(5);
-
-	sf::Texture carTexture;
-	carTexture.loadFromFile("assets/img/tyre.jpg");
-	setTexture(&carTexture);
-
-
 }
 
 void OBB::updatePoints()
 {
 	
-	Vector2D<double> rotationMatrixLine1(cos(m_fOrientation), -sin(m_fOrientation));
+	/*Vector2D<double> rotationMatrixLine1(cos(m_fOrientation), -sin(m_fOrientation));
 	Vector2D<double> rotationMatrixLine2(sin(m_fOrientation), cos(m_fOrientation));
 
 	Vector2D<double> tempVector(-m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
@@ -58,7 +52,7 @@ void OBB::updatePoints()
 	tempVector = Vector2D<double>(-m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
 	tempVector.rotate(m_fOrientation);
 	m_vaPoints[3].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[3].position.y = (tempVector + getPosition()).getY();
+	m_vaPoints[3].position.y = (tempVector + getPosition()).getY();*/
 
 }
 
@@ -176,9 +170,9 @@ void OBB::checkCollision(OBB * obb)
 void OBB::setTexture(sf::Texture * texture)
 {
 	m_sprite.setTexture(*texture);
-	m_sprite.setOrigin(m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
-	m_sprite.setTextureRect(sf::IntRect(0, 0, m_fvHalfExtents.getX() * 2, m_fvHalfExtents.getY() * 2));
-	m_sprite.scale(1, 1);
+	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y/2);
+	//m_sprite.setTextureRect(sf::IntRect(0, 0, m_fvHalfExtents.getX() * 2, m_fvHalfExtents.getY() * 2));
+	m_sprite.scale(m_fvHalfExtents.getX() * 2 / texture->getSize().x, m_fvHalfExtents.getY() * 2 / texture->getSize().y);
 	m_sprite.setColor(sf::Color(255, 255, 255, 128));
 
 }

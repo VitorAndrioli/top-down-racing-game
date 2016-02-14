@@ -5,9 +5,9 @@
 Tyre::Tyre(double fPosX, double fPosY, double fOrientation, sf::Texture& texture)
 {
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
-	m_fRadius = 25;
+	m_fRadius = 10;
 	m_fOrientation = fOrientation;
-	m_fInverseMass = 1.0 / (25.0 * 2.0);
+	m_fInverseMass = 1.f / (m_fRadius * 2.f);
 	
 	sf::Texture carTexture;
 	carTexture.loadFromFile("assets/img/tyre.jpg");
