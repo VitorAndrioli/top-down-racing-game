@@ -1,3 +1,5 @@
+//! \file collidableFactory.cpp Implementation of CollidableFactory class.
+
 #include "collidableFactory.h"
 
 Collidable * CollidableFactory::NewCollidable(const rapidxml::xml_node<>* pNode)

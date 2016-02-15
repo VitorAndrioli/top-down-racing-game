@@ -1,3 +1,5 @@
+//! \file collidableFactory.h Declaration of CollidableFactory class.
+
 #ifndef COLLIDABLE_FACTORY_H
 #define COLLIDABLE_FACTORY_H
 

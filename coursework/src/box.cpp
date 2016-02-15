@@ -1,14 +1,12 @@
-/*!
- * \file box.h
- * \class Box
- *
- * \brief Create boxes to be used as collidable obstacles in the game.
- *
- */
+//! \file box.cpp Implementation of Box class.
 
 #include "box.h"
 
-/*! Initialize the necessary member variables with the position, size and (optionally) the orientation received as parameters 
+Box::Box()
+{
+}
+
+/*! Initialize the necessary member variables with the position, size and (optionally) the orientation received as parameters
  * and the default values for box objects.
  *
  * \param fPosX,fPosY Coordinates for the position vector.
@@ -16,7 +14,7 @@
  * \param fOrientation Orientation of the box. If no value is passed, it will be set to zero.
  *
  */
-Box::Box(double fPosX, double fPosY, double fSize, double fOrientation = 0)
+Box::Box(double fPosX, double fPosY, double fSize, double fOrientation)
 {
 	// Assign paramenters to respective member variables.
 	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);
@@ -27,11 +25,6 @@ Box::Box(double fPosX, double fPosY, double fSize, double fOrientation = 0)
 	m_fRestitution = BOX_RESTITUTION_COEFFICIENT;
 	setMass(BOX_MASS); // Use set method to save inverse of mass.
 	
-}
-
-
-Box::Box()
-{
 }
 
 Box::~Box()

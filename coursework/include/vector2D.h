@@ -1,5 +1,6 @@
+//! \file vector2D.h Declaration of Vector2D class.
+
 /*!
-* \file vector2D.h
 * \class Vector2D
 *
 *

@@ -1,3 +1,5 @@
+//! \file car.cpp Implementation of Car class.
+
 #include <SFML\Graphics.hpp>
 #include "car.h"
 #define _USE_MATH_DEFINES
@@ -168,7 +170,7 @@ void Car::setTexture(sf::Texture * texture)
 	texture->setSmooth(true);
 	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y / 4);
 	m_sprite.setTextureRect(sf::IntRect(0, 0, texture->getSize().x, texture->getSize().y/2));
-	m_sprite.scale(m_fvHalfExtents.getX() * 2 / texture->getSize().x, m_fvHalfExtents.getY() * 4 / texture->getSize().y);
+	m_sprite.scale((m_fvHalfExtents.getX()+2) * 2 / texture->getSize().x, (m_fvHalfExtents.getY()+4) * 4 / texture->getSize().y);
 
 }
 

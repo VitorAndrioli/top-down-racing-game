@@ -1,3 +1,5 @@
+//! \file circle.cpp Implementation of Circle class.
+
 #include "circle.h"
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -76,9 +78,7 @@ void Circle::setTexture(sf::Texture * texture)
 {
 	m_sprite.setTexture(*texture);
 	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y/2);
-	//m_sprite.setTextureRect(sf::IntRect(0, 0, texture->getSize().x, texture->getSize().y));
 	m_sprite.scale(m_fRadius*2 / texture->getSize().x, m_fRadius * 2 / texture->getSize().y);
-	//m_sprite.setColor(sf::Color(255, 255, 255, 128));
 	m_sprite.setPosition(getPosition().getX(), getPosition().getY());
 }
 

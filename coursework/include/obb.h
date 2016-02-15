@@ -1,3 +1,5 @@
+//! \file obb.h Declaration of OBB class.
+
 #ifndef OBB_H
 #define OBB_H
 

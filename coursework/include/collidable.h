@@ -1,5 +1,5 @@
+//! \file collidable.h Declaration of Collidable class.
 /*!
-* \file collidable.h
 * \class Collidable
 *
 *

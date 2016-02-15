@@ -1,6 +1,6 @@
-/**
-@file game.cpp
-*/
+//! \file game.cpp Implementation of Game class.
+
+
 /*! \mainpage My Personal Index Page
 *
 * \section intro_sec Introduction
@@ -42,7 +42,7 @@ Game::Game()
 	rapidxml::xml_node<>* pRoot = doc.first_node();
 	for (rapidxml::xml_node<> *pNode = pRoot->first_node("collidable"); pNode; pNode = pNode->next_sibling())
 	{
-		/*Collidable * newObstacle = CollidableFactory::NewCollidable(pNode);
+		Collidable * newObstacle = CollidableFactory::NewCollidable(pNode);
 		if (newObstacle != NULL)
 		{
 			obstacles.push_back(newObstacle);
@@ -51,8 +51,7 @@ Game::Game()
 		//*/
 	}
 
-	Box box(10, 10, 35, 5);
-
+	
 }
 
 void Game::draw(RenderTarget &target, RenderStates states) const

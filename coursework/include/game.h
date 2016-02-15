@@ -1,6 +1,4 @@
-/**
-@file game.h
-*/
+//! \file game.h Declaration of Game class.
 
 #ifndef GAME_H
 #define GAME_H

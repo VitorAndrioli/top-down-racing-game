@@ -1,7 +1,4 @@
-/*!
-* \file collidable.cpp
-*
-*/
+//! \file collidable.cpp Implementation of Collidable class.
 
 #include "collidable.h"
 #include <iostream>

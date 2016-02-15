@@ -1,3 +1,5 @@
+//! \file car.h Declaration of Car class.
+
 #ifndef CAR_H
 #define CAR_H
 
@@ -13,8 +15,8 @@
 #define CAR_MASS 1000.0
 #define CAR_HALF_EXTENT_X 43
 #define CAR_HALF_EXTENT_Y 20
-#define CAR_WHEEL_BASE 48
-#define CAR_FRONT_WHEEL_DISTANCE 16
+#define CAR_WHEEL_BASE 50
+#define CAR_FRONT_WHEEL_DISTANCE 20
 
 #include "obb.h"
 

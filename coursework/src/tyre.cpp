@@ -1,12 +1,10 @@
-/*!
- * \file tyre.h
- * \class Tyre
- *
- * \brief Create tyres to be used as collidable obstacles in the game.
- *
- */
+//! \file tyre.cpp Implementation of Tyre class.
 
 #include "tyre.h"
+
+Tyre::Tyre()
+{
+}
 
 /*! Initialize the necessary member variables with the position received as a parameter and the default values for tyre objects.
  *
@@ -23,10 +21,6 @@ Tyre::Tyre(double fPosX, double fPosY)
 	m_fRestitution = TYRE_RESTITUTION_COEFFICIENT;
 	setMass(TYRE_MASS); // Use set method to save inverse of mass.
 	m_fOrientation = 0; // As a circular collidable, the initial orientation is not relevant.
-}
-
-Tyre::Tyre()
-{
 }
 
 Tyre::~Tyre()

@@ -1,3 +1,5 @@
+//! \file obb.cpp Implementation of OBB class.
+
 #include "obb.h"
 #include "circle.h"
 #include "SFML\Graphics.hpp"

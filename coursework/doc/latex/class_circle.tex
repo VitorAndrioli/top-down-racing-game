@@ -1,5 +1,14 @@
 \hypertarget{class_circle}{}\section{Circle Class Reference}
 \label{class_circle}\index{Circle@{Circle}}
+
+
+Create circular collidables to be used in the game.  
+
+
+
+
+{\ttfamily \#include $<$circle.\+h$>$}
+
 Inheritance diagram for Circle\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,28 +18,45 @@ Inheritance diagram for Circle\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_circle_ac69dcf84ea92b1ea85880b15d83bcea5}{}{\bfseries Circle} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Radius, double f\+Orientation)\label{class_circle_ac69dcf84ea92b1ea85880b15d83bcea5}
-
+\hyperlink{class_circle_ad1ecfcfc7bf34529c6a6d6c448bf70fe}{Circle} ()
 \item 
-\hypertarget{class_circle_afe23c30a1bbc5e831b72063aef91b38f}{}void {\bfseries update\+Points} ()\label{class_circle_afe23c30a1bbc5e831b72063aef91b38f}
+\hypertarget{class_circle_acb8056897b38fd437422c2c101950da2}{}\hyperlink{class_circle_acb8056897b38fd437422c2c101950da2}{Circle} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Radius, double f\+Orientation=0)\label{class_circle_acb8056897b38fd437422c2c101950da2}
 
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor that receives the position, radius and, optionally, the orientation of the object. \end{DoxyCompactList}\item 
+\hypertarget{class_circle_afe23c30a1bbc5e831b72063aef91b38f}{}void \hyperlink{class_circle_afe23c30a1bbc5e831b72063aef91b38f}{update\+Points} ()\label{class_circle_afe23c30a1bbc5e831b72063aef91b38f}
+
+\begin{DoxyCompactList}\small\item\em to be removed. \end{DoxyCompactList}\item 
 \hypertarget{class_circle_a7b23c1ed107b8a309fc1c5d0f6635ae9}{}void \hyperlink{class_circle_a7b23c1ed107b8a309fc1c5d0f6635ae9}{check\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$collidable)\label{class_circle_a7b23c1ed107b8a309fc1c5d0f6635ae9}
 
-\begin{DoxyCompactList}\small\item\em Virtual method to check collision with another \hyperlink{class_collidable}{Collidable} object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Check collision with another \hyperlink{class_collidable}{Collidable}. \end{DoxyCompactList}\item 
 \hypertarget{class_circle_ad528dfc586b5a46b11401abf52d8da87}{}void \hyperlink{class_circle_ad528dfc586b5a46b11401abf52d8da87}{check\+Collision} (\hyperlink{class_circle}{Circle} $\ast$circle)\label{class_circle_ad528dfc586b5a46b11401abf52d8da87}
 
-\begin{DoxyCompactList}\small\item\em Virtual method to check collision with a \hyperlink{class_circle}{Circle} object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Check collision with another \hyperlink{class_circle}{Circle}. \end{DoxyCompactList}\item 
 \hypertarget{class_circle_a328f1400d819209db7b64431b60bbc59}{}void \hyperlink{class_circle_a328f1400d819209db7b64431b60bbc59}{check\+Collision} (\hyperlink{class_o_b_b}{O\+B\+B} $\ast$obb)\label{class_circle_a328f1400d819209db7b64431b60bbc59}
 
-\begin{DoxyCompactList}\small\item\em Virtual method to check collision with an \hyperlink{class_o_b_b}{O\+B\+B} object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Check collision with an \hyperlink{class_o_b_b}{O\+B\+B}. \end{DoxyCompactList}\item 
 \hypertarget{class_circle_ac6c48964ac829b4c1a15b313d9ae102a}{}void {\bfseries set\+Texture} (sf\+::\+Texture $\ast$texture)\label{class_circle_ac6c48964ac829b4c1a15b313d9ae102a}
 
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Detailed Description}
+Create circular collidables to be used in the game. 
+
+Implements collision detection and texture allocation for circular objects. Can be used to turn background figures into immovable collidables. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_circle_ad1ecfcfc7bf34529c6a6d6c448bf70fe}{}\index{Circle@{Circle}!Circle@{Circle}}
+\index{Circle@{Circle}!Circle@{Circle}}
+\subsubsection[{Circle()}]{\setlength{\rightskip}{0pt plus 5cm}Circle\+::\+Circle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_circle_ad1ecfcfc7bf34529c6a6d6c448bf70fe}
+Basic constructor. 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/circle.\+h\item 
-C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/src/circle.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/\hyperlink{circle_8h}{circle.\+h}\item 
+C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/src/\hyperlink{circle_8cpp}{circle.\+cpp}\end{DoxyCompactItemize}
