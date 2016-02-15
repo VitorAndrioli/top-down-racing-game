@@ -16,12 +16,14 @@ Collidable::Collidable()
 	m_fvVelocity = Vector2D<double>(0, 0);
 	m_fvAcceleration = Vector2D<double>(0, 0);
 	m_fvThrust = Vector2D<double>(0, 0);
-	setMass(0);
+	
+	setMass(1000);
 	m_fOrientation = 0;
-	m_fRadius = 0;
+	m_fRadius = 1;
 	m_fFrictionCoefficient = 0;
 	m_fRestitution = 0;
 	m_fAngularVelocity = 0;
+	m_fAngularAcceleration = 0;
 	m_fTorque = 0;
 	m_fInverseMomentOfInertia = 0;
 
@@ -40,17 +42,22 @@ void Collidable::update(float elapsed)
 {
 	Vector2D<double> friction = m_fvVelocity * m_fFrictionCoefficient;
 	
-	m_fvAcceleration = (m_fvThrust - friction);
+	m_fvAcceleration = (m_fvThrust - friction) / m_fInverseMass;
 	m_fvVelocity += m_fvAcceleration * elapsed;
-
-	m_fAngularVelocity += m_fTorque * m_fInverseMomentOfInertia * elapsed;
-
 	m_fvPosition += m_fvVelocity * elapsed;
+
+	double f = m_fAngularVelocity * m_fFrictionCoefficient;
+	m_fAngularAcceleration = m_fTorque - f;// *m_fInverseMomentOfInertia;
+	m_fAngularVelocity += m_fAngularAcceleration * elapsed;
+
+	//cout << m_fTorque << " | " << m_fInverseMomentOfInertia << endl;
+
 
 	m_fOrientation += m_fAngularVelocity * elapsed;
 
 	updateSprite();
 	updatePoints();
+	m_fTorque = 0;
 }
 
 void Collidable::updateSprite()
@@ -86,6 +93,37 @@ void Collidable::resolveCollision(Collidable * otherCollidable, Vector2D<double>
 	m_fvVelocity += (*fvCollisionNormal * j * m_fInverseMass);
 	otherCollidable->setVelocity(otherCollidable->getVelocity() - (*fvCollisionNormal * j * otherCollidable->getInverseMass()));
 }
+
+void Collidable::resolveCollision(Collidable * otherCollidable, Vector2D<double> * fvCollisionNormal, double fOverlap, Vector2D<double> * fvContactPoint)
+{
+	otherCollidable->setPosition(otherCollidable->getPosition() + (*fvCollisionNormal * fOverlap));
+
+	double fRestitution = min(m_fRestitution, otherCollidable->getRestitution());
+
+	Vector2D<double> relVelocity = m_fvVelocity - otherCollidable->getVelocity();
+
+	double velAlongNormal = relVelocity.dotProduct(fvCollisionNormal);
+	if (velAlongNormal > 0) return;
+
+	Vector2D<double> ra = *fvContactPoint - m_fvPosition;
+	Vector2D<double> rb = *fvContactPoint - otherCollidable->getPosition();
+
+	Vector2D<double> relativeVelocity = (m_fvVelocity + ra.crossProduct(m_fAngularVelocity)) - (otherCollidable->getVelocity() + rb.crossProduct(otherCollidable->m_fAngularVelocity));
+
+	
+	double j = -(1 + fRestitution) * relativeVelocity.dotProduct(fvCollisionNormal) / (m_fInverseMass + otherCollidable->getInverseMass() + ra.crossProduct(fvCollisionNormal)*ra.crossProduct(fvCollisionNormal)*m_fInverseMomentOfInertia + rb.crossProduct(fvCollisionNormal)*rb.crossProduct(fvCollisionNormal)*otherCollidable->getInverseInertia());
+
+	
+	applyImpulse(j, fvCollisionNormal, &ra);
+	otherCollidable->applyImpulse(-j, fvCollisionNormal, &rb);
+}
+
+void Collidable::applyImpulse(double fJ, Vector2D<double> * fvCollisionNormal, Vector2D<double> * fvContactPoint)
+{
+	m_fvVelocity += (*fvCollisionNormal * fJ * m_fInverseMass);
+	//m_fAngularVelocity += (*fvContactPoint).crossProduct(&(*fvCollisionNormal * fJ)) * m_fInverseMomentOfInertia;
+}
+
 
 bool Collidable::isMoving()
 {
@@ -181,4 +219,9 @@ void Collidable::setRadius(double fRadius)
 		m_fRadius = fRadius;
 	else
 		m_fRadius = 1;
+}
+
+double Collidable::getInverseInertia()
+{
+	return m_fInverseMomentOfInertia;
 }

@@ -19,11 +19,12 @@ OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, d
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 		
 	m_fOrientation = fOrientation;
-	setMass(0);
+	setMass(100);
 	m_fRadius = m_fvHalfExtents.magnitude();
 	m_fRestitution = 0.6;
+	m_fFrictionCoefficient = 0.7;
 
-	//m_fInverseMomentOfInertia = (getMass() * (dHalfExtentX*dHalfExtentX + dHalfExtentY*dHalfExtentY))/12;
+	//m_fInverseMomentOfInertia = 12/(getMass() * (fHalfExtentX*fHalfExtentX + fHalfExtentY*fHalfExtentY));
 
 	m_vaPoints.resize(5);
 }
@@ -63,6 +64,7 @@ void OBB::checkCollision(Collidable * collidable)
 
 void OBB::checkCollision(Circle * circle)
 {
+	
 	if (!broadCollisionCheck(circle)) return;
 
 	Vector2D<double> fvCentreDistance = circle->getPosition() - m_fvPosition;
@@ -83,7 +85,14 @@ void OBB::checkCollision(Circle * circle)
 		fvClamp.rotate(m_fOrientation);
 		Vector2D<double> fvCollisionNormal = fvClamp + m_fvPosition - circle->getPosition();
 		fvCollisionNormal.normalize();
-		resolveCollision(circle, &fvCollisionNormal, fOverlap);
+
+		Vector2D<double> fvContactPoint = m_fvPosition + fvClamp;
+
+		resolveCollision(circle, &fvCollisionNormal, fOverlap, &fvContactPoint);
+
+
+
+
 
 	}
 }

@@ -14,9 +14,13 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fOrientation)
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 	m_fRadius = fRadius;
 	m_fOrientation = fOrientation;
-	setMass(0);
+	setMass(50);
 
-	//m_fInverseMomentOfInertia = (getMass()*pow(getRadius(), 4)) / 4;
+	m_fRestitution = 0.6;
+	m_fFrictionCoefficient = 0.7;
+
+
+	//m_fInverseMomentOfInertia = 4/(getMass()*pow(getRadius(), 4));
 }
 
 void Circle::checkCollision(Collidable * collidable)
@@ -60,7 +64,11 @@ void Circle::checkCollision(OBB * obb)
 		fvClamp.rotate(obb->getOrientation());
 		Vector2D<double> fvCollisionNormal = m_fvPosition - fvClamp - obb->getPosition();
 		fvCollisionNormal.normalize();
-		resolveCollision(obb, &fvCollisionNormal, fOverlap);
+
+		Vector2D<double> fvContactPoint = m_fvPosition + fvClamp;
+
+		resolveCollision(obb, &fvCollisionNormal, fOverlap, &fvContactPoint);
+		
 	}
 }
 

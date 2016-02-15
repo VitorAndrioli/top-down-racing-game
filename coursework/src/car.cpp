@@ -22,30 +22,33 @@ Car::Car(double fPosX, double fPosY, double fOrientation)
 	m_bTurningRight = false;
 	m_bBraking = false;
 
-	m_fvHalfExtents = Vector2D<double>(42, 20);
+	m_fvHalfExtents = Vector2D<double>(CAR_HALF_EXTENT_X, CAR_HALF_EXTENT_Y);
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 
 	m_fOrientation = fOrientation;
-	m_fRadius = m_fvHalfExtents.magnitude();
-	m_fRestitution = 0.6;
+	m_fSteeringOrientation = fOrientation;
 
+	m_fRadius = m_fvHalfExtents.magnitude();
+	
 	m_vaPoints.resize(5);
 	
 	m_fMaxVelocity = MAXIMUM_SPEED;
-	m_fWheelBase = 45;
-	setSteeringOrientation(fOrientation);
+	m_fWheelBase = CAR_WHEEL_BASE;
 	
-	m_rightFrontWheel = new OBB(fPosX + 20, fPosY + 17, 6, 3, 0);
-	m_leftFrontWheel = new OBB(fPosX + 20, fPosY - 17, 6, 3, 0);
+	m_rightFrontWheel = new OBB(fPosX + CAR_WHEEL_BASE, fPosY + CAR_FRONT_WHEEL_DISTANCE, 6, 3, 0);
+	m_leftFrontWheel = new OBB(fPosX + CAR_WHEEL_BASE, fPosY - CAR_FRONT_WHEEL_DISTANCE, 6, 3, 0);
 	
-	setFrictionCoefficient(0.4);
-	setMass(1500.0);
+	m_fFrictionCoefficient = CAR_FRICTION_COEFFICIENT;
+	m_fRestitution = CAR_RESTITUTION_COEFFICIENT;
+	setMass(CAR_MASS);
+
+	m_fInverseMomentOfInertia = 12 / (getMass() * (CAR_HALF_EXTENT_X*CAR_HALF_EXTENT_X + CAR_HALF_EXTENT_Y*CAR_HALF_EXTENT_Y));
 
 }
 
 void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	//target.draw(m_vaPoints, states);
+	target.draw(m_vaPoints, states);
 	target.draw(*m_rightFrontWheel);
 	target.draw(*m_leftFrontWheel);
 	target.draw(m_sprite);
@@ -55,8 +58,8 @@ void Car::controlInput()
 {
 	m_fvThrust.setY(0);
 	if (!m_bReversing && !m_bAccelerating) m_fvThrust.setX(0);
-	else if (m_bAccelerating && m_bReversing) m_fvThrust.setX(30);
-	else if (m_bAccelerating) m_fvThrust.setX(130);
+	else if (m_bAccelerating && m_bReversing) m_fvThrust.setX(100);
+	else if (m_bAccelerating) m_fvThrust.setX(1000);
 	else m_fvThrust.setX(-100);
 	
 	m_fvThrust.rotate(m_fOrientation);
@@ -72,11 +75,11 @@ void Car::update(float elapsed)
 	steer();
 	
 	Vector2D<double> fvFriction = m_fvVelocity * getFrictionCoefficient();
-	m_fvAcceleration = (m_fvThrust - fvFriction);
+	m_fvAcceleration = (m_fvThrust - fvFriction);// / m_fInverseMass;
 	setVelocity( m_fvVelocity + m_fvAcceleration * elapsed );
 
 
-	//std::cout << m_fvAcceleration.getX() << " | " << m_fvAcceleration.getY() << std::endl;
+	//std::cout << m_fvVelocity.getX() << " | " << m_fvVelocity.getY() << std::endl;
 
 
 	
@@ -105,7 +108,7 @@ void Car::update(float elapsed)
 	m_rightFrontWheel->updatePoints();
 	m_leftFrontWheel->updatePoints();
 
-	Vector2D<double> pos(0, 17);
+	Vector2D<double> pos(0, CAR_FRONT_WHEEL_DISTANCE);
 	pos.rotate(m_fOrientation);
 
 	m_rightFrontWheel->setPosition(frontWheelPos + pos);
@@ -115,6 +118,7 @@ void Car::update(float elapsed)
 	m_rightFrontWheel->updateSprite();
 	m_leftFrontWheel->updateSprite();
 	updateSprite();
+	updatePoints();
 }
 
 void Car::setVelocity(Vector2D<double> velocity)
@@ -161,10 +165,10 @@ void Car::steer()
 void Car::setTexture(sf::Texture * texture)
 {
 	m_sprite.setTexture(*texture);
+	texture->setSmooth(true);
 	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y / 4);
 	m_sprite.setTextureRect(sf::IntRect(0, 0, texture->getSize().x, texture->getSize().y/2));
 	m_sprite.scale(m_fvHalfExtents.getX() * 2 / texture->getSize().x, m_fvHalfExtents.getY() * 4 / texture->getSize().y);
-	//m_sprite.setColor(sf::Color(255, 255, 255, 128));
 
 }
 

@@ -21,19 +21,15 @@ int main()
 	
 	Game game;
 
-	//sf::Texture tyreTexture;
-	//tyreTexture.loadFromFile("assets/img/tyre.jpg");
-	//game.tyre.m_sprite.setTexture(tyreTexture);
-
 	sf::Texture texture;
-	texture.loadFromFile("assets/img/track_small.jpg");
+	texture.loadFromFile("assets/img/track.jpg");
 	
 	// Create a sprite
 	sf::Sprite sprite;
 	sprite.setTexture(texture);
 	sprite.setTextureRect(sf::IntRect(0, 0, 1500, 1600));
 	sprite.scale(2, 2);
-	sprite.setColor(sf::Color(255, 255, 255, 200));
+	sprite.setColor(sf::Color(255, 255, 255, 255));
 	sprite.setPosition(0, 0);
 	
 	sf::View mainView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
@@ -67,7 +63,7 @@ int main()
 		window.clear(Color::Magenta);
 
 		window.setView(mainView);
-		mainView.setCenter(game.car.getPosition().getX(), game.car.getPosition().getY());
+		//mainView.setCenter(game.car.getPosition().getX(), game.car.getPosition().getY());
 		//window.draw(sprite);
 		window.draw(game);
 

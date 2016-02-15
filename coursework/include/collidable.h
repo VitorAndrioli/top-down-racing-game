@@ -43,7 +43,8 @@ protected:
 	Vector2D<double> m_fvAngularVelocity; //!< 
 	Vector2D<double> m_fvAngularAcceleration; //!< 
 	Vector2D<double> m_fvTorque; //!< 
-	double m_fAngularVelocity; //!< 
+	//double m_fAngularVelocity; //!< 
+	double m_fAngularAcceleration; //!< 
 	double m_fTorque; //!< 
 	double m_fInverseMomentOfInertia; //!< 
 	
@@ -62,9 +63,12 @@ protected:
 	*
 	*	Resolve overlap of two colliding objects, calculate and update their velocities.
 	*/
-	void resolveCollision(Collidable * otherCollidable, Vector2D<double> * fvCollisionNormal, double fOverlap); 
+	void resolveCollision(Collidable * otherCollidable, Vector2D<double> * fvCollisionNormal, double fOverlap);
+	void resolveCollision(Collidable * otherCollidable, Vector2D<double> * fvCollisionNormal, double fOverlap, Vector2D<double> * fvContactPoint);
+	void applyImpulse(double fJ, Vector2D<double> * fvCollisionNormal, Vector2D<double> * fvContactPoint);
 
 public:
+	double m_fAngularVelocity; //!< 
 	Collidable(); //!< Basic contructor.
 	void update(float elapsed); //!< Update method. To be called every frame of the game.
 	virtual void updatePoints() {}; //!< to be removed.
@@ -91,6 +95,7 @@ public:
 	double getRestitution();
 	double getFrictionCoefficient();
 	double getRadius();
+	double getInverseInertia();
 	
 	void setPosition(Vector2D<double> fvPosition);
 	void setVelocity(Vector2D<double> fvVelocity);
