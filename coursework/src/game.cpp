@@ -42,7 +42,7 @@ Game::Game()
 	rapidxml::xml_node<>* pRoot = doc.first_node();
 	for (rapidxml::xml_node<> *pNode = pRoot->first_node("collidable"); pNode; pNode = pNode->next_sibling())
 	{
-		Collidable * newObstacle = CollidableFactory::NewCollidable(pNode);
+		/*Collidable * newObstacle = CollidableFactory::NewCollidable(pNode);
 		if (newObstacle != NULL)
 		{
 			obstacles.push_back(newObstacle);
@@ -51,7 +51,7 @@ Game::Game()
 		//*/
 	}
 
-	
+	Box box(10, 10, 35, 5);
 
 }
 

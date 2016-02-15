@@ -15,6 +15,7 @@ OBB::OBB()
 
 OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation)
 {
+	std::cout << "Obb constructor" << std::endl;
 	m_fvHalfExtents = Vector2D<double>(fHalfExtentX, fHalfExtentY);
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 		

@@ -89,6 +89,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Tyre Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Create tyres to be used as collidable obstacles in the game.  
+ <a href="class_tyre.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tyre_8h_source.html">tyre.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Tyre:</div>
 <div class="dyncontent">
@@ -102,9 +107,17 @@ Inheritance diagram for Tyre:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af984cf335a42ec480d5de68ea28c1714"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af984cf335a42ec480d5de68ea28c1714"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tyre</b> (double fPosX, double fPosY, double fOrientation)</td></tr>
-<tr class="separator:af984cf335a42ec480d5de68ea28c1714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8316602e846dd79412579a2c3ad92c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tyre.html#aa8316602e846dd79412579a2c3ad92c7">Tyre</a> (double fPosX, double fPosY)</td></tr>
+<tr class="memdesc:aa8316602e846dd79412579a2c3ad92c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that receives the position of the object.  <a href="#aa8316602e846dd79412579a2c3ad92c7">More...</a><br /></td></tr>
+<tr class="separator:aa8316602e846dd79412579a2c3ad92c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a162dbaad7ae74443df530dfb147fb694"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a162dbaad7ae74443df530dfb147fb694"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tyre.html#a162dbaad7ae74443df530dfb147fb694">Tyre</a> ()</td></tr>
+<tr class="memdesc:a162dbaad7ae74443df530dfb147fb694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic constructor. Does not initialize any member variable. <br /></td></tr>
+<tr class="separator:a162dbaad7ae74443df530dfb147fb694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ace196877f68acd82b89e8cd33825ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ace196877f68acd82b89e8cd33825ec"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tyre.html#a3ace196877f68acd82b89e8cd33825ec">~Tyre</a> ()</td></tr>
+<tr class="memdesc:a3ace196877f68acd82b89e8cd33825ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic destructor. <br /></td></tr>
+<tr class="separator:a3ace196877f68acd82b89e8cd33825ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_circle"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_circle')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_circle.html">Circle</a></td></tr>
 <tr class="memitem:ac69dcf84ea92b1ea85880b15d83bcea5 inherit pub_methods_class_circle"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac69dcf84ea92b1ea85880b15d83bcea5"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Circle</b> (double fPosX, double fPosY, double fRadius, double fOrientation)</td></tr>
@@ -149,6 +162,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_class_collidable"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_collidable')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_collidable.html">Collidable</a></td></tr>
+<tr class="memitem:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pub_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a6501f0c062b6c24f3121c5c68b59d4"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fAngularVelocity</b></td></tr>
+<tr class="separator:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pub_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_collidable"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_collidable')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_collidable.html">Collidable</a></td></tr>
 <tr class="memitem:a3d3ce584cdb14485db044c81a792a966 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a3d3ce584cdb14485db044c81a792a966">broadCollisionCheck</a> (<a class="el" href="class_collidable.html">Collidable</a> *otherCollidable)</td></tr>
 <tr class="memdesc:a3d3ce584cdb14485db044c81a792a966 inherit pro_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a broad collision check with another collidable.  <a href="#a3d3ce584cdb14485db044c81a792a966">More...</a><br /></td></tr>
@@ -156,6 +173,12 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a40089393c9a030b68042e3b72d8142e4 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a40089393c9a030b68042e3b72d8142e4">resolveCollision</a> (<a class="el" href="class_collidable.html">Collidable</a> *otherCollidable, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvCollisionNormal, double fOverlap)</td></tr>
 <tr class="memdesc:a40089393c9a030b68042e3b72d8142e4 inherit pro_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve collision between two collidable objects.  <a href="#a40089393c9a030b68042e3b72d8142e4">More...</a><br /></td></tr>
 <tr class="separator:a40089393c9a030b68042e3b72d8142e4 inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cefc9d5d6fa5003bbf54df6d76fd74e inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cefc9d5d6fa5003bbf54df6d76fd74e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resolveCollision</b> (<a class="el" href="class_collidable.html">Collidable</a> *otherCollidable, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvCollisionNormal, double fOverlap, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvContactPoint)</td></tr>
+<tr class="separator:a8cefc9d5d6fa5003bbf54df6d76fd74e inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2261a16decf40d73a01d1179153d3331 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2261a16decf40d73a01d1179153d3331"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>applyImpulse</b> (double fJ, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvCollisionNormal, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvContactPoint)</td></tr>
+<tr class="separator:a2261a16decf40d73a01d1179153d3331 inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_collidable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_collidable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_collidable.html">Collidable</a></td></tr>
 <tr class="memitem:ac72f55f30a447a47bf165ce8d7584027 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac72f55f30a447a47bf165ce8d7584027"></a>
 <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">m_fvPosition</a></td></tr>
@@ -205,9 +228,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="memitem:a8c45a631264b9ae9d57617deefe3bf92 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c45a631264b9ae9d57617deefe3bf92"></a>
 <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_fvTorque</b></td></tr>
 <tr class="separator:a8c45a631264b9ae9d57617deefe3bf92 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a6501f0c062b6c24f3121c5c68b59d4"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fAngularVelocity</b></td></tr>
-<tr class="separator:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376aa200ba174a1cea17766fbcbda760 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a376aa200ba174a1cea17766fbcbda760"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fAngularAcceleration</b></td></tr>
+<tr class="separator:a376aa200ba174a1cea17766fbcbda760 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84f79454b1dac54f7b9042660d89e8ca inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84f79454b1dac54f7b9042660d89e8ca"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fTorque</b></td></tr>
 <tr class="separator:a84f79454b1dac54f7b9042660d89e8ca inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,6 +246,44 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <tr class="memdesc:a5392bcb0ef0fef2e60b68a447e4d0ae7 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite to be drawn to the window. <br /></td></tr>
 <tr class="separator:a5392bcb0ef0fef2e60b68a447e4d0ae7 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Create tyres to be used as collidable obstacles in the game. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aa8316602e846dd79412579a2c3ad92c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tyre::Tyre </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fPosX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fPosY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor that receives the position of the object. </p>
+<p>Initialize the necessary member variables with the position received as a parameter and the default values for tyre objects.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fPosX,fPosY</td><td>Coordinates for the position vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/include/<a class="el" href="tyre_8h_source.html">tyre.h</a></li>
 <li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/src/tyre.cpp</li>

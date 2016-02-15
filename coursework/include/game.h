@@ -10,6 +10,7 @@
 #include "collidableFactory.h"
 #include "car.h"
 #include "tyre.h"
+#include "box.h"
 #include "vector2D.h"
 #include "rapidxml.hpp"
 #include "rapidxml_iterators.hpp"

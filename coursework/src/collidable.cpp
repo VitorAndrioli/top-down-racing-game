@@ -13,6 +13,7 @@ using namespace std;
 //! Initialize all relevant variables to 0.
 Collidable::Collidable()
 {
+	std::cout << "Collidable constructor" << std::endl;
 	m_fvVelocity = Vector2D<double>(0, 0);
 	m_fvAcceleration = Vector2D<double>(0, 0);
 	m_fvThrust = Vector2D<double>(0, 0);

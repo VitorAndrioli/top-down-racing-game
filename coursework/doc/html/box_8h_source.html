@@ -88,21 +88,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">box.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;obb.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_box.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_box.html">Box</a> : <span class="keyword">public</span> <a class="code" href="class_o_b_b.html">OBB</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_box.html">Box</a>();</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_box.html">Box</a>(<span class="keywordtype">double</span> fPosX, <span class="keywordtype">double</span> fPosY, <span class="keywordtype">double</span> fSize);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_box.html">Box</a>(<span class="keywordtype">double</span> fPosX, <span class="keywordtype">double</span> fPosY, <span class="keywordtype">double</span> fSize, <span class="keywordtype">double</span> fOrientation);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    ~<a class="code" href="class_box.html">Box</a>();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
+<a href="box_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef BOX_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define BOX_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;obb.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// Define constant values to be assigned for box objects.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define BOX_MASS 20.0 </span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define BOX_FRICTION_COEFFICIENT 0.68 </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define BOX_RESTITUTION_COEFFICIENT 0.7 </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_box.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_box.html">Box</a> : <span class="keyword">public</span> <a class="code" href="class_o_b_b.html">OBB</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_box.html#aca78d7db44972bfa78d46b7bbc8796f6">Box</a>(<span class="keywordtype">double</span> fPosX, <span class="keywordtype">double</span> fPosY, <span class="keywordtype">double</span> fSize, <span class="keywordtype">double</span> fOrientation = 0);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_box.html#aca78d7db44972bfa78d46b7bbc8796f6">Box</a>(); </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_box.html#a6a5e09398e85d602a046b429062fb9c2">~Box</a>(); </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_box_html_aca78d7db44972bfa78d46b7bbc8796f6"><div class="ttname"><a href="class_box.html#aca78d7db44972bfa78d46b7bbc8796f6">Box::Box</a></div><div class="ttdeci">Box()</div><div class="ttdoc">Basic constructor. Does not initialize any member variable. </div><div class="ttdef"><b>Definition:</b> box.cpp:33</div></div>
 <div class="ttc" id="class_o_b_b_html"><div class="ttname"><a href="class_o_b_b.html">OBB</a></div><div class="ttdef"><b>Definition:</b> obb.h:6</div></div>
-<div class="ttc" id="class_box_html"><div class="ttname"><a href="class_box.html">Box</a></div><div class="ttdef"><b>Definition:</b> box.h:5</div></div>
+<div class="ttc" id="class_box_html_a6a5e09398e85d602a046b429062fb9c2"><div class="ttname"><a href="class_box.html#a6a5e09398e85d602a046b429062fb9c2">Box::~Box</a></div><div class="ttdeci">~Box()</div><div class="ttdoc">Basic destructor. </div><div class="ttdef"><b>Definition:</b> box.cpp:37</div></div>
+<div class="ttc" id="class_box_html"><div class="ttname"><a href="class_box.html">Box</a></div><div class="ttdoc">Create boxes to be used as collidable obstacles in the game. </div><div class="ttdef"><b>Definition:</b> box.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

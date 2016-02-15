@@ -1,5 +1,14 @@
 \hypertarget{class_box}{}\section{Box Class Reference}
 \label{class_box}\index{Box@{Box}}
+
+
+Create boxes to be used as collidable obstacles in the game.  
+
+
+
+
+{\ttfamily \#include $<$box.\+h$>$}
+
 Inheritance diagram for Box\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,16 +18,49 @@ Inheritance diagram for Box\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_box_a92b74dcd0fe4b7936fff4d2f6ba5dea6}{}{\bfseries Box} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Size)\label{class_box_a92b74dcd0fe4b7936fff4d2f6ba5dea6}
+\hyperlink{class_box_abbd9e77b3e9400ef44c6d52e0682b9d9}{Box} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Size, double f\+Orientation=0)
+\begin{DoxyCompactList}\small\item\em Constructor that uses paramenters to iniatilize object\textquotesingle{}s position, size and (optionally) orientation. \end{DoxyCompactList}\item 
+\hypertarget{class_box_aca78d7db44972bfa78d46b7bbc8796f6}{}\hyperlink{class_box_aca78d7db44972bfa78d46b7bbc8796f6}{Box} ()\label{class_box_aca78d7db44972bfa78d46b7bbc8796f6}
 
-\item 
-\hypertarget{class_box_a37d5ea9b6928de4528869fc1e04c8c85}{}{\bfseries Box} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Size, double f\+Orientation)\label{class_box_a37d5ea9b6928de4528869fc1e04c8c85}
+\begin{DoxyCompactList}\small\item\em Basic constructor. Does not initialize any member variable. \end{DoxyCompactList}\item 
+\hypertarget{class_box_a6a5e09398e85d602a046b429062fb9c2}{}\hyperlink{class_box_a6a5e09398e85d602a046b429062fb9c2}{$\sim$\+Box} ()\label{class_box_a6a5e09398e85d602a046b429062fb9c2}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Basic destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Create boxes to be used as collidable obstacles in the game. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_box_abbd9e77b3e9400ef44c6d52e0682b9d9}{}\index{Box@{Box}!Box@{Box}}
+\index{Box@{Box}!Box@{Box}}
+\subsubsection[{Box(double f\+Pos\+X, double f\+Pos\+Y, double f\+Size, double f\+Orientation=0)}]{\setlength{\rightskip}{0pt plus 5cm}Box\+::\+Box (
+\begin{DoxyParamCaption}
+\item[{double}]{f\+Pos\+X, }
+\item[{double}]{f\+Pos\+Y, }
+\item[{double}]{f\+Size, }
+\item[{double}]{f\+Orientation = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_box_abbd9e77b3e9400ef44c6d52e0682b9d9}
+
+
+Constructor that uses paramenters to iniatilize object\textquotesingle{}s position, size and (optionally) orientation. 
+
+Initialize the necessary member variables with the position, size and (optionally) the orientation received as parameters and the default values for box objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f\+Pos\+X,f\+Pos\+Y} & Coordinates for the position vector. \\
+\hline
+{\em f\+Size} & Size of the box. It is always a square. \\
+\hline
+{\em f\+Orientation} & Orientation of the box. If no value is passed, it will be set to zero. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/box.\+h\item 
+C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/\hyperlink{box_8h}{box.\+h}\item 
 C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/src/box.\+cpp\end{DoxyCompactItemize}

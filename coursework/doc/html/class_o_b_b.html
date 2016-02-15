@@ -97,7 +97,7 @@ Inheritance diagram for OBB:</div>
   <img src="class_o_b_b.png" usemap="#OBB_map" alt=""/>
   <map id="OBB_map" name="OBB_map">
 <area href="class_collidable.html" title="Base class for every collidable object in the game. " alt="Collidable" shape="rect" coords="39,56,107,80"/>
-<area href="class_box.html" alt="Box" shape="rect" coords="0,168,68,192"/>
+<area href="class_box.html" title="Create boxes to be used as collidable obstacles in the game. " alt="Box" shape="rect" coords="0,168,68,192"/>
 <area href="class_car.html" alt="Car" shape="rect" coords="78,168,146,192"/>
 </map>
  </div></div>
@@ -205,9 +205,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="memitem:a8c45a631264b9ae9d57617deefe3bf92 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c45a631264b9ae9d57617deefe3bf92"></a>
 <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_fvTorque</b></td></tr>
 <tr class="separator:a8c45a631264b9ae9d57617deefe3bf92 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a6501f0c062b6c24f3121c5c68b59d4"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fAngularVelocity</b></td></tr>
-<tr class="separator:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376aa200ba174a1cea17766fbcbda760 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a376aa200ba174a1cea17766fbcbda760"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fAngularAcceleration</b></td></tr>
+<tr class="separator:a376aa200ba174a1cea17766fbcbda760 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84f79454b1dac54f7b9042660d89e8ca inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84f79454b1dac54f7b9042660d89e8ca"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fTorque</b></td></tr>
 <tr class="separator:a84f79454b1dac54f7b9042660d89e8ca inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,6 +225,10 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_class_collidable"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_collidable')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_collidable.html">Collidable</a></td></tr>
+<tr class="memitem:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pub_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a6501f0c062b6c24f3121c5c68b59d4"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fAngularVelocity</b></td></tr>
+<tr class="separator:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pub_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_collidable"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_collidable')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_collidable.html">Collidable</a></td></tr>
 <tr class="memitem:a3d3ce584cdb14485db044c81a792a966 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a3d3ce584cdb14485db044c81a792a966">broadCollisionCheck</a> (<a class="el" href="class_collidable.html">Collidable</a> *otherCollidable)</td></tr>
 <tr class="memdesc:a3d3ce584cdb14485db044c81a792a966 inherit pro_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a broad collision check with another collidable.  <a href="#a3d3ce584cdb14485db044c81a792a966">More...</a><br /></td></tr>
@@ -232,6 +236,12 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a40089393c9a030b68042e3b72d8142e4 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a40089393c9a030b68042e3b72d8142e4">resolveCollision</a> (<a class="el" href="class_collidable.html">Collidable</a> *otherCollidable, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvCollisionNormal, double fOverlap)</td></tr>
 <tr class="memdesc:a40089393c9a030b68042e3b72d8142e4 inherit pro_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve collision between two collidable objects.  <a href="#a40089393c9a030b68042e3b72d8142e4">More...</a><br /></td></tr>
 <tr class="separator:a40089393c9a030b68042e3b72d8142e4 inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cefc9d5d6fa5003bbf54df6d76fd74e inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cefc9d5d6fa5003bbf54df6d76fd74e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resolveCollision</b> (<a class="el" href="class_collidable.html">Collidable</a> *otherCollidable, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvCollisionNormal, double fOverlap, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvContactPoint)</td></tr>
+<tr class="separator:a8cefc9d5d6fa5003bbf54df6d76fd74e inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2261a16decf40d73a01d1179153d3331 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2261a16decf40d73a01d1179153d3331"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>applyImpulse</b> (double fJ, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvCollisionNormal, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *fvContactPoint)</td></tr>
+<tr class="separator:a2261a16decf40d73a01d1179153d3331 inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/include/<a class="el" href="obb_8h_source.html">obb.h</a></li>

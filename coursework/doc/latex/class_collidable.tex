@@ -43,13 +43,25 @@ void \hyperlink{class_collidable_a656ce92dd3e3f1b1981eb79c97ed3115}{update\+Spri
 \hypertarget{class_collidable_ac4597915c92e32ea10220808da31c750}{}void \hyperlink{class_collidable_ac4597915c92e32ea10220808da31c750}{print} ()\label{class_collidable_ac4597915c92e32ea10220808da31c750}
 
 \begin{DoxyCompactList}\small\item\em to be removed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_collidable_a5a6501f0c062b6c24f3121c5c68b59d4}{}double {\bfseries m\+\_\+f\+Angular\+Velocity}\label{class_collidable_a5a6501f0c062b6c24f3121c5c68b59d4}
+
+\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{class_collidable_a3d3ce584cdb14485db044c81a792a966}{broad\+Collision\+Check} (\hyperlink{class_collidable}{Collidable} $\ast$other\+Collidable)
 \begin{DoxyCompactList}\small\item\em Perform a broad collision check with another collidable. \end{DoxyCompactList}\item 
 void \hyperlink{class_collidable_a40089393c9a030b68042e3b72d8142e4}{resolve\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$other\+Collidable, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Collision\+Normal, double f\+Overlap)
-\begin{DoxyCompactList}\small\item\em Resolve collision between two collidable objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Resolve collision between two collidable objects. \end{DoxyCompactList}\item 
+\hypertarget{class_collidable_a8cefc9d5d6fa5003bbf54df6d76fd74e}{}void {\bfseries resolve\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$other\+Collidable, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Collision\+Normal, double f\+Overlap, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Contact\+Point)\label{class_collidable_a8cefc9d5d6fa5003bbf54df6d76fd74e}
+
+\item 
+\hypertarget{class_collidable_a2261a16decf40d73a01d1179153d3331}{}void {\bfseries apply\+Impulse} (double f\+J, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Collision\+Normal, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Contact\+Point)\label{class_collidable_a2261a16decf40d73a01d1179153d3331}
+
+\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -92,7 +104,7 @@ void \hyperlink{class_collidable_a40089393c9a030b68042e3b72d8142e4}{resolve\+Col
 \hypertarget{class_collidable_a8c45a631264b9ae9d57617deefe3bf92}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries m\+\_\+fv\+Torque}\label{class_collidable_a8c45a631264b9ae9d57617deefe3bf92}
 
 \item 
-\hypertarget{class_collidable_a5a6501f0c062b6c24f3121c5c68b59d4}{}double {\bfseries m\+\_\+f\+Angular\+Velocity}\label{class_collidable_a5a6501f0c062b6c24f3121c5c68b59d4}
+\hypertarget{class_collidable_a376aa200ba174a1cea17766fbcbda760}{}double {\bfseries m\+\_\+f\+Angular\+Acceleration}\label{class_collidable_a376aa200ba174a1cea17766fbcbda760}
 
 \item 
 \hypertarget{class_collidable_a84f79454b1dac54f7b9042660d89e8ca}{}double {\bfseries m\+\_\+f\+Torque}\label{class_collidable_a84f79454b1dac54f7b9042660d89e8ca}
@@ -126,7 +138,7 @@ Longer text that appears on description section
 
 Basic contructor. 
 
-Initiates all relevant variables to 0. 
+Initialize all relevant variables to 0. 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_collidable_a3d3ce584cdb14485db044c81a792a966}{}\index{Collidable@{Collidable}!broad\+Collision\+Check@{broad\+Collision\+Check}}

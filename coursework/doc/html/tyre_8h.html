@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/include/game.h File Reference</title>
+<title>My Project: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/include/tyre.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,35 +85,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">game.h File Reference</div>  </div>
+<div class="title">tyre.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;circle.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="collidable_8h_source.html">collidable.h</a>&quot;</code><br />
-<code>#include &quot;collidableFactory.h&quot;</code><br />
-<code>#include &quot;car.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="tyre_8h_source.html">tyre.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="box_8h_source.html">box.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vector2_d_8h_source.html">vector2D.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="rapidxml_8hpp_source.html">rapidxml.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="rapidxml__iterators_8hpp_source.html">rapidxml_iterators.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="rapidxml__print_8hpp_source.html">rapidxml_print.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="rapidxml__utils_8hpp_source.html">rapidxml_utils.hpp</a>&quot;</code><br />
-<code>#include &lt;array&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;SFML/Graphics.hpp&gt;</code><br />
 </div>
-<p><a href="game_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="tyre_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html">Game</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tyre.html">Tyre</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create tyres to be used as collidable obstacles in the game.  <a href="class_tyre.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1d3ebb9b79c6a69201c89b1a360b1942"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d3ebb9b79c6a69201c89b1a360b1942"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tyre_8h.html#a1d3ebb9b79c6a69201c89b1a360b1942">TYRE_RADIUS</a>&#160;&#160;&#160;10.0</td></tr>
+<tr class="memdesc:a1d3ebb9b79c6a69201c89b1a360b1942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default radius for tyre objects. <br /></td></tr>
+<tr class="separator:a1d3ebb9b79c6a69201c89b1a360b1942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22a854f8c13cf9afb24deaacf8bb013f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22a854f8c13cf9afb24deaacf8bb013f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tyre_8h.html#a22a854f8c13cf9afb24deaacf8bb013f">TYRE_MASS</a>&#160;&#160;&#160;20.0</td></tr>
+<tr class="memdesc:a22a854f8c13cf9afb24deaacf8bb013f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default mass for tyre objects. <br /></td></tr>
+<tr class="separator:a22a854f8c13cf9afb24deaacf8bb013f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5c106f1e96a5f6d5dc56f36945bdfba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5c106f1e96a5f6d5dc56f36945bdfba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tyre_8h.html#ad5c106f1e96a5f6d5dc56f36945bdfba">TYRE_FRICTION_COEFFICIENT</a>&#160;&#160;&#160;0.68</td></tr>
+<tr class="memdesc:ad5c106f1e96a5f6d5dc56f36945bdfba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default friction coefficient for tyre objects. <br /></td></tr>
+<tr class="separator:ad5c106f1e96a5f6d5dc56f36945bdfba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa2970bbd8ec40743cfd15da6b684f6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa2970bbd8ec40743cfd15da6b684f6a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tyre_8h.html#aaa2970bbd8ec40743cfd15da6b684f6a">TYRE_RESTITUTION_COEFFICIENT</a>&#160;&#160;&#160;0.7</td></tr>
+<tr class="memdesc:aaa2970bbd8ec40743cfd15da6b684f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default restitution coefficient for tyre objects. <br /></td></tr>
+<tr class="separator:aaa2970bbd8ec40743cfd15da6b684f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
