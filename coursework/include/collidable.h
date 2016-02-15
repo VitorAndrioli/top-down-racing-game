@@ -65,20 +65,22 @@ protected:
 	void resolveCollision(Collidable * otherCollidable, Vector2D<double> * fvCollisionNormal, double fOverlap); 
 
 public:
-	Collidable(); //!< Basic contructor
-	void update(float elapsed); //!< Update method to be called every frame of the game.
+	Collidable(); //!< Basic contructor.
+	void update(float elapsed); //!< Update method. To be called every frame of the game.
 	virtual void updatePoints() {}; //!< to be removed.
-	void updateSprite(); //!< Updates the sprite.
+	void updateSprite(); //!< Updates the sprite position and orientation.
 
 	virtual void checkCollision(Collidable * collidable) = 0; //!< Virtual method to check collision with another Collidable object.
 	virtual void checkCollision(Circle * circle) = 0; //!< Virtual method to check collision with a Circle object.
 	virtual void checkCollision(OBB * obb) = 0; //!< Virtual method to check collision with an OBB object.
-	bool isMoving(); //!< Check if the collidable is moving. Called befor performing collision tests. \return bool
+	
+	bool isMoving(); //!< Check if the collidable is moving. Called befor performing collision tests.
 
 	void print() { std::cout << getVelocity().magnitude() << " | " << getAcceleration().getY() << std::endl; } //!< to be removed.
 	
-	//!< Get methods
-
+	/*!< \cond 
+	* Basic set and get methods.
+	*/
 	Vector2D<double> getPosition();
 	Vector2D<double> getVelocity();
 	Vector2D<double> getAcceleration();
@@ -89,8 +91,6 @@ public:
 	double getRestitution();
 	double getFrictionCoefficient();
 	double getRadius();
-	
-	//!< Set methods
 	
 	void setPosition(Vector2D<double> fvPosition);
 	void setVelocity(Vector2D<double> fvVelocity);
@@ -103,8 +103,9 @@ public:
 	void setRadius(double fRadius);
 	virtual void setTexture(sf::Texture * texture) = 0;
 
+	//!< \endcond 
 private:
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method from Drawable class.
 };
 
 #endif

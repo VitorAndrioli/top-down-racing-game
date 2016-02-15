@@ -1,4 +1,4 @@
-/**
+/*!
 * \file collidable.cpp
 *
 */
@@ -10,22 +10,26 @@
 
 using namespace std;
 
+//! Initialize all relevant variables to 0.
 Collidable::Collidable()
 {
 	m_fvVelocity = Vector2D<double>(0, 0);
 	m_fvAcceleration = Vector2D<double>(0, 0);
 	m_fvThrust = Vector2D<double>(0, 0);
-	m_fFrictionCoefficient = 0.4;
-	m_fRestitution = 0.6;
-
+	setMass(0);
+	m_fOrientation = 0;
+	m_fRadius = 0;
+	m_fFrictionCoefficient = 0;
+	m_fRestitution = 0;
 	m_fAngularVelocity = 0;
 	m_fTorque = 0;
 	m_fInverseMomentOfInertia = 0;
 
 
-	m_vaPoints.setPrimitiveType(sf::LinesStrip);
+	m_vaPoints.setPrimitiveType(sf::LinesStrip); // to be removed.
 }
 
+//! Draw object sprite to target.
 void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(m_sprite, states);
