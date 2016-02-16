@@ -60,9 +60,9 @@ void Car::controlInput()
 {
 	m_fvThrust.setY(0);
 	if (!m_bReversing && !m_bAccelerating) m_fvThrust.setX(0);
-	else if (m_bAccelerating && m_bReversing) m_fvThrust.setX(100);
+	else if (m_bAccelerating && m_bReversing) m_fvThrust.setX(500);
 	else if (m_bAccelerating) m_fvThrust.setX(1000);
-	else m_fvThrust.setX(-100);
+	else m_fvThrust.setX(-500);
 	
 	m_fvThrust.rotate(m_fOrientation);
 
@@ -78,6 +78,7 @@ void Car::update(float elapsed)
 	
 	Vector2D<double> fvFriction = m_fvVelocity * getFrictionCoefficient();
 	m_fvAcceleration = (m_fvThrust - fvFriction);// / m_fInverseMass;
+	
 	setVelocity( m_fvVelocity + m_fvAcceleration * elapsed );
 
 

@@ -1,7 +1,7 @@
 //! \file box.h Declaration of Box class.
 /*!
  * \class Box
- * \brief Create boxes to be used as collidable obstacles in the game.
+ * \brief Box to be used as collidable obstacle in the game.
  */
 
 #ifndef BOX_H
@@ -21,7 +21,7 @@ class Box : public OBB
 {
 public:
 	Box(); //!< Basic constructor. Does not initialize any member variable.
-	//! Constructor that uses paramenters to iniatilize object's position, size and (optionally) orientation.
+	//! Constructor iniatilizing object's position, size and orientation.
 	Box(double fPosX, double fPosY, double fSize, double fOrientation = 0);
 	~Box(); //!< Basic destructor.
 };

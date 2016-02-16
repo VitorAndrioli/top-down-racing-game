@@ -22,9 +22,8 @@ Collidable * CollidableFactory::NewCollidable(const rapidxml::xml_node<>* pNode)
 		double fPosX = atof(pNode->first_attribute("posX")->value());
 		double fPosY = atof(pNode->first_attribute("posY")->value());
 		double fRadius = atof(pNode->first_attribute("radius")->value());
-		double fOrientation = atof(pNode->first_attribute("orientation")->value());
-
-		return new Circle(fPosX, fPosY, fRadius, fOrientation);
+		
+		return new Circle(fPosX, fPosY, fRadius);
 	}
 	if (sCollidableType == "tyre")
 	{

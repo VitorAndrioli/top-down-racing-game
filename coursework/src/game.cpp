@@ -67,7 +67,8 @@ void Game::draw(RenderTarget &target, RenderStates states) const
 void Game::update(float timestep)
 {
 	car.update(timestep);
-	//car.print();
+	car.print();
+	
 
 	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{

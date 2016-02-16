@@ -6,7 +6,7 @@ Tyre::Tyre()
 {
 }
 
-/*! Initialize the necessary member variables with the position received as a parameter and the default values for tyre objects.
+/*! Initialize the position with parameters and other member variables with the default values for tyre objects.
  *
  * \param fPosX,fPosY Coordinates for the position vector.
  *

@@ -15,9 +15,8 @@ OBB::OBB()
 
 }
 
-OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation)
+OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution)
 {
-	std::cout << "Obb constructor" << std::endl;
 	m_fvHalfExtents = Vector2D<double>(fHalfExtentX, fHalfExtentY);
 	m_fvPosition = Vector2D<double>(fPosX, fPosY);
 		
@@ -86,17 +85,14 @@ void OBB::checkCollision(Circle * circle)
 		double fOverlap = fvDiff.magnitude() - circle->getRadius();
 		
 		fvClamp.rotate(m_fOrientation);
-		Vector2D<double> fvCollisionNormal = fvClamp + m_fvPosition - circle->getPosition();
+		Vector2D<double> fvCollisionNormal = (m_fvPosition + fvClamp) - circle->getPosition();
 		fvCollisionNormal.normalize();
 
 		Vector2D<double> fvContactPoint = m_fvPosition + fvClamp;
 
-		resolveCollision(circle, &fvCollisionNormal, fOverlap, &fvContactPoint);
-
-
-
-
-
+		//resolveCollision(circle, &fvCollisionNormal, fOverlap, &fvContactPoint);
+		resolveCollision(circle, &fvCollisionNormal, fOverlap);
+		
 	}
 }
 

@@ -8,71 +8,107 @@ using namespace std;
 
 Circle::Circle()
 {
-
+	
 }
 
-Circle::Circle(double fPosX, double fPosY, double fRadius, double fOrientation)
+/*! Initialize the position, radius and restitution coefficient with paramenters received.
+ * The restitution coefficient can be omitted and, in this case, it will be set to 1 (fully elastic collision).
+ *
+ * \param fPosX,fPosY Coordinates for the position vector.
+ * \param fRadius Radius of the object.
+ * \param fRestitudion Restitution coefficient of object. Optional and, if omitted, set to 1.
+ *
+ */
+Circle::Circle(double fPosX, double fPosY, double fRadius, double fRestitution)
 {
-	m_fvPosition = Vector2D<double>(fPosX, fPosY);
+	// Assign paramenters to respective member variables.
+	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);
 	m_fRadius = fRadius;
-	m_fOrientation = fOrientation;
-	setMass(50);
-
-	m_fRestitution = 0.6;
-	m_fFrictionCoefficient = 0.7;
-
-
+	m_fRestitution = fRestitution;
+	// Assign default values
+	m_fOrientation = 0; // Initial orientation is irrelevant for circular objects.
+	setMass(0); // Make the object immovable.
+	m_fFrictionCoefficient = 10; // As an immovable object, there is no friction coefficient.
+	
+	
 	//m_fInverseMomentOfInertia = 4/(getMass()*pow(getRadius(), 4));
 }
 
-void Circle::checkCollision(Collidable * collidable)
+/*! Used to solve "Double Dispatch" issue.
+ *
+ * \param pCollidable Pointer to an instance of any subclass of Collidable.
+ */
+void Circle::checkCollision(Collidable * pCollidable)
 {
-	collidable->checkCollision(this);
+	pCollidable->checkCollision(this);
 }
 
-void Circle::checkCollision(Circle * circle)
+/*!
+ * \param pOtherCircle Pointer to a Circle object.
+ */
+void Circle::checkCollision(Circle * pOtherCircle)
 {
-	if (broadCollisionCheck(circle))
+	// For collisions between two circles, a true broad test means there is a collision.
+	if (broadCollisionCheck(pOtherCircle))
 	{
-		Vector2D<double> fvCollisionNormal = (m_fvPosition - circle->getPosition());
-		double fCentreDist = fvCollisionNormal.magnitude();
-		double fRadiiSum = m_fRadius + circle->getRadius();
-		double fOverlap = fCentreDist - fRadiiSum;
+		// Calculate the collision vector.
+		Vector2D<double> fvCollisionNormal = (m_fvPosition - pOtherCircle->getPosition());
+		// Calculate the overlap of the objects.
+		double fOverlap = fvCollisionNormal.magnitude() - (m_fRadius + pOtherCircle->getRadius());
 		
+		// Normilize the collision vector.
 		fvCollisionNormal.normalize();
-		resolveCollision(circle, &fvCollisionNormal, fOverlap);
+		// Resolve the collision.
+		resolveCollision(pOtherCircle, &fvCollisionNormal, fOverlap);
 	}
 
 }
 
-void Circle::checkCollision(OBB * obb)
+/*!
+* \param pObb Pointer to an OBB object.
+*/
+void Circle::checkCollision(OBB * pObb)
 {
-	if (!broadCollisionCheck(obb)) return;
+	// Perform a less costly broad check. If objects are not close enough, exit the function.
+	if (!broadCollisionCheck(pObb)) return;
 
-	Vector2D<double> fvCentreDistance = m_fvPosition - obb->getPosition();
-	fvCentreDistance.rotate(-obb->getOrientation());
+	// Calculate the distance between the centre of the objects.
+	Vector2D<double> fvCentreDistance = m_fvPosition - pObb->getPosition();
+	// Rotates the vector by the inverse of OBB's orientation so we can treat the OBB as an AABB.
+	fvCentreDistance.rotate(-pObb->getOrientation());
 	
+	// Calculate the clap vector of the collision.
 	Vector2D<double> fvClamp;
-	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -obb->getHalfExtents().getX()));
-	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), obb->getHalfExtents().getX()));
-	if (fvCentreDistance.getY() < 0) fvClamp.setY(std::max(fvCentreDistance.getY(), -obb->getHalfExtents().getY()));
-	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), obb->getHalfExtents().getY()));
+	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -pObb->getHalfExtents().getX()));
+	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), pObb->getHalfExtents().getX()));
+	if (fvCentreDistance.getY() < 0) fvClamp.setY(std::max(fvCentreDistance.getY(), -pObb->getHalfExtents().getY()));
+	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), pObb->getHalfExtents().getY()));
 
+	// Calculate the distance vector between OBB's edge and circle centre.
 	Vector2D<double> fvDiff = fvCentreDistance - fvClamp;
+	
+	// If distance is smaller than the circle's radius, there is a collision.
+	// Squared values are used to avois using SQRT() function when not necessary.
 	if (fvDiff.squaredMagnitude() < (getRadius()*getRadius()))
 	{
+		// Calculate the overlap of the objects.
 		double fOverlap = fvDiff.magnitude() - getRadius();
 
-		fvClamp.rotate(obb->getOrientation());
-		Vector2D<double> fvCollisionNormal = m_fvPosition - fvClamp - obb->getPosition();
+		// Rotate clamp to go back from and AABB to OBB.
+		fvClamp.rotate(pObb->getOrientation());
+		// Calculate collision vector subtracting the circle position from the point of contact.
+		Vector2D<double> fvCollisionNormal = (m_fvPosition - fvClamp) - pObb->getPosition();
+		// Normalize the collision vector.
 		fvCollisionNormal.normalize();
 
 		Vector2D<double> fvContactPoint = m_fvPosition + fvClamp;
-
-		resolveCollision(obb, &fvCollisionNormal, fOverlap, &fvContactPoint);
+		// Resolve collision
+		//resolveCollision(pObb, &fvCollisionNormal, fOverlap, &fvContactPoint);
+		resolveCollision(pObb, &fvCollisionNormal, fOverlap);
 		
 	}
 }
+
 
 void Circle::setTexture(sf::Texture * texture)
 {
@@ -91,5 +127,6 @@ void Circle::updatePoints()
 		double x = m_fvPosition.getX() + m_fRadius * cos(angle);
 		double y = m_fvPosition.getY() + m_fRadius * sin(angle);
 		m_vaPoints[i].position = sf::Vector2f(x, y);
-	}*/
+	}
+	//*/
 }

@@ -2,7 +2,7 @@
 \label{class_circle}\index{Circle@{Circle}}
 
 
-Create circular collidables to be used in the game.  
+Circular collidables to be used in the game.  
 
 
 
@@ -20,20 +20,16 @@ Inheritance diagram for Circle\+:\begin{figure}[H]
 \item 
 \hyperlink{class_circle_ad1ecfcfc7bf34529c6a6d6c448bf70fe}{Circle} ()
 \item 
-\hypertarget{class_circle_acb8056897b38fd437422c2c101950da2}{}\hyperlink{class_circle_acb8056897b38fd437422c2c101950da2}{Circle} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Radius, double f\+Orientation=0)\label{class_circle_acb8056897b38fd437422c2c101950da2}
-
-\begin{DoxyCompactList}\small\item\em Constructor that receives the position, radius and, optionally, the orientation of the object. \end{DoxyCompactList}\item 
+\hyperlink{class_circle_a70b2953314268546bc4f784c3e82df1b}{Circle} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Radius, double f\+Restitution=1)
+\begin{DoxyCompactList}\small\item\em Constructor initializing the position, radius and restitution coefficient with paramenters. \end{DoxyCompactList}\item 
 \hypertarget{class_circle_afe23c30a1bbc5e831b72063aef91b38f}{}void \hyperlink{class_circle_afe23c30a1bbc5e831b72063aef91b38f}{update\+Points} ()\label{class_circle_afe23c30a1bbc5e831b72063aef91b38f}
 
 \begin{DoxyCompactList}\small\item\em to be removed. \end{DoxyCompactList}\item 
-\hypertarget{class_circle_a7b23c1ed107b8a309fc1c5d0f6635ae9}{}void \hyperlink{class_circle_a7b23c1ed107b8a309fc1c5d0f6635ae9}{check\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$collidable)\label{class_circle_a7b23c1ed107b8a309fc1c5d0f6635ae9}
-
+void \hyperlink{class_circle_ad74b27696652e85e97503aef986f32b5}{check\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$p\+Collidable)
 \begin{DoxyCompactList}\small\item\em Check collision with another \hyperlink{class_collidable}{Collidable}. \end{DoxyCompactList}\item 
-\hypertarget{class_circle_ad528dfc586b5a46b11401abf52d8da87}{}void \hyperlink{class_circle_ad528dfc586b5a46b11401abf52d8da87}{check\+Collision} (\hyperlink{class_circle}{Circle} $\ast$circle)\label{class_circle_ad528dfc586b5a46b11401abf52d8da87}
-
+void \hyperlink{class_circle_a7c54825cfff10ec9d6edb718431cd475}{check\+Collision} (\hyperlink{class_circle}{Circle} $\ast$p\+Other\+Circle)
 \begin{DoxyCompactList}\small\item\em Check collision with another \hyperlink{class_circle}{Circle}. \end{DoxyCompactList}\item 
-\hypertarget{class_circle_a328f1400d819209db7b64431b60bbc59}{}void \hyperlink{class_circle_a328f1400d819209db7b64431b60bbc59}{check\+Collision} (\hyperlink{class_o_b_b}{O\+B\+B} $\ast$obb)\label{class_circle_a328f1400d819209db7b64431b60bbc59}
-
+void \hyperlink{class_circle_ad033972b43e0e590a4c4e7ec45a392e1}{check\+Collision} (\hyperlink{class_o_b_b}{O\+B\+B} $\ast$p\+Obb)
 \begin{DoxyCompactList}\small\item\em Check collision with an \hyperlink{class_o_b_b}{O\+B\+B}. \end{DoxyCompactList}\item 
 \hypertarget{class_circle_ac6c48964ac829b4c1a15b313d9ae102a}{}void {\bfseries set\+Texture} (sf\+::\+Texture $\ast$texture)\label{class_circle_ac6c48964ac829b4c1a15b313d9ae102a}
 
@@ -42,9 +38,9 @@ Inheritance diagram for Circle\+:\begin{figure}[H]
 
 
 \subsection{Detailed Description}
-Create circular collidables to be used in the game. 
+Circular collidables to be used in the game. 
 
-Implements collision detection and texture allocation for circular objects. Can be used to turn background figures into immovable collidables. 
+Implements collision detection and texture allocation for circular objects. Can be used to turn background figures into immovable collidables. A circle object is not drawn to the screen. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_circle_ad1ecfcfc7bf34529c6a6d6c448bf70fe}{}\index{Circle@{Circle}!Circle@{Circle}}
@@ -54,7 +50,97 @@ Implements collision detection and texture allocation for circular objects. Can 
 {}
 \end{DoxyParamCaption}
 )}\label{class_circle_ad1ecfcfc7bf34529c6a6d6c448bf70fe}
-Basic constructor. 
+Basic constructor. \hypertarget{class_circle_a70b2953314268546bc4f784c3e82df1b}{}\index{Circle@{Circle}!Circle@{Circle}}
+\index{Circle@{Circle}!Circle@{Circle}}
+\subsubsection[{Circle(double f\+Pos\+X, double f\+Pos\+Y, double f\+Radius, double f\+Restitution=1)}]{\setlength{\rightskip}{0pt plus 5cm}Circle\+::\+Circle (
+\begin{DoxyParamCaption}
+\item[{double}]{f\+Pos\+X, }
+\item[{double}]{f\+Pos\+Y, }
+\item[{double}]{f\+Radius, }
+\item[{double}]{f\+Restitution = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{class_circle_a70b2953314268546bc4f784c3e82df1b}
+
+
+Constructor initializing the position, radius and restitution coefficient with paramenters. 
+
+Initialize the position, radius and restitution coefficient with paramenters received. The restitution coefficient can be omitted and, in this case, it will be set to 1 (fully elastic collision).
+
+
+\begin{DoxyParams}{Parameters}
+{\em f\+Pos\+X,f\+Pos\+Y} & Coordinates for the position vector. \\
+\hline
+{\em f\+Radius} & Radius of the object. \\
+\hline
+{\em f\+Restitudion} & Restitution coefficient of object. Optional and, if omitted, set to 1. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_circle_ad74b27696652e85e97503aef986f32b5}{}\index{Circle@{Circle}!check\+Collision@{check\+Collision}}
+\index{check\+Collision@{check\+Collision}!Circle@{Circle}}
+\subsubsection[{check\+Collision(\+Collidable $\ast$p\+Collidable)}]{\setlength{\rightskip}{0pt plus 5cm}void Circle\+::check\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Collidable} $\ast$}]{p\+Collidable}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_circle_ad74b27696652e85e97503aef986f32b5}
+
+
+Check collision with another \hyperlink{class_collidable}{Collidable}. 
+
+Used to solve \char`\"{}\+Double Dispatch\char`\"{} issue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Collidable} & Pointer to an instance of any subclass of \hyperlink{class_collidable}{Collidable}. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_collidable_a25c916c15277425a1b2606d35c7405fe}{Collidable}.
+
+\hypertarget{class_circle_a7c54825cfff10ec9d6edb718431cd475}{}\index{Circle@{Circle}!check\+Collision@{check\+Collision}}
+\index{check\+Collision@{check\+Collision}!Circle@{Circle}}
+\subsubsection[{check\+Collision(\+Circle $\ast$p\+Other\+Circle)}]{\setlength{\rightskip}{0pt plus 5cm}void Circle\+::check\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Circle} $\ast$}]{p\+Other\+Circle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_circle_a7c54825cfff10ec9d6edb718431cd475}
+
+
+Check collision with another \hyperlink{class_circle}{Circle}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Other\+Circle} & Pointer to a \hyperlink{class_circle}{Circle} object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_collidable_a157281cb33cb695c8eb0c8dd971b84f2}{Collidable}.
+
+\hypertarget{class_circle_ad033972b43e0e590a4c4e7ec45a392e1}{}\index{Circle@{Circle}!check\+Collision@{check\+Collision}}
+\index{check\+Collision@{check\+Collision}!Circle@{Circle}}
+\subsubsection[{check\+Collision(\+O\+B\+B $\ast$p\+Obb)}]{\setlength{\rightskip}{0pt plus 5cm}void Circle\+::check\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+B\+B} $\ast$}]{p\+Obb}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_circle_ad033972b43e0e590a4c4e7ec45a392e1}
+
+
+Check collision with an \hyperlink{class_o_b_b}{O\+B\+B}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Obb} & Pointer to an \hyperlink{class_o_b_b}{O\+B\+B} object. \\
+\hline
+\end{DoxyParams}
+If distance is smaller than the circle\textquotesingle{}s radius, there is a collision. Squared values are used to avois using S\+Q\+R\+T() function when not necessary. 
+
+Implements \hyperlink{class_collidable_a90789947098d0f6f43e3ef8a944a5657}{Collidable}.
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

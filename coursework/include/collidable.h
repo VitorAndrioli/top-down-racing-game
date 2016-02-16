@@ -80,7 +80,7 @@ public:
 	
 	bool isMoving(); //!< Check if the collidable is moving. Called befor performing collision tests.
 
-	void print() { std::cout << getVelocity().magnitude() << " | " << getAcceleration().getY() << std::endl; } //!< to be removed.
+	void print() { std::cout << "Car: " << getAcceleration().getX() << " | " << getAcceleration().getY() << std::endl; } //!< to be removed.
 	
 	/*!< \cond 
 	* Basic set and get methods.

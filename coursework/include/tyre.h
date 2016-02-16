@@ -1,7 +1,7 @@
 //! \file tyre.h Declaration of Tyre class.
 /*!
  * \class Tyre
- * \brief Create tyres to be used as collidable obstacles in the game.
+ * \brief Tyre to be used as collidable obstacle in the game.
  */
 
 #ifndef TYRE_H
@@ -19,7 +19,7 @@ class Tyre : public Circle
 {
 public:
 	Tyre(); //!< Basic constructor. Does not initialize any member variable.
-	Tyre(double fPosX, double fPosY); //!< Constructor that receives the position of the object.
+	Tyre(double fPosX, double fPosY); //!< Constructor initializing position with paramenters received.
 	~Tyre(); //!< Basic destructor
 };
 
