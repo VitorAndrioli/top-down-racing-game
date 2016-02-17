@@ -4,23 +4,26 @@
  *
  * \brief Base class for every collidable object in the game.
  *
- * Implements basic kinematics 
- *
+ * Implements basic mechanics and integration methods to move objects and collisions response.
+ * Declares virtual methods for drawning and detecting collision.
  *
  */
 
 #ifndef COLLIDABLE_H
 #define COLLIDABLE_H
 
-#define TO_RADIANS  M_PI / 180 //!< Used to transform degrees to radians.
-#define TO_DEGREES  180 / M_PI //!< Used transform radians to degrees.
-
-
+#define _USE_MATH_DEFINES
+#include <math.h>
 #include <SFML/Graphics.hpp>
 #include "vector2D.h"
 #include <iostream>
 
-//!< Forward declaration of child classes Circle and OBB to be used as parameters in virtual function checkCollision.
+#define TO_RADIANS  M_PI / 180 //!< Used to transform degrees to radians.
+#define TO_DEGREES  180 / M_PI //!< Used to transform radians to degrees.
+#define STOPPING_VELOCITY  0.5 //!< Used to stop moving collidables.
+
+
+// Forward declaration of child classes Circle and OBB to be used as parameters in virtual function checkCollision.
 class Circle;
 class OBB;
 
@@ -48,10 +51,12 @@ protected:
 	sf::VertexArray m_vaPoints; //!< Points to be drawn (to be removed)
 	sf::Sprite m_sprite; //!< Sprite to be drawn to the window.
 
-	bool broadCollisionCheck(Collidable * otherCollidable); //!< Perform a broad and less costly collision check with another collidable.
-	void resolveCollision(Collidable * otherCollidable, Vector2D<double> * fvCollisionNormal, double fOverlap); //!< Resolve collision between two colliding objects. 
-	void resolveCollision(Collidable * otherCollidable, Vector2D<double> * fvCollisionNormal, double fOverlap, Vector2D<double> * fvContactPoint); //!< Resolve collision between two colliding objects. 
-	void applyImpulse(Vector2D<double> * fvImpulse, Vector2D<double> * fvContactPoint); //!< Apply an impulse (sudden change of velocity) to the object.
+	//! Perform a broad and less costly collision check with another collidable.
+	bool broadCollisionCheck(Collidable * pOtherCollidable); 
+	//! Resolve collision between two colliding objects. 
+	void resolveCollision(Collidable * pOtherCollidable, Vector2D<double> * pfvCollisionNormal, double fOverlap, Vector2D<double> * pfvContactPoint);
+	//! Apply an impulse (sudden change of velocity) to the object.
+	void applyImpulse(Vector2D<double> * pfvImpulse, Vector2D<double> * pfvContactPoint);
 
 public:
 	double m_fAngularVelocity; //!< protected

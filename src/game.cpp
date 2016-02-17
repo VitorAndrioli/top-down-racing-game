@@ -76,6 +76,8 @@ void Game::update(float timestep)
 	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{
 		if (car.isMoving()) car.checkCollision(*it);
+		if ((*it)->isMoving()) (*it)->checkCollision(&car);
+		
 		for (auto it2 = obstacles.begin(); it2 != obstacles.end(); ++it2)
 		{
 			if (it2 != it)
@@ -83,7 +85,6 @@ void Game::update(float timestep)
 				if ((*it)->isMoving())
 				{
 					(*it)->checkCollision(*it2);
-					(*it)->checkCollision(&car);
 				}
 				
 			}
@@ -99,7 +100,7 @@ void Game::processKeyPress(Keyboard::Key code)
 	if (code == sf::Keyboard::Down) car.m_bReversing = true;
 	if (code == sf::Keyboard::Right) car.m_bTurningRight = true;
 	if (code == sf::Keyboard::Left) car.m_bTurningLeft = true;
-	if (code == sf::Keyboard::Space) obstacles.back()->setVelocity(Vector2D<double>(200, 20));  //car.m_bBraking = true;
+	if (code == sf::Keyboard::Space) obstacles.back()->setVelocity(Vector2D<double>(0, 50));  //car.m_bBraking = true;
 	//*/
 	/*if (code == sf::Keyboard::Up) (obstacles.front())->setVelocity(Vector2D<double>(0, -150));
 	if (code == sf::Keyboard::Down) (obstacles.front())->setVelocity(Vector2D<double>(0, 150));

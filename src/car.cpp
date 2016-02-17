@@ -77,17 +77,9 @@ void Car::update(float elapsed)
 	steer();
 	
 	Vector2D<double> fvFriction = m_fvVelocity * getFrictionCoefficient();
-	
 	m_fvAcceleration = (m_fvThrust - fvFriction);// *m_fInverseMass;
-	
 	setVelocity( m_fvVelocity + m_fvAcceleration * elapsed );
 
-
-	//std::cout << m_fvAcceleration.getX() << " | " << fvFriction.getY() << std::endl;
-
-
-	
-	
 	Vector2D<double> fvCarOrientation(cos(m_fOrientation), sin(m_fOrientation));
 	Vector2D<double> fvSteeringOr(cos(m_fSteeringOrientation), sin(m_fSteeringOrientation));
 
@@ -102,7 +94,10 @@ void Car::update(float elapsed)
 	Vector2D<double> frontWheel2 = frontWheelPos + (fvSteeringOr * displacement);
 	Vector2D<double> rearWheel2 = rearWheelPos + (fvCarOrientation * displacement);
 	setPosition((frontWheel2 + rearWheel2) / 2);
-	
+		
+	// TO DO 
+	// Y displacement.
+
 	double newCarOrientation = atan2((frontWheel2.getY() - rearWheel2.getY()), (frontWheel2.getX() - rearWheel2.getX()));
 	double newSteeringOrientation = m_fSteeringOrientation + (newCarOrientation-m_fOrientation);
 	
@@ -129,15 +124,15 @@ void Car::setVelocity(Vector2D<double> velocity)
 {
 	m_fvVelocity = velocity;
 
-	if (m_bMovingForward && abs(m_fvVelocity.squaredMagnitude()) > m_fMaxVelocity*m_fMaxVelocity)
+	if (m_bMovingForward && abs(m_fvVelocity.squaredMagnitude()) > MAXIMUM_SPEED*MAXIMUM_SPEED)
 	{
-		m_fvVelocity.setX(m_fMaxVelocity*cos(getOrientation()));
-		m_fvVelocity.setY(m_fMaxVelocity*sin(getOrientation()));
+		m_fvVelocity.setX(MAXIMUM_SPEED*cos(getOrientation()));
+		m_fvVelocity.setY(MAXIMUM_SPEED*sin(getOrientation()));
 	}
-	if (!m_bMovingForward && abs(m_fvVelocity.squaredMagnitude()) > MAXIMUM_REVERSE_SPEED_SQUARED)
+	if (!m_bMovingForward && abs(m_fvVelocity.squaredMagnitude()) > MAXIMUM_REVERSE_SPEED*MAXIMUM_REVERSE_SPEED)
 	{
-		m_fvVelocity.setX(-100*cos(getOrientation()));
-		m_fvVelocity.setY(-100 * sin(getOrientation()));
+		m_fvVelocity.setX(-MAXIMUM_REVERSE_SPEED * cos(getOrientation()));
+		m_fvVelocity.setY(-MAXIMUM_REVERSE_SPEED * sin(getOrientation()));
 	}
 
 

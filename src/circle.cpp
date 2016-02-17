@@ -56,8 +56,12 @@ void Circle::checkCollision(Circle * pOtherCircle)
 		
 		// Normilize the collision vector.
 		fvCollisionNormal.normalize();
+
+		// Calculate contact point.
+		Vector2D<double> fvContactPoint = pOtherCircle->getPosition() + (fvCollisionNormal * pOtherCircle->getRadius());
+
 		// Resolve the collision.
-		resolveCollision(pOtherCircle, &fvCollisionNormal, fOverlap);
+		resolveCollision(pOtherCircle, &fvCollisionNormal, fOverlap, &fvContactPoint);
 	}
 
 }
@@ -102,7 +106,6 @@ void Circle::checkCollision(OBB * pObb)
 		Vector2D<double> fvContactPoint = m_fvPosition + fvClamp;
 		// Resolve collision
 		resolveCollision(pObb, &fvCollisionNormal, fOverlap, &fvContactPoint);
-		//resolveCollision(pObb, &fvCollisionNormal, fOverlap);
 		
 	}
 }
@@ -125,7 +128,7 @@ void Circle::setTexture(sf::Texture * pTexture)
 // to remove
 void Circle::updatePoints()
 {
-	int iCirclePointNumber = 31;
+	/*int iCirclePointNumber = 31;
 	m_vaPoints.resize(iCirclePointNumber);
 	for (int i = 0; i < iCirclePointNumber; i++) {
 		double angle = (2 * M_PI) / (iCirclePointNumber - 1) * i;

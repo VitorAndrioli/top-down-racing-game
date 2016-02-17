@@ -82,8 +82,6 @@ void OBB::checkCollision(Circle * pCircle)
 		Vector2D<double> fvContactPoint = m_fvPosition + fvClamp;
 		// Resolve collision
 		resolveCollision(pCircle, &fvCollisionNormal, fOverlap, &fvContactPoint);
-		//resolveCollision(pCircle, &fvCollisionNormal, fOverlap);
-		
 	}
 }
 
@@ -141,7 +139,7 @@ void OBB::checkCollision(OBB * pOtherObb)
 	{
 		// Declare variable to store maximum and minimum points of each OBB in this axis.
 		double fObbMin = 99999,	fObbMax = -99999;
-		double fOtherObbMin = 99999, fOtherOobbMax = -99999;
+		double fOtherObbMin = 99999, fOtherObbMax = -99999;
 
 		// Iterate trough every point of both OBBs to find the maximum and minimum values for this axis.
 		for (int j = 0; j < 4; j++)
@@ -156,14 +154,14 @@ void OBB::checkCollision(OBB * pOtherObb)
 			double fOtherObbPointProjection = (*it).dotProduct(&faOtherObbPoints[j]);
 			// Check if it is minimum or maximum.
 			if (fOtherObbPointProjection < fOtherObbMin) fOtherObbMin = fOtherObbPointProjection;
-			if (fOtherObbPointProjection > fOtherOobbMax) fOtherOobbMax = fOtherObbPointProjection;
+			if (fOtherObbPointProjection > fOtherObbMax) fOtherObbMax = fOtherObbPointProjection;
 		}
 
 		// According to SAT, if there is no overlap in one axis, there is no collision, thus we can exit the method.
-		if (fObbMax < fOtherObbMin || fOtherOobbMax < fObbMin) return;
+		if (fObbMax < fOtherObbMin || fOtherObbMax < fObbMin) return;
 		
 		// Get the overlap in this axis.
-		double fOverlap = min((fObbMax - fOtherObbMin), (fOtherOobbMax - fObbMin));
+		double fOverlap = min((fObbMax - fOtherObbMin), (fOtherObbMax - fObbMin));
 
 		// Check if it is the minimum overlap.
 		if (fOverlap < fMinimumOverlap)
@@ -180,8 +178,10 @@ void OBB::checkCollision(OBB * pOtherObb)
 	Vector2D<double> fcRelativePosition = m_fvPosition - pOtherObb->getPosition();
 	if (fcRelativePosition.dotProduct(&fvCollisionNormal) < 0) fvCollisionNormal.flip();
 
+
+	Vector2D<double> fvContactPoint(0, 0);
 	// Resolve collision
-	resolveCollision(pOtherObb, &fvCollisionNormal, -fMinimumOverlap);
+	resolveCollision(pOtherObb, &fvCollisionNormal, -fMinimumOverlap, &fvContactPoint);
 	
 }
 
