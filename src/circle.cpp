@@ -107,18 +107,25 @@ void Circle::checkCollision(OBB * pObb)
 	}
 }
 
-
-void Circle::setTexture(sf::Texture * texture)
+/*!
+ * Use circle's attributes to fit the texture into the shape.
+ *
+ * \param pTexture Pointer to an SFML texture object.
+ */
+void Circle::setTexture(sf::Texture * pTexture)
 {
-	m_sprite.setTexture(*texture);
-	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y/2);
-	m_sprite.scale(m_fRadius*2 / texture->getSize().x, m_fRadius * 2 / texture->getSize().y);
-	m_sprite.setPosition(getPosition().getX(), getPosition().getY());
+	m_sprite.setTexture(*pTexture); // Set circle's sprite texture.
+	m_sprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2); // Set sprite's center as its origin (instead of its corner)
+	m_sprite.scale(m_fRadius * 2 / pTexture->getSize().x, m_fRadius * 2 / pTexture->getSize().y); // Scale texture to make sure it fits the circle.
+	m_sprite.setPosition(getPosition().getX(), getPosition().getY()); // Make the circle's and sprite's positions the same.
 }
 
+
+
+// to remove
 void Circle::updatePoints()
 {
-	/*int iCirclePointNumber = 31;
+	int iCirclePointNumber = 31;
 	m_vaPoints.resize(iCirclePointNumber);
 	for (int i = 0; i < iCirclePointNumber; i++) {
 		double angle = (2 * M_PI) / (iCirclePointNumber - 1) * i;

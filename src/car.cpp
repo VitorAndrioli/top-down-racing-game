@@ -61,7 +61,7 @@ void Car::controlInput()
 	m_fvThrust.setY(0);
 	if (!m_bReversing && !m_bAccelerating) m_fvThrust.setX(0);
 	else if (m_bAccelerating && m_bReversing) m_fvThrust.setX(500);
-	else if (m_bAccelerating) m_fvThrust.setX(10000);
+	else if (m_bAccelerating) m_fvThrust.setX(1000);
 	else m_fvThrust.setX(-500);
 	
 	m_fvThrust.rotate(m_fOrientation);

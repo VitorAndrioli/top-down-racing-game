@@ -39,7 +39,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Vitor\Documents\Visual Studio 2013\Projects\CourseWork\coursework\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Vitor\Documents\Visual Studio 2013\Projects\CourseWork\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -96,6 +96,9 @@
     <ClInclude Include="include\textureManager.h" />
     <ClInclude Include="include\tyre.h" />
     <ClInclude Include="include\vector2D.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="assets\xml\obstacles.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

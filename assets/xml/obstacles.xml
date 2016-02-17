@@ -2,12 +2,12 @@
 <obstacles>
    
   <collidable type="obbs" posX="500" posY="290" halfExtentX="20" halfExtentY="50" orientation="0" />
-  <collidable type="circles" posX="0" posY="0" radius="80" />
+  <collidable type="circle" posX="0" posY="0" radius="80" />
 
   <collidable type="box" posX="350" posY="300" size="40" orientation="0" />
   <collidable type="tyre" posX="250" posY="320" />
-  
-  <!--<collidable type="tyre" posX="350" posY="250" />
+
+  <!-- <collidable type="tyre" posX="350" posY="250" />
   <collidable type="tyre" posX="350" posY="271" />
   <collidable type="tyre" posX="350" posY="292" />
   <collidable type="tyre" posX="350" posY="313" />

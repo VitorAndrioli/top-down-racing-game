@@ -19,8 +19,7 @@ Box::Box(double fPosX, double fPosY, double fSize, double fOrientation)
 {
 	// Assign paramenters to respective member variables.
 	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);
-	m_fvHalfExtents.setX(fSize); m_fvHalfExtents.setY(fSize);
-	m_fRadius = m_fvHalfExtents.magnitude();
+	setHalfExtents(fSize, fSize); // Use setter method to set half-extents and radius.
 	m_fOrientation = fOrientation;
 	// Assign default values
 	m_fFrictionCoefficient = BOX_FRICTION_COEFFICIENT;

@@ -20,7 +20,7 @@ Tyre::Tyre(double fPosX, double fPosY)
 	m_fFrictionCoefficient = TYRE_FRICTION_COEFFICIENT;
 	m_fRestitution = TYRE_RESTITUTION_COEFFICIENT;
 	setMass(TYRE_MASS); // Use set method to save inverse of mass.
-	m_fOrientation = 0; // As a circular collidable, the initial orientation is not relevant.
+	m_fOrientation = 0; // As a circular collidable, the initial orientation is irrelevant.
 	m_fInverseMomentOfInertia = 4 / (getMass()*pow(getRadius(), 4)); // Equation for moment of inertia for circles.
 }
 

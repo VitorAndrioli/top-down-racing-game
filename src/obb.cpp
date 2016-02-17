@@ -2,10 +2,6 @@
 
 #include "obb.h"
 #include "circle.h"
-#include "SFML\Graphics.hpp"
-#define _USE_MATH_DEFINES
-#include <math.h>
-#include <iostream>
 #include <array>
 
 using namespace std;
@@ -21,63 +17,33 @@ OBB::OBB()
  * \param fHalfExtentX,fHalfExtentY X and Y values of object's half-extents vector.
  * \param fRadius Radius of the object.
  * \param fRestitudion Restitution coefficient of object. Optional and, if omitted, set to 1.
- *
  */
 OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution)
 {
 	// Assign paramenters to respective member variables.
-	m_fvHalfExtents.setX(fHalfExtentX); m_fvHalfExtents.setY(fHalfExtentY);
 	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);
+	setHalfExtents(fHalfExtentX, fHalfExtentY);
 	m_fOrientation = fOrientation;
 	m_fRestitution = fRestitution;
 	// Assign default values
 	setMass(0); // Make the object immovable.
 	m_fFrictionCoefficient = 0; // As an immovable object, there is no friction coefficient.
 	m_fInverseMomentOfInertia = 0; // As an immovable object, there is no moment of inertia.
-	m_fRadius = m_fvHalfExtents.magnitude(); // Get minimum radius that encapsulates the whole OBB. Used for broad collision checks.
-}
-
-void OBB::updatePoints()
-{
-	/*
-	m_vaPoints.resize(5);
-	Vector2D<double> rotationMatrixLine1(cos(m_fOrientation), -sin(m_fOrientation));
-	Vector2D<double> rotationMatrixLine2(sin(m_fOrientation), cos(m_fOrientation));
-
-	Vector2D<double> tempVector(-m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
-	tempVector.rotate(m_fOrientation);
-	m_vaPoints[0].position.x = m_vaPoints[4].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[0].position.y = m_vaPoints[4].position.y = (tempVector + getPosition()).getY();
-
-	tempVector = Vector2D<double>(m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
-	tempVector.rotate(m_fOrientation);
-	m_vaPoints[1].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[1].position.y = (tempVector + getPosition()).getY();
-
-	tempVector = Vector2D<double>(m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
-	tempVector.rotate(m_fOrientation);
-	m_vaPoints[2].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[2].position.y = (tempVector + getPosition()).getY();
-
-	tempVector = Vector2D<double>(-m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
-	tempVector.rotate(m_fOrientation);
-	m_vaPoints[3].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[3].position.y = (tempVector + getPosition()).getY();
-	//*/
+	
 }
 
 /*! Used to solve "Double Dispatch" issue.
-*
-* \param pCollidable Pointer to an instance of any subclass of Collidable.
-*/
+ *
+ * \param pCollidable Pointer to an instance of any subclass of Collidable.
+ */
 void OBB::checkCollision(Collidable * pCollidable)
 {
 	pCollidable->checkCollision(this);
 }
 
 /*!
-* \param pCircle Pointer to a Circle object.
-*/
+ * \param pCircle Pointer to a Circle object.
+ */
 void OBB::checkCollision(Circle * pCircle)
 {
 	// Perform a less costly broad check. If objects are not close enough, exit the function.
@@ -90,10 +56,10 @@ void OBB::checkCollision(Circle * pCircle)
 
 	// Calculate the clamp vector for the collision.
 	Vector2D<double> fvClamp;
-	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -m_fvHalfExtents.getX()));
-	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), m_fvHalfExtents.getX()));
-	if (fvCentreDistance.getY() < 0) fvClamp.setY(std::max(fvCentreDistance.getY(), -m_fvHalfExtents.getY()));
-	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), m_fvHalfExtents.getY()));
+	if (fvCentreDistance.getX() < 0) fvClamp.setX(max(fvCentreDistance.getX(), -m_fvHalfExtents.getX()));
+	if (fvCentreDistance.getX() >= 0) fvClamp.setX(min(fvCentreDistance.getX(), m_fvHalfExtents.getX()));
+	if (fvCentreDistance.getY() < 0) fvClamp.setY(max(fvCentreDistance.getY(), -m_fvHalfExtents.getY()));
+	if (fvCentreDistance.getY() >= 0) fvClamp.setY(min(fvCentreDistance.getY(), m_fvHalfExtents.getY()));
 	
 
 	// Calculate the distance vector between OBB's edge and circle centre.
@@ -122,7 +88,7 @@ void OBB::checkCollision(Circle * pCircle)
 }
 
 /*!
- * Use the Separating Axis Theorem (SAT) to identify if two OBBs are colliding.
+ * Use the Separating Axis Theorem (SAT) to check for collision between two OBBs.
  *
  * \param pOtherObb Pointer to an OBB object.
  */
@@ -168,63 +134,118 @@ void OBB::checkCollision(OBB * pOtherObb)
 	};
 
 	Vector2D<double> fvCollisionNormal; // Collision Normal Vector
-	double fMinimumOverlap = 99999; // Assign a high value to find the axis with the minimum overlap.
+	double fMinimumOverlap = 99999; // Used to find the axis with the minimum overlap.
 	
-
+	// Iterate trough every axis.
 	for (array<Vector2D<double>, 4>::iterator it = axis.begin(); it != axis.end(); ++it)
 	{
-		double obb1min = 20000000;
-		double obb1max = -20000000;
+		// Declare variable to store maximum and minimum points of each OBB in this axis.
+		double fObbMin = 99999,	fObbMax = -99999;
+		double fOtherObbMin = 99999, fOtherOobbMax = -99999;
 
-		double obb2min = 20000000;
-		double obb2max = -20000000;
-
+		// Iterate trough every point of both OBBs to find the maximum and minimum values for this axis.
 		for (int j = 0; j < 4; j++)
 		{
-			double dotProduct1 = (*it).dotProduct(&faObbPoints[j]);
-			if (dotProduct1 < obb1min) obb1min = dotProduct1;
-			if (dotProduct1 > obb1max) obb1max = dotProduct1;
+			// Project the point onto axis.
+			double fObbPointProjection = (*it).dotProduct(&faObbPoints[j]);
+			// Check if it is minimum or maximum.
+			if (fObbPointProjection < fObbMin) fObbMin = fObbPointProjection;
+			if (fObbPointProjection > fObbMax) fObbMax = fObbPointProjection;
 
-			double dotProduct2 = (*it).dotProduct(&faOtherObbPoints[j]);
-			if (dotProduct2 < obb2min) obb2min = dotProduct2;
-			if (dotProduct2 > obb2max) obb2max = dotProduct2;
+			// Project the point onto axis.
+			double fOtherObbPointProjection = (*it).dotProduct(&faOtherObbPoints[j]);
+			// Check if it is minimum or maximum.
+			if (fOtherObbPointProjection < fOtherObbMin) fOtherObbMin = fOtherObbPointProjection;
+			if (fOtherObbPointProjection > fOtherOobbMax) fOtherOobbMax = fOtherObbPointProjection;
 		}
 
-		if (obb1max < obb2min || obb2max < obb1min) return;
+		// According to SAT, if there is no overlap in one axis, there is no collision, thus we can exit the method.
+		if (fObbMax < fOtherObbMin || fOtherOobbMax < fObbMin) return;
 		
-		double overlap1 = obb1max - obb2min;
-		double overlap2 = obb2max - obb1min;
-		double overlap = min(overlap1, overlap2);
+		// Get the overlap in this axis.
+		double fOverlap = min((fObbMax - fOtherObbMin), (fOtherOobbMax - fObbMin));
 
-		if (overlap < finalOverlap)
+		// Check if it is the minimum overlap.
+		if (fOverlap < fMinimumOverlap)
 		{
+			fMinimumOverlap = fOverlap;
+			// On SAT, the collision vector is the axis with the minimum overlap.
 			fvCollisionNormal = (*it).unitVector();
-			finalOverlap = overlap;
 		}
 				
 	}
 	
-	Vector2D<double> relativePosition = m_fvPosition - pOtherObb->getPosition();
-	if (relativePosition.dotProduct(&fvCollisionNormal) < 0) fvCollisionNormal.flip();
+	// Calculate the relative position of OBBs to know which direction the collision
+	// normal should point to. Flip collision normal if necessary.
+	Vector2D<double> fcRelativePosition = m_fvPosition - pOtherObb->getPosition();
+	if (fcRelativePosition.dotProduct(&fvCollisionNormal) < 0) fvCollisionNormal.flip();
 
-	//std::cout << collisionNormal.getX() << " | " << collisionNormal.getY() << " | " << (getPosition() - pOtherObb->getPosition()).dotProduct(&collisionNormal) << endl;
-	resolveCollision(pOtherObb, &fvCollisionNormal, -finalOverlap);
+	// Resolve collision
+	resolveCollision(pOtherObb, &fvCollisionNormal, -fMinimumOverlap);
 	
 }
 
-void OBB::setTexture(sf::Texture * texture)
+// Setters and Getters.
+
+/*!
+ * The radius of and OBB is the minimum radius that embraces the whole box and, thus, depends on the half-extents
+ *
+ * \param fHalfExtentX,fHalfExtentY X and Y values of object's half-extents vector.
+ */
+void OBB::setHalfExtents(double fHalfExtentX, double fHalfExtentY)
 {
-	m_sprite.setTexture(*texture);
-	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y/2);
-	//m_sprite.setTextureRect(sf::IntRect(0, 0, m_fvHalfExtents.getX() * 2, m_fvHalfExtents.getY() * 2));
-	m_sprite.scale(m_fvHalfExtents.getX() * 2 / texture->getSize().x, m_fvHalfExtents.getY() * 2 / texture->getSize().y);
-	//m_sprite.setColor(sf::Color(255, 255, 255, 128));
-
+	m_fvHalfExtents.setX(fHalfExtentX); m_fvHalfExtents.setY(fHalfExtentY);
+	m_fRadius = m_fvHalfExtents.magnitude(); // Get minimum radius that encapsulates the whole OBB. Used for broad collision checks.
 }
-
 
 Vector2D<double> OBB::getHalfExtents()
 {
 	return m_fvHalfExtents;
+}
+
+/*!
+* Use OBB's attributes to fit the texture into the shape.
+*
+* \param pTexture Pointer to an SFML texture object.
+*/
+void OBB::setTexture(sf::Texture * texture)
+{
+	m_sprite.setTexture(*texture); // Set OBB's sprite texture.
+	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y / 2); // Set sprite's center as its origin (instead of its corner)
+	m_sprite.scale(m_fvHalfExtents.getX() * 2 / texture->getSize().x, m_fvHalfExtents.getY() * 2 / texture->getSize().y); // Scale texture to make sure it fits the OBB.
+	m_sprite.setPosition(getPosition().getX(), getPosition().getY()); // Make the OBB's and sprite's positions the same.
+}
+
+
+
+
+
+void OBB::updatePoints()
+{
+	/*
+	m_vaPoints.resize(5);
+	Vector2D<double> rotationMatrixLine1(cos(m_fOrientation), -sin(m_fOrientation));
+	Vector2D<double> rotationMatrixLine2(sin(m_fOrientation), cos(m_fOrientation));
+
+	Vector2D<double> tempVector(-m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
+	tempVector.rotate(m_fOrientation);
+	m_vaPoints[0].position.x = m_vaPoints[4].position.x = (tempVector + getPosition()).getX();
+	m_vaPoints[0].position.y = m_vaPoints[4].position.y = (tempVector + getPosition()).getY();
+
+	tempVector = Vector2D<double>(m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
+	tempVector.rotate(m_fOrientation);
+	m_vaPoints[1].position.x = (tempVector + getPosition()).getX();
+	m_vaPoints[1].position.y = (tempVector + getPosition()).getY();
+
+	tempVector = Vector2D<double>(m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
+	tempVector.rotate(m_fOrientation);
+	m_vaPoints[2].position.x = (tempVector + getPosition()).getX();
+	m_vaPoints[2].position.y = (tempVector + getPosition()).getY();
+
+	tempVector = Vector2D<double>(-m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
+	tempVector.rotate(m_fOrientation);
+	m_vaPoints[3].position.x = (tempVector + getPosition()).getX();
+	m_vaPoints[3].position.y = (tempVector + getPosition()).getY();
+	//*/
 }
 
