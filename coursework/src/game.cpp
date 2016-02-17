@@ -21,17 +21,15 @@ using namespace std;
 Game::Game()
 {
 	
+
+	m_textureManager.loadTextures();
+	
 	car = Car(50, 320, 0 * 3.14159 / 180);
-	tyreTexture.loadFromFile("assets/img/tyre.png");
-	carTexture.loadFromFile("assets/img/car_01.png");
-	carTyreTexture.loadFromFile("assets/img/car_tyre.png");
+	car.setTexture(&m_textureManager.m_aTexture.at(1));
+	car.m_rightFrontWheel->setTexture(&m_textureManager.m_aTexture.at(4));
+	car.m_leftFrontWheel->setTexture(&m_textureManager.m_aTexture.at(4));
 
-	car.setTexture(&carTexture);
 	
-	
-	car.m_rightFrontWheel->setTexture(&carTyreTexture);
-	car.m_leftFrontWheel->setTexture(&carTyreTexture);
-
 	rapidxml::xml_document<> doc;
 	ifstream file(".\\assets\\xml\\obstacles.xml");
 	stringstream buffer;
@@ -42,11 +40,11 @@ Game::Game()
 	rapidxml::xml_node<>* pRoot = doc.first_node();
 	for (rapidxml::xml_node<> *pNode = pRoot->first_node("collidable"); pNode; pNode = pNode->next_sibling())
 	{
-		Collidable * newObstacle = CollidableFactory::NewCollidable(pNode);
+		Collidable * newObstacle = CollidableFactory::NewCollidable(pNode, &m_textureManager);
 		if (newObstacle != NULL)
 		{
 			obstacles.push_back(newObstacle);
-			obstacles.back()->setTexture(&tyreTexture);
+			//obstacles.back()->setTexture(&m_textureManager.m_aTexture.at(1));
 		}
 		//*/
 	}
@@ -67,7 +65,7 @@ void Game::draw(RenderTarget &target, RenderStates states) const
 void Game::update(float timestep)
 {
 	car.update(timestep);
-	car.print();
+	//car.print();
 	
 
 	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
@@ -101,7 +99,7 @@ void Game::processKeyPress(Keyboard::Key code)
 	if (code == sf::Keyboard::Down) car.m_bReversing = true;
 	if (code == sf::Keyboard::Right) car.m_bTurningRight = true;
 	if (code == sf::Keyboard::Left) car.m_bTurningLeft = true;
-	if (code == sf::Keyboard::Space) obstacles.back()->setVelocity(Vector2D<double>(200, 20)); //car.m_bBraking = true;
+	if (code == sf::Keyboard::Space) obstacles.back()->setVelocity(Vector2D<double>(200, 20));  //car.m_bBraking = true;
 	//*/
 	/*if (code == sf::Keyboard::Up) (obstacles.front())->setVelocity(Vector2D<double>(0, -150));
 	if (code == sf::Keyboard::Down) (obstacles.front())->setVelocity(Vector2D<double>(0, 150));

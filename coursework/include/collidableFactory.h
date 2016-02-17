@@ -7,6 +7,8 @@
 #include <obb.h>
 #include <circle.h>
 #include <tyre.h>
+#include "box.h"
+#include "textureManager.h"
 #include <SFML\Graphics.hpp>
 #include "rapidxml.hpp"
 #include "rapidxml_iterators.hpp"
@@ -18,10 +20,7 @@ using namespace std;
 class CollidableFactory
 {
 public:
-	static Collidable * NewCollidable(const rapidxml::xml_node<>* pNode);
-	static void LoadTextures();
-	static Collidable * NewCollidable(const std::string &description);
-	static string split(const std::string parameter, char delim);
+	static Collidable * NewCollidable(const rapidxml::xml_node<>* pNode, TextureManager * textureManager);
 };
 
 #endif

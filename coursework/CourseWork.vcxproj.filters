@@ -42,6 +42,9 @@
     <ClCompile Include="src\box.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\textureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\collidable.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\textureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

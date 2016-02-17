@@ -8,7 +8,7 @@
 *
 * Longer text that appears on
 * description section
-*
+* Templated class
 *
 */
 

@@ -12,29 +12,36 @@ using namespace std;
 
 OBB::OBB()
 {
-
 }
 
+/*! Initialize the position, half -extents, orientation and restitution coefficient with paramenters received.
+ * The restitution coefficient can be omitted and, in this case, it will be set to 1 (fully elastic collision).
+ *
+ * \param fPosX,fPosY Coordinates for the position vector.
+ * \param fHalfExtentX,fHalfExtentY X and Y values of object's half-extents vector.
+ * \param fRadius Radius of the object.
+ * \param fRestitudion Restitution coefficient of object. Optional and, if omitted, set to 1.
+ *
+ */
 OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution)
 {
-	m_fvHalfExtents = Vector2D<double>(fHalfExtentX, fHalfExtentY);
-	m_fvPosition = Vector2D<double>(fPosX, fPosY);
-		
+	// Assign paramenters to respective member variables.
+	m_fvHalfExtents.setX(fHalfExtentX); m_fvHalfExtents.setY(fHalfExtentY);
+	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);
 	m_fOrientation = fOrientation;
-	setMass(100);
-	m_fRadius = m_fvHalfExtents.magnitude();
-	m_fRestitution = 0.6;
-	m_fFrictionCoefficient = 0.7;
-
-	//m_fInverseMomentOfInertia = 12/(getMass() * (fHalfExtentX*fHalfExtentX + fHalfExtentY*fHalfExtentY));
-
-	m_vaPoints.resize(5);
+	m_fRestitution = fRestitution;
+	// Assign default values
+	setMass(0); // Make the object immovable.
+	m_fFrictionCoefficient = 0; // As an immovable object, there is no friction coefficient.
+	m_fInverseMomentOfInertia = 0; // As an immovable object, there is no moment of inertia.
+	m_fRadius = m_fvHalfExtents.magnitude(); // Get minimum radius that encapsulates the whole OBB. Used for broad collision checks.
 }
 
 void OBB::updatePoints()
 {
-	
-	/*Vector2D<double> rotationMatrixLine1(cos(m_fOrientation), -sin(m_fOrientation));
+	/*
+	m_vaPoints.resize(5);
+	Vector2D<double> rotationMatrixLine1(cos(m_fOrientation), -sin(m_fOrientation));
 	Vector2D<double> rotationMatrixLine2(sin(m_fOrientation), cos(m_fOrientation));
 
 	Vector2D<double> tempVector(-m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
@@ -55,23 +62,33 @@ void OBB::updatePoints()
 	tempVector = Vector2D<double>(-m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
 	tempVector.rotate(m_fOrientation);
 	m_vaPoints[3].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[3].position.y = (tempVector + getPosition()).getY();*/
-
+	m_vaPoints[3].position.y = (tempVector + getPosition()).getY();
+	//*/
 }
 
-void OBB::checkCollision(Collidable * collidable)
+/*! Used to solve "Double Dispatch" issue.
+*
+* \param pCollidable Pointer to an instance of any subclass of Collidable.
+*/
+void OBB::checkCollision(Collidable * pCollidable)
 {
-	collidable->checkCollision(this);
+	pCollidable->checkCollision(this);
 }
 
-void OBB::checkCollision(Circle * circle)
+/*!
+* \param pCircle Pointer to a Circle object.
+*/
+void OBB::checkCollision(Circle * pCircle)
 {
-	
-	if (!broadCollisionCheck(circle)) return;
+	// Perform a less costly broad check. If objects are not close enough, exit the function.
+	if (!broadCollisionCheck(pCircle)) return;
 
-	Vector2D<double> fvCentreDistance = circle->getPosition() - m_fvPosition;
+	// Calculate the distance between the centre of the objects.
+	Vector2D<double> fvCentreDistance = pCircle->getPosition() - m_fvPosition;
+	// Rotates the vector by the inverse of OBB's orientation so we can treat the OBB as an AABB.
 	fvCentreDistance.rotate(-m_fOrientation);
 
+	// Calculate the clamp vector for the collision.
 	Vector2D<double> fvClamp;
 	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -m_fvHalfExtents.getX()));
 	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), m_fvHalfExtents.getX()));
@@ -79,62 +96,82 @@ void OBB::checkCollision(Circle * circle)
 	if (fvCentreDistance.getY() >= 0) fvClamp.setY(std::min(fvCentreDistance.getY(), m_fvHalfExtents.getY()));
 	
 
+	// Calculate the distance vector between OBB's edge and circle centre.
 	Vector2D<double> fvDiff = fvCentreDistance - fvClamp;
-	if (fvDiff.squaredMagnitude() < (circle->getRadius()*circle->getRadius()))
+	
+	// If distance is smaller than the circle's radius, there is a collision.
+	// Squared values are used to avois using SQRT() function when not necessary.
+	if (fvDiff.squaredMagnitude() < (pCircle->getRadius()*pCircle->getRadius()))
 	{
-		double fOverlap = fvDiff.magnitude() - circle->getRadius();
+		// Calculate the overlap of the objects.
+		double fOverlap = fvDiff.magnitude() - pCircle->getRadius();
 		
+		// Rotate clamp to go back from and AABB to OBB.
 		fvClamp.rotate(m_fOrientation);
-		Vector2D<double> fvCollisionNormal = (m_fvPosition + fvClamp) - circle->getPosition();
+		// Calculate collision vector subtracting the circle position from the point of contact.
+		Vector2D<double> fvCollisionNormal = (m_fvPosition + fvClamp) - pCircle->getPosition();
+		// Normalize the collision vector.
 		fvCollisionNormal.normalize();
 
 		Vector2D<double> fvContactPoint = m_fvPosition + fvClamp;
-
-		//resolveCollision(circle, &fvCollisionNormal, fOverlap, &fvContactPoint);
-		resolveCollision(circle, &fvCollisionNormal, fOverlap);
+		// Resolve collision
+		resolveCollision(pCircle, &fvCollisionNormal, fOverlap, &fvContactPoint);
+		//resolveCollision(pCircle, &fvCollisionNormal, fOverlap);
 		
 	}
 }
 
-void OBB::checkCollision(OBB * obb)
+/*!
+ * Use the Separating Axis Theorem (SAT) to identify if two OBBs are colliding.
+ *
+ * \param pOtherObb Pointer to an OBB object.
+ */
+void OBB::checkCollision(OBB * pOtherObb)
 {
-	if (!broadCollisionCheck(obb)) return;
+	// Perform a less costly broad check. If objects are not close enough, exit the function.
+	if (!broadCollisionCheck(pOtherObb)) return;
 
-	array<Vector2D<double>, 4> obb1points;
-	array<Vector2D<double>, 4> obb2points;
+	// Create arrays to store both OBB's points in the 2D space.
+	array<Vector2D<double>, 4> faObbPoints;
+	array<Vector2D<double>, 4> faOtherObbPoints;
 
-	obb1points[0] = Vector2D<double>(m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
-	obb1points[1] = Vector2D<double>(m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
-	obb1points[2] = Vector2D<double>(-m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
-	obb1points[3] = Vector2D<double>(-m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
-	for (auto it = obb1points.begin(); it != obb1points.end(); ++it)
+	// Get each of the four points of OBB.
+	faObbPoints[0] = Vector2D<double>(m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
+	faObbPoints[1] = Vector2D<double>(m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
+	faObbPoints[2] = Vector2D<double>(-m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
+	faObbPoints[3] = Vector2D<double>(-m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
+	// Rotate all the points according to OBB orientation
+	for (array<Vector2D<double>, 4>::iterator it = faObbPoints.begin(); it != faObbPoints.end(); ++it)
 	{
 		(*it).rotate(m_fOrientation);
 		(*it) += m_fvPosition;
 	}
 
-	obb2points[0] = Vector2D<double>(obb->getHalfExtents().getX(), obb->getHalfExtents().getY());
-	obb2points[1] = Vector2D<double>(obb->getHalfExtents().getX(), -obb->getHalfExtents().getY());
-	obb2points[2] = Vector2D<double>(-obb->getHalfExtents().getX(), obb->getHalfExtents().getY());
-	obb2points[3] = Vector2D<double>(-obb->getHalfExtents().getX(), -obb->getHalfExtents().getY());
-	for (auto it = obb2points.begin(); it != obb2points.end(); ++it)
+	// Get each of the four points of other OBB.
+	faOtherObbPoints[0] = Vector2D<double>(pOtherObb->getHalfExtents().getX(), pOtherObb->getHalfExtents().getY());
+	faOtherObbPoints[1] = Vector2D<double>(pOtherObb->getHalfExtents().getX(), -pOtherObb->getHalfExtents().getY());
+	faOtherObbPoints[2] = Vector2D<double>(-pOtherObb->getHalfExtents().getX(), pOtherObb->getHalfExtents().getY());
+	faOtherObbPoints[3] = Vector2D<double>(-pOtherObb->getHalfExtents().getX(), -pOtherObb->getHalfExtents().getY());
+	// Rotate all the points according to other OBB orientation
+	for (array<Vector2D<double>, 4>::iterator it = faOtherObbPoints.begin(); it != faOtherObbPoints.end(); ++it)
 	{
-		(*it).rotate(obb->getOrientation());
-		(*it) += obb->getPosition();
+		(*it).rotate(pOtherObb->getOrientation());
+		(*it) += pOtherObb->getPosition();
 	}
 
+	// Get both axes of the to OBBs to use on SAT.
 	array<Vector2D<double>, 4> axis = {
 		Vector2D<double>(cos(m_fOrientation), sin(m_fOrientation)),
 		Vector2D<double>(-sin(m_fOrientation), cos(m_fOrientation)),
-		Vector2D<double>(cos(obb->getOrientation()), sin(obb->getOrientation())),
-		Vector2D<double>(-sin(obb->getOrientation()), cos(obb->getOrientation()))
+		Vector2D<double>(cos(pOtherObb->getOrientation()), sin(pOtherObb->getOrientation())),
+		Vector2D<double>(-sin(pOtherObb->getOrientation()), cos(pOtherObb->getOrientation()))
 	};
 
-	Vector2D<double> fvCollisionNormal;
-	double finalOverlap = 999999;
-	bool flip = false;
+	Vector2D<double> fvCollisionNormal; // Collision Normal Vector
+	double fMinimumOverlap = 99999; // Assign a high value to find the axis with the minimum overlap.
+	
 
-	for (auto it = axis.begin(); it != axis.end(); ++it)
+	for (array<Vector2D<double>, 4>::iterator it = axis.begin(); it != axis.end(); ++it)
 	{
 		double obb1min = 20000000;
 		double obb1max = -20000000;
@@ -144,11 +181,11 @@ void OBB::checkCollision(OBB * obb)
 
 		for (int j = 0; j < 4; j++)
 		{
-			double dotProduct1 = (*it).dotProduct(&obb1points[j]);
+			double dotProduct1 = (*it).dotProduct(&faObbPoints[j]);
 			if (dotProduct1 < obb1min) obb1min = dotProduct1;
 			if (dotProduct1 > obb1max) obb1max = dotProduct1;
 
-			double dotProduct2 = (*it).dotProduct(&obb2points[j]);
+			double dotProduct2 = (*it).dotProduct(&faOtherObbPoints[j]);
 			if (dotProduct2 < obb2min) obb2min = dotProduct2;
 			if (dotProduct2 > obb2max) obb2max = dotProduct2;
 		}
@@ -167,11 +204,11 @@ void OBB::checkCollision(OBB * obb)
 				
 	}
 	
-	Vector2D<double> relativePosition = m_fvPosition - obb->getPosition();
+	Vector2D<double> relativePosition = m_fvPosition - pOtherObb->getPosition();
 	if (relativePosition.dotProduct(&fvCollisionNormal) < 0) fvCollisionNormal.flip();
 
-	//std::cout << collisionNormal.getX() << " | " << collisionNormal.getY() << " | " << (getPosition() - obb->getPosition()).dotProduct(&collisionNormal) << endl;
-	resolveCollision(obb, &fvCollisionNormal, -finalOverlap);
+	//std::cout << collisionNormal.getX() << " | " << collisionNormal.getY() << " | " << (getPosition() - pOtherObb->getPosition()).dotProduct(&collisionNormal) << endl;
+	resolveCollision(pOtherObb, &fvCollisionNormal, -finalOverlap);
 	
 }
 

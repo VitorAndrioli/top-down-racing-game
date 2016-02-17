@@ -6,6 +6,7 @@
 #include "circle.h"
 #include "collidable.h"
 #include "collidableFactory.h"
+#include "textureManager.h"
 #include "car.h"
 #include "tyre.h"
 #include "box.h"
@@ -33,6 +34,7 @@ public:
 	sf::Texture carTexture;
 	sf::Texture carTyreTexture;
 	//std::array<Collidable*, 5> obstacles;
+	TextureManager m_textureManager;
 	std::vector<Collidable*> obstacles;
 	Game(); //!< Constructor
 	void draw(RenderTarget &target, RenderStates states) const; //!< Draw function (from sf::Drawable)

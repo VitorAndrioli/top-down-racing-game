@@ -28,10 +28,8 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fRestitution)
 	// Assign default values
 	m_fOrientation = 0; // Initial orientation is irrelevant for circular objects.
 	setMass(0); // Make the object immovable.
-	m_fFrictionCoefficient = 10; // As an immovable object, there is no friction coefficient.
-	
-	
-	//m_fInverseMomentOfInertia = 4/(getMass()*pow(getRadius(), 4));
+	m_fFrictionCoefficient = 0; // As an immovable object, there is no friction coefficient.
+	m_fInverseMomentOfInertia = 0; // As an immovable object, there is no moment of inertia.
 }
 
 /*! Used to solve "Double Dispatch" issue.
@@ -77,7 +75,7 @@ void Circle::checkCollision(OBB * pObb)
 	// Rotates the vector by the inverse of OBB's orientation so we can treat the OBB as an AABB.
 	fvCentreDistance.rotate(-pObb->getOrientation());
 	
-	// Calculate the clap vector of the collision.
+	// Calculate the clamp vector for the collision.
 	Vector2D<double> fvClamp;
 	if (fvCentreDistance.getX() < 0) fvClamp.setX(std::max(fvCentreDistance.getX(), -pObb->getHalfExtents().getX()));
 	if (fvCentreDistance.getX() >= 0) fvClamp.setX(std::min(fvCentreDistance.getX(), pObb->getHalfExtents().getX()));
@@ -103,8 +101,8 @@ void Circle::checkCollision(OBB * pObb)
 
 		Vector2D<double> fvContactPoint = m_fvPosition + fvClamp;
 		// Resolve collision
-		//resolveCollision(pObb, &fvCollisionNormal, fOverlap, &fvContactPoint);
-		resolveCollision(pObb, &fvCollisionNormal, fOverlap);
+		resolveCollision(pObb, &fvCollisionNormal, fOverlap, &fvContactPoint);
+		//resolveCollision(pObb, &fvCollisionNormal, fOverlap);
 		
 	}
 }

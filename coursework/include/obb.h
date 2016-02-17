@@ -17,17 +17,18 @@
 class OBB : public Collidable
 {
 protected:
-	Vector2D<double> m_fvHalfExtents;
+	Vector2D<double> m_fvHalfExtents; //!< Half-extents vector.
 public:
 	OBB(); //!< Basic constructor.
 	//! Constructor initializing the position, half extents, orientation and restitution coefficient with paramenters.
 	OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution = 1);
 	void updatePoints(); // remove
-	void checkCollision(Collidable * collidable);
-	void checkCollision(Circle * circle);
-	void checkCollision(OBB * obb);
+	void checkCollision(Collidable * pCollidable); //!< Check collision with another Collidable.
+	void checkCollision(Circle * pCircle); //!< Check collision with an Circle.
+	void checkCollision(OBB * pOtherObb); //!< Check collision with another OBB.
 	void setTexture(sf::Texture * texture);
-
+	
+	// Basic getters and setters.
 	Vector2D<double> getHalfExtents();
 	void setHalfExtents(Vector2D<double>);
 };
