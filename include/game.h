@@ -42,6 +42,7 @@ public:
 	void processKeyPress(Keyboard::Key code); //!< Action any key presses
 	void processKeyRelease(Keyboard::Key code); //!< Action any key releases
 	View view1;
+	bool m_bPaused;
 	
 };
 

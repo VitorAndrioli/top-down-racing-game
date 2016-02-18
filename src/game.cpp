@@ -20,7 +20,7 @@ using namespace std;
 
 Game::Game()
 {
-	
+	m_bPaused = true;
 
 	m_textureManager.loadTextures();
 	
@@ -58,15 +58,15 @@ void Game::draw(RenderTarget &target, RenderStates states) const
 	{
 		target.draw(**it);
 	}
-	
 }
 
 void Game::update(float timestep)
 {
+	
+	//if (m_bPaused) return;
 	car.update(timestep);
 	//car.print();
 	
-
 	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{
 		(*it)->update(timestep);
@@ -99,7 +99,9 @@ void Game::processKeyPress(Keyboard::Key code)
 	if (code == sf::Keyboard::Down) car.m_bReversing = true;
 	if (code == sf::Keyboard::Right) car.m_bTurningRight = true;
 	if (code == sf::Keyboard::Left) car.m_bTurningLeft = true;
-	if (code == sf::Keyboard::Space) obstacles.back()->setVelocity(Vector2D<double>(0, 50));  //car.m_bBraking = true;
+	if (code == sf::Keyboard::Space) car.m_bBraking = true;
+	if (code == sf::Keyboard::LAlt) obstacles.back()->setVelocity(Vector2D<double>(0, 50));
+	if (code == sf::Keyboard::P) m_bPaused = !m_bPaused;
 	//*/
 	/*if (code == sf::Keyboard::Up) (obstacles.front())->setVelocity(Vector2D<double>(0, -150));
 	if (code == sf::Keyboard::Down) (obstacles.front())->setVelocity(Vector2D<double>(0, 150));

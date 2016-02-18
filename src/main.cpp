@@ -13,24 +13,53 @@
 #include <iostream>
 #include <array>
 
+#include <string>
+#include <fstream>
+#include <streambuf>
+
+
 using namespace sf;
 int main()
 {
 
 	RenderWindow window(VideoMode(700, 600), "IMAT2605 Course work");
-	
-	Game game;
+	window.setVerticalSyncEnabled(true);
 
-	sf::Texture texture;
-	texture.loadFromFile("assets/img/track.jpg");
+	// Fonts used to write data to the screen.
+	sf::Font font;
+	font.loadFromFile(".\\assets\\font\\Quartzo.ttf");
+
+
+	// Loading page.
+	sf::Text loadingText("Loading...", font, 28);
+	loadingText.setOrigin(loadingText.getLocalBounds().width / 2, loadingText.getLocalBounds().height / 2);
+	loadingText.move(window.getSize().x / 2, window.getSize().y / 2);
+	window.draw(loadingText);
+	window.display();
+
+	// Instantiats game.
+	Game game;
+	game.update(0);
+
+	// Creates the instrunctions page.
+	sf::View menuView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
+	menuView.setViewport(sf::FloatRect(0, 0, 1, 1));
+	window.setView(menuView);
+	window.clear(Color(0, 0, 0, 100));
+	sf::Text menuText("", font, 28);
+
+	// Read menu text
+	string file1 = ".\\assets\\txt\\menu.txt";
+	std::ifstream t(file1);
+	std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+	menuText.setString(str);
+	menuText.setOrigin(menuText.getLocalBounds().width / 2, menuText.getLocalBounds().height / 2);
+	menuText.move(window.getSize().x / 2, window.getSize().y / 2);
+
+	window.draw(menuText);
+	window.display();
+
 	
-	// Create a sprite
-	sf::Sprite sprite;
-	sprite.setTexture(texture);
-	sprite.setTextureRect(sf::IntRect(0, 0, 1500, 1600));
-	sprite.scale(2, 2);
-	sprite.setColor(sf::Color(255, 255, 255, 255));
-	sprite.setPosition(0, 0);
 	
 	sf::View mainView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	mainView.setViewport(sf::FloatRect(0, 0, 1, 1));
@@ -56,23 +85,29 @@ int main()
 
 		if (clock.getElapsedTime().asSeconds() > 0.0005)
 		{
-			game.update(clock.getElapsedTime().asSeconds());
+			if (!game.m_bPaused) game.update(clock.getElapsedTime().asSeconds());
 			clock.restart();
 		}
 
+		window.setView(mainView);
+
 		window.clear(Color::Magenta);
 
-		window.setView(mainView);
-		//mainView.setCenter(game.car.getPosition().getX(), game.car.getPosition().getY());
-		//window.draw(sprite);
 		window.draw(game);
+		if (game.m_bPaused) window.draw(menuText);
+			
+
+		//mainView.setCenter(game.car.getPosition().getX(), game.car.getPosition().getY());
 
 		//window.setView(miniView);
-		//window.draw(sprite);
 		//window.draw(game);
+		
 		
 
 		window.display();
+		
+
+		
 	}
 
 	return 0;

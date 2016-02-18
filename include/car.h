@@ -35,12 +35,9 @@ class Car : public OBB
 {
 public:
 	Car(); //!< Basic constructor. Does not initialize any member variable.
-	Car(double fPosX, double fPosY, double fOrientation); //!< Constructor receiving position and orientation.
+	Car(double fPosX, double fPosY, double fOrientation = 0); //!< Constructor receiving position and orientation.
 	void update(float elapsed); //!< Override Collidable's update method. To be called every frame of the game.
-	void setTexture(sf::Texture * texture); //!< Override OBB's setTexture method.
-	void setWheelTexture(sf::Texture * texture); //!< Set front wheels texture.
-	void updateSprite(); //!< Updates the sprite position and orientation.
-
+	
 	// Control booleans.
 	bool m_bMovingForward; //!< If car is current moving forward (NOT if the player is accelerating).
 	bool m_bTurningRight; //!< If player is turning right.
@@ -48,7 +45,7 @@ public:
 	bool m_bAccelerating; //!< If player is acceleration.
 	bool m_bReversing; //!< If player is activating reverse gear.
 	bool m_bBraking; //!< If player is braking.
-		
+	
 	double m_fSteeringOrientation; //!< Orientation of front wheels.
 	double m_fWheelBase; //!< Distance between front and rear wheels.
 	
@@ -56,12 +53,14 @@ public:
 	sf::Sprite m_frontLeftWheel; //!< Sprite for the right front wheel.
 
 	// Setters and getters
-	void setVelocity(Vector2D<double> velocity); //!< Checks for maximum and maximum reverse speed.
+	void setTexture(sf::Texture * pTexture); //!< Override OBB's setTexture method.
+	void setWheelTexture(sf::Texture * pTexture); //!< Set front wheels texture.
+	void setVelocity(Vector2D<double> fvVelocity); //!< Updates velocity. Checks for maximum and maximum reverse speed.
 	double getFrictionCoefficient(); //!< Returns different coefficient for reverse gear.
 private:
+	bool m_bBrakingSprite; //!< Which piece of texture is being used (braking or normal).
 	void controlInput(); //!< Control the car according to control booleans.
-	void steer(); //!< Steer car.
-
+	void updateSprite(); //!< Updates the sprite position and orientation. Changes sprite Rect when braking.
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method inherited from Drawable class.
 };
 

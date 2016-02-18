@@ -29,7 +29,7 @@ Collidable::Collidable()
 }
 
 /*!
- * Implements basic mechanics for movable objects (motion and forces),
+ * Implements basic mechanics for movable objects (motion and forces).
  *
  * \param elapsed Time elapsed since last frame.
  */
@@ -38,12 +38,12 @@ void Collidable::update(float fElapsed)
 	// Calculates the friction of the object, based on the velocity.
 	Vector2D<double> fvFriction = m_fvVelocity * getFrictionCoefficient();
 	
-	// Use F = m.a equation to calculate the acceleration of the object.
+	// Uses F = m.a equation to calculate the acceleration of the object.
 	Vector2D<double> fric(getMass()*0.1, 0);
 	fric.rotate(m_fOrientation);
 	m_fvAcceleration = (m_fvThrust - fvFriction - fric);// * m_fInverseMass;
 
-	// Use Improved Euler to get the velocity and position of the object.
+	// Uses Improved Euler to get the velocity and position of the object.
 	Vector2D<double> fvPredictedVelocity = m_fvVelocity + m_fvAcceleration * fElapsed;
 	Vector2D<double> fvNewFriction = fvPredictedVelocity * getFrictionCoefficient();
 	Vector2D<double> fvPredictedAcceleration = (m_fvThrust - fvNewFriction) * m_fInverseMass;
@@ -166,7 +166,7 @@ Vector2D<double> Collidable::getPosition()
 
 void Collidable::setVelocity(Vector2D<double> velocity)
 {
-	// stops collidable if its below a minimum velocity.
+	// stops collidable if it is below a minimum velocity.
 	m_fvVelocity = velocity;
 	if (m_fvVelocity.squaredMagnitude() < STOPPING_VELOCITY) m_fvVelocity = Vector2D<double>(0, 0);
 }

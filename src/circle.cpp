@@ -118,9 +118,8 @@ void Circle::checkCollision(OBB * pObb)
 void Circle::setTexture(sf::Texture * pTexture)
 {
 	m_sprite.setTexture(*pTexture); // Sets circle's sprite texture.
-	m_sprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner)
+	m_sprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
 	m_sprite.scale(m_fRadius * 2 / pTexture->getSize().x, m_fRadius * 2 / pTexture->getSize().y); // Scales texture to make sure it fits the circle.
-	m_sprite.setPosition(getPosition().getX(), getPosition().getY()); // Makes the circle's and sprite's positions the same.
 }
 
 
