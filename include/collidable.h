@@ -33,7 +33,7 @@ protected:
 	double m_fInverseMass;  //!< Inverse of collidable's mass.
 	double m_fFrictionCoefficient; //!< Friction coefficient of collidable.
 	double m_fRestitution; //!< Restitution coefficient.
-	double m_fRadius; //!< Radius of collidable. Used for broad collision check for non circular child classes.
+	double m_fRadius; //!< Radius of collidable. For non circular child classes, used in broad collision checks.
 
 	// Linear components.
 	Vector2D<double> m_fvPosition; //!< Center position vector.
@@ -51,11 +51,11 @@ protected:
 	sf::VertexArray m_vaPoints; //!< Points to be drawn (to be removed)
 	sf::Sprite m_sprite; //!< Sprite to be drawn to the window.
 
-	//! Perform a broad and less costly collision check with another collidable.
+	//! Performs a broad and less costly collision check with another collidable.
 	bool broadCollisionCheck(Collidable * pOtherCollidable); 
-	//! Resolve collision between two colliding objects. 
+	//! Resolves collision between two colliding objects. 
 	void resolveCollision(Collidable * pOtherCollidable, Vector2D<double> * pfvCollisionNormal, double fOverlap, Vector2D<double> * pfvContactPoint);
-	//! Apply an impulse (sudden change of velocity) to the object.
+	//! Applies an impulse (sudden change of velocity) to the object.
 	void applyImpulse(Vector2D<double> * pfvImpulse, Vector2D<double> * pfvContactPoint);
 
 public:
@@ -63,10 +63,10 @@ public:
 	
 	
 	Collidable(); //!< Basic contructor.
-	void update(float elapsed); //!< Update method. To be called every frame of the game.
+	void update(float elapsed); //!< Update method to be called every frame of the game.
 	virtual void updatePoints() {}; //!< to be removed.
 	void updateSprite(); //!< Updates the sprite position and orientation.
-	bool isMoving(); //!< Check if the collidable is moving.
+	bool isMoving(); //!< Checks if the collidable is moving.
 	
 	// Virtual methods.
 	virtual void checkCollision(Collidable * collidable) = 0; //!< Virtual method to check collision with another Collidable object.
@@ -102,7 +102,7 @@ public:
 
 
 private:
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method from Drawable class.
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method inherited from Drawable class.
 };
 
 #endif

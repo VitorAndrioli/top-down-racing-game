@@ -26,9 +26,8 @@ Game::Game()
 	
 	car = Car(50, 320, 0 * 3.14159 / 180);
 	car.setTexture(&m_textureManager.m_aTexture.at(1));
-	car.m_rightFrontWheel->setTexture(&m_textureManager.m_aTexture.at(4));
-	car.m_leftFrontWheel->setTexture(&m_textureManager.m_aTexture.at(4));
-
+	car.setWheelTexture(&m_textureManager.m_aTexture.at(4));
+	
 	
 	rapidxml::xml_document<> doc;
 	ifstream file(".\\assets\\xml\\obstacles.xml");

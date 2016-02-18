@@ -19,7 +19,7 @@ class Tyre : public Circle
 {
 public:
 	Tyre(); //!< Basic constructor. Does not initialize any member variable.
-	Tyre(double fPosX, double fPosY); //!< Constructor initializing position with paramenters received.
+	Tyre(double fPosX, double fPosY); //!< Constructor receiving position.
 	~Tyre(); //!< Basic destructor
 };
 

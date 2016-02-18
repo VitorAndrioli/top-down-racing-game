@@ -21,10 +21,10 @@ public:
 	Circle(); //!< Basic constructor.
 	//! Constructor initializing the position, radius and restitution coefficient with paramenters.
 	Circle(double fPosX, double fPosY, double fRadius, double fRestitution = 1);
-	void checkCollision(Collidable * pCollidable); //!< Check collision with another Collidable.
-	void checkCollision(Circle * pOtherCircle); //!< Check collision with another Circle.
-	void checkCollision(OBB * pObb); //!< Check collision with an OBB.
-	void setTexture(sf::Texture * texture);  //!< Assign a texture to the object's sprite.
+	void checkCollision(Collidable * pCollidable); //!< Checks collision with another Collidable.
+	void checkCollision(Circle * pOtherCircle); //!< Checks collision with another Circle.
+	void checkCollision(OBB * pObb); //!< Checks collision with an OBB.
+	void setTexture(sf::Texture * texture);  //!< Assigns a texture to the object's sprite.
 
 	void updatePoints(); //!< to be removed.
 

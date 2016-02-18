@@ -20,16 +20,16 @@ protected:
 	Vector2D<double> m_fvHalfExtents; //!< Half-extents vector.
 public:
 	OBB(); //!< Basic constructor.
-	//! Constructor initializing the position, half extents, orientation and restitution coefficient with paramenters.
+	//! Constructor receivin the position, half extents, orientation and restitution coefficient of box.
 	OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution = 1);
-	void checkCollision(Collidable * pCollidable); //!< Check collision with another Collidable.
-	void checkCollision(Circle * pCircle); //!< Check collision with an Circle.
-	void checkCollision(OBB * pOtherObb); //!< Check collision with another OBB.
+	void checkCollision(Collidable * pCollidable); //!< Checks collision with another Collidable.
+	void checkCollision(Circle * pCircle); //!< Checks collision with an Circle.
+	void checkCollision(OBB * pOtherObb); //!< Checks collision with another OBB.
 	
 	// Setters and Getters.
-	void setHalfExtents(double fHalfExtentX, double fHalfExtentY); //!< Set X and Y values of half-extents vector and update object`s radius.
+	void setHalfExtents(double fHalfExtentX, double fHalfExtentY); //!< Sets X and Y values of half-extents vector and update object`s radius.
 	Vector2D<double> getHalfExtents();
-	void setTexture(sf::Texture * texture); //!< Assign a texture to the object's sprite.
+	void setTexture(sf::Texture * texture); //!< Assigns a texture to the object's sprite.
 
 
 	void updatePoints(); // remove

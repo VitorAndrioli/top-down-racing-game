@@ -6,7 +6,7 @@ Box::Box()
 {
 }
 
-/*! Initialize the necessary the position, size and orientation with parameters received
+/*! Initializes the position, size and orientation with parameters received
  * and other member variables with the default values for box objects.
  * The orientation can be omitted in the instantiation of the object.
  *
@@ -17,14 +17,14 @@ Box::Box()
  */
 Box::Box(double fPosX, double fPosY, double fSize, double fOrientation)
 {
-	// Assign paramenters to respective member variables.
+	// Assigns paramenters to respective member variables.
 	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);
-	setHalfExtents(fSize, fSize); // Use setter method to set half-extents and radius.
+	setHalfExtents(fSize, fSize); // Uses setter method to set half-extents and radius.
 	m_fOrientation = fOrientation;
-	// Assign default values
+	// Assigns default values
 	m_fFrictionCoefficient = BOX_FRICTION_COEFFICIENT;
 	m_fRestitution = BOX_RESTITUTION_COEFFICIENT;
-	setMass(BOX_MASS_COEFFICIENT*fSize*fSize); // Use set method to save inverse of mass.
+	setMass(BOX_MASS_COEFFICIENT*fSize*fSize); // Usse set method to save inverse of mass.
 	m_fInverseMomentOfInertia = 12 / (getMass() * (fSize*fSize + fSize*fSize)); // Equation for moment of inertia for rectangles.
 }
 
