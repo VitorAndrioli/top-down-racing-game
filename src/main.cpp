@@ -22,9 +22,15 @@
 using namespace sf;
 int main()
 {
-	RenderWindow window(VideoMode(700, 600), "IMAT2605 Course work");
+
+	RenderWindow window(VideoMode(1200, 700), "IMAT2605 Course work");
 	window.setVerticalSyncEnabled(true);
 
+	bool start = false;
+
+
+	sf::Font font;
+	font.loadFromFile(".\\assets\\font\\Quartzo.ttf");
 	// Loading page.
 	sf::Text loadingText("Loading...", font, 28);
 	loadingText.setOrigin(loadingText.getLocalBounds().width / 2, loadingText.getLocalBounds().height / 2);
@@ -34,7 +40,7 @@ int main()
 
 	// Instantiats game.
 	Game game;
-	Menu menu(window.getSize());
+	game.setMenuSize(window.getSize().x, window.getSize().y);
 	
 	sf::View menuView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	menuView.setViewport(sf::FloatRect(0, 0, 1, 1));
@@ -42,14 +48,44 @@ int main()
 	sf::View player1View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	sf::View player2View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 
+
+	do
+	{
+		window.clear(Color::Magenta);
+		window.setView(menuView);
+		window.draw(game.m_menu);
+		window.display();
+
+		Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+			{
+				window.close();
+				return 0;
+			}
+			if (event.type == Event::KeyPressed)
+				game.processKeyPress(event.key.code);
+		}
+		start = game.m_startGame;
+
+	} while (!start);
+
+
+	
+
 	if (game.m_bMultiPlayer)
 	{
 		player1View.setViewport(sf::FloatRect(0, 0, 0.5, 1));
+		player1View.setSize(window.getSize().x / 2, window.getSize().y);
+
 		player2View.setViewport(sf::FloatRect(0.5, 0, 0.5, 1));
+		player2View.setSize(window.getSize().x / 2, window.getSize().y);
 	}
 	else
 	{
 		player1View.setViewport(sf::FloatRect(0, 0, 1, 1));
+		player1View.setSize(window.getSize().x, window.getSize().y);
 	}
 
 
@@ -82,6 +118,7 @@ int main()
 
 		window.setView(player1View);
 		player1View.setCenter(game.player1.getPosition().getX(), game.player1.getPosition().getY());
+		//player1View.setRotation(game.player1.getOrientation() * TO_DEGREES + 90);
 		window.draw(game);
 		
 		if (game.m_bMultiPlayer)
@@ -97,7 +134,7 @@ int main()
 		if (game.m_bPaused)
 		{
 			window.setView(menuView);
-			window.draw(menu);
+			window.draw(game.m_menu);
 		}
 			
 		window.display();

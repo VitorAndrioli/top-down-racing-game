@@ -34,6 +34,7 @@ public:
 	// Setters and getters.
 	G getX();
 	G getY();
+	double getOrientation();
 	void setX(G x);
 	void setY(G y);
 
@@ -157,6 +158,19 @@ void Vector2D<G>::normalize()
 	m_y = newY;
 }
 
+// Setters and getters.
+template <class G>
+void Vector2D<G>::setX(G x)
+{
+	m_x = x;
+}
+
+template <class G>
+void Vector2D<G>::setY(G y)
+{
+	m_y = y;
+}
+
 template <class G>
 G Vector2D<G>::getX()
 {
@@ -170,17 +184,17 @@ G Vector2D<G>::getY()
 }
 
 template <class G>
-void Vector2D<G>::setX(G x)
+double Vector2D<G>::getOrientation()
 {
-	m_x = x;
+	if (squaredMagnitude() == 0) return 0;
+	double fOrientation = acos(m_x / magnitude());
+	if (m_y < 0) fOrientation *= -1;
+	return fOrientation;
 }
 
-template <class G>
-void Vector2D<G>::setY(G y)
-{
-	m_y = y;
-}
 
+
+// Operators override
 template <class G>
 Vector2D<G> Vector2D<G>::operator+(Vector2D<G>& other)
 {

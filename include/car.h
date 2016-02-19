@@ -13,21 +13,21 @@
 #define CAR_H
 
 // Definition of constant values to be assigned for cars objects.
-#define MAXIMUM_SPEED 230 //!< Maximum speed of the car.
-#define STOPPING_SPEED 0.5 //!< Used to stop car with no shivering.
-#define MAXIMUM_REVERSE_SPEED 100 //!< Default speed while going on reverse.
+#define MAXIMUM_SPEED 330 //!< Maximum speed of the car.
+#define STOPPING_SPEED 8 //!< Used to stop car with no shivering.
+#define MAXIMUM_REVERSE_SPEED 230 //!< Default speed while going on reverse.
 #define TYRE_MAXIMUM_ORIENTATION 25 * TO_RADIANS //!< Defines the limit the front wheels can turn.
 #define TYRE_STOPPING_ORIENTATION 0.05 * TO_RADIANS //!< Defines a minimum threshold to stop turning the wheels.
-#define TYRE_MOVEMENT 0.5 * TO_RADIANS //!< Defines how much the wheels turn at each frame.
+#define TYRE_MOVEMENT 0.7 * TO_RADIANS //!< Defines how much the wheels turn at each frame.
 #define CAR_FRICTION_COEFFICIENT 0.1 //!< Default friction coefficient for car objects.
 #define CAR_RESTITUTION_COEFFICIENT 0.6 //!< Default restitution coefficient for car objects.
-#define CAR_MASS 100.f //!< Default mass for car objects.
-#define CAR_HALF_EXTENT_X 43 //!< Default X half-extent for car objects.
-#define CAR_HALF_EXTENT_Y 20 //!< Default Y half-extent for car objects.
-#define WHEEL_BASE (CAR_HALF_EXTENT_X*2) - 29  //!< Default distance between front and rear wheels for car objects.
-#define FRONT_WHEEL_DISTANCE 19 //!< Default (half) distance between front wheels.
-#define WHEEL_LENGHT 14.f //!< Default wheel lenght.
-#define WHEEL_WIDTH 6.f //!< Default wheel width.
+#define CAR_MASS 1500.f //!< Default mass for car objects.
+#define CAR_HALF_EXTENT_X 37 //!< Default X half-extent for car objects.
+#define CAR_HALF_EXTENT_Y 17 //!< Default Y half-extent for car objects.
+#define WHEEL_BASE (CAR_HALF_EXTENT_X*2) - 25  //!< Default distance between front and rear wheels for car objects.
+#define FRONT_WHEEL_DISTANCE 16 //!< Default (half) distance between front wheels.
+#define WHEEL_LENGHT 12.f //!< Default wheel lenght.
+#define WHEEL_WIDTH 5.f //!< Default wheel width.
 
 #include "obb.h"
 

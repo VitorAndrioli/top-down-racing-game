@@ -20,7 +20,7 @@
 
 #define TO_RADIANS  M_PI / 180 //!< Used to transform degrees to radians.
 #define TO_DEGREES  180 / M_PI //!< Used to transform radians to degrees.
-#define STOPPING_VELOCITY  0.5 //!< Used to stop moving collidables.
+#define STOPPING_VELOCITY  10 //!< Used to stop moving collidables.
 
 
 // Forward declaration of child classes Circle and OBB to be used as parameters in virtual function checkCollision.
@@ -67,6 +67,7 @@ public:
 	virtual void updatePoints() {}; //!< to be removed.
 	void updateSprite(); //!< Updates the sprite position and orientation.
 	bool isMoving(); //!< Checks if the collidable is moving.
+	bool isRotating(); //!< Checks if the collidable is rotating.
 	
 	// Virtual methods.
 	virtual void checkCollision(Collidable * collidable) = 0; //!< Virtual method to check collision with another Collidable object.

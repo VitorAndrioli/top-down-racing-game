@@ -55,19 +55,31 @@ Car::Car(double fPosX, double fPosY, double fOrientation)
  *
  * \param elapsed Time elapsed since last frame.
  */
-void Car::update(float elapsed)
+void Car::update(float fElapsed)
 {
 	// Checks for player`s input.
 	controlInput();
 
 	// Calculates the friction of the object, based on the velocity.
-	Vector2D<double> fvFriction = m_fvVelocity * getFrictionCoefficient();
+	Vector2D<double> fvFriction(getFrictionCoefficient() * getMass(), 0);
+	fvFriction.rotate(m_fvVelocity.getOrientation());
 	
+	Vector2D<double> fvAirFriction = (m_fvVelocity * 0.1);
 	// Uses F = m.a equation to calculate the acceleration of the object.
-	m_fvAcceleration = (m_fvThrust - fvFriction);// *m_fInverseMass;
+	m_fvAcceleration = (m_fvThrust - fvAirFriction) * m_fInverseMass;
+
+	if (isMoving()) m_fvAcceleration -= fvFriction;
 	
+	
+
+
 	// Uses Euler method for integrating velocity.
-	setVelocity(m_fvVelocity + m_fvAcceleration * elapsed);
+	// Uses Improved Euler to get the velocity and position of the object.
+	Vector2D<double> fvPredictedVelocity = m_fvVelocity + m_fvAcceleration * fElapsed;
+	Vector2D<double> fvNewFriction = fvPredictedVelocity * getFrictionCoefficient();
+	Vector2D<double> fvPredictedAcceleration = (m_fvThrust - fvNewFriction) * m_fInverseMass;
+
+	setVelocity(m_fvVelocity + (m_fvAcceleration + fvPredictedAcceleration) * 0.5 * fElapsed);
 
 	// Uses Bicycle Steering for updating car's position and orientation.
 	// Gets vector for car's and steering's orientation.
@@ -78,7 +90,7 @@ void Car::update(float elapsed)
 	Vector2D<double> fvRearWheelPos = m_fvPosition - fvCarOrientation * (m_fWheelBase / 2);
 
 	// Calculates displacement
-	double displacement = m_fvVelocity.magnitude() * elapsed;
+	double displacement = m_fvVelocity.magnitude() * fElapsed;
 
 	// Checking if car is current moving backwards. If so, changes direction of displacement.
 	m_bMovingForward = fvCarOrientation.dotProduct(&m_fvVelocity) > 0; // TO FIX
@@ -101,6 +113,8 @@ void Car::update(float elapsed)
 	// Updates car's sprites.
 	updateSprite();
 	updatePoints(); // to remove.
+
+	//cout << m_fvVelocity.getOrientation() * TO_DEGREES << " | " << fvFriction.getOrientation() << endl;
 }
 
 /*!
@@ -112,9 +126,8 @@ void Car::controlInput()
 	// Controls thrust.
 	m_fvThrust.setY(0);
 	if (!m_bReversing && !m_bAccelerating) m_fvThrust.setX(0);
-	else if (m_bAccelerating && m_bReversing) m_fvThrust.setX(500);
-	else if (m_bAccelerating) m_fvThrust.setX(1000);
-	else m_fvThrust.setX(-500);
+	else if (m_bAccelerating) m_fvThrust.setX(500000);
+	else m_fvThrust.setX(-400000);
 	// Makes sure thrust is aligned with car.
 	m_fvThrust.rotate(m_fOrientation);
 
@@ -184,7 +197,7 @@ void Car::setTexture(sf::Texture * pTexture)
 	m_sprite.setTexture(*pTexture); // Sets car's sprite texture.
 	m_sprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 4); // Sets sprite's center as its origin (instead of its corner).
 	m_sprite.setTextureRect(sf::IntRect(0, 0, pTexture->getSize().x, pTexture->getSize().y / 2)); // At first use non braking half of the texture.
-	m_sprite.scale((m_fvHalfExtents.getX() + 2) * 2 / pTexture->getSize().x, (m_fvHalfExtents.getY() + 3) * 4 / pTexture->getSize().y); // Scales texture to make sure it fits the car.
+	m_sprite.scale((m_fvHalfExtents.getX() + 1) * 2 / pTexture->getSize().x, (m_fvHalfExtents.getY() + 2) * 4 / pTexture->getSize().y); // Scales texture to make sure it fits the car.
 	
 	updateSprite();
 }
@@ -203,7 +216,6 @@ void Car::setWheelTexture(sf::Texture * texture)
 	// Sets right wheel texture.
 	m_frontLeftWheel.setTexture(*texture);
 	m_frontLeftWheel.setOrigin(texture->getSize().x / 2, texture->getSize().y / 2);
-	m_frontLeftWheel.setTextureRect(sf::IntRect(0, 0, texture->getSize().x, texture->getSize().y));
 	m_frontLeftWheel.scale(WHEEL_LENGHT / texture->getSize().x, WHEEL_WIDTH / texture->getSize().y);
 
 	updateSprite();
@@ -230,11 +242,12 @@ void Car::setVelocity(Vector2D<double> velocity)
 	}
 
 	// stops car if it is below a minimum velocity.
-	if (m_fvVelocity.squaredMagnitude() < STOPPING_SPEED) m_fvVelocity = Vector2D<double>(0, 0);
+	if (m_fvVelocity.squaredMagnitude() < STOPPING_SPEED*STOPPING_SPEED && m_bBraking) m_fvVelocity = Vector2D<double>(0, 0);
+	else if (m_fvVelocity.squaredMagnitude() < STOPPING_SPEED*STOPPING_SPEED && !m_bAccelerating && !m_bReversing) m_fvVelocity = Vector2D<double>(0, 0);
 }
 
 double Car::getFrictionCoefficient()
 {
-	if (m_bBraking) return 15;
+	if (m_bBraking) return 1.1;
 	else return m_fFrictionCoefficient;
 }

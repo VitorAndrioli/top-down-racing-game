@@ -11,7 +11,7 @@
 
 // Define constant values to be assigned for tyre objects.
 #define TYRE_RADIUS 14.0 //!< Default radius for tyre objects.
-#define TYRE_MASS 70.0 //!< Default mass for tyre objects.
+#define TYRE_MASS 120.0 //!< Default mass for tyre objects.
 #define TYRE_FRICTION_COEFFICIENT 0.68 //!< Default friction coefficient for tyre objects.
 #define TYRE_RESTITUTION_COEFFICIENT 0.7 //!< Default restitution coefficient for tyre objects.
 

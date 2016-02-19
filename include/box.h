@@ -13,9 +13,9 @@
  */
 
 // Definition of constant values to be assigned for box objects.
-#define BOX_MASS_COEFFICIENT 2.0 //!< Default mass for box objects.
-#define BOX_FRICTION_COEFFICIENT 0.68 //!< Default friction coefficient for box objects.
-#define BOX_RESTITUTION_COEFFICIENT 0 //!< Default restitution coefficient for box objects.
+#define BOX_MASS_COEFFICIENT 0.4 //!< Default mass for box objects.
+#define BOX_FRICTION_COEFFICIENT 0.5 //!< Default friction coefficient for box objects.
+#define BOX_RESTITUTION_COEFFICIENT 0.5 //!< Default restitution coefficient for box objects.
 
 class Box : public OBB
 {

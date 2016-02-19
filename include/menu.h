@@ -14,12 +14,25 @@ public:
 	Menu();
 	Menu(Vector2u windowSize);
 	~Menu();
-	void processKeyPress(Keyboard::Key code); //!< Action any key presses
 	void draw(RenderTarget &target, RenderStates states) const; //!< Draw function (from sf::Drawable)
+	void setSize(double x, double y);
+	void toggleOptions();
+	bool getOption();
 
+	RectangleShape m_pausedBackground;
 	Text m_instructions;
-	RectangleShape m_menuBackground;
+	
+	Texture m_initialMenuBackgroundTexture;
+	Sprite m_initialMenuBackground;
+	
+	Texture m_initialMenuTexture; 
+	Sprite m_initialMenuSprite;
+
+	Texture m_arrowTexture;
+	Sprite m_arrowSprite;
+
 	Font m_font;
-	bool m_bShowInstructions;
+	bool m_bShowInitialMenu;
+	bool m_bMultiPlayer;
 };
 

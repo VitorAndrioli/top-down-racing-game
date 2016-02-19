@@ -11,6 +11,7 @@
 #include "tyre.h"
 #include "box.h"
 #include "vector2D.h"
+#include "menu.h"
 #include "rapidxml.hpp"
 #include "rapidxml_iterators.hpp"
 #include "rapidxml_print.hpp"
@@ -31,6 +32,12 @@ public:
 	Car player1;
 	Car player2;
 	bool m_bMultiPlayer;
+	Menu m_menu;
+	void setMenuSize(double x, double y);
+	Sprite m_background;
+	void setMode(bool mode);
+	bool m_startGame;
+
 	TextureManager m_textureManager;
 	std::vector<Collidable*> obstacles;
 	Game(); //!< Constructor

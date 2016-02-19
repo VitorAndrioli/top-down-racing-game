@@ -36,12 +36,16 @@ Collidable::Collidable()
 void Collidable::update(float fElapsed)
 {
 	// Calculates the friction of the object, based on the velocity.
-	Vector2D<double> fvFriction = m_fvVelocity * getFrictionCoefficient();
-	
+	Vector2D<double> fvFriction(5.5 * getMass(), 0);
+	fvFriction.rotate(m_fvVelocity.getOrientation());
+
+	Vector2D<double> fvAirFriction = (m_fvVelocity * getFrictionCoefficient());
 	// Uses F = m.a equation to calculate the acceleration of the object.
-	Vector2D<double> fric(getMass()*0.1, 0);
-	fric.rotate(m_fOrientation);
-	m_fvAcceleration = (m_fvThrust - fvFriction - fric);// * m_fInverseMass;
+	m_fvAcceleration = (m_fvThrust - fvAirFriction) *m_fInverseMass;
+
+	if (isMoving()) m_fvAcceleration -= fvFriction;
+	
+	//cout << m_fvAcceleration.magnitude() << endl;
 
 	// Uses Improved Euler to get the velocity and position of the object.
 	Vector2D<double> fvPredictedVelocity = m_fvVelocity + m_fvAcceleration * fElapsed;
@@ -51,16 +55,28 @@ void Collidable::update(float fElapsed)
 	setVelocity(m_fvVelocity + (m_fvAcceleration + fvPredictedAcceleration) * 0.5 * fElapsed);
 	m_fvPosition += m_fvVelocity * fElapsed;;
 
+	
 	// Calculates angular components.
-	double f = m_fAngularVelocity * m_fFrictionCoefficient;
-	m_fAngularAcceleration = m_fTorque - f;//*m_fInverseMomentOfInertia;
+	double airFriction = m_fAngularVelocity * 1;
+	double friction = 0.1 * getMass();
+	if (airFriction < 0) friction *= -1;
+
+	m_fAngularAcceleration = (m_fTorque - airFriction) * m_fInverseMass;
+	
+	if (isRotating()) m_fAngularAcceleration = m_fAngularAcceleration - friction;
+	
 	m_fAngularVelocity += m_fAngularAcceleration * fElapsed;
 	m_fOrientation += m_fAngularVelocity * fElapsed;
-	m_fTorque = 0;
-
+	
 	// Updates sprite.
 	updateSprite();
 	updatePoints(); // to be removed
+
+	if (abs(m_fAngularVelocity) < 1) m_fAngularVelocity = 0;
+
+	//if (m_fAngularVelocity != 0)	cout << m_fAngularAcceleration << " | " << friction << endl;
+
+
 	
 }
 
@@ -115,9 +131,11 @@ void Collidable::resolveCollision(Collidable * pOtherCollidable, Vector2D<double
 	// Checks if collidables are moving towards each other. If not, there is no reason to continue.
 	if (relativeVelocity.dotProduct(pfvCollisionNormal) > 0) return;
 	
+	Vector2D<double> ra = *pfvContactPoint - m_fvPosition;
+	Vector2D<double> rb = *pfvContactPoint - pOtherCollidable->getPosition();
 
 	// Calculates impulse scalar (j).
-	//double fImpulseScalar = -(1 + fRestitution) * relativeVelocity.dotProduct(fvCollisionNormal) / (m_fInverseMass + pOtherCollidable->getInverseMass() + (m_fInverseMomentOfInertia*pow(ra.crossProduct(fvCollisionNormal), 2)) + (otherCollidable->getInverseInertia() * pow(rb.crossProduct(fvCollisionNormal), 2)));
+	//double fImpulseScalar = -(1 + fRestitution) * relativeVelocity.dotProduct(pfvCollisionNormal) / (m_fInverseMass + pOtherCollidable->getInverseMass() + (m_fInverseMomentOfInertia*pow(ra.crossProduct(pfvCollisionNormal), 2)) + (pOtherCollidable->getInverseInertia() * pow(rb.crossProduct(pfvCollisionNormal), 2)));
 	double fImpulseScalar = -(1 + fRestitution) * relativeVelocity.dotProduct(pfvCollisionNormal) / (m_fInverseMass + pOtherCollidable->getInverseMass());
 	
 	// Calculates impulses.
@@ -131,15 +149,23 @@ void Collidable::resolveCollision(Collidable * pOtherCollidable, Vector2D<double
  * \param fvImpulse Impulse vector.
  * \param pfvContactPoint Pointer to contact point vector.
  */
-void Collidable::applyImpulse(Vector2D<double> * fvImpulse, Vector2D<double> * fvContactPoint)
+void Collidable::applyImpulse(Vector2D<double> * pfvImpulse, Vector2D<double> * pfvContactPoint)
 {
-	m_fvVelocity += (*fvImpulse * m_fInverseMass);
-	//m_fAngularVelocity += (*fvContactPoint).crossProduct(fvImpulse) * m_fInverseMomentOfInertia;
+	Vector2D<double> ra = *pfvContactPoint - m_fvPosition;
+	
+	m_fvVelocity += (*pfvImpulse * m_fInverseMass);
+	//m_fAngularVelocity += ra.crossProduct(pfvImpulse) * m_fInverseMomentOfInertia;
+	//cout << (*pfvContactPoint).crossProduct(pfvImpulse) * m_fInverseMomentOfInertia << endl;
 }
 
 bool Collidable::isMoving()
 {
 	return m_fvVelocity.squaredMagnitude() > 0;
+}
+
+bool Collidable::isRotating()
+{
+	return m_fAngularVelocity != 0;
 }
 
 /*!

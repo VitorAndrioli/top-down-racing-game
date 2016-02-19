@@ -9,7 +9,7 @@ TextureManager::TextureManager()
 
 void TextureManager::loadTextures()
 {
-	sf::Texture texture1, texture2, texture3, texture4, texture5, texture6, texture7;
+	sf::Texture texture1, texture2, texture3, texture4, texture5, texture6, texture7, texture8;
 	
 	texture1.loadFromFile("assets/img/car_01.png");
 	texture2.loadFromFile("assets/img/car_02.png");
@@ -18,15 +18,16 @@ void TextureManager::loadTextures()
 	texture5.loadFromFile("assets/img/car_tyre.png");
 	texture6.loadFromFile("assets/img/tyre.png");
 	texture7.loadFromFile("assets/img/box.png");
+	texture8.loadFromFile("assets/img/track_small.jpg");
 
 	m_aTexture.push_back(texture1);
-	
 	m_aTexture.push_back(texture2);
 	m_aTexture.push_back(texture3);
 	m_aTexture.push_back(texture4);
 	m_aTexture.push_back(texture5);
 	m_aTexture.push_back(texture6);
 	m_aTexture.push_back(texture7);
+	m_aTexture.push_back(texture8);
 }
 
 sf::Texture TextureManager::getImage(const string name)

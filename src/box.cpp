@@ -24,8 +24,8 @@ Box::Box(double fPosX, double fPosY, double fSize, double fOrientation)
 	// Assigns default values
 	m_fFrictionCoefficient = BOX_FRICTION_COEFFICIENT;
 	m_fRestitution = BOX_RESTITUTION_COEFFICIENT;
-	setMass(BOX_MASS_COEFFICIENT*fSize*fSize); // Usse set method to save inverse of mass.
-	m_fInverseMomentOfInertia = 12 / (getMass() * (fSize*fSize + fSize*fSize)); // Equation for moment of inertia for rectangles.
+	setMass(30 + BOX_MASS_COEFFICIENT*fSize*fSize); // Usse set method to save inverse of mass.
+	m_fInverseMomentOfInertia = 1.f/500.f; // 12 / (getMass() * (fSize*fSize + fSize*fSize)); // Equation for moment of inertia for rectangles.
 }
 
 Box::~Box()
