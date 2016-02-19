@@ -21,14 +21,21 @@ using namespace std;
 Game::Game()
 {
 	m_bPaused = true;
+	m_bMultiPlayer = false;
 
 	m_textureManager.loadTextures();
 	
-	car = Car(50, 320, 0 * 3.14159 / 180);
-	car.setTexture(&m_textureManager.m_aTexture.at(1));
-	car.setWheelTexture(&m_textureManager.m_aTexture.at(4));
+	player1 = Car(50, 350, -90 * TO_RADIANS);
+	player1.setTexture(&m_textureManager.m_aTexture.at(1));
+	player1.setWheelTexture(&m_textureManager.m_aTexture.at(4));
 	
-	
+	if (m_bMultiPlayer)
+	{
+		player2 = Car(150, 350, -90 * TO_RADIANS);
+		player2.setTexture(&m_textureManager.m_aTexture.at(2));
+		player2.setWheelTexture(&m_textureManager.m_aTexture.at(4));
+	}
+
 	rapidxml::xml_document<> doc;
 	ifstream file(".\\assets\\xml\\obstacles.xml");
 	stringstream buffer;
@@ -53,7 +60,8 @@ Game::Game()
 
 void Game::draw(RenderTarget &target, RenderStates states) const
 {
-	target.draw(car);
+	target.draw(player1);
+	if (m_bMultiPlayer) target.draw(player2);
 	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{
 		target.draw(**it);
@@ -63,19 +71,22 @@ void Game::draw(RenderTarget &target, RenderStates states) const
 void Game::update(float timestep)
 {
 	
-	//if (m_bPaused) return;
-	car.update(timestep);
-	//car.print();
+	if (m_bPaused) return;
+	player1.update(timestep);
+	player2.update(timestep);
+	//player1.print();
+	
+	if (m_bMultiPlayer && player1.isMoving()) player1.checkCollision(&player2);
+	if (m_bMultiPlayer && player2.isMoving()) player2.checkCollision(&player1);
+
+	for (auto it = obstacles.begin(); it != obstacles.end(); ++it) (*it)->update(timestep);
 	
 	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
 	{
-		(*it)->update(timestep);
-	}
-
-	for (auto it = obstacles.begin(); it != obstacles.end(); ++it)
-	{
-		if (car.isMoving()) car.checkCollision(*it);
-		if ((*it)->isMoving()) (*it)->checkCollision(&car);
+		if (player1.isMoving()) player1.checkCollision(*it);
+		if (m_bMultiPlayer && player2.isMoving()) player1.checkCollision(*it);
+		if ((*it)->isMoving()) (*it)->checkCollision(&player1);
+		if (m_bMultiPlayer && (*it)->isMoving()) (*it)->checkCollision(&player2);
 		
 		for (auto it2 = obstacles.begin(); it2 != obstacles.end(); ++it2)
 		{
@@ -95,26 +106,36 @@ void Game::update(float timestep)
 
 void Game::processKeyPress(Keyboard::Key code)
 {
-	if (code == sf::Keyboard::Up) car.m_bAccelerating = true;
-	if (code == sf::Keyboard::Down) car.m_bReversing = true;
-	if (code == sf::Keyboard::Right) car.m_bTurningRight = true;
-	if (code == sf::Keyboard::Left) car.m_bTurningLeft = true;
-	if (code == sf::Keyboard::Space) car.m_bBraking = true;
-	if (code == sf::Keyboard::LAlt) obstacles.back()->setVelocity(Vector2D<double>(0, 50));
+	if (code == sf::Keyboard::Up) player1.m_bAccelerating = true;
+	if (code == sf::Keyboard::Down) player1.m_bReversing = true;
+	if (code == sf::Keyboard::Right) player1.m_bTurningRight = true;
+	if (code == sf::Keyboard::Left) player1.m_bTurningLeft = true;
+	if (code == sf::Keyboard::RControl) player1.m_bBraking = true;
+	
+	if (code == sf::Keyboard::W) player2.m_bAccelerating = true;
+	if (code == sf::Keyboard::S) player2.m_bReversing = true;
+	if (code == sf::Keyboard::D)  player2.m_bTurningRight = true;
+	if (code == sf::Keyboard::A)  player2.m_bTurningLeft = true;
+	if (code == sf::Keyboard::LControl) player2.m_bBraking = true;
+	
 	if (code == sf::Keyboard::P) m_bPaused = !m_bPaused;
-	//*/
-	/*if (code == sf::Keyboard::Up) (obstacles.front())->setVelocity(Vector2D<double>(0, -150));
-	if (code == sf::Keyboard::Down) (obstacles.front())->setVelocity(Vector2D<double>(0, 150));
-	if (code == sf::Keyboard::Right) (obstacles.front())->setVelocity(Vector2D<double>(150, 0));
-	if (code == sf::Keyboard::Left) (obstacles.front())->setVelocity(Vector2D<double>(-150, 0));
-	//*/
+	
+
+	if (code == sf::Keyboard::LAlt) obstacles.back()->setVelocity(Vector2D<double>(0, 50));
+
 }
 
 void Game::processKeyRelease(Keyboard::Key code)
 {
-	if (code == sf::Keyboard::Up) car.m_bAccelerating = false;
-	if (code == sf::Keyboard::Down) car.m_bReversing = false;
-	if (code == sf::Keyboard::Right)  car.m_bTurningRight = false;
-	if (code == sf::Keyboard::Left)  car.m_bTurningLeft = false;
-	if (code == sf::Keyboard::Space) car.m_bBraking = false;
+	if (code == sf::Keyboard::Up) player1.m_bAccelerating = false;
+	if (code == sf::Keyboard::Down) player1.m_bReversing = false;
+	if (code == sf::Keyboard::Right)  player1.m_bTurningRight = false;
+	if (code == sf::Keyboard::Left)  player1.m_bTurningLeft = false;
+	if (code == sf::Keyboard::RControl) player1.m_bBraking = false;
+
+	if (code == sf::Keyboard::W) player2.m_bAccelerating = false;
+	if (code == sf::Keyboard::S) player2.m_bReversing = false;
+	if (code == sf::Keyboard::D)  player2.m_bTurningRight = false;
+	if (code == sf::Keyboard::A)  player2.m_bTurningLeft = false;
+	if (code == sf::Keyboard::LControl) player2.m_bBraking = false;
 }

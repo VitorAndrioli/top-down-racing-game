@@ -213,6 +213,8 @@ void OBB::setTexture(sf::Texture * texture)
 	m_sprite.setTexture(*texture); // Sets OBB's sprite texture.
 	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
 	m_sprite.scale(m_fvHalfExtents.getX() * 2 / texture->getSize().x, m_fvHalfExtents.getY() * 2 / texture->getSize().y); // Scales texture to make sure it fits the OBB.
+
+	updateSprite();
 }
 
 

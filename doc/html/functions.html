@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: Class Members</title>
+<title>Racing game: Class Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,8 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Racing game
    </div>
   </td>
  </tr>
@@ -82,21 +91,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
-      <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
       <li><a href="#index_u"><span>u</span></a></li>
       <li><a href="#index_v"><span>v</span></a></li>
-      <li><a href="#index_w"><span>w</span></a></li>
-      <li><a href="#index_x"><span>x</span></a></li>
       <li class="current"><a href="#index_~"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -115,20 +136,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
-<li>allocate_attribute()
-: <a class="el" href="classrapidxml_1_1memory__pool.html#a3de2a66c983336e006ea3844e244ed30">rapidxml::memory_pool&lt; Ch &gt;</a>
-</li>
-<li>allocate_node()
-: <a class="el" href="classrapidxml_1_1memory__pool.html#a4118581c29ee9a2f6b55ebf7dac185f8">rapidxml::memory_pool&lt; Ch &gt;</a>
-</li>
-<li>allocate_string()
-: <a class="el" href="classrapidxml_1_1memory__pool.html#a171941b39d55b868358da97462185f58">rapidxml::memory_pool&lt; Ch &gt;</a>
-</li>
-<li>append_attribute()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a33ce3386f8c42dd4db658b75cbb6e6c4">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>append_node()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a8696d098ecc9c4d2a646b43e91d58e31">rapidxml::xml_node&lt; Ch &gt;</a>
+<li>applyImpulse()
+: <a class="el" href="class_collidable.html#ab48a9401ae73d1c90a5200397b420f89">Collidable</a>
 </li>
 </ul>
 
@@ -138,43 +147,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_box.html#aca78d7db44972bfa78d46b7bbc8796f6">Box</a>
 </li>
 <li>broadCollisionCheck()
-: <a class="el" href="class_collidable.html#a3d3ce584cdb14485db044c81a792a966">Collidable</a>
+: <a class="el" href="class_collidable.html#a7ec62c2d35206abacbcad74f5bf42608">Collidable</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>Car()
+: <a class="el" href="class_car.html#a1c803f7c5038d3e31b368b0d0a35493c">Car</a>
+</li>
 <li>checkCollision()
-: <a class="el" href="class_circle.html#ad74b27696652e85e97503aef986f32b5">Circle</a>
-, <a class="el" href="class_collidable.html#a25c916c15277425a1b2606d35c7405fe">Collidable</a>
-, <a class="el" href="class_o_b_b.html#ab55aa6044004c4ea4e5d8310727569c0">OBB</a>
+: <a class="el" href="class_circle.html#ad033972b43e0e590a4c4e7ec45a392e1">Circle</a>
+, <a class="el" href="class_collidable.html#a157281cb33cb695c8eb0c8dd971b84f2">Collidable</a>
+, <a class="el" href="class_o_b_b.html#a6e26b518d5780cc3295f98e0f6b1008c">OBB</a>
 </li>
 <li>Circle()
 : <a class="el" href="class_circle.html#ad1ecfcfc7bf34529c6a6d6c448bf70fe">Circle</a>
 </li>
-<li>clear()
-: <a class="el" href="classrapidxml_1_1memory__pool.html#aad377c835fdaed1cb2cc9df194cf84e4">rapidxml::memory_pool&lt; Ch &gt;</a>
-, <a class="el" href="classrapidxml_1_1xml__document.html#a826929ff54242532198701f19ff5f83f">rapidxml::xml_document&lt; Ch &gt;</a>
-</li>
-<li>clone_node()
-: <a class="el" href="classrapidxml_1_1memory__pool.html#a0a10679fc17597d339a0dc107f8a94ac">rapidxml::memory_pool&lt; Ch &gt;</a>
-</li>
 <li>Collidable()
 : <a class="el" href="class_collidable.html#a92ce9e2b08086bb2f466168ffc69c9ed">Collidable</a>
+</li>
+<li>crossProduct()
+: <a class="el" href="class_vector2_d.html#a4be7b15eb3e4e5a4ec415a484061b10d">Vector2D&lt; G &gt;</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
-<li>data()
-: <a class="el" href="classrapidxml_1_1file.html#af1c71d65862c7af14e4708e32a80c1de">rapidxml::file&lt; Ch &gt;</a>
-</li>
-<li>document()
-: <a class="el" href="classrapidxml_1_1xml__attribute.html#a8b6d31d899e27f01bde35b53d98496ec">rapidxml::xml_attribute&lt; Ch &gt;</a>
-, <a class="el" href="classrapidxml_1_1xml__node.html#adb6ad21a4590cf13d4a6a5036e3cdbbc">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
 <li>dotProduct()
-: <a class="el" href="class_vector2_d.html#abbf351182e5d3e725a0b75e82435b846">Vector2D&lt; G &gt;</a>
+: <a class="el" href="class_vector2_d.html#aa69f34ef68bbce55afb63c2e87391203">Vector2D&lt; G &gt;</a>
 </li>
 <li>draw()
 : <a class="el" href="class_game.html#a260c4d5123eb3a51cbd0bb685546cef4">Game</a>
@@ -183,14 +184,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
-<li>file()
-: <a class="el" href="classrapidxml_1_1file.html#ae881a3cab1fe7152d45c92a8d7606cb3">rapidxml::file&lt; Ch &gt;</a>
-</li>
-<li>first_attribute()
-: <a class="el" href="classrapidxml_1_1xml__node.html#ae426802be58114ffc41bf30ac6b8c37d">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>first_node()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a2dedeb4e04bb35e06a9a7bddf6ba652d">rapidxml::xml_node&lt; Ch &gt;</a>
+<li>flip()
+: <a class="el" href="class_vector2_d.html#a6191843e792557d9532da82b79b026aa">Vector2D&lt; G &gt;</a>
 </li>
 </ul>
 
@@ -199,38 +194,52 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Game()
 : <a class="el" href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game</a>
 </li>
+<li>getFrictionCoefficient()
+: <a class="el" href="class_car.html#a47fe72f08097245751cd5c6eea31a9cb">Car</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
-<li>insert_attribute()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a9fe659cdf4a5b3bbf5e8ffc98db5a84f">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>insert_node()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a666880f42a7e486d78cc45ed51c7c46d">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
 <li>isMoving()
 : <a class="el" href="class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6">Collidable</a>
 </li>
 </ul>
 
 
-<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
-<li>last_attribute()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a50c03f2db3fa51f27a73d86ec29a49d3">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>last_node()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a2ace550c18cf10da6303773972d7157f">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-</ul>
-
-
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>m_bAccelerating
+: <a class="el" href="class_car.html#a3ca299e37b7a2b964e68877e7fc41d56">Car</a>
+</li>
+<li>m_bBraking
+: <a class="el" href="class_car.html#a0a5b2769f8000bc41da5ffacaff488bd">Car</a>
+</li>
+<li>m_bMovingForward
+: <a class="el" href="class_car.html#a7f45340643c43ddd543d96662fe88911">Car</a>
+</li>
+<li>m_bReversing
+: <a class="el" href="class_car.html#a8a5ba2979820d7c0f2a00571fd7755de">Car</a>
+</li>
+<li>m_bTurningLeft
+: <a class="el" href="class_car.html#ab15cb88a73253d2d258368bed12be6cc">Car</a>
+</li>
+<li>m_bTurningRight
+: <a class="el" href="class_car.html#a1caa04bed661507cc92dcc465374aa40">Car</a>
+</li>
+<li>m_fAngularAcceleration
+: <a class="el" href="class_collidable.html#a376aa200ba174a1cea17766fbcbda760">Collidable</a>
+</li>
+<li>m_fAngularVelocity
+: <a class="el" href="class_collidable.html#a5a6501f0c062b6c24f3121c5c68b59d4">Collidable</a>
+</li>
 <li>m_fFrictionCoefficient
 : <a class="el" href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">Collidable</a>
 </li>
 <li>m_fInverseMass
 : <a class="el" href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">Collidable</a>
+</li>
+<li>m_fInverseMomentOfInertia
+: <a class="el" href="class_collidable.html#aef9f604795e30d09737aee26beb128ae">Collidable</a>
 </li>
 <li>m_fOrientation
 : <a class="el" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">Collidable</a>
@@ -241,8 +250,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_fRestitution
 : <a class="el" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">Collidable</a>
 </li>
+<li>m_frontLeftWheel
+: <a class="el" href="class_car.html#a17f7c49c8c95c1d6c238d48e6500ed52">Car</a>
+</li>
+<li>m_frontRightWheel
+: <a class="el" href="class_car.html#aea62fd9764bf52faf154681914343316">Car</a>
+</li>
+<li>m_fSteeringOrientation
+: <a class="el" href="class_car.html#af67de6d3bb5203272670314409bd3ca8">Car</a>
+</li>
+<li>m_fTorque
+: <a class="el" href="class_collidable.html#a84f79454b1dac54f7b9042660d89e8ca">Collidable</a>
+</li>
 <li>m_fvAcceleration
 : <a class="el" href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">Collidable</a>
+</li>
+<li>m_fvHalfExtents
+: <a class="el" href="class_o_b_b.html#a9bb0b948899d85dd6973d7526a574cc2">OBB</a>
 </li>
 <li>m_fvPosition
 : <a class="el" href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">Collidable</a>
@@ -253,56 +277,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_fvVelocity
 : <a class="el" href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">Collidable</a>
 </li>
+<li>m_fWheelBase
+: <a class="el" href="class_car.html#a7be779b298ee9803e8189e08f0cafc27">Car</a>
+</li>
 <li>m_sprite
 : <a class="el" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">Collidable</a>
 </li>
 <li>m_vaPoints
 : <a class="el" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">Collidable</a>
 </li>
-<li>memory_pool()
-: <a class="el" href="classrapidxml_1_1memory__pool.html#a0b609da81dff28a19ebd704400788429">rapidxml::memory_pool&lt; Ch &gt;</a>
+<li>magnitude()
+: <a class="el" href="class_vector2_d.html#aab76e76bb642784480bdd231b90b1273">Vector2D&lt; G &gt;</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
-<li>name()
-: <a class="el" href="classrapidxml_1_1xml__base.html#a9a09739310469995db078ebd0da3ed45">rapidxml::xml_base&lt; Ch &gt;</a>
+<li>normalize()
+: <a class="el" href="class_vector2_d.html#a0de406dcf396cb5b629bf196c1101621">Vector2D&lt; G &gt;</a>
 </li>
-<li>name_size()
-: <a class="el" href="classrapidxml_1_1xml__base.html#a7e7f98b3d01e1eab8dc1ca69aad9af84">rapidxml::xml_base&lt; Ch &gt;</a>
-</li>
-<li>next_attribute()
-: <a class="el" href="classrapidxml_1_1xml__attribute.html#a56c08d7c96203286c889a43849328a86">rapidxml::xml_attribute&lt; Ch &gt;</a>
-</li>
-<li>next_sibling()
-: <a class="el" href="classrapidxml_1_1xml__node.html#ac59af4dd5f0ec715753e42467dff6aed">rapidxml::xml_node&lt; Ch &gt;</a>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>OBB()
+: <a class="el" href="class_o_b_b.html#af752af068c6fc1787f06556b6a71c929">OBB</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
-<li>parent()
-: <a class="el" href="classrapidxml_1_1xml__base.html#a7f31ae930f93852830234db1ae59c4c4">rapidxml::xml_base&lt; Ch &gt;</a>
-</li>
-<li>parse()
-: <a class="el" href="classrapidxml_1_1xml__document.html#ac6e73ff9ac323bf5a370c38feb03a6b1">rapidxml::xml_document&lt; Ch &gt;</a>
-</li>
-<li>parse_error()
-: <a class="el" href="classrapidxml_1_1parse__error.html#aea12a301271c393fb627b368fb9f35c1">rapidxml::parse_error</a>
-</li>
-<li>prepend_attribute()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a8b62ee76489faf8e2d1210869d547684">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>prepend_node()
-: <a class="el" href="classrapidxml_1_1xml__node.html#ae86e92908c3eab40bbed8216e4f3f3cb">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>previous_attribute()
-: <a class="el" href="classrapidxml_1_1xml__attribute.html#ae3547cc30b201fd6d7b98c04dda26f89">rapidxml::xml_attribute&lt; Ch &gt;</a>
-</li>
-<li>previous_sibling()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a001ece4e227eebbd6ad0ec7dacf1c00b">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
 <li>print()
 : <a class="el" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">Collidable</a>
 </li>
@@ -316,50 +320,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
-<li>remove_all_attributes()
-: <a class="el" href="classrapidxml_1_1xml__node.html#aa8d5d9484aa1eb5ff1841a073c84c1aa">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>remove_all_nodes()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a95735358b079ae0adcfbbac69aa1fbc3">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>remove_attribute()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a6f97b1b4f46a94a4587915df3c0c6b57">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>remove_first_attribute()
-: <a class="el" href="classrapidxml_1_1xml__node.html#aa95192d2a165cca16c551ed2a2a06aec">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>remove_first_node()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a62bf7b276cf7a651a3337f5e0a0ef6ac">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>remove_last_attribute()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a1781a2cbedc9a51d609ad5b528125635">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>remove_last_node()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a9182512e948ec451a83f116cce7c7674">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
-<li>remove_node()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a98289923eb9e8889418a9eb0207ea35c">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
 <li>resolveCollision()
-: <a class="el" href="class_collidable.html#a40089393c9a030b68042e3b72d8142e4">Collidable</a>
+: <a class="el" href="class_collidable.html#a8ff9b7822edd612abd581437343f76b0">Collidable</a>
+</li>
+<li>rotate()
+: <a class="el" href="class_vector2_d.html#a85f594928169b9c4bb74cc26ab43d111">Vector2D&lt; G &gt;</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
-<li>set_allocator()
-: <a class="el" href="classrapidxml_1_1memory__pool.html#a84d3d8d2cdfc00501e1dcf26d889ae03">rapidxml::memory_pool&lt; Ch &gt;</a>
+<li>setHalfExtents()
+: <a class="el" href="class_o_b_b.html#a0367f78bef8252fc122cf1b0c22e332c">OBB</a>
 </li>
-<li>size()
-: <a class="el" href="classrapidxml_1_1file.html#a20191d167c6e00a88a44ca9a3a54e1c5">rapidxml::file&lt; Ch &gt;</a>
+<li>setTexture()
+: <a class="el" href="class_car.html#a179e5e7f3d69e65d1ffa582d32259791">Car</a>
+, <a class="el" href="class_circle.html#ac6c48964ac829b4c1a15b313d9ae102a">Circle</a>
+, <a class="el" href="class_collidable.html#ab591b36248e5178a6e3a430d3eb67144">Collidable</a>
+, <a class="el" href="class_o_b_b.html#a9d0c690a6d3825865b8dd4e023a7cec3">OBB</a>
+</li>
+<li>setVelocity()
+: <a class="el" href="class_car.html#abd60b234c10b8ca0c637069c9c341b7a">Car</a>
+</li>
+<li>setWheelTexture()
+: <a class="el" href="class_car.html#a73e1aac426beef99001e87be0fa541c8">Car</a>
+</li>
+<li>squaredMagnitude()
+: <a class="el" href="class_vector2_d.html#af4162d18ba5939bd0175ae01ad6f0221">Vector2D&lt; G &gt;</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
-<li>type()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a2c6a4315b98bcfa2e04fed3fa1b22c36">rapidxml::xml_node&lt; Ch &gt;</a>
-</li>
 <li>Tyre()
 : <a class="el" href="class_tyre.html#a162dbaad7ae74443df530dfb147fb694">Tyre</a>
 </li>
@@ -367,8 +359,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>unitVector()
+: <a class="el" href="class_vector2_d.html#a1a734dd9f1ca01a88bac3f6bf2be97d0">Vector2D&lt; G &gt;</a>
+</li>
 <li>update()
-: <a class="el" href="class_collidable.html#ad636cf1a7fab85fb2dfedf08c02c7745">Collidable</a>
+: <a class="el" href="class_car.html#ab7860fcfd5e75787d358128e04442464">Car</a>
+, <a class="el" href="class_collidable.html#ad636cf1a7fab85fb2dfedf08c02c7745">Collidable</a>
 , <a class="el" href="class_game.html#acc8519c7ced1cf9eb9bbb3a2f325f6a0">Game</a>
 </li>
 <li>updatePoints()
@@ -381,37 +377,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
-<li>value()
-: <a class="el" href="classrapidxml_1_1xml__base.html#adcdaccff61c665f039d9344e447b7445">rapidxml::xml_base&lt; Ch &gt;</a>
-</li>
-<li>value_size()
-: <a class="el" href="classrapidxml_1_1xml__base.html#a9fcf201ed0915ac18dd43b0b5dcfaf32">rapidxml::xml_base&lt; Ch &gt;</a>
-</li>
 <li>Vector2D()
 : <a class="el" href="class_vector2_d.html#a3bce991141a2cfd9c381651c06d2bee5">Vector2D&lt; G &gt;</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
-<li>what()
-: <a class="el" href="classrapidxml_1_1parse__error.html#a7665c88639e7466ee1de388a4f85e6fe">rapidxml::parse_error</a>
-</li>
-<li>where()
-: <a class="el" href="classrapidxml_1_1parse__error.html#a3a0ab9e586c1d2b437c340f6622fbec6">rapidxml::parse_error</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_x"></a>- x -</h3><ul>
-<li>xml_attribute()
-: <a class="el" href="classrapidxml_1_1xml__attribute.html#a26be291103917d3e8de110d46dd83816">rapidxml::xml_attribute&lt; Ch &gt;</a>
-</li>
-<li>xml_document()
-: <a class="el" href="classrapidxml_1_1xml__document.html#aae8841b15085ba8f32ff46587ace28f5">rapidxml::xml_document&lt; Ch &gt;</a>
-</li>
-<li>xml_node()
-: <a class="el" href="classrapidxml_1_1xml__node.html#a8bd9019960b90605a45998b661fb1b0e">rapidxml::xml_node&lt; Ch &gt;</a>
 </li>
 </ul>
 
@@ -420,19 +387,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>~Box()
 : <a class="el" href="class_box.html#a6a5e09398e85d602a046b429062fb9c2">Box</a>
 </li>
-<li>~memory_pool()
-: <a class="el" href="classrapidxml_1_1memory__pool.html#a0a3e82126e59e4077f41e933130bb5a0">rapidxml::memory_pool&lt; Ch &gt;</a>
-</li>
 <li>~Tyre()
 : <a class="el" href="class_tyre.html#a3ace196877f68acd82b89e8cd33825ec">Tyre</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

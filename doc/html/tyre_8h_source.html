@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/include/tyre.h Source File</title>
+<title>Racing game: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/tyre.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,8 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Racing game
    </div>
   </td>
  </tr>
@@ -64,6 +73,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('tyre_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -78,11 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">tyre.h</div>  </div>
@@ -95,8 +114,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="circle_8h.html">circle.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// Define constant values to be assigned for tyre objects.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="tyre_8h.html#a1d3ebb9b79c6a69201c89b1a360b1942">   13</a></span>&#160;<span class="preprocessor">#define TYRE_RADIUS 10.0 </span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="tyre_8h.html#a22a854f8c13cf9afb24deaacf8bb013f">   14</a></span>&#160;<span class="preprocessor">#define TYRE_MASS 20.0 </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="tyre_8h.html#a1d3ebb9b79c6a69201c89b1a360b1942">   13</a></span>&#160;<span class="preprocessor">#define TYRE_RADIUS 14.0 </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="tyre_8h.html#a22a854f8c13cf9afb24deaacf8bb013f">   14</a></span>&#160;<span class="preprocessor">#define TYRE_MASS 70.0 </span></div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="tyre_8h.html#ad5c106f1e96a5f6d5dc56f36945bdfba">   15</a></span>&#160;<span class="preprocessor">#define TYRE_FRICTION_COEFFICIENT 0.68 </span></div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="tyre_8h.html#aaa2970bbd8ec40743cfd15da6b684f6a">   16</a></span>&#160;<span class="preprocessor">#define TYRE_RESTITUTION_COEFFICIENT 0.7 </span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
@@ -112,14 +131,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_circle_html"><div class="ttname"><a href="class_circle.html">Circle</a></div><div class="ttdoc">Circular collidables to be used in the game. </div><div class="ttdef"><b>Definition:</b> circle.h:18</div></div>
 <div class="ttc" id="class_tyre_html_a162dbaad7ae74443df530dfb147fb694"><div class="ttname"><a href="class_tyre.html#a162dbaad7ae74443df530dfb147fb694">Tyre::Tyre</a></div><div class="ttdeci">Tyre()</div><div class="ttdoc">Basic constructor. Does not initialize any member variable. </div><div class="ttdef"><b>Definition:</b> tyre.cpp:5</div></div>
 <div class="ttc" id="circle_8h_html"><div class="ttname"><a href="circle_8h.html">circle.h</a></div><div class="ttdoc">Declaration of Circle class. </div></div>
-<div class="ttc" id="class_tyre_html_a3ace196877f68acd82b89e8cd33825ec"><div class="ttname"><a href="class_tyre.html#a3ace196877f68acd82b89e8cd33825ec">Tyre::~Tyre</a></div><div class="ttdeci">~Tyre()</div><div class="ttdoc">Basic destructor. </div><div class="ttdef"><b>Definition:</b> tyre.cpp:26</div></div>
+<div class="ttc" id="class_tyre_html_a3ace196877f68acd82b89e8cd33825ec"><div class="ttname"><a href="class_tyre.html#a3ace196877f68acd82b89e8cd33825ec">Tyre::~Tyre</a></div><div class="ttdeci">~Tyre()</div><div class="ttdoc">Basic destructor. </div><div class="ttdef"><b>Definition:</b> tyre.cpp:27</div></div>
 <div class="ttc" id="class_tyre_html"><div class="ttname"><a href="class_tyre.html">Tyre</a></div><div class="ttdoc">Tyre to be used as collidable obstacle in the game. </div><div class="ttdef"><b>Definition:</b> tyre.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="tyre_8h.html">tyre.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

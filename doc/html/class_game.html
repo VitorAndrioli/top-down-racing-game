@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: Game Class Reference</title>
+<title>Racing game: Game Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,8 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Racing game
    </div>
   </td>
  </tr>
@@ -66,6 +75,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_game.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,7 +104,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -139,23 +162,33 @@ sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><b>carTexture</b>
 <tr class="memitem:a3f2b0a7afbf3a730037b90438153db3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f2b0a7afbf3a730037b90438153db3d"></a>
 sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><b>carTyreTexture</b></td></tr>
 <tr class="separator:a3f2b0a7afbf3a730037b90438153db3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94c6c539072f8c5231ad8a905e2eb432"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94c6c539072f8c5231ad8a905e2eb432"></a>
+<a class="el" href="class_texture_manager.html">TextureManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_textureManager</b></td></tr>
+<tr class="separator:a94c6c539072f8c5231ad8a905e2eb432"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d24cc02e4fef7bba277038a2daabf41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d24cc02e4fef7bba277038a2daabf41"></a>
 std::vector&lt; <a class="el" href="class_collidable.html">Collidable</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>obstacles</b></td></tr>
 <tr class="separator:a2d24cc02e4fef7bba277038a2daabf41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a423f23c4ffc94a67afd51a6752d8eb58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a423f23c4ffc94a67afd51a6752d8eb58"></a>
 View&#160;</td><td class="memItemRight" valign="bottom"><b>view1</b></td></tr>
 <tr class="separator:a423f23c4ffc94a67afd51a6752d8eb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55cbee6e0e0fc4080a234e8c230d9001"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55cbee6e0e0fc4080a234e8c230d9001"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_bPaused</b></td></tr>
+<tr class="separator:a55cbee6e0e0fc4080a234e8c230d9001"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/include/<a class="el" href="game_8h_source.html">game.h</a></li>
-<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/src/<a class="el" href="game_8cpp.html">game.cpp</a></li>
+<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/<a class="el" href="game_8h_source.html">game.h</a></li>
+<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/src/<a class="el" href="game_8cpp.html">game.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_game.html">Game</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

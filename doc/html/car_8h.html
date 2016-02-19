@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/include/car.h File Reference</title>
+<title>Racing game: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/car.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,8 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Racing game
    </div>
   </td>
  </tr>
@@ -64,6 +73,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('car_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -78,11 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -92,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Declaration of <a class="el" href="class_car.html">Car</a> class.  
+<p>Declaration of <a class="el" href="class_car.html" title="Controlable car to be used by the player. ">Car</a> class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="obb_8h_source.html">obb.h</a>&quot;</code><br />
 </div>
@@ -101,58 +120,84 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html">Car</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlable car to be used by the player.  <a href="class_car.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:aa8e6af92411e0744251777f3133c69dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8e6af92411e0744251777f3133c69dd"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAXIMUM_SPEED</b>&#160;&#160;&#160;230</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#aa8e6af92411e0744251777f3133c69dd">MAXIMUM_SPEED</a>&#160;&#160;&#160;230</td></tr>
+<tr class="memdesc:aa8e6af92411e0744251777f3133c69dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum speed of the car. <br /></td></tr>
 <tr class="separator:aa8e6af92411e0744251777f3133c69dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1b87ef5f6e8c6860c16abd5067c8fc1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1b87ef5f6e8c6860c16abd5067c8fc1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>STOPPING_SPEED</b>&#160;&#160;&#160;0.05</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#aa1b87ef5f6e8c6860c16abd5067c8fc1">STOPPING_SPEED</a>&#160;&#160;&#160;0.5</td></tr>
+<tr class="memdesc:aa1b87ef5f6e8c6860c16abd5067c8fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to stop car with no shivering. <br /></td></tr>
 <tr class="separator:aa1b87ef5f6e8c6860c16abd5067c8fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13858fec8b3177b28a6eaae798e40dfa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13858fec8b3177b28a6eaae798e40dfa"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAXIMUM_REVERSE_SPEED_SQUARED</b>&#160;&#160;&#160;100 * 100</td></tr>
-<tr class="separator:a13858fec8b3177b28a6eaae798e40dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8fb66b6541f2a0438bae23b79831921"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8fb66b6541f2a0438bae23b79831921"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#aa8fb66b6541f2a0438bae23b79831921">MAXIMUM_REVERSE_SPEED</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:aa8fb66b6541f2a0438bae23b79831921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default speed while going on reverse. <br /></td></tr>
+<tr class="separator:aa8fb66b6541f2a0438bae23b79831921"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acee33222c9054bc14a558621d020fb6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acee33222c9054bc14a558621d020fb6a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TYRE_MAXIMUM_ORIENTATION</b>&#160;&#160;&#160;25 * <a class="el" href="collidable_8h.html#adb239346b66785ddb0718881e4284206">TO_RADIANS</a></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#acee33222c9054bc14a558621d020fb6a">TYRE_MAXIMUM_ORIENTATION</a>&#160;&#160;&#160;25 * <a class="el" href="collidable_8h.html#adb239346b66785ddb0718881e4284206">TO_RADIANS</a></td></tr>
+<tr class="memdesc:acee33222c9054bc14a558621d020fb6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the limit the front wheels can turn. <br /></td></tr>
 <tr class="separator:acee33222c9054bc14a558621d020fb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf654d91bb3cb40f614edcc9acecc232"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf654d91bb3cb40f614edcc9acecc232"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TYRE_STOPPING_ORIENTATION</b>&#160;&#160;&#160;0.05 * <a class="el" href="collidable_8h.html#adb239346b66785ddb0718881e4284206">TO_RADIANS</a></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#adf654d91bb3cb40f614edcc9acecc232">TYRE_STOPPING_ORIENTATION</a>&#160;&#160;&#160;0.05 * <a class="el" href="collidable_8h.html#adb239346b66785ddb0718881e4284206">TO_RADIANS</a></td></tr>
+<tr class="memdesc:adf654d91bb3cb40f614edcc9acecc232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a minimum threshold to stop turning the wheels. <br /></td></tr>
 <tr class="separator:adf654d91bb3cb40f614edcc9acecc232"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6654f24274a2a489eaee6b5b8e492b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6654f24274a2a489eaee6b5b8e492b1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TYRE_MOVEMENT</b>&#160;&#160;&#160;0.5 * <a class="el" href="collidable_8h.html#adb239346b66785ddb0718881e4284206">TO_RADIANS</a></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#ae6654f24274a2a489eaee6b5b8e492b1">TYRE_MOVEMENT</a>&#160;&#160;&#160;0.5 * <a class="el" href="collidable_8h.html#adb239346b66785ddb0718881e4284206">TO_RADIANS</a></td></tr>
+<tr class="memdesc:ae6654f24274a2a489eaee6b5b8e492b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines how much the wheels turn at each frame. <br /></td></tr>
 <tr class="separator:ae6654f24274a2a489eaee6b5b8e492b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab27a281ab71adf4eec937e43d1eae46"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab27a281ab71adf4eec937e43d1eae46"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CAR_FRICTION_COEFFICIENT</b>&#160;&#160;&#160;0.72</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#aab27a281ab71adf4eec937e43d1eae46">CAR_FRICTION_COEFFICIENT</a>&#160;&#160;&#160;0.1</td></tr>
+<tr class="memdesc:aab27a281ab71adf4eec937e43d1eae46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default friction coefficient for car objects. <br /></td></tr>
 <tr class="separator:aab27a281ab71adf4eec937e43d1eae46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac377acb448f4c9586bbb5ef499dc0f66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac377acb448f4c9586bbb5ef499dc0f66"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CAR_RESTITUTION_COEFFICIENT</b>&#160;&#160;&#160;0.6</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#ac377acb448f4c9586bbb5ef499dc0f66">CAR_RESTITUTION_COEFFICIENT</a>&#160;&#160;&#160;0.6</td></tr>
+<tr class="memdesc:ac377acb448f4c9586bbb5ef499dc0f66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default restitution coefficient for car objects. <br /></td></tr>
 <tr class="separator:ac377acb448f4c9586bbb5ef499dc0f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a943b74531e79dd26cb2512db8018a9d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a943b74531e79dd26cb2512db8018a9d6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CAR_MASS</b>&#160;&#160;&#160;1000.0</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#a943b74531e79dd26cb2512db8018a9d6">CAR_MASS</a>&#160;&#160;&#160;100.f</td></tr>
+<tr class="memdesc:a943b74531e79dd26cb2512db8018a9d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default mass for car objects. <br /></td></tr>
 <tr class="separator:a943b74531e79dd26cb2512db8018a9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63b45959e1ffbdfec02d940ae5e3d35b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63b45959e1ffbdfec02d940ae5e3d35b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CAR_HALF_EXTENT_X</b>&#160;&#160;&#160;43</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#a63b45959e1ffbdfec02d940ae5e3d35b">CAR_HALF_EXTENT_X</a>&#160;&#160;&#160;43</td></tr>
+<tr class="memdesc:a63b45959e1ffbdfec02d940ae5e3d35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default X half-extent for car objects. <br /></td></tr>
 <tr class="separator:a63b45959e1ffbdfec02d940ae5e3d35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26b677f7d0fdb66225cd282fc5f78f41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26b677f7d0fdb66225cd282fc5f78f41"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CAR_HALF_EXTENT_Y</b>&#160;&#160;&#160;20</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#a26b677f7d0fdb66225cd282fc5f78f41">CAR_HALF_EXTENT_Y</a>&#160;&#160;&#160;20</td></tr>
+<tr class="memdesc:a26b677f7d0fdb66225cd282fc5f78f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Y half-extent for car objects. <br /></td></tr>
 <tr class="separator:a26b677f7d0fdb66225cd282fc5f78f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9481175b05d390db9f7c7401f2fa8d89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9481175b05d390db9f7c7401f2fa8d89"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CAR_WHEEL_BASE</b>&#160;&#160;&#160;50</td></tr>
-<tr class="separator:a9481175b05d390db9f7c7401f2fa8d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bbe54d93f929ded676c954b17041478"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bbe54d93f929ded676c954b17041478"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CAR_FRONT_WHEEL_DISTANCE</b>&#160;&#160;&#160;20</td></tr>
-<tr class="separator:a1bbe54d93f929ded676c954b17041478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba417e114296ca6ffc4ca022e72b9901"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba417e114296ca6ffc4ca022e72b9901"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#aba417e114296ca6ffc4ca022e72b9901">WHEEL_BASE</a>&#160;&#160;&#160;(<a class="el" href="car_8h.html#a63b45959e1ffbdfec02d940ae5e3d35b">CAR_HALF_EXTENT_X</a>*2) - 29</td></tr>
+<tr class="memdesc:aba417e114296ca6ffc4ca022e72b9901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default distance between front and rear wheels for car objects. <br /></td></tr>
+<tr class="separator:aba417e114296ca6ffc4ca022e72b9901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afec66def355bc83c5de64085b5a55592"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afec66def355bc83c5de64085b5a55592"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#afec66def355bc83c5de64085b5a55592">FRONT_WHEEL_DISTANCE</a>&#160;&#160;&#160;19</td></tr>
+<tr class="memdesc:afec66def355bc83c5de64085b5a55592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default (half) distance between front wheels. <br /></td></tr>
+<tr class="separator:afec66def355bc83c5de64085b5a55592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d00affa09ef1e5014bfb3344db083f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d00affa09ef1e5014bfb3344db083f4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#a0d00affa09ef1e5014bfb3344db083f4">WHEEL_LENGHT</a>&#160;&#160;&#160;14.f</td></tr>
+<tr class="memdesc:a0d00affa09ef1e5014bfb3344db083f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default wheel lenght. <br /></td></tr>
+<tr class="separator:a0d00affa09ef1e5014bfb3344db083f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b9d11b81cbab8ee6f6376c8ff2184ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b9d11b81cbab8ee6f6376c8ff2184ea"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car_8h.html#a2b9d11b81cbab8ee6f6376c8ff2184ea">WHEEL_WIDTH</a>&#160;&#160;&#160;6.f</td></tr>
+<tr class="memdesc:a2b9d11b81cbab8ee6f6376c8ff2184ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default wheel width. <br /></td></tr>
+<tr class="separator:a2b9d11b81cbab8ee6f6376c8ff2184ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Declaration of <a class="el" href="class_car.html">Car</a> class. </p>
+<div class="textblock"><p>Declaration of <a class="el" href="class_car.html" title="Controlable car to be used by the player. ">Car</a> class. </p>
 </div></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="car_8h.html">car.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

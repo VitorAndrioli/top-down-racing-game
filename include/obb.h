@@ -20,7 +20,7 @@ protected:
 	Vector2D<double> m_fvHalfExtents; //!< Half-extents vector.
 public:
 	OBB(); //!< Basic constructor.
-	//! Constructor receivin the position, half extents, orientation and restitution coefficient of box.
+	//! Constructor receiving the position, half extents, orientation and restitution coefficient of box.
 	OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution = 1);
 	void checkCollision(Collidable * pCollidable); //!< Checks collision with another Collidable.
 	void checkCollision(Circle * pCircle); //!< Checks collision with an Circle.

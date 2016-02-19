@@ -1,16 +1,10 @@
 var searchData=
 [
-  ['rapidxml_2ehpp',['rapidxml.hpp',['../rapidxml_8hpp.html',1,'']]],
-  ['rapidxml_5fiterators_2ehpp',['rapidxml_iterators.hpp',['../rapidxml__iterators_8hpp.html',1,'']]],
-  ['rapidxml_5fprint_2ehpp',['rapidxml_print.hpp',['../rapidxml__print_8hpp.html',1,'']]],
-  ['rapidxml_5futils_2ehpp',['rapidxml_utils.hpp',['../rapidxml__utils_8hpp.html',1,'']]],
-  ['remove_5fall_5fattributes',['remove_all_attributes',['../classrapidxml_1_1xml__node.html#aa8d5d9484aa1eb5ff1841a073c84c1aa',1,'rapidxml::xml_node']]],
-  ['remove_5fall_5fnodes',['remove_all_nodes',['../classrapidxml_1_1xml__node.html#a95735358b079ae0adcfbbac69aa1fbc3',1,'rapidxml::xml_node']]],
-  ['remove_5fattribute',['remove_attribute',['../classrapidxml_1_1xml__node.html#a6f97b1b4f46a94a4587915df3c0c6b57',1,'rapidxml::xml_node']]],
-  ['remove_5ffirst_5fattribute',['remove_first_attribute',['../classrapidxml_1_1xml__node.html#aa95192d2a165cca16c551ed2a2a06aec',1,'rapidxml::xml_node']]],
-  ['remove_5ffirst_5fnode',['remove_first_node',['../classrapidxml_1_1xml__node.html#a62bf7b276cf7a651a3337f5e0a0ef6ac',1,'rapidxml::xml_node']]],
-  ['remove_5flast_5fattribute',['remove_last_attribute',['../classrapidxml_1_1xml__node.html#a1781a2cbedc9a51d609ad5b528125635',1,'rapidxml::xml_node']]],
-  ['remove_5flast_5fnode',['remove_last_node',['../classrapidxml_1_1xml__node.html#a9182512e948ec451a83f116cce7c7674',1,'rapidxml::xml_node']]],
-  ['remove_5fnode',['remove_node',['../classrapidxml_1_1xml__node.html#a98289923eb9e8889418a9eb0207ea35c',1,'rapidxml::xml_node']]],
-  ['resolvecollision',['resolveCollision',['../class_collidable.html#a40089393c9a030b68042e3b72d8142e4',1,'Collidable']]]
+  ['sethalfextents',['setHalfExtents',['../class_o_b_b.html#a0367f78bef8252fc122cf1b0c22e332c',1,'OBB']]],
+  ['settexture',['setTexture',['../class_car.html#a179e5e7f3d69e65d1ffa582d32259791',1,'Car::setTexture()'],['../class_circle.html#ac6c48964ac829b4c1a15b313d9ae102a',1,'Circle::setTexture()'],['../class_collidable.html#ab591b36248e5178a6e3a430d3eb67144',1,'Collidable::setTexture()'],['../class_o_b_b.html#a9d0c690a6d3825865b8dd4e023a7cec3',1,'OBB::setTexture()']]],
+  ['setvelocity',['setVelocity',['../class_car.html#abd60b234c10b8ca0c637069c9c341b7a',1,'Car']]],
+  ['setwheeltexture',['setWheelTexture',['../class_car.html#a73e1aac426beef99001e87be0fa541c8',1,'Car']]],
+  ['squaredmagnitude',['squaredMagnitude',['../class_vector2_d.html#af4162d18ba5939bd0175ae01ad6f0221',1,'Vector2D']]],
+  ['stopping_5fspeed',['STOPPING_SPEED',['../car_8h.html#aa1b87ef5f6e8c6860c16abd5067c8fc1',1,'car.h']]],
+  ['stopping_5fvelocity',['STOPPING_VELOCITY',['../collidable_8h.html#ab0c66d6ea635c31bc2e8f08f64f47c8f',1,'collidable.h']]]
 ];

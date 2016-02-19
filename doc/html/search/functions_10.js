@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['what',['what',['../classrapidxml_1_1parse__error.html#a7665c88639e7466ee1de388a4f85e6fe',1,'rapidxml::parse_error']]],
-  ['where',['where',['../classrapidxml_1_1parse__error.html#a3a0ab9e586c1d2b437c340f6622fbec6',1,'rapidxml::parse_error']]]
+  ['_7ebox',['~Box',['../class_box.html#a6a5e09398e85d602a046b429062fb9c2',1,'Box']]],
+  ['_7etyre',['~Tyre',['../class_tyre.html#a3ace196877f68acd82b89e8cd33825ec',1,'Tyre']]]
 ];

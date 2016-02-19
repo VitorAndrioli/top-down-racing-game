@@ -1,10 +1,11 @@
-\hypertarget{collidable_8h}{}\section{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/collidable.h File Reference}
-\label{collidable_8h}\index{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/collidable.\+h@{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/collidable.\+h}}
+\hypertarget{collidable_8h}{}\section{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/include/collidable.h File Reference}
+\label{collidable_8h}\index{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/include/collidable.\+h@{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/include/collidable.\+h}}
 
 
 Declaration of \hyperlink{class_collidable}{Collidable} class.  
 
 
+{\ttfamily \#include $<$math.\+h$>$}\\*
 {\ttfamily \#include $<$S\+F\+M\+L/\+Graphics.\+hpp$>$}\\*
 {\ttfamily \#include \char`\"{}vector2\+D.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$iostream$>$}\\*
@@ -16,24 +17,20 @@ class \hyperlink{class_collidable}{Collidable}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{collidable_8h_a525335710b53cb064ca56b936120431e}{}\#define {\bfseries \+\_\+\+U\+S\+E\+\_\+\+M\+A\+T\+H\+\_\+\+D\+E\+F\+I\+N\+E\+S}\label{collidable_8h_a525335710b53cb064ca56b936120431e}
+
+\item 
 \hypertarget{collidable_8h_adb239346b66785ddb0718881e4284206}{}\#define \hyperlink{collidable_8h_adb239346b66785ddb0718881e4284206}{T\+O\+\_\+\+R\+A\+D\+I\+A\+N\+S}~M\+\_\+\+P\+I / 180\label{collidable_8h_adb239346b66785ddb0718881e4284206}
 
 \begin{DoxyCompactList}\small\item\em Used to transform degrees to radians. \end{DoxyCompactList}\item 
-\#define \hyperlink{collidable_8h_a36cd60c08427f09487b7825432385d0d}{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S}~180 / M\+\_\+\+P\+I
-\begin{DoxyCompactList}\small\item\em Used transform radians to degrees. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hypertarget{collidable_8h_a36cd60c08427f09487b7825432385d0d}{}\#define \hyperlink{collidable_8h_a36cd60c08427f09487b7825432385d0d}{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S}~180 / M\+\_\+\+P\+I\label{collidable_8h_a36cd60c08427f09487b7825432385d0d}
+
+\begin{DoxyCompactList}\small\item\em Used to transform radians to degrees. \end{DoxyCompactList}\item 
+\hypertarget{collidable_8h_ab0c66d6ea635c31bc2e8f08f64f47c8f}{}\#define \hyperlink{collidable_8h_ab0c66d6ea635c31bc2e8f08f64f47c8f}{S\+T\+O\+P\+P\+I\+N\+G\+\_\+\+V\+E\+L\+O\+C\+I\+T\+Y}~0.\+5\label{collidable_8h_ab0c66d6ea635c31bc2e8f08f64f47c8f}
+
+\begin{DoxyCompactList}\small\item\em Used to stop moving collidables. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Declaration of \hyperlink{class_collidable}{Collidable} class. 
 
-
-
-\subsection{Macro Definition Documentation}
-\hypertarget{collidable_8h_a36cd60c08427f09487b7825432385d0d}{}\index{collidable.\+h@{collidable.\+h}!T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S@{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S}}
-\index{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S@{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S}!collidable.\+h@{collidable.\+h}}
-\subsubsection[{T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+\_\+\+D\+E\+G\+R\+E\+E\+S~180 / M\+\_\+\+P\+I}\label{collidable_8h_a36cd60c08427f09487b7825432385d0d}
-
-
-Used transform radians to degrees. 
-
-Forward declaration of child classes \hyperlink{class_circle}{Circle} and \hyperlink{class_o_b_b}{O\+B\+B} to be used as parameters in virtual function check\+Collision. 

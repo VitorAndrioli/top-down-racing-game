@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: Vector2D&lt; G &gt; Class Template Reference</title>
+<title>Racing game: Vector2D&lt; G &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,8 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Racing game
    </div>
   </td>
  </tr>
@@ -66,6 +75,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_vector2_d.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,7 +104,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -90,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Small text that appears on Classes page.  
+<p>2D vectors templated class.  
  <a href="class_vector2_d.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="vector2_d_8h_source.html">vector2D.h</a>&gt;</code></p>
@@ -101,38 +124,40 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#a3bce991141a2cfd9c381651c06d2bee5">Vector2D</a> ()</td></tr>
 <tr class="memdesc:a3bce991141a2cfd9c381651c06d2bee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic constructor that creates an empty vector. <br /></td></tr>
 <tr class="separator:a3bce991141a2cfd9c381651c06d2bee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25ac574bd1a4deb41a9b198afd5f2787"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25ac574bd1a4deb41a9b198afd5f2787"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#a25ac574bd1a4deb41a9b198afd5f2787">Vector2D</a> (G x, G y)</td></tr>
-<tr class="memdesc:a25ac574bd1a4deb41a9b198afd5f2787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that creates and vector with X and Y values. <br /></td></tr>
+<tr class="memitem:a25ac574bd1a4deb41a9b198afd5f2787"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#a25ac574bd1a4deb41a9b198afd5f2787">Vector2D</a> (G x, G y)</td></tr>
+<tr class="memdesc:a25ac574bd1a4deb41a9b198afd5f2787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that creates and vector with X and Y values.  <a href="#a25ac574bd1a4deb41a9b198afd5f2787">More...</a><br /></td></tr>
 <tr class="separator:a25ac574bd1a4deb41a9b198afd5f2787"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbf351182e5d3e725a0b75e82435b846"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbf351182e5d3e725a0b75e82435b846"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#abbf351182e5d3e725a0b75e82435b846">dotProduct</a> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; *vector2d)</td></tr>
-<tr class="memdesc:abbf351182e5d3e725a0b75e82435b846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the dot product of this vector with another one received by reference as a paremeter. <br /></td></tr>
-<tr class="separator:abbf351182e5d3e725a0b75e82435b846"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69f615ea74f194e92784d76a71007405"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69f615ea74f194e92784d76a71007405"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>crossProduct</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; *vector2d)</td></tr>
-<tr class="separator:a69f615ea74f194e92784d76a71007405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d05faaee31dd6f71dfdc4a57502e4f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d05faaee31dd6f71dfdc4a57502e4f8"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>crossProduct</b> (double fScalar)</td></tr>
+<tr class="memitem:aa69f34ef68bbce55afb63c2e87391203"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#aa69f34ef68bbce55afb63c2e87391203">dotProduct</a> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; *pOtherVector)</td></tr>
+<tr class="memdesc:aa69f34ef68bbce55afb63c2e87391203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates dot product with another vector.  <a href="#aa69f34ef68bbce55afb63c2e87391203">More...</a><br /></td></tr>
+<tr class="separator:aa69f34ef68bbce55afb63c2e87391203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4be7b15eb3e4e5a4ec415a484061b10d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#a4be7b15eb3e4e5a4ec415a484061b10d">crossProduct</a> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; *pOtherVector)</td></tr>
+<tr class="memdesc:a4be7b15eb3e4e5a4ec415a484061b10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates cross product with another vector.  <a href="#a4be7b15eb3e4e5a4ec415a484061b10d">More...</a><br /></td></tr>
+<tr class="separator:a4be7b15eb3e4e5a4ec415a484061b10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d05faaee31dd6f71dfdc4a57502e4f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#a5d05faaee31dd6f71dfdc4a57502e4f8">crossProduct</a> (double fScalar)</td></tr>
+<tr class="memdesc:a5d05faaee31dd6f71dfdc4a57502e4f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates cross product with a scalar.  <a href="#a5d05faaee31dd6f71dfdc4a57502e4f8">More...</a><br /></td></tr>
 <tr class="separator:a5d05faaee31dd6f71dfdc4a57502e4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a734dd9f1ca01a88bac3f6bf2be97d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a734dd9f1ca01a88bac3f6bf2be97d0"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>unitVector</b> ()</td></tr>
+<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#a1a734dd9f1ca01a88bac3f6bf2be97d0">unitVector</a> ()</td></tr>
+<tr class="memdesc:a1a734dd9f1ca01a88bac3f6bf2be97d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets unitary vector. <br /></td></tr>
 <tr class="separator:a1a734dd9f1ca01a88bac3f6bf2be97d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4162d18ba5939bd0175ae01ad6f0221"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4162d18ba5939bd0175ae01ad6f0221"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>squaredMagnitude</b> ()</td></tr>
+<tr class="memitem:a0de406dcf396cb5b629bf196c1101621"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0de406dcf396cb5b629bf196c1101621"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#a0de406dcf396cb5b629bf196c1101621">normalize</a> ()</td></tr>
+<tr class="memdesc:a0de406dcf396cb5b629bf196c1101621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns into unitary vector. <br /></td></tr>
+<tr class="separator:a0de406dcf396cb5b629bf196c1101621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4162d18ba5939bd0175ae01ad6f0221"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#af4162d18ba5939bd0175ae01ad6f0221">squaredMagnitude</a> ()</td></tr>
+<tr class="memdesc:af4162d18ba5939bd0175ae01ad6f0221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets squared magnitude.  <a href="#af4162d18ba5939bd0175ae01ad6f0221">More...</a><br /></td></tr>
 <tr class="separator:af4162d18ba5939bd0175ae01ad6f0221"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab76e76bb642784480bdd231b90b1273"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab76e76bb642784480bdd231b90b1273"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>magnitude</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#aab76e76bb642784480bdd231b90b1273">magnitude</a> ()</td></tr>
+<tr class="memdesc:aab76e76bb642784480bdd231b90b1273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets magnitude. <br /></td></tr>
 <tr class="separator:aab76e76bb642784480bdd231b90b1273"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85f594928169b9c4bb74cc26ab43d111"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85f594928169b9c4bb74cc26ab43d111"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>rotate</b> (double fAngle)</td></tr>
+<tr class="memitem:a85f594928169b9c4bb74cc26ab43d111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#a85f594928169b9c4bb74cc26ab43d111">rotate</a> (double fAngle)</td></tr>
+<tr class="memdesc:a85f594928169b9c4bb74cc26ab43d111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates the vector.  <a href="#a85f594928169b9c4bb74cc26ab43d111">More...</a><br /></td></tr>
 <tr class="separator:a85f594928169b9c4bb74cc26ab43d111"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6191843e792557d9532da82b79b026aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6191843e792557d9532da82b79b026aa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>flip</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector2_d.html#a6191843e792557d9532da82b79b026aa">flip</a> ()</td></tr>
+<tr class="memdesc:a6191843e792557d9532da82b79b026aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips vector in both axes. <br /></td></tr>
 <tr class="separator:a6191843e792557d9532da82b79b026aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0de406dcf396cb5b629bf196c1101621"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0de406dcf396cb5b629bf196c1101621"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> ()</td></tr>
-<tr class="separator:a0de406dcf396cb5b629bf196c1101621"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46521876fbb0b52881eba97a074ba59c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46521876fbb0b52881eba97a074ba59c"></a>
 G&#160;</td><td class="memItemRight" valign="bottom"><b>getX</b> ()</td></tr>
 <tr class="separator:a46521876fbb0b52881eba97a074ba59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,40 +170,214 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setX</b> (G x)</td></
 <tr class="memitem:ac7ba076a26efb04c2e590a0cdd3fd20e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7ba076a26efb04c2e590a0cdd3fd20e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setY</b> (G y)</td></tr>
 <tr class="separator:ac7ba076a26efb04c2e590a0cdd3fd20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad909dd1f21da8061bf6d07b49ff34fd4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad909dd1f21da8061bf6d07b49ff34fd4"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; &amp;other)</td></tr>
-<tr class="separator:ad909dd1f21da8061bf6d07b49ff34fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad596163bb0fd596e54908b0205399562"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad596163bb0fd596e54908b0205399562"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; &amp;other)</td></tr>
-<tr class="separator:ad596163bb0fd596e54908b0205399562"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa942145570266bd0542ed4fa5f7566ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa942145570266bd0542ed4fa5f7566ea"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; &amp;other)</td></tr>
-<tr class="separator:aa942145570266bd0542ed4fa5f7566ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2a09c22b855df93971a7f6c5abe6c39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2a09c22b855df93971a7f6c5abe6c39"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; &amp;other)</td></tr>
-<tr class="separator:ad2a09c22b855df93971a7f6c5abe6c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dafa1de876f5527a254b043f633c57a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1dafa1de876f5527a254b043f633c57a"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (double scalar)</td></tr>
-<tr class="separator:a1dafa1de876f5527a254b043f633c57a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9d085f69889b8dccb1cf3993965713"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b9d085f69889b8dccb1cf3993965713"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (double scalar)</td></tr>
-<tr class="separator:a4b9d085f69889b8dccb1cf3993965713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad571f44f13b020b74f441503b6bf7425"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad571f44f13b020b74f441503b6bf7425"></a>
+<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; &amp;pOtherVector)</td></tr>
+<tr class="separator:ad571f44f13b020b74f441503b6bf7425"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ff9c277a0e44773a6e805c503d633b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ff9c277a0e44773a6e805c503d633b3"></a>
+<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; &amp;pOtherVector)</td></tr>
+<tr class="separator:a8ff9c277a0e44773a6e805c503d633b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7e988225c010045df597cb7a6001117"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7e988225c010045df597cb7a6001117"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; &amp;pOtherVector)</td></tr>
+<tr class="separator:ac7e988225c010045df597cb7a6001117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49cd9a9980f36936bb6713ac53592832"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49cd9a9980f36936bb6713ac53592832"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; &amp;pOtherVector)</td></tr>
+<tr class="separator:a49cd9a9980f36936bb6713ac53592832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bd1a6f5a8df8670a27fe8edb5d9ec54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bd1a6f5a8df8670a27fe8edb5d9ec54"></a>
+<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (double fScalar)</td></tr>
+<tr class="separator:a8bd1a6f5a8df8670a27fe8edb5d9ec54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1986fafb802574b20fdd2451786fbc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac1986fafb802574b20fdd2451786fbc"></a>
+<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (double fScalar)</td></tr>
+<tr class="separator:aac1986fafb802574b20fdd2451786fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac876ccd00b2e92c0533e57a80c90493c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac876ccd00b2e92c0533e57a80c90493c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; &amp;pOtherVector)</td></tr>
+<tr class="separator:ac876ccd00b2e92c0533e57a80c90493c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class G&gt;<br />
 class Vector2D&lt; G &gt;</h3>
 
-<p>Small text that appears on Classes page. </p>
-<p>Longer text that appears on description section </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/include/<a class="el" href="vector2_d_8h_source.html">vector2D.h</a></li>
+<p>2D vectors templated class. </p>
+<p>Implements 2D vectors arithmetics and manipulation. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a25ac574bd1a4deb41a9b198afd5f2787"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;::<a class="el" href="class_vector2_d.html">Vector2D</a> </td>
+          <td>(</td>
+          <td class="paramtype">G&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">G&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor that creates and vector with X and Y values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x,y</td><td>Coordinates for the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a4be7b15eb3e4e5a4ec415a484061b10d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;::crossProduct </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; *&#160;</td>
+          <td class="paramname"><em>pOtherVector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates cross product with another vector. </p>
+<p>There is no cross product defined for 2D vectors. We can, however, make some abstractions: Cross product between two vectors is a scalar, that represents the magnitude in the non existent Z axis (were these 3D vectors).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pOtherVector</td><td>Pointer to another <a class="el" href="class_vector2_d.html" title="2D vectors templated class. ">Vector2D</a> object.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Scalar cross product. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5d05faaee31dd6f71dfdc4a57502e4f8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;::crossProduct </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fScalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates cross product with a scalar. </p>
+<p>There is no cross product defined for 2D vectors. We can, however, make some abstractions: Cross product between a vector and a scalar (representing the magnitude in the non existent Z axis were these 3D vectors), is a 2D vector.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fScalar</td><td>Scalar value</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>2D vector. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa69f34ef68bbce55afb63c2e87391203"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;::dotProduct </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt; *&#160;</td>
+          <td class="paramname"><em>pOtherVector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates dot product with another vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pOtherVector</td><td>Pointer to another <a class="el" href="class_vector2_d.html" title="2D vectors templated class. ">Vector2D</a> object.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Dot product. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a85f594928169b9c4bb74cc26ab43d111"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;::rotate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fAngle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotates the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fAngle</td><td>Angle by which the vector must be rotated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af4162d18ba5939bd0175ae01ad6f0221"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; G &gt;::squaredMagnitude </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets squared magnitude. </p>
+<p>Used to avoid calling sqrt() functions. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/<a class="el" href="vector2_d_8h_source.html">vector2D.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_vector2_d.html">Vector2D</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: Member List</title>
+<title>Racing game: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,8 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Racing game
    </div>
   </td>
  </tr>
@@ -66,6 +75,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_collidable.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,7 +104,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Collidable Member List</div>  </div>
@@ -89,44 +112,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_collidable.html">Collidable</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>applyImpulse</b>(double fJ, Vector2D&lt; double &gt; *fvCollisionNormal, Vector2D&lt; double &gt; *fvContactPoint) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_collidable.html#a3d3ce584cdb14485db044c81a792a966">broadCollisionCheck</a>(Collidable *otherCollidable)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#ab48a9401ae73d1c90a5200397b420f89">applyImpulse</a>(Vector2D&lt; double &gt; *pfvImpulse, Vector2D&lt; double &gt; *pfvContactPoint)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_collidable.html#a7ec62c2d35206abacbcad74f5bf42608">broadCollisionCheck</a>(Collidable *pOtherCollidable)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a25c916c15277425a1b2606d35c7405fe">checkCollision</a>(Collidable *collidable)=0</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_collidable.html#a157281cb33cb695c8eb0c8dd971b84f2">checkCollision</a>(Circle *circle)=0</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a90789947098d0f6f43e3ef8a944a5657">checkCollision</a>(OBB *obb)=0</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_collidable.html#a92ce9e2b08086bb2f466168ffc69c9ed">Collidable</a>()</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6">isMoving</a>()</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>m_fAngularAcceleration</b> (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>m_fAngularVelocity</b> (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">m_fFrictionCoefficient</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">m_fInverseMass</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>m_fInverseMomentOfInertia</b> (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">m_fOrientation</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_collidable.html#a1dde2844bbacaaf23b8b0652bf5ce906">m_fRadius</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">m_fRestitution</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>m_fTorque</b> (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">m_fvAcceleration</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>m_fvAngularAcceleration</b> (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>m_fvAngularPosition</b> (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>m_fvAngularVelocity</b> (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getAcceleration</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getFrictionCoefficient</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getInverseInertia</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getInverseMass</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getMass</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getOrientation</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPosition</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getRadius</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getRestitution</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getThrust</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getVelocity</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6">isMoving</a>()</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a376aa200ba174a1cea17766fbcbda760">m_fAngularAcceleration</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_collidable.html#a5a6501f0c062b6c24f3121c5c68b59d4">m_fAngularVelocity</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">m_fFrictionCoefficient</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">m_fInverseMass</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#aef9f604795e30d09737aee26beb128ae">m_fInverseMomentOfInertia</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">m_fOrientation</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a1dde2844bbacaaf23b8b0652bf5ce906">m_fRadius</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">m_fRestitution</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a84f79454b1dac54f7b9042660d89e8ca">m_fTorque</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">m_fvAcceleration</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">m_fvPosition</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51">m_fvThrust</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>m_fvTorque</b> (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">m_fvVelocity</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">m_sprite</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">m_vaPoints</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">print</a>()</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_collidable.html#a40089393c9a030b68042e3b72d8142e4">resolveCollision</a>(Collidable *otherCollidable, Vector2D&lt; double &gt; *fvCollisionNormal, double fOverlap)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>resolveCollision</b>(Collidable *otherCollidable, Vector2D&lt; double &gt; *fvCollisionNormal, double fOverlap, Vector2D&lt; double &gt; *fvContactPoint) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">m_fvVelocity</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">m_sprite</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">m_vaPoints</a></td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">print</a>()</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#a8ff9b7822edd612abd581437343f76b0">resolveCollision</a>(Collidable *pOtherCollidable, Vector2D&lt; double &gt; *pfvCollisionNormal, double fOverlap, Vector2D&lt; double &gt; *pfvContactPoint)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setAcceleration</b>(Vector2D&lt; double &gt; fvAcceleration) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setFrictionCoefficient</b>(double fFrictionCoefficient) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setMass</b>(double fMass) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setOrientation</b>(double fOrientation) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setPosition</b>(Vector2D&lt; double &gt; fvPosition) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setRadius</b>(double fRadius) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setRestitution</b>(double fRestitution) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_collidable.html#ab591b36248e5178a6e3a430d3eb67144">setTexture</a>(sf::Texture *texture)=0</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setThrust</b>(Vector2D&lt; double &gt; fvThrust) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setVelocity</b>(Vector2D&lt; double &gt; fvVelocity) (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_collidable.html#ad636cf1a7fab85fb2dfedf08c02c7745">update</a>(float elapsed)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>updatePoints</b>() (defined in <a class="el" href="class_collidable.html">Collidable</a>)</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_collidable.html#a656ce92dd3e3f1b1981eb79c97ed3115">updateSprite</a>()</td><td class="entry"><a class="el" href="class_collidable.html">Collidable</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

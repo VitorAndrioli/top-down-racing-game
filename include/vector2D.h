@@ -1,16 +1,13 @@
 //! \file vector2D.h Declaration of Vector2D class.
 
 /*!
-* \class Vector2D
-*
-*
-* \brief Small text that appears on Classes page.
-*
-* Longer text that appears on
-* description section
-* Templated class
-*
-*/
+ * \class Vector2D
+ *
+ * \brief 2D vectors templated class.
+ *
+ * Implements 2D vectors arithmetics and manipulation.
+ *
+ */
 
 #ifndef VECTOR_H
 #define VECTOR_H
@@ -22,28 +19,32 @@ private:
 	G m_x; //!< X value of the vector
 	G m_y; //!< Y value of the vector
 public:
-	Vector2D(); //!< Basic constructor that creates an empty vector
-	Vector2D(G x, G y); //!< Constructor that creates and vector with X and Y values
-	double dotProduct(Vector2D<G> * vector2d); //!< Calculates the dot product of this vector with another one received by reference as a paremeter
-	double crossProduct(Vector2D<G> * vector2d);
-	Vector2D<G> crossProduct(double fScalar);
-	Vector2D<G> unitVector(); //!<
-	double squaredMagnitude(); //!<
-	double magnitude(); //!<
-	void rotate(double fAngle); //!<
-	void flip();
-	void normalize();
+	Vector2D(); //!< Basic constructor that creates an empty vector.
+	Vector2D(G x, G y); //!< Constructor that creates and vector with X and Y values.
+	double dotProduct(Vector2D<G> * pOtherVector); //!< Calculates dot product with another vector.
+	double crossProduct(Vector2D<G> * pOtherVector); //!< Calculates cross product with another vector.
+	Vector2D<G> crossProduct(double fScalar); //!< Calculates cross product with a scalar.
+	Vector2D<G> unitVector(); //!< Gets unitary vector.
+	void normalize(); //!< Turns into unitary vector.
+	double squaredMagnitude(); //!< Gets squared magnitude.
+	double magnitude(); //!< Gets magnitude.
+	void rotate(double fAngle); //!< Rotates the vector.
+	void flip(); //!< Flips vector in both axes.
+	
+	// Setters and getters.
 	G getX();
 	G getY();
 	void setX(G x);
 	void setY(G y);
 
-	Vector2D<G> operator+ (Vector2D<G>& other);
-	Vector2D<G> operator- (Vector2D<G>& other);
-	void operator+= (Vector2D<G>& other);
-	void operator-= (Vector2D<G>& other);
-	Vector2D<G> operator* (double scalar);
-	Vector2D<G> operator/ (double scalar);
+	// Ovreload operators.
+	Vector2D<G> operator+ (Vector2D<G>& pOtherVector);
+	Vector2D<G> operator- (Vector2D<G>& pOtherVector);
+	void operator+= (Vector2D<G>& pOtherVector);
+	void operator-= (Vector2D<G>& pOtherVector);
+	Vector2D<G> operator* (double fScalar);
+	Vector2D<G> operator/ (double fScalar);
+	bool operator== (Vector2D<G>& pOtherVector);
 };
 
 template <class G>
@@ -53,6 +54,9 @@ Vector2D<G>::Vector2D()
 	m_y = 0;
 }
 
+/*!
+ * \param x,y Coordinates for the vector.
+ */
 template <class G>
 Vector2D<G>::Vector2D(G x, G y)
 {
@@ -60,18 +64,41 @@ Vector2D<G>::Vector2D(G x, G y)
 	m_y = y;
 }
 
+/*!
+ * \param pOtherVector Pointer to another Vector2D object.
+ *
+ * \return Dot product.
+ */
 template <class G>
-double Vector2D<G>::dotProduct(Vector2D<G> * vector2d)
+double Vector2D<G>::dotProduct(Vector2D<G> * pOtherVector)
 {
-	return m_x * vector2d->getX() + m_y * vector2d->getY();
+	return m_x * pOtherVector->getX() + m_y * pOtherVector->getY();
 }
 
+/*!
+ * There is no cross product defined for 2D vectors. We can, however, make some abstractions:
+ * Cross product between two vectors is a scalar, that represents 
+ * the magnitude in the non existent Z axis (were these 3D vectors).
+ *
+ * \param pOtherVector Pointer to another Vector2D object.
+ *
+ * \return Scalar cross product.
+ */
 template <class G>
-double Vector2D<G>::crossProduct(Vector2D<G> * vector2d)
+double Vector2D<G>::crossProduct(Vector2D<G> * pOtherVector)
 {
-	return m_x * vector2d->getY() - m_y * vector2d->getX();
+	return m_x * pOtherVector->getY() - m_y * pOtherVector->getX();
 }
 
+/*!
+ * There is no cross product defined for 2D vectors. We can, however, make some abstractions:
+ * Cross product between a vector and a scalar (representing the magnitude in the non existent Z axis were these 3D vectors),
+ * is a 2D vector.
+ *
+ * \param fScalar Scalar value
+ *
+ * \return 2D vector.
+ */
 template <class G>
 Vector2D<G> Vector2D<G>::crossProduct(double fScalar)
 {
@@ -86,6 +113,9 @@ Vector2D<G> Vector2D<G>::unitVector()
 	return Vector2D<G>(x, y);
 }
 
+/*!
+ * Used to avoid calling sqrt() functions.
+ */
 template <class G>
 double Vector2D<G>::squaredMagnitude()
 {
@@ -98,6 +128,9 @@ double Vector2D<G>::magnitude()
 	return sqrt(squaredMagnitude());
 }
 
+/*!
+ * \param fAngle Angle by which the vector must be rotated.
+ */
 template <class G>
 void Vector2D<G>::rotate(double fAngle)
 {
@@ -193,5 +226,14 @@ void Vector2D<G>::operator-=(Vector2D<G>& other)
 	m_x = m_x - other.getX();
 	m_y = m_y - other.getY();
 }
+
+template <class G>
+bool Vector2D<G>::operator== (Vector2D<G>& pOtherVector)
+{
+	return m_x == pOtherVector->getX() && m_y == pOtherVector->getY();
+}
+
+
+
 
 #endif

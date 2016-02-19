@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: Member List</title>
+<title>Racing game: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,8 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Racing game
    </div>
   </td>
  </tr>
@@ -66,6 +75,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_vector2_d.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,7 +104,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Vector2D&lt; G &gt; Member List</div>  </div>
@@ -89,33 +112,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>crossProduct</b>(Vector2D&lt; G &gt; *vector2d) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>crossProduct</b>(double fScalar) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_vector2_d.html#abbf351182e5d3e725a0b75e82435b846">dotProduct</a>(Vector2D&lt; G &gt; *vector2d)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>flip</b>() (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_vector2_d.html#a4be7b15eb3e4e5a4ec415a484061b10d">crossProduct</a>(Vector2D&lt; G &gt; *pOtherVector)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_vector2_d.html#a5d05faaee31dd6f71dfdc4a57502e4f8">crossProduct</a>(double fScalar)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_vector2_d.html#aa69f34ef68bbce55afb63c2e87391203">dotProduct</a>(Vector2D&lt; G &gt; *pOtherVector)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_vector2_d.html#a6191843e792557d9532da82b79b026aa">flip</a>()</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getX</b>() (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getY</b>() (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>magnitude</b>() (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>normalize</b>() (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator*</b>(double scalar) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator+</b>(Vector2D&lt; G &gt; &amp;other) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator+=</b>(Vector2D&lt; G &gt; &amp;other) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator-</b>(Vector2D&lt; G &gt; &amp;other) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator-=</b>(Vector2D&lt; G &gt; &amp;other) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator/</b>(double scalar) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>rotate</b>(double fAngle) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setX</b>(G x) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setY</b>(G y) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>squaredMagnitude</b>() (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>unitVector</b>() (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_vector2_d.html#a3bce991141a2cfd9c381651c06d2bee5">Vector2D</a>()</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_vector2_d.html#a25ac574bd1a4deb41a9b198afd5f2787">Vector2D</a>(G x, G y)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_vector2_d.html#aab76e76bb642784480bdd231b90b1273">magnitude</a>()</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_vector2_d.html#a0de406dcf396cb5b629bf196c1101621">normalize</a>()</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator*</b>(double fScalar) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator+</b>(Vector2D&lt; G &gt; &amp;pOtherVector) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator+=</b>(Vector2D&lt; G &gt; &amp;pOtherVector) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator-</b>(Vector2D&lt; G &gt; &amp;pOtherVector) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator-=</b>(Vector2D&lt; G &gt; &amp;pOtherVector) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator/</b>(double fScalar) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator==</b>(Vector2D&lt; G &gt; &amp;pOtherVector) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_vector2_d.html#a85f594928169b9c4bb74cc26ab43d111">rotate</a>(double fAngle)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setX</b>(G x) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setY</b>(G y) (defined in <a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a>)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_vector2_d.html#af4162d18ba5939bd0175ae01ad6f0221">squaredMagnitude</a>()</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_vector2_d.html#a1a734dd9f1ca01a88bac3f6bf2be97d0">unitVector</a>()</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_vector2_d.html#a3bce991141a2cfd9c381651c06d2bee5">Vector2D</a>()</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_vector2_d.html#a25ac574bd1a4deb41a9b198afd5f2787">Vector2D</a>(G x, G y)</td><td class="entry"><a class="el" href="class_vector2_d.html">Vector2D&lt; G &gt;</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

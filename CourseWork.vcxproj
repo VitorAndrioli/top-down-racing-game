@@ -81,6 +81,7 @@
     <ClCompile Include="src\collidableFactory.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\menu.cpp" />
     <ClCompile Include="src\obb.cpp" />
     <ClCompile Include="src\textureManager.cpp" />
     <ClCompile Include="src\tyre.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="include\collidable.h" />
     <ClInclude Include="include\collidableFactory.h" />
     <ClInclude Include="include\game.h" />
+    <ClInclude Include="include\menu.h" />
     <ClInclude Include="include\obb.h" />
     <ClInclude Include="include\textureManager.h" />
     <ClInclude Include="include\tyre.h" />

@@ -22,25 +22,24 @@ Inheritance diagram for Circle\+:\begin{figure}[H]
 \item 
 \hyperlink{class_circle_a70b2953314268546bc4f784c3e82df1b}{Circle} (double f\+Pos\+X, double f\+Pos\+Y, double f\+Radius, double f\+Restitution=1)
 \begin{DoxyCompactList}\small\item\em Constructor initializing the position, radius and restitution coefficient with paramenters. \end{DoxyCompactList}\item 
+void \hyperlink{class_circle_ad74b27696652e85e97503aef986f32b5}{check\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$p\+Collidable)
+\begin{DoxyCompactList}\small\item\em Checks collision with another \hyperlink{class_collidable}{Collidable}. \end{DoxyCompactList}\item 
+void \hyperlink{class_circle_a7c54825cfff10ec9d6edb718431cd475}{check\+Collision} (\hyperlink{class_circle}{Circle} $\ast$p\+Other\+Circle)
+\begin{DoxyCompactList}\small\item\em Checks collision with another \hyperlink{class_circle}{Circle}. \end{DoxyCompactList}\item 
+void \hyperlink{class_circle_ad033972b43e0e590a4c4e7ec45a392e1}{check\+Collision} (\hyperlink{class_o_b_b}{O\+B\+B} $\ast$p\+Obb)
+\begin{DoxyCompactList}\small\item\em Checks collision with an \hyperlink{class_o_b_b}{O\+B\+B}. \end{DoxyCompactList}\item 
+void \hyperlink{class_circle_ac6c48964ac829b4c1a15b313d9ae102a}{set\+Texture} (sf\+::\+Texture $\ast$texture)
+\begin{DoxyCompactList}\small\item\em Assigns a texture to the object\textquotesingle{}s sprite. \end{DoxyCompactList}\item 
 \hypertarget{class_circle_afe23c30a1bbc5e831b72063aef91b38f}{}void \hyperlink{class_circle_afe23c30a1bbc5e831b72063aef91b38f}{update\+Points} ()\label{class_circle_afe23c30a1bbc5e831b72063aef91b38f}
 
-\begin{DoxyCompactList}\small\item\em to be removed. \end{DoxyCompactList}\item 
-void \hyperlink{class_circle_ad74b27696652e85e97503aef986f32b5}{check\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$p\+Collidable)
-\begin{DoxyCompactList}\small\item\em Check collision with another \hyperlink{class_collidable}{Collidable}. \end{DoxyCompactList}\item 
-void \hyperlink{class_circle_a7c54825cfff10ec9d6edb718431cd475}{check\+Collision} (\hyperlink{class_circle}{Circle} $\ast$p\+Other\+Circle)
-\begin{DoxyCompactList}\small\item\em Check collision with another \hyperlink{class_circle}{Circle}. \end{DoxyCompactList}\item 
-void \hyperlink{class_circle_ad033972b43e0e590a4c4e7ec45a392e1}{check\+Collision} (\hyperlink{class_o_b_b}{O\+B\+B} $\ast$p\+Obb)
-\begin{DoxyCompactList}\small\item\em Check collision with an \hyperlink{class_o_b_b}{O\+B\+B}. \end{DoxyCompactList}\item 
-\hypertarget{class_circle_ac6c48964ac829b4c1a15b313d9ae102a}{}void {\bfseries set\+Texture} (sf\+::\+Texture $\ast$texture)\label{class_circle_ac6c48964ac829b4c1a15b313d9ae102a}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em to be removed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
 Circular collidables to be used in the game. 
 
-Implements collision detection and texture allocation for circular objects. Can be used to turn background figures into immovable collidables. A circle object is not drawn to the screen. 
+Implements collision detection and texture allocation for circular objects. Can be used to turn background figures into immovable collidables. A circle instance is not drawn to the screen. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_circle_ad1ecfcfc7bf34529c6a6d6c448bf70fe}{}\index{Circle@{Circle}!Circle@{Circle}}
@@ -64,7 +63,7 @@ Basic constructor. \hypertarget{class_circle_a70b2953314268546bc4f784c3e82df1b}{
 
 Constructor initializing the position, radius and restitution coefficient with paramenters. 
 
-Initialize the position, radius and restitution coefficient with paramenters received. The restitution coefficient can be omitted and, in this case, it will be set to 1 (fully elastic collision).
+Initializes the position, radius and restitution coefficient with paramenters received. The restitution coefficient can be omitted and, in this case, it will be set to 1 (fully elastic collision).
 
 
 \begin{DoxyParams}{Parameters}
@@ -87,7 +86,7 @@ Initialize the position, radius and restitution coefficient with paramenters rec
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_circle_ad74b27696652e85e97503aef986f32b5}
 
 
-Check collision with another \hyperlink{class_collidable}{Collidable}. 
+Checks collision with another \hyperlink{class_collidable}{Collidable}. 
 
 Used to solve \char`\"{}\+Double Dispatch\char`\"{} issue.
 
@@ -109,7 +108,7 @@ Implements \hyperlink{class_collidable_a25c916c15277425a1b2606d35c7405fe}{Collid
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_circle_a7c54825cfff10ec9d6edb718431cd475}
 
 
-Check collision with another \hyperlink{class_circle}{Circle}. 
+Checks collision with another \hyperlink{class_circle}{Circle}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -129,20 +128,42 @@ Implements \hyperlink{class_collidable_a157281cb33cb695c8eb0c8dd971b84f2}{Collid
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_circle_ad033972b43e0e590a4c4e7ec45a392e1}
 
 
-Check collision with an \hyperlink{class_o_b_b}{O\+B\+B}. 
+Checks collision with an \hyperlink{class_o_b_b}{O\+B\+B}. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em p\+Obb} & Pointer to an \hyperlink{class_o_b_b}{O\+B\+B} object. \\
 \hline
 \end{DoxyParams}
-If distance is smaller than the circle\textquotesingle{}s radius, there is a collision. Squared values are used to avois using S\+Q\+R\+T() function when not necessary. 
+
 
 Implements \hyperlink{class_collidable_a90789947098d0f6f43e3ef8a944a5657}{Collidable}.
+
+\hypertarget{class_circle_ac6c48964ac829b4c1a15b313d9ae102a}{}\index{Circle@{Circle}!set\+Texture@{set\+Texture}}
+\index{set\+Texture@{set\+Texture}!Circle@{Circle}}
+\subsubsection[{set\+Texture(sf\+::\+Texture $\ast$texture)}]{\setlength{\rightskip}{0pt plus 5cm}void Circle\+::set\+Texture (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Texture $\ast$}]{p\+Texture}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_circle_ac6c48964ac829b4c1a15b313d9ae102a}
+
+
+Assigns a texture to the object\textquotesingle{}s sprite. 
+
+Use circle\textquotesingle{}s attributes to fit the texture into the shape.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Texture} & Pointer to an S\+F\+M\+L texture object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_collidable_ab591b36248e5178a6e3a430d3eb67144}{Collidable}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/\hyperlink{circle_8h}{circle.\+h}\item 
-C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/src/\hyperlink{circle_8cpp}{circle.\+cpp}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/include/\hyperlink{circle_8h}{circle.\+h}\item 
+C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/src/\hyperlink{circle_8cpp}{circle.\+cpp}\end{DoxyCompactItemize}

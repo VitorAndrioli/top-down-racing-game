@@ -20,14 +20,16 @@ Inheritance diagram for Collidable\+:\begin{figure}[H]
 \item 
 \hyperlink{class_collidable_a92ce9e2b08086bb2f466168ffc69c9ed}{Collidable} ()
 \begin{DoxyCompactList}\small\item\em Basic contructor. \end{DoxyCompactList}\item 
-\hypertarget{class_collidable_ad636cf1a7fab85fb2dfedf08c02c7745}{}void \hyperlink{class_collidable_ad636cf1a7fab85fb2dfedf08c02c7745}{update} (float elapsed)\label{class_collidable_ad636cf1a7fab85fb2dfedf08c02c7745}
-
-\begin{DoxyCompactList}\small\item\em Update method. To be called every frame of the game. \end{DoxyCompactList}\item 
+void \hyperlink{class_collidable_ad636cf1a7fab85fb2dfedf08c02c7745}{update} (float elapsed)
+\begin{DoxyCompactList}\small\item\em Update method to be called every frame of the game. \end{DoxyCompactList}\item 
 \hypertarget{class_collidable_abeb14a34d7c7dc47b0c3c51a25a44e64}{}virtual void {\bfseries update\+Points} ()\label{class_collidable_abeb14a34d7c7dc47b0c3c51a25a44e64}
 
 \item 
 void \hyperlink{class_collidable_a656ce92dd3e3f1b1981eb79c97ed3115}{update\+Sprite} ()
 \begin{DoxyCompactList}\small\item\em to be removed. \end{DoxyCompactList}\item 
+\hypertarget{class_collidable_a8d46b697385b10bc9447f1ac18a587a6}{}bool \hyperlink{class_collidable_a8d46b697385b10bc9447f1ac18a587a6}{is\+Moving} ()\label{class_collidable_a8d46b697385b10bc9447f1ac18a587a6}
+
+\begin{DoxyCompactList}\small\item\em Checks if the collidable is moving. \end{DoxyCompactList}\item 
 \hypertarget{class_collidable_a25c916c15277425a1b2606d35c7405fe}{}virtual void \hyperlink{class_collidable_a25c916c15277425a1b2606d35c7405fe}{check\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$collidable)=0\label{class_collidable_a25c916c15277425a1b2606d35c7405fe}
 
 \begin{DoxyCompactList}\small\item\em Virtual method to check collision with another \hyperlink{class_collidable}{Collidable} object. \end{DoxyCompactList}\item 
@@ -37,34 +39,102 @@ void \hyperlink{class_collidable_a656ce92dd3e3f1b1981eb79c97ed3115}{update\+Spri
 \hypertarget{class_collidable_a90789947098d0f6f43e3ef8a944a5657}{}virtual void \hyperlink{class_collidable_a90789947098d0f6f43e3ef8a944a5657}{check\+Collision} (\hyperlink{class_o_b_b}{O\+B\+B} $\ast$obb)=0\label{class_collidable_a90789947098d0f6f43e3ef8a944a5657}
 
 \begin{DoxyCompactList}\small\item\em Virtual method to check collision with an \hyperlink{class_o_b_b}{O\+B\+B} object. \end{DoxyCompactList}\item 
-\hypertarget{class_collidable_a8d46b697385b10bc9447f1ac18a587a6}{}bool \hyperlink{class_collidable_a8d46b697385b10bc9447f1ac18a587a6}{is\+Moving} ()\label{class_collidable_a8d46b697385b10bc9447f1ac18a587a6}
+\hypertarget{class_collidable_ab591b36248e5178a6e3a430d3eb67144}{}virtual void \hyperlink{class_collidable_ab591b36248e5178a6e3a430d3eb67144}{set\+Texture} (sf\+::\+Texture $\ast$texture)=0\label{class_collidable_ab591b36248e5178a6e3a430d3eb67144}
 
-\begin{DoxyCompactList}\small\item\em Check if the collidable is moving. Called befor performing collision tests. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Virtual method to assign a texture to the object\textquotesingle{}s sprite. \end{DoxyCompactList}\item 
+\hypertarget{class_collidable_ae32eb0a55753347190758d00e403c7e8}{}void {\bfseries set\+Position} (\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ fv\+Position)\label{class_collidable_ae32eb0a55753347190758d00e403c7e8}
+
+\item 
+\hypertarget{class_collidable_af6355717261e9475643232f31ec46424}{}void {\bfseries set\+Velocity} (\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ fv\+Velocity)\label{class_collidable_af6355717261e9475643232f31ec46424}
+
+\item 
+\hypertarget{class_collidable_a669e3a62211f10242fdd9d18ed160356}{}void {\bfseries set\+Acceleration} (\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ fv\+Acceleration)\label{class_collidable_a669e3a62211f10242fdd9d18ed160356}
+
+\item 
+\hypertarget{class_collidable_a2fa1b52be385f9ff2cf08670a9606cc1}{}void {\bfseries set\+Thrust} (\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ fv\+Thrust)\label{class_collidable_a2fa1b52be385f9ff2cf08670a9606cc1}
+
+\item 
+\hypertarget{class_collidable_aabf7ace85a4c054cee3553686efd831b}{}void {\bfseries set\+Orientation} (double f\+Orientation)\label{class_collidable_aabf7ace85a4c054cee3553686efd831b}
+
+\item 
+\hypertarget{class_collidable_a0e7594f377c9ce8e47edf88b49e75f81}{}void {\bfseries set\+Mass} (double f\+Mass)\label{class_collidable_a0e7594f377c9ce8e47edf88b49e75f81}
+
+\item 
+\hypertarget{class_collidable_ae245dadba8e78387701796177e1e635e}{}void {\bfseries set\+Friction\+Coefficient} (double f\+Friction\+Coefficient)\label{class_collidable_ae245dadba8e78387701796177e1e635e}
+
+\item 
+\hypertarget{class_collidable_aee5e648d122a9dad08cfc04b2a84e079}{}void {\bfseries set\+Restitution} (double f\+Restitution)\label{class_collidable_aee5e648d122a9dad08cfc04b2a84e079}
+
+\item 
+\hypertarget{class_collidable_a80b43860029e06e0baae666c762b6521}{}void {\bfseries set\+Radius} (double f\+Radius)\label{class_collidable_a80b43860029e06e0baae666c762b6521}
+
+\item 
+\hypertarget{class_collidable_ad5022811d28d0db8a58e4ecfda914f4b}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries get\+Position} ()\label{class_collidable_ad5022811d28d0db8a58e4ecfda914f4b}
+
+\item 
+\hypertarget{class_collidable_abfdcd815a5f8aabd860e2b69bc4bea21}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries get\+Velocity} ()\label{class_collidable_abfdcd815a5f8aabd860e2b69bc4bea21}
+
+\item 
+\hypertarget{class_collidable_ac6387b72fd5e194cd3e38cf22e30e75a}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries get\+Acceleration} ()\label{class_collidable_ac6387b72fd5e194cd3e38cf22e30e75a}
+
+\item 
+\hypertarget{class_collidable_aea55329ca9229dc988a38d4d59509c02}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries get\+Thrust} ()\label{class_collidable_aea55329ca9229dc988a38d4d59509c02}
+
+\item 
+\hypertarget{class_collidable_a0f8359be0151a1459adb832a8bc579fe}{}double {\bfseries get\+Orientation} ()\label{class_collidable_a0f8359be0151a1459adb832a8bc579fe}
+
+\item 
+\hypertarget{class_collidable_a345fc798e6a77b293c1db72861f0e0e7}{}double {\bfseries get\+Mass} ()\label{class_collidable_a345fc798e6a77b293c1db72861f0e0e7}
+
+\item 
+\hypertarget{class_collidable_a3ceb05fc466651c75f1c23231a9cf7a9}{}double {\bfseries get\+Inverse\+Mass} ()\label{class_collidable_a3ceb05fc466651c75f1c23231a9cf7a9}
+
+\item 
+\hypertarget{class_collidable_abba60551401e8054396b6c2408af7a8d}{}double {\bfseries get\+Friction\+Coefficient} ()\label{class_collidable_abba60551401e8054396b6c2408af7a8d}
+
+\item 
+\hypertarget{class_collidable_acf2920747b5a970b7f8280b1d04cdc94}{}double {\bfseries get\+Restitution} ()\label{class_collidable_acf2920747b5a970b7f8280b1d04cdc94}
+
+\item 
+\hypertarget{class_collidable_a265fb4ef01dc1997494374205181a6bb}{}double {\bfseries get\+Radius} ()\label{class_collidable_a265fb4ef01dc1997494374205181a6bb}
+
+\item 
+\hypertarget{class_collidable_a4368969a86c2e6fe908bfdd7ae8f7908}{}double {\bfseries get\+Inverse\+Inertia} ()\label{class_collidable_a4368969a86c2e6fe908bfdd7ae8f7908}
+
+\item 
 \hypertarget{class_collidable_ac4597915c92e32ea10220808da31c750}{}void \hyperlink{class_collidable_ac4597915c92e32ea10220808da31c750}{print} ()\label{class_collidable_ac4597915c92e32ea10220808da31c750}
 
 \begin{DoxyCompactList}\small\item\em to be removed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_collidable_a5a6501f0c062b6c24f3121c5c68b59d4}{}double {\bfseries m\+\_\+f\+Angular\+Velocity}\label{class_collidable_a5a6501f0c062b6c24f3121c5c68b59d4}
+\hypertarget{class_collidable_a5a6501f0c062b6c24f3121c5c68b59d4}{}double \hyperlink{class_collidable_a5a6501f0c062b6c24f3121c5c68b59d4}{m\+\_\+f\+Angular\+Velocity}\label{class_collidable_a5a6501f0c062b6c24f3121c5c68b59d4}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em protected \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{class_collidable_a3d3ce584cdb14485db044c81a792a966}{broad\+Collision\+Check} (\hyperlink{class_collidable}{Collidable} $\ast$other\+Collidable)
-\begin{DoxyCompactList}\small\item\em Perform a broad collision check with another collidable. \end{DoxyCompactList}\item 
-void \hyperlink{class_collidable_a40089393c9a030b68042e3b72d8142e4}{resolve\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$other\+Collidable, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Collision\+Normal, double f\+Overlap)
-\begin{DoxyCompactList}\small\item\em Resolve collision between two collidable objects. \end{DoxyCompactList}\item 
-\hypertarget{class_collidable_a8cefc9d5d6fa5003bbf54df6d76fd74e}{}void {\bfseries resolve\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$other\+Collidable, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Collision\+Normal, double f\+Overlap, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Contact\+Point)\label{class_collidable_a8cefc9d5d6fa5003bbf54df6d76fd74e}
-
-\item 
-\hypertarget{class_collidable_a2261a16decf40d73a01d1179153d3331}{}void {\bfseries apply\+Impulse} (double f\+J, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Collision\+Normal, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$fv\+Contact\+Point)\label{class_collidable_a2261a16decf40d73a01d1179153d3331}
-
-\end{DoxyCompactItemize}
+bool \hyperlink{class_collidable_a7ec62c2d35206abacbcad74f5bf42608}{broad\+Collision\+Check} (\hyperlink{class_collidable}{Collidable} $\ast$p\+Other\+Collidable)
+\begin{DoxyCompactList}\small\item\em Performs a broad and less costly collision check with another collidable. \end{DoxyCompactList}\item 
+void \hyperlink{class_collidable_a8ff9b7822edd612abd581437343f76b0}{resolve\+Collision} (\hyperlink{class_collidable}{Collidable} $\ast$p\+Other\+Collidable, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$pfv\+Collision\+Normal, double f\+Overlap, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$pfv\+Contact\+Point)
+\begin{DoxyCompactList}\small\item\em Resolves collision between two colliding objects. \end{DoxyCompactList}\item 
+void \hyperlink{class_collidable_ab48a9401ae73d1c90a5200397b420f89}{apply\+Impulse} (\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$pfv\+Impulse, \hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ $\ast$pfv\+Contact\+Point)
+\begin{DoxyCompactList}\small\item\em Applies an impulse (sudden change of velocity) to the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_collidable_a7ea7747a2156545d13b4b7f6e06bfe38}{}double \hyperlink{class_collidable_a7ea7747a2156545d13b4b7f6e06bfe38}{m\+\_\+f\+Inverse\+Mass}\label{class_collidable_a7ea7747a2156545d13b4b7f6e06bfe38}
+
+\begin{DoxyCompactList}\small\item\em Inverse of collidable\textquotesingle{}s mass. \end{DoxyCompactList}\item 
+\hypertarget{class_collidable_a7d243411e75ff019385dea0a4ff153e9}{}double \hyperlink{class_collidable_a7d243411e75ff019385dea0a4ff153e9}{m\+\_\+f\+Friction\+Coefficient}\label{class_collidable_a7d243411e75ff019385dea0a4ff153e9}
+
+\begin{DoxyCompactList}\small\item\em Friction coefficient of collidable. \end{DoxyCompactList}\item 
+\hypertarget{class_collidable_a17a452821ac1a880542e596fbfcaae6a}{}double \hyperlink{class_collidable_a17a452821ac1a880542e596fbfcaae6a}{m\+\_\+f\+Restitution}\label{class_collidable_a17a452821ac1a880542e596fbfcaae6a}
+
+\begin{DoxyCompactList}\small\item\em Restitution coefficient. \end{DoxyCompactList}\item 
+\hypertarget{class_collidable_a1dde2844bbacaaf23b8b0652bf5ce906}{}double \hyperlink{class_collidable_a1dde2844bbacaaf23b8b0652bf5ce906}{m\+\_\+f\+Radius}\label{class_collidable_a1dde2844bbacaaf23b8b0652bf5ce906}
+
+\begin{DoxyCompactList}\small\item\em Radius of collidable. For non circular child classes, used in broad collision checks. \end{DoxyCompactList}\item 
 \hypertarget{class_collidable_ac72f55f30a447a47bf165ce8d7584027}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ \hyperlink{class_collidable_ac72f55f30a447a47bf165ce8d7584027}{m\+\_\+fv\+Position}\label{class_collidable_ac72f55f30a447a47bf165ce8d7584027}
 
 \begin{DoxyCompactList}\small\item\em Center position vector. \end{DoxyCompactList}\item 
@@ -77,42 +147,18 @@ void \hyperlink{class_collidable_a40089393c9a030b68042e3b72d8142e4}{resolve\+Col
 \hypertarget{class_collidable_ad88d617204dde9a1abc37e013e7c3d51}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ \hyperlink{class_collidable_ad88d617204dde9a1abc37e013e7c3d51}{m\+\_\+fv\+Thrust}\label{class_collidable_ad88d617204dde9a1abc37e013e7c3d51}
 
 \begin{DoxyCompactList}\small\item\em Thrust vector. \end{DoxyCompactList}\item 
-\hypertarget{class_collidable_a7ea7747a2156545d13b4b7f6e06bfe38}{}double \hyperlink{class_collidable_a7ea7747a2156545d13b4b7f6e06bfe38}{m\+\_\+f\+Inverse\+Mass}\label{class_collidable_a7ea7747a2156545d13b4b7f6e06bfe38}
-
-\begin{DoxyCompactList}\small\item\em Inverse of collidable\textquotesingle{}s mass. \end{DoxyCompactList}\item 
 \hypertarget{class_collidable_af9cea5a59438b7b3604b8c7aa023380f}{}double \hyperlink{class_collidable_af9cea5a59438b7b3604b8c7aa023380f}{m\+\_\+f\+Orientation}\label{class_collidable_af9cea5a59438b7b3604b8c7aa023380f}
 
 \begin{DoxyCompactList}\small\item\em Orientation of the collidable, in radians. \end{DoxyCompactList}\item 
-\hypertarget{class_collidable_a7d243411e75ff019385dea0a4ff153e9}{}double \hyperlink{class_collidable_a7d243411e75ff019385dea0a4ff153e9}{m\+\_\+f\+Friction\+Coefficient}\label{class_collidable_a7d243411e75ff019385dea0a4ff153e9}
+\hypertarget{class_collidable_a376aa200ba174a1cea17766fbcbda760}{}double \hyperlink{class_collidable_a376aa200ba174a1cea17766fbcbda760}{m\+\_\+f\+Angular\+Acceleration}\label{class_collidable_a376aa200ba174a1cea17766fbcbda760}
 
-\begin{DoxyCompactList}\small\item\em Friction coefficient of collidable. \end{DoxyCompactList}\item 
-\hypertarget{class_collidable_a17a452821ac1a880542e596fbfcaae6a}{}double \hyperlink{class_collidable_a17a452821ac1a880542e596fbfcaae6a}{m\+\_\+f\+Restitution}\label{class_collidable_a17a452821ac1a880542e596fbfcaae6a}
+\begin{DoxyCompactList}\small\item\em Angular v\+Acceleration. \end{DoxyCompactList}\item 
+\hypertarget{class_collidable_a84f79454b1dac54f7b9042660d89e8ca}{}double \hyperlink{class_collidable_a84f79454b1dac54f7b9042660d89e8ca}{m\+\_\+f\+Torque}\label{class_collidable_a84f79454b1dac54f7b9042660d89e8ca}
 
-\begin{DoxyCompactList}\small\item\em Restitution coefficient. \end{DoxyCompactList}\item 
-\hypertarget{class_collidable_a1dde2844bbacaaf23b8b0652bf5ce906}{}double \hyperlink{class_collidable_a1dde2844bbacaaf23b8b0652bf5ce906}{m\+\_\+f\+Radius}\label{class_collidable_a1dde2844bbacaaf23b8b0652bf5ce906}
+\begin{DoxyCompactList}\small\item\em Torque applied to object. \end{DoxyCompactList}\item 
+\hypertarget{class_collidable_aef9f604795e30d09737aee26beb128ae}{}double \hyperlink{class_collidable_aef9f604795e30d09737aee26beb128ae}{m\+\_\+f\+Inverse\+Moment\+Of\+Inertia}\label{class_collidable_aef9f604795e30d09737aee26beb128ae}
 
-\begin{DoxyCompactList}\small\item\em Radius of collidable. Used for broad collision check for non circular child classes. \end{DoxyCompactList}\item 
-\hypertarget{class_collidable_a02c0b29fccb4af356d56b65dc3d86542}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries m\+\_\+fv\+Angular\+Position}\label{class_collidable_a02c0b29fccb4af356d56b65dc3d86542}
-
-\item 
-\hypertarget{class_collidable_a9913b4fa9f36e30a83940ac333da4b99}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries m\+\_\+fv\+Angular\+Velocity}\label{class_collidable_a9913b4fa9f36e30a83940ac333da4b99}
-
-\item 
-\hypertarget{class_collidable_ad0a8edff679d8f048023dc5f7f560b0b}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries m\+\_\+fv\+Angular\+Acceleration}\label{class_collidable_ad0a8edff679d8f048023dc5f7f560b0b}
-
-\item 
-\hypertarget{class_collidable_a8c45a631264b9ae9d57617deefe3bf92}{}\hyperlink{class_vector2_d}{Vector2\+D}$<$ double $>$ {\bfseries m\+\_\+fv\+Torque}\label{class_collidable_a8c45a631264b9ae9d57617deefe3bf92}
-
-\item 
-\hypertarget{class_collidable_a376aa200ba174a1cea17766fbcbda760}{}double {\bfseries m\+\_\+f\+Angular\+Acceleration}\label{class_collidable_a376aa200ba174a1cea17766fbcbda760}
-
-\item 
-\hypertarget{class_collidable_a84f79454b1dac54f7b9042660d89e8ca}{}double {\bfseries m\+\_\+f\+Torque}\label{class_collidable_a84f79454b1dac54f7b9042660d89e8ca}
-
-\item 
-\hypertarget{class_collidable_aef9f604795e30d09737aee26beb128ae}{}double {\bfseries m\+\_\+f\+Inverse\+Moment\+Of\+Inertia}\label{class_collidable_aef9f604795e30d09737aee26beb128ae}
-
-\item 
+\begin{DoxyCompactList}\small\item\em Inverse moment of inertia. \end{DoxyCompactList}\item 
 \hypertarget{class_collidable_a13a62d6d9fb69397c5ad03e6ec1c3b2d}{}sf\+::\+Vertex\+Array \hyperlink{class_collidable_a13a62d6d9fb69397c5ad03e6ec1c3b2d}{m\+\_\+va\+Points}\label{class_collidable_a13a62d6d9fb69397c5ad03e6ec1c3b2d}
 
 \begin{DoxyCompactList}\small\item\em Points to be drawn (to be removed) \end{DoxyCompactList}\item 
@@ -124,7 +170,7 @@ void \hyperlink{class_collidable_a40089393c9a030b68042e3b72d8142e4}{resolve\+Col
 \subsection{Detailed Description}
 Base class for every collidable object in the game. 
 
-Longer text that appears on description section 
+Implements basic mechanics and integration methods to move objects and collisions response. Declares virtual methods for drawning and detecting collision. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_collidable_a92ce9e2b08086bb2f466168ffc69c9ed}{}\index{Collidable@{Collidable}!Collidable@{Collidable}}
@@ -138,34 +184,95 @@ Longer text that appears on description section
 
 Basic contructor. 
 
-Initialize all relevant variables to 0. 
+Initializes all relevant variables. 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_collidable_a3d3ce584cdb14485db044c81a792a966}{}\index{Collidable@{Collidable}!broad\+Collision\+Check@{broad\+Collision\+Check}}
+\hypertarget{class_collidable_ab48a9401ae73d1c90a5200397b420f89}{}\index{Collidable@{Collidable}!apply\+Impulse@{apply\+Impulse}}
+\index{apply\+Impulse@{apply\+Impulse}!Collidable@{Collidable}}
+\subsubsection[{apply\+Impulse(\+Vector2\+D$<$ double $>$ $\ast$pfv\+Impulse, Vector2\+D$<$ double $>$ $\ast$pfv\+Contact\+Point)}]{\setlength{\rightskip}{0pt plus 5cm}void Collidable\+::apply\+Impulse (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector2\+D}$<$ double $>$ $\ast$}]{fv\+Impulse, }
+\item[{{\bf Vector2\+D}$<$ double $>$ $\ast$}]{fv\+Contact\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_collidable_ab48a9401ae73d1c90a5200397b420f89}
+
+
+Applies an impulse (sudden change of velocity) to the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fv\+Impulse} & Impulse vector. \\
+\hline
+{\em pfv\+Contact\+Point} & Pointer to contact point vector. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_collidable_a7ec62c2d35206abacbcad74f5bf42608}{}\index{Collidable@{Collidable}!broad\+Collision\+Check@{broad\+Collision\+Check}}
 \index{broad\+Collision\+Check@{broad\+Collision\+Check}!Collidable@{Collidable}}
-\subsubsection[{broad\+Collision\+Check(\+Collidable $\ast$other\+Collidable)}]{\setlength{\rightskip}{0pt plus 5cm}bool Collidable\+::broad\+Collision\+Check (
+\subsubsection[{broad\+Collision\+Check(\+Collidable $\ast$p\+Other\+Collidable)}]{\setlength{\rightskip}{0pt plus 5cm}bool Collidable\+::broad\+Collision\+Check (
 \begin{DoxyParamCaption}
-\item[{{\bf Collidable} $\ast$}]{other\+Collidable}
+\item[{{\bf Collidable} $\ast$}]{p\+Other\+Collidable}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_collidable_a3d3ce584cdb14485db044c81a792a966}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_collidable_a7ec62c2d35206abacbcad74f5bf42608}
 
 
-Perform a broad collision check with another collidable. 
+Performs a broad and less costly collision check with another collidable. 
 
-Use both collidable\textquotesingle{}s radii to perform quicker collision detection testes before advancing to more costly methods. \hypertarget{class_collidable_a40089393c9a030b68042e3b72d8142e4}{}\index{Collidable@{Collidable}!resolve\+Collision@{resolve\+Collision}}
+Use both collidable\textquotesingle{}s radii to check if they are close enough to justify checking for collision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Other\+Collidable} & Pointer to oher \hyperlink{class_collidable}{Collidable} object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether they are close to each other or not. 
+\end{DoxyReturn}
+\hypertarget{class_collidable_a8ff9b7822edd612abd581437343f76b0}{}\index{Collidable@{Collidable}!resolve\+Collision@{resolve\+Collision}}
 \index{resolve\+Collision@{resolve\+Collision}!Collidable@{Collidable}}
-\subsubsection[{resolve\+Collision(\+Collidable $\ast$other\+Collidable, Vector2\+D$<$ double $>$ $\ast$fv\+Collision\+Normal, double f\+Overlap)}]{\setlength{\rightskip}{0pt plus 5cm}void Collidable\+::resolve\+Collision (
+\subsubsection[{resolve\+Collision(\+Collidable $\ast$p\+Other\+Collidable, Vector2\+D$<$ double $>$ $\ast$pfv\+Collision\+Normal, double f\+Overlap, Vector2\+D$<$ double $>$ $\ast$pfv\+Contact\+Point)}]{\setlength{\rightskip}{0pt plus 5cm}void Collidable\+::resolve\+Collision (
 \begin{DoxyParamCaption}
-\item[{{\bf Collidable} $\ast$}]{other\+Collidable, }
-\item[{{\bf Vector2\+D}$<$ double $>$ $\ast$}]{fv\+Collision\+Normal, }
-\item[{double}]{f\+Overlap}
+\item[{{\bf Collidable} $\ast$}]{p\+Other\+Collidable, }
+\item[{{\bf Vector2\+D}$<$ double $>$ $\ast$}]{pfv\+Collision\+Normal, }
+\item[{double}]{f\+Overlap, }
+\item[{{\bf Vector2\+D}$<$ double $>$ $\ast$}]{pfv\+Contact\+Point}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_collidable_a40089393c9a030b68042e3b72d8142e4}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_collidable_a8ff9b7822edd612abd581437343f76b0}
 
 
-Resolve collision between two collidable objects. 
+Resolves collision between two colliding objects. 
 
-Resolve overlap of two colliding objects, calculate and update their velocities. \hypertarget{class_collidable_a656ce92dd3e3f1b1981eb79c97ed3115}{}\index{Collidable@{Collidable}!update\+Sprite@{update\+Sprite}}
+Resolves overlap of two colliding objects and calculate impulses.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Other\+Collidable} & Pointer to another collidable object. \\
+\hline
+{\em pfv\+Collision\+Normal} & Pointer to the collision normal vector. \\
+\hline
+{\em f\+Overlap} & Amount of overlap between the two objects. \\
+\hline
+{\em pfv\+Contact\+Point} & Pointer to contact point vector. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_collidable_ad636cf1a7fab85fb2dfedf08c02c7745}{}\index{Collidable@{Collidable}!update@{update}}
+\index{update@{update}!Collidable@{Collidable}}
+\subsubsection[{update(float elapsed)}]{\setlength{\rightskip}{0pt plus 5cm}void Collidable\+::update (
+\begin{DoxyParamCaption}
+\item[{float}]{f\+Elapsed}
+\end{DoxyParamCaption}
+)}\label{class_collidable_ad636cf1a7fab85fb2dfedf08c02c7745}
+
+
+Update method to be called every frame of the game. 
+
+Implements basic mechanics for movable objects (motion and forces).
+
+
+\begin{DoxyParams}{Parameters}
+{\em elapsed} & Time elapsed since last frame. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_collidable_a656ce92dd3e3f1b1981eb79c97ed3115}{}\index{Collidable@{Collidable}!update\+Sprite@{update\+Sprite}}
 \index{update\+Sprite@{update\+Sprite}!Collidable@{Collidable}}
 \subsubsection[{update\+Sprite()}]{\setlength{\rightskip}{0pt plus 5cm}void Collidable\+::update\+Sprite (
 \begin{DoxyParamCaption}
@@ -180,5 +287,5 @@ Updates the sprite position and orientation.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/\hyperlink{collidable_8h}{collidable.\+h}\item 
-C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/src/\hyperlink{collidable_8cpp}{collidable.\+cpp}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/include/\hyperlink{collidable_8h}{collidable.\+h}\item 
+C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/src/\hyperlink{collidable_8cpp}{collidable.\+cpp}\end{DoxyCompactItemize}

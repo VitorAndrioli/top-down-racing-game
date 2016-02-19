@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/coursework/include/car.h Source File</title>
+<title>Racing game: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/car.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,8 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Racing game
    </div>
   </td>
  </tr>
@@ -64,6 +73,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('car_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -78,80 +102,98 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">car.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="car_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef CAR_H</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define CAR_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define MAXIMUM_SPEED 230</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define STOPPING_SPEED 0.05</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define MAXIMUM_REVERSE_SPEED_SQUARED 100 * 100</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define TYRE_MAXIMUM_ORIENTATION 25 * TO_RADIANS</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define TYRE_STOPPING_ORIENTATION 0.05 * TO_RADIANS</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define TYRE_MOVEMENT 0.5 * TO_RADIANS</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define CAR_FRICTION_COEFFICIENT 0.72</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define CAR_RESTITUTION_COEFFICIENT 0.6</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define CAR_MASS 1000.0</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define CAR_HALF_EXTENT_X 43</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define CAR_HALF_EXTENT_Y 20</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define CAR_WHEEL_BASE 50</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define CAR_FRONT_WHEEL_DISTANCE 20</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obb_8h.html">obb.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_car.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_car.html">Car</a> : <span class="keyword">public</span> <a class="code" href="class_o_b_b.html">OBB</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_car.html">Car</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_car.html">Car</a>(<span class="keywordtype">double</span> fPosX, <span class="keywordtype">double</span> fPosY, <span class="keywordtype">double</span> fOrientation);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> elapsed);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span> m_bMovingForward;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    sf::Texture tyreTexture;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> setTexture(sf::Texture * texture);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> m_bTurningRight;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> m_bTurningLeft;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> m_bAccelerating;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> m_bReversing;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> m_bBraking;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">double</span> m_fSteeringOrientation;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">double</span> m_fWheelBase;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_o_b_b.html">OBB</a> * m_rightFrontWheel;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_o_b_b.html">OBB</a> * m_leftFrontWheel;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> setVelocity(<a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> velocity);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> setSteeringOrientation(<span class="keywordtype">double</span> fOrientation);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">double</span> getSteeringOrientation();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">double</span> getFrictionCoefficient();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> steer();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">double</span> m_fMaxVelocity;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> controlInput();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> draw(sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef CAR_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define CAR_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// Definition of constant values to be assigned for cars objects.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="car_8h.html#aa8e6af92411e0744251777f3133c69dd">   16</a></span>&#160;<span class="preprocessor">#define MAXIMUM_SPEED 230 </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="car_8h.html#aa1b87ef5f6e8c6860c16abd5067c8fc1">   17</a></span>&#160;<span class="preprocessor">#define STOPPING_SPEED 0.5 </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="car_8h.html#aa8fb66b6541f2a0438bae23b79831921">   18</a></span>&#160;<span class="preprocessor">#define MAXIMUM_REVERSE_SPEED 100 </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="car_8h.html#acee33222c9054bc14a558621d020fb6a">   19</a></span>&#160;<span class="preprocessor">#define TYRE_MAXIMUM_ORIENTATION 25 * TO_RADIANS </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="car_8h.html#adf654d91bb3cb40f614edcc9acecc232">   20</a></span>&#160;<span class="preprocessor">#define TYRE_STOPPING_ORIENTATION 0.05 * TO_RADIANS </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="car_8h.html#ae6654f24274a2a489eaee6b5b8e492b1">   21</a></span>&#160;<span class="preprocessor">#define TYRE_MOVEMENT 0.5 * TO_RADIANS </span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="car_8h.html#aab27a281ab71adf4eec937e43d1eae46">   22</a></span>&#160;<span class="preprocessor">#define CAR_FRICTION_COEFFICIENT 0.1 </span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="car_8h.html#ac377acb448f4c9586bbb5ef499dc0f66">   23</a></span>&#160;<span class="preprocessor">#define CAR_RESTITUTION_COEFFICIENT 0.6 </span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="car_8h.html#a943b74531e79dd26cb2512db8018a9d6">   24</a></span>&#160;<span class="preprocessor">#define CAR_MASS 100.f </span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="car_8h.html#a63b45959e1ffbdfec02d940ae5e3d35b">   25</a></span>&#160;<span class="preprocessor">#define CAR_HALF_EXTENT_X 43 </span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="car_8h.html#a26b677f7d0fdb66225cd282fc5f78f41">   26</a></span>&#160;<span class="preprocessor">#define CAR_HALF_EXTENT_Y 20 </span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="car_8h.html#aba417e114296ca6ffc4ca022e72b9901">   27</a></span>&#160;<span class="preprocessor">#define WHEEL_BASE (CAR_HALF_EXTENT_X*2) - 29  </span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="car_8h.html#afec66def355bc83c5de64085b5a55592">   28</a></span>&#160;<span class="preprocessor">#define FRONT_WHEEL_DISTANCE 19 </span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="car_8h.html#a0d00affa09ef1e5014bfb3344db083f4">   29</a></span>&#160;<span class="preprocessor">#define WHEEL_LENGHT 14.f </span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="car_8h.html#a2b9d11b81cbab8ee6f6376c8ff2184ea">   30</a></span>&#160;<span class="preprocessor">#define WHEEL_WIDTH 6.f </span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obb_8h.html">obb.h</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_car.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_car.html">Car</a> : <span class="keyword">public</span> <a class="code" href="class_o_b_b.html">OBB</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_car.html#a1c803f7c5038d3e31b368b0d0a35493c">Car</a>(); </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_car.html#a1c803f7c5038d3e31b368b0d0a35493c">Car</a>(<span class="keywordtype">double</span> fPosX, <span class="keywordtype">double</span> fPosY, <span class="keywordtype">double</span> fOrientation = 0); </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_car.html#ab7860fcfd5e75787d358128e04442464">update</a>(<span class="keywordtype">float</span> elapsed); </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// Control booleans.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_car.html#a7f45340643c43ddd543d96662fe88911">   42</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_car.html#a7f45340643c43ddd543d96662fe88911">m_bMovingForward</a>; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_car.html#a1caa04bed661507cc92dcc465374aa40">   43</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_car.html#a1caa04bed661507cc92dcc465374aa40">m_bTurningRight</a>; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_car.html#ab15cb88a73253d2d258368bed12be6cc">   44</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_car.html#ab15cb88a73253d2d258368bed12be6cc">m_bTurningLeft</a>; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_car.html#a3ca299e37b7a2b964e68877e7fc41d56">   45</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_car.html#a3ca299e37b7a2b964e68877e7fc41d56">m_bAccelerating</a>; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_car.html#a8a5ba2979820d7c0f2a00571fd7755de">   46</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_car.html#a8a5ba2979820d7c0f2a00571fd7755de">m_bReversing</a>; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_car.html#a0a5b2769f8000bc41da5ffacaff488bd">   47</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_car.html#a0a5b2769f8000bc41da5ffacaff488bd">m_bBraking</a>; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_car.html#af67de6d3bb5203272670314409bd3ca8">   49</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_car.html#af67de6d3bb5203272670314409bd3ca8">m_fSteeringOrientation</a>; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_car.html#a7be779b298ee9803e8189e08f0cafc27">   50</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_car.html#a7be779b298ee9803e8189e08f0cafc27">m_fWheelBase</a>; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_car.html#aea62fd9764bf52faf154681914343316">   52</a></span>&#160;    sf::Sprite <a class="code" href="class_car.html#aea62fd9764bf52faf154681914343316">m_frontRightWheel</a>; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_car.html#a17f7c49c8c95c1d6c238d48e6500ed52">   53</a></span>&#160;    sf::Sprite <a class="code" href="class_car.html#a17f7c49c8c95c1d6c238d48e6500ed52">m_frontLeftWheel</a>; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// Setters and getters</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_car.html#a179e5e7f3d69e65d1ffa582d32259791">setTexture</a>(sf::Texture * pTexture); </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_car.html#a73e1aac426beef99001e87be0fa541c8">setWheelTexture</a>(sf::Texture * pTexture); </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_car.html#abd60b234c10b8ca0c637069c9c341b7a">setVelocity</a>(<a class="code" href="class_vector2_d.html">Vector2D&lt;double&gt;</a> fvVelocity); </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_car.html#a47fe72f08097245751cd5c6eea31a9cb">getFrictionCoefficient</a>(); </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> m_bBrakingSprite; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> controlInput(); </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> updateSprite(); </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> draw(sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_car_html_a1caa04bed661507cc92dcc465374aa40"><div class="ttname"><a href="class_car.html#a1caa04bed661507cc92dcc465374aa40">Car::m_bTurningRight</a></div><div class="ttdeci">bool m_bTurningRight</div><div class="ttdoc">If player is turning right. </div><div class="ttdef"><b>Definition:</b> car.h:43</div></div>
+<div class="ttc" id="class_car_html_a7be779b298ee9803e8189e08f0cafc27"><div class="ttname"><a href="class_car.html#a7be779b298ee9803e8189e08f0cafc27">Car::m_fWheelBase</a></div><div class="ttdeci">double m_fWheelBase</div><div class="ttdoc">Distance between front and rear wheels. </div><div class="ttdef"><b>Definition:</b> car.h:50</div></div>
+<div class="ttc" id="class_car_html_ab15cb88a73253d2d258368bed12be6cc"><div class="ttname"><a href="class_car.html#ab15cb88a73253d2d258368bed12be6cc">Car::m_bTurningLeft</a></div><div class="ttdeci">bool m_bTurningLeft</div><div class="ttdoc">If player is turning left. </div><div class="ttdef"><b>Definition:</b> car.h:44</div></div>
+<div class="ttc" id="class_car_html_a1c803f7c5038d3e31b368b0d0a35493c"><div class="ttname"><a href="class_car.html#a1c803f7c5038d3e31b368b0d0a35493c">Car::Car</a></div><div class="ttdeci">Car()</div><div class="ttdoc">Basic constructor. Does not initialize any member variable. </div><div class="ttdef"><b>Definition:</b> car.cpp:12</div></div>
+<div class="ttc" id="class_car_html_a8a5ba2979820d7c0f2a00571fd7755de"><div class="ttname"><a href="class_car.html#a8a5ba2979820d7c0f2a00571fd7755de">Car::m_bReversing</a></div><div class="ttdeci">bool m_bReversing</div><div class="ttdoc">If player is activating reverse gear. </div><div class="ttdef"><b>Definition:</b> car.h:46</div></div>
 <div class="ttc" id="obb_8h_html"><div class="ttname"><a href="obb_8h.html">obb.h</a></div><div class="ttdoc">Declaration of OBB class. </div></div>
+<div class="ttc" id="class_car_html_a0a5b2769f8000bc41da5ffacaff488bd"><div class="ttname"><a href="class_car.html#a0a5b2769f8000bc41da5ffacaff488bd">Car::m_bBraking</a></div><div class="ttdeci">bool m_bBraking</div><div class="ttdoc">If player is braking. </div><div class="ttdef"><b>Definition:</b> car.h:47</div></div>
+<div class="ttc" id="class_car_html_a179e5e7f3d69e65d1ffa582d32259791"><div class="ttname"><a href="class_car.html#a179e5e7f3d69e65d1ffa582d32259791">Car::setTexture</a></div><div class="ttdeci">void setTexture(sf::Texture *pTexture)</div><div class="ttdoc">Override OBB&#39;s setTexture method. </div><div class="ttdef"><b>Definition:</b> car.cpp:182</div></div>
+<div class="ttc" id="class_car_html_a17f7c49c8c95c1d6c238d48e6500ed52"><div class="ttname"><a href="class_car.html#a17f7c49c8c95c1d6c238d48e6500ed52">Car::m_frontLeftWheel</a></div><div class="ttdeci">sf::Sprite m_frontLeftWheel</div><div class="ttdoc">Sprite for the right front wheel. </div><div class="ttdef"><b>Definition:</b> car.h:53</div></div>
+<div class="ttc" id="class_car_html_a73e1aac426beef99001e87be0fa541c8"><div class="ttname"><a href="class_car.html#a73e1aac426beef99001e87be0fa541c8">Car::setWheelTexture</a></div><div class="ttdeci">void setWheelTexture(sf::Texture *pTexture)</div><div class="ttdoc">Set front wheels texture. </div><div class="ttdef"><b>Definition:</b> car.cpp:195</div></div>
+<div class="ttc" id="class_car_html_a7f45340643c43ddd543d96662fe88911"><div class="ttname"><a href="class_car.html#a7f45340643c43ddd543d96662fe88911">Car::m_bMovingForward</a></div><div class="ttdeci">bool m_bMovingForward</div><div class="ttdoc">If car is current moving forward (NOT if the player is accelerating). </div><div class="ttdef"><b>Definition:</b> car.h:42</div></div>
+<div class="ttc" id="class_car_html_aea62fd9764bf52faf154681914343316"><div class="ttname"><a href="class_car.html#aea62fd9764bf52faf154681914343316">Car::m_frontRightWheel</a></div><div class="ttdeci">sf::Sprite m_frontRightWheel</div><div class="ttdoc">Sprite for the right front wheel. </div><div class="ttdef"><b>Definition:</b> car.h:52</div></div>
 <div class="ttc" id="class_vector2_d_html"><div class="ttname"><a href="class_vector2_d.html">Vector2D&lt; double &gt;</a></div></div>
-<div class="ttc" id="class_o_b_b_html"><div class="ttname"><a href="class_o_b_b.html">OBB</a></div><div class="ttdef"><b>Definition:</b> obb.h:8</div></div>
-<div class="ttc" id="class_car_html"><div class="ttname"><a href="class_car.html">Car</a></div><div class="ttdef"><b>Definition:</b> car.h:23</div></div>
+<div class="ttc" id="class_o_b_b_html"><div class="ttname"><a href="class_o_b_b.html">OBB</a></div><div class="ttdoc">Oriented Bounding Box (OBB) collidables to be used in the game. </div><div class="ttdef"><b>Definition:</b> obb.h:17</div></div>
+<div class="ttc" id="class_car_html_abd60b234c10b8ca0c637069c9c341b7a"><div class="ttname"><a href="class_car.html#abd60b234c10b8ca0c637069c9c341b7a">Car::setVelocity</a></div><div class="ttdeci">void setVelocity(Vector2D&lt; double &gt; fvVelocity)</div><div class="ttdoc">Updates velocity. Checks for maximum and maximum reverse speed. </div><div class="ttdef"><b>Definition:</b> car.cpp:209</div></div>
+<div class="ttc" id="class_car_html_ab7860fcfd5e75787d358128e04442464"><div class="ttname"><a href="class_car.html#ab7860fcfd5e75787d358128e04442464">Car::update</a></div><div class="ttdeci">void update(float elapsed)</div><div class="ttdoc">Override Collidable&#39;s update method. To be called every frame of the game. </div><div class="ttdef"><b>Definition:</b> car.cpp:58</div></div>
+<div class="ttc" id="class_car_html_af67de6d3bb5203272670314409bd3ca8"><div class="ttname"><a href="class_car.html#af67de6d3bb5203272670314409bd3ca8">Car::m_fSteeringOrientation</a></div><div class="ttdeci">double m_fSteeringOrientation</div><div class="ttdoc">Orientation of front wheels. </div><div class="ttdef"><b>Definition:</b> car.h:49</div></div>
+<div class="ttc" id="class_car_html_a47fe72f08097245751cd5c6eea31a9cb"><div class="ttname"><a href="class_car.html#a47fe72f08097245751cd5c6eea31a9cb">Car::getFrictionCoefficient</a></div><div class="ttdeci">double getFrictionCoefficient()</div><div class="ttdoc">Returns different coefficient for reverse gear. </div><div class="ttdef"><b>Definition:</b> car.cpp:233</div></div>
+<div class="ttc" id="class_car_html_a3ca299e37b7a2b964e68877e7fc41d56"><div class="ttname"><a href="class_car.html#a3ca299e37b7a2b964e68877e7fc41d56">Car::m_bAccelerating</a></div><div class="ttdeci">bool m_bAccelerating</div><div class="ttdoc">If player is acceleration. </div><div class="ttdef"><b>Definition:</b> car.h:45</div></div>
+<div class="ttc" id="class_car_html"><div class="ttname"><a href="class_car.html">Car</a></div><div class="ttdoc">Controlable car to be used by the player. </div><div class="ttdef"><b>Definition:</b> car.h:34</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="car_8h.html">car.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -4,7 +4,7 @@ var searchData=
   ['box_2ecpp',['box.cpp',['../box_8cpp.html',1,'']]],
   ['box_2eh',['box.h',['../box_8h.html',1,'']]],
   ['box_5ffriction_5fcoefficient',['BOX_FRICTION_COEFFICIENT',['../box_8h.html#ac417ea6f082a36721e8aae9b718bc543',1,'box.h']]],
-  ['box_5fmass',['BOX_MASS',['../box_8h.html#a0a78e09815973ab17407d48d28559634',1,'box.h']]],
+  ['box_5fmass_5fcoefficient',['BOX_MASS_COEFFICIENT',['../box_8h.html#a35f10167e00dbe81bc0be55bbfce7011',1,'box.h']]],
   ['box_5frestitution_5fcoefficient',['BOX_RESTITUTION_COEFFICIENT',['../box_8h.html#ab95fbdda1cb64b585be96fa15efb9254',1,'box.h']]],
-  ['broadcollisioncheck',['broadCollisionCheck',['../class_collidable.html#a3d3ce584cdb14485db044c81a792a966',1,'Collidable']]]
+  ['broadcollisioncheck',['broadCollisionCheck',['../class_collidable.html#a7ec62c2d35206abacbcad74f5bf42608',1,'Collidable']]]
 ];

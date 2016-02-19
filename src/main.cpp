@@ -10,6 +10,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "game.h"
+#include "menu.h"
 #include <iostream>
 #include <array>
 
@@ -21,14 +22,8 @@
 using namespace sf;
 int main()
 {
-
 	RenderWindow window(VideoMode(700, 600), "IMAT2605 Course work");
 	window.setVerticalSyncEnabled(true);
-
-	// Fonts used to write data to the screen.
-	sf::Font font;
-	font.loadFromFile(".\\assets\\font\\Quartzo.ttf");
-
 
 	// Loading page.
 	sf::Text loadingText("Loading...", font, 28);
@@ -39,30 +34,24 @@ int main()
 
 	// Instantiats game.
 	Game game;
-	game.update(0);
-
-	// Creates the instrunctions page.
+	Menu menu(window.getSize());
+	
 	sf::View menuView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	menuView.setViewport(sf::FloatRect(0, 0, 1, 1));
-	window.setView(menuView);
-	window.clear(Color(0, 0, 0, 100));
-	sf::Text menuText("", font, 28);
 
-	// Read menu text
-	string file1 = ".\\assets\\txt\\menu.txt";
-	std::ifstream t(file1);
-	std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
-	menuText.setString(str);
-	menuText.setOrigin(menuText.getLocalBounds().width / 2, menuText.getLocalBounds().height / 2);
-	menuText.move(window.getSize().x / 2, window.getSize().y / 2);
+	sf::View player1View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
+	sf::View player2View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 
-	window.draw(menuText);
-	window.display();
+	if (game.m_bMultiPlayer)
+	{
+		player1View.setViewport(sf::FloatRect(0, 0, 0.5, 1));
+		player2View.setViewport(sf::FloatRect(0.5, 0, 0.5, 1));
+	}
+	else
+	{
+		player1View.setViewport(sf::FloatRect(0, 0, 1, 1));
+	}
 
-	
-	
-	sf::View mainView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
-	mainView.setViewport(sf::FloatRect(0, 0, 1, 1));
 
 	sf::View miniView(sf::FloatRect(0, 0, 1500, 1600));
 	miniView.setViewport(sf::FloatRect(0.8, 0, 0.2, 0.2));
@@ -85,25 +74,32 @@ int main()
 
 		if (clock.getElapsedTime().asSeconds() > 0.0005)
 		{
-			if (!game.m_bPaused) game.update(clock.getElapsedTime().asSeconds());
+			game.update(clock.getElapsedTime().asSeconds());
 			clock.restart();
 		}
 
-		window.setView(mainView);
-
 		window.clear(Color::Magenta);
 
+		window.setView(player1View);
+		player1View.setCenter(game.player1.getPosition().getX(), game.player1.getPosition().getY());
 		window.draw(game);
-		if (game.m_bPaused) window.draw(menuText);
+		
+		if (game.m_bMultiPlayer)
+		{
+			window.setView(player2View);
+			player2View.setCenter(game.player2.getPosition().getX(), game.player2.getPosition().getY());
+			window.draw(game);
+		}
+
+		window.setView(miniView);
+		window.draw(game);
+
+		if (game.m_bPaused)
+		{
+			window.setView(menuView);
+			window.draw(menu);
+		}
 			
-
-		//mainView.setCenter(game.car.getPosition().getX(), game.car.getPosition().getY());
-
-		//window.setView(miniView);
-		//window.draw(game);
-		
-		
-
 		window.display();
 		
 

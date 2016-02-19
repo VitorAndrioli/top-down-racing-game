@@ -28,12 +28,9 @@ using namespace sf;
 class Game : public Drawable
 {
 public:
-	Car car;
-	Tyre tyre;
-	sf::Texture tyreTexture;
-	sf::Texture carTexture;
-	sf::Texture carTyreTexture;
-	//std::array<Collidable*, 5> obstacles;
+	Car player1;
+	Car player2;
+	bool m_bMultiPlayer;
 	TextureManager m_textureManager;
 	std::vector<Collidable*> obstacles;
 	Game(); //!< Constructor

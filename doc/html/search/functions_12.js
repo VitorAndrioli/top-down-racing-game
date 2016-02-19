@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7ebox',['~Box',['../class_box.html#a6a5e09398e85d602a046b429062fb9c2',1,'Box']]],
-  ['_7ememory_5fpool',['~memory_pool',['../classrapidxml_1_1memory__pool.html#a0a3e82126e59e4077f41e933130bb5a0',1,'rapidxml::memory_pool']]],
-  ['_7etyre',['~Tyre',['../class_tyre.html#a3ace196877f68acd82b89e8cd33825ec',1,'Tyre']]]
+  ['xml_5fattribute',['xml_attribute',['../classrapidxml_1_1xml__attribute.html#a26be291103917d3e8de110d46dd83816',1,'rapidxml::xml_attribute']]],
+  ['xml_5fdocument',['xml_document',['../classrapidxml_1_1xml__document.html#aae8841b15085ba8f32ff46587ace28f5',1,'rapidxml::xml_document']]],
+  ['xml_5fnode',['xml_node',['../classrapidxml_1_1xml__node.html#a8bd9019960b90605a45998b661fb1b0e',1,'rapidxml::xml_node']]]
 ];

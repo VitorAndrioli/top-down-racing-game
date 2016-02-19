@@ -185,6 +185,8 @@ void Car::setTexture(sf::Texture * pTexture)
 	m_sprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 4); // Sets sprite's center as its origin (instead of its corner).
 	m_sprite.setTextureRect(sf::IntRect(0, 0, pTexture->getSize().x, pTexture->getSize().y / 2)); // At first use non braking half of the texture.
 	m_sprite.scale((m_fvHalfExtents.getX() + 2) * 2 / pTexture->getSize().x, (m_fvHalfExtents.getY() + 3) * 4 / pTexture->getSize().y); // Scales texture to make sure it fits the car.
+	
+	updateSprite();
 }
 
 /*!
@@ -204,6 +206,7 @@ void Car::setWheelTexture(sf::Texture * texture)
 	m_frontLeftWheel.setTextureRect(sf::IntRect(0, 0, texture->getSize().x, texture->getSize().y));
 	m_frontLeftWheel.scale(WHEEL_LENGHT / texture->getSize().x, WHEEL_WIDTH / texture->getSize().y);
 
+	updateSprite();
 }
 
 void Car::setVelocity(Vector2D<double> velocity)

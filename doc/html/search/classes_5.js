@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['memory_5fpool',['memory_pool',['../classrapidxml_1_1memory__pool.html',1,'rapidxml']]]
+  ['vector2d',['Vector2D',['../class_vector2_d.html',1,'']]],
+  ['vector2d_3c_20double_20_3e',['Vector2D&lt; double &gt;',['../class_vector2_d.html',1,'']]]
 ];

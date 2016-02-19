@@ -1,5 +1,5 @@
-\hypertarget{car_8h}{}\section{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/car.h File Reference}
-\label{car_8h}\index{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/car.\+h@{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/coursework/include/car.\+h}}
+\hypertarget{car_8h}{}\section{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/include/car.h File Reference}
+\label{car_8h}\index{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/include/car.\+h@{C\+:/\+Users/\+Vitor/\+Documents/\+Visual Studio 2013/\+Projects/\+Course\+Work/include/car.\+h}}
 
 
 Declaration of \hyperlink{class_car}{Car} class.  
@@ -10,49 +10,55 @@ Declaration of \hyperlink{class_car}{Car} class.
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_car}{Car}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Controlable car to be used by the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{car_8h_aa8e6af92411e0744251777f3133c69dd}{}\#define {\bfseries M\+A\+X\+I\+M\+U\+M\+\_\+\+S\+P\+E\+E\+D}~230\label{car_8h_aa8e6af92411e0744251777f3133c69dd}
+\hypertarget{car_8h_aa8e6af92411e0744251777f3133c69dd}{}\#define \hyperlink{car_8h_aa8e6af92411e0744251777f3133c69dd}{M\+A\+X\+I\+M\+U\+M\+\_\+\+S\+P\+E\+E\+D}~230\label{car_8h_aa8e6af92411e0744251777f3133c69dd}
 
-\item 
-\hypertarget{car_8h_aa1b87ef5f6e8c6860c16abd5067c8fc1}{}\#define {\bfseries S\+T\+O\+P\+P\+I\+N\+G\+\_\+\+S\+P\+E\+E\+D}~0.\+05\label{car_8h_aa1b87ef5f6e8c6860c16abd5067c8fc1}
+\begin{DoxyCompactList}\small\item\em Maximum speed of the car. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_aa1b87ef5f6e8c6860c16abd5067c8fc1}{}\#define \hyperlink{car_8h_aa1b87ef5f6e8c6860c16abd5067c8fc1}{S\+T\+O\+P\+P\+I\+N\+G\+\_\+\+S\+P\+E\+E\+D}~0.\+5\label{car_8h_aa1b87ef5f6e8c6860c16abd5067c8fc1}
 
-\item 
-\hypertarget{car_8h_a13858fec8b3177b28a6eaae798e40dfa}{}\#define {\bfseries M\+A\+X\+I\+M\+U\+M\+\_\+\+R\+E\+V\+E\+R\+S\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+S\+Q\+U\+A\+R\+E\+D}~100 $\ast$ 100\label{car_8h_a13858fec8b3177b28a6eaae798e40dfa}
+\begin{DoxyCompactList}\small\item\em Used to stop car with no shivering. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_aa8fb66b6541f2a0438bae23b79831921}{}\#define \hyperlink{car_8h_aa8fb66b6541f2a0438bae23b79831921}{M\+A\+X\+I\+M\+U\+M\+\_\+\+R\+E\+V\+E\+R\+S\+E\+\_\+\+S\+P\+E\+E\+D}~100\label{car_8h_aa8fb66b6541f2a0438bae23b79831921}
 
-\item 
-\hypertarget{car_8h_acee33222c9054bc14a558621d020fb6a}{}\#define {\bfseries T\+Y\+R\+E\+\_\+\+M\+A\+X\+I\+M\+U\+M\+\_\+\+O\+R\+I\+E\+N\+T\+A\+T\+I\+O\+N}~25 $\ast$ \hyperlink{collidable_8h_adb239346b66785ddb0718881e4284206}{T\+O\+\_\+\+R\+A\+D\+I\+A\+N\+S}\label{car_8h_acee33222c9054bc14a558621d020fb6a}
+\begin{DoxyCompactList}\small\item\em Default speed while going on reverse. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_acee33222c9054bc14a558621d020fb6a}{}\#define \hyperlink{car_8h_acee33222c9054bc14a558621d020fb6a}{T\+Y\+R\+E\+\_\+\+M\+A\+X\+I\+M\+U\+M\+\_\+\+O\+R\+I\+E\+N\+T\+A\+T\+I\+O\+N}~25 $\ast$ \hyperlink{collidable_8h_adb239346b66785ddb0718881e4284206}{T\+O\+\_\+\+R\+A\+D\+I\+A\+N\+S}\label{car_8h_acee33222c9054bc14a558621d020fb6a}
 
-\item 
-\hypertarget{car_8h_adf654d91bb3cb40f614edcc9acecc232}{}\#define {\bfseries T\+Y\+R\+E\+\_\+\+S\+T\+O\+P\+P\+I\+N\+G\+\_\+\+O\+R\+I\+E\+N\+T\+A\+T\+I\+O\+N}~0.\+05 $\ast$ \hyperlink{collidable_8h_adb239346b66785ddb0718881e4284206}{T\+O\+\_\+\+R\+A\+D\+I\+A\+N\+S}\label{car_8h_adf654d91bb3cb40f614edcc9acecc232}
+\begin{DoxyCompactList}\small\item\em Defines the limit the front wheels can turn. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_adf654d91bb3cb40f614edcc9acecc232}{}\#define \hyperlink{car_8h_adf654d91bb3cb40f614edcc9acecc232}{T\+Y\+R\+E\+\_\+\+S\+T\+O\+P\+P\+I\+N\+G\+\_\+\+O\+R\+I\+E\+N\+T\+A\+T\+I\+O\+N}~0.\+05 $\ast$ \hyperlink{collidable_8h_adb239346b66785ddb0718881e4284206}{T\+O\+\_\+\+R\+A\+D\+I\+A\+N\+S}\label{car_8h_adf654d91bb3cb40f614edcc9acecc232}
 
-\item 
-\hypertarget{car_8h_ae6654f24274a2a489eaee6b5b8e492b1}{}\#define {\bfseries T\+Y\+R\+E\+\_\+\+M\+O\+V\+E\+M\+E\+N\+T}~0.\+5 $\ast$ \hyperlink{collidable_8h_adb239346b66785ddb0718881e4284206}{T\+O\+\_\+\+R\+A\+D\+I\+A\+N\+S}\label{car_8h_ae6654f24274a2a489eaee6b5b8e492b1}
+\begin{DoxyCompactList}\small\item\em Defines a minimum threshold to stop turning the wheels. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_ae6654f24274a2a489eaee6b5b8e492b1}{}\#define \hyperlink{car_8h_ae6654f24274a2a489eaee6b5b8e492b1}{T\+Y\+R\+E\+\_\+\+M\+O\+V\+E\+M\+E\+N\+T}~0.\+5 $\ast$ \hyperlink{collidable_8h_adb239346b66785ddb0718881e4284206}{T\+O\+\_\+\+R\+A\+D\+I\+A\+N\+S}\label{car_8h_ae6654f24274a2a489eaee6b5b8e492b1}
 
-\item 
-\hypertarget{car_8h_aab27a281ab71adf4eec937e43d1eae46}{}\#define {\bfseries C\+A\+R\+\_\+\+F\+R\+I\+C\+T\+I\+O\+N\+\_\+\+C\+O\+E\+F\+F\+I\+C\+I\+E\+N\+T}~0.\+72\label{car_8h_aab27a281ab71adf4eec937e43d1eae46}
+\begin{DoxyCompactList}\small\item\em Defines how much the wheels turn at each frame. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_aab27a281ab71adf4eec937e43d1eae46}{}\#define \hyperlink{car_8h_aab27a281ab71adf4eec937e43d1eae46}{C\+A\+R\+\_\+\+F\+R\+I\+C\+T\+I\+O\+N\+\_\+\+C\+O\+E\+F\+F\+I\+C\+I\+E\+N\+T}~0.\+1\label{car_8h_aab27a281ab71adf4eec937e43d1eae46}
 
-\item 
-\hypertarget{car_8h_ac377acb448f4c9586bbb5ef499dc0f66}{}\#define {\bfseries C\+A\+R\+\_\+\+R\+E\+S\+T\+I\+T\+U\+T\+I\+O\+N\+\_\+\+C\+O\+E\+F\+F\+I\+C\+I\+E\+N\+T}~0.\+6\label{car_8h_ac377acb448f4c9586bbb5ef499dc0f66}
+\begin{DoxyCompactList}\small\item\em Default friction coefficient for car objects. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_ac377acb448f4c9586bbb5ef499dc0f66}{}\#define \hyperlink{car_8h_ac377acb448f4c9586bbb5ef499dc0f66}{C\+A\+R\+\_\+\+R\+E\+S\+T\+I\+T\+U\+T\+I\+O\+N\+\_\+\+C\+O\+E\+F\+F\+I\+C\+I\+E\+N\+T}~0.\+6\label{car_8h_ac377acb448f4c9586bbb5ef499dc0f66}
 
-\item 
-\hypertarget{car_8h_a943b74531e79dd26cb2512db8018a9d6}{}\#define {\bfseries C\+A\+R\+\_\+\+M\+A\+S\+S}~1000.\+0\label{car_8h_a943b74531e79dd26cb2512db8018a9d6}
+\begin{DoxyCompactList}\small\item\em Default restitution coefficient for car objects. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_a943b74531e79dd26cb2512db8018a9d6}{}\#define \hyperlink{car_8h_a943b74531e79dd26cb2512db8018a9d6}{C\+A\+R\+\_\+\+M\+A\+S\+S}~100.f\label{car_8h_a943b74531e79dd26cb2512db8018a9d6}
 
-\item 
-\hypertarget{car_8h_a63b45959e1ffbdfec02d940ae5e3d35b}{}\#define {\bfseries C\+A\+R\+\_\+\+H\+A\+L\+F\+\_\+\+E\+X\+T\+E\+N\+T\+\_\+\+X}~43\label{car_8h_a63b45959e1ffbdfec02d940ae5e3d35b}
+\begin{DoxyCompactList}\small\item\em Default mass for car objects. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_a63b45959e1ffbdfec02d940ae5e3d35b}{}\#define \hyperlink{car_8h_a63b45959e1ffbdfec02d940ae5e3d35b}{C\+A\+R\+\_\+\+H\+A\+L\+F\+\_\+\+E\+X\+T\+E\+N\+T\+\_\+\+X}~43\label{car_8h_a63b45959e1ffbdfec02d940ae5e3d35b}
 
-\item 
-\hypertarget{car_8h_a26b677f7d0fdb66225cd282fc5f78f41}{}\#define {\bfseries C\+A\+R\+\_\+\+H\+A\+L\+F\+\_\+\+E\+X\+T\+E\+N\+T\+\_\+\+Y}~20\label{car_8h_a26b677f7d0fdb66225cd282fc5f78f41}
+\begin{DoxyCompactList}\small\item\em Default X half-\/extent for car objects. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_a26b677f7d0fdb66225cd282fc5f78f41}{}\#define \hyperlink{car_8h_a26b677f7d0fdb66225cd282fc5f78f41}{C\+A\+R\+\_\+\+H\+A\+L\+F\+\_\+\+E\+X\+T\+E\+N\+T\+\_\+\+Y}~20\label{car_8h_a26b677f7d0fdb66225cd282fc5f78f41}
 
-\item 
-\hypertarget{car_8h_a9481175b05d390db9f7c7401f2fa8d89}{}\#define {\bfseries C\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+B\+A\+S\+E}~50\label{car_8h_a9481175b05d390db9f7c7401f2fa8d89}
+\begin{DoxyCompactList}\small\item\em Default Y half-\/extent for car objects. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_aba417e114296ca6ffc4ca022e72b9901}{}\#define \hyperlink{car_8h_aba417e114296ca6ffc4ca022e72b9901}{W\+H\+E\+E\+L\+\_\+\+B\+A\+S\+E}~(\hyperlink{car_8h_a63b45959e1ffbdfec02d940ae5e3d35b}{C\+A\+R\+\_\+\+H\+A\+L\+F\+\_\+\+E\+X\+T\+E\+N\+T\+\_\+\+X}$\ast$2) -\/ 29\label{car_8h_aba417e114296ca6ffc4ca022e72b9901}
 
-\item 
-\hypertarget{car_8h_a1bbe54d93f929ded676c954b17041478}{}\#define {\bfseries C\+A\+R\+\_\+\+F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E}~20\label{car_8h_a1bbe54d93f929ded676c954b17041478}
+\begin{DoxyCompactList}\small\item\em Default distance between front and rear wheels for car objects. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_afec66def355bc83c5de64085b5a55592}{}\#define \hyperlink{car_8h_afec66def355bc83c5de64085b5a55592}{F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E}~19\label{car_8h_afec66def355bc83c5de64085b5a55592}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Default (half) distance between front wheels. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_a0d00affa09ef1e5014bfb3344db083f4}{}\#define \hyperlink{car_8h_a0d00affa09ef1e5014bfb3344db083f4}{W\+H\+E\+E\+L\+\_\+\+L\+E\+N\+G\+H\+T}~14.f\label{car_8h_a0d00affa09ef1e5014bfb3344db083f4}
+
+\begin{DoxyCompactList}\small\item\em Default wheel lenght. \end{DoxyCompactList}\item 
+\hypertarget{car_8h_a2b9d11b81cbab8ee6f6376c8ff2184ea}{}\#define \hyperlink{car_8h_a2b9d11b81cbab8ee6f6376c8ff2184ea}{W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+T\+H}~6.f\label{car_8h_a2b9d11b81cbab8ee6f6376c8ff2184ea}
+
+\begin{DoxyCompactList}\small\item\em Default wheel width. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
