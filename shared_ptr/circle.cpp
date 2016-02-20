@@ -34,15 +34,15 @@ Circle::Circle(double fPosX, double fPosY, double fRadius, double fRestitution)
  *
  * \param pCollidable Pointer to an instance of any subclass of Collidable.
  */
-void Circle::checkCollision(Collidable* const pCollidable)
+void Circle::checkCollision(const shared_ptr<Collidable> pCollidable)
 {
-	pCollidable->checkCollision(this);
+	pCollidable->checkCollision(shared_from_this());
 }
 
 /*!
  * \param pOtherCircle Pointer to a Circle object.
  */
-void Circle::checkCollision(Circle* const pOtherCircle)
+void Circle::checkCollision(const shared_ptr<Circle> pOtherCircle)
 {
 	// For collisions between two circles, a true broad test means there is a collision.
 	if (broadCollisionCheck(pOtherCircle))
@@ -67,7 +67,7 @@ void Circle::checkCollision(Circle* const pOtherCircle)
 /*!
 * \param pObb Pointer to an OBB object.
 */
-void Circle::checkCollision(OBB* const pObb)
+void Circle::checkCollision(const shared_ptr<OBB> pObb)
 {
 	// Performs a less costly broad check. If objects are not close enough, exits the function.
 	if (!broadCollisionCheck(pObb)) return;

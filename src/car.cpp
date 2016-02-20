@@ -6,9 +6,6 @@
 #include <math.h>
 #include <iostream>
 
-
-using namespace std;
-
 Car::Car()
 {
 
@@ -70,9 +67,6 @@ void Car::update(float fElapsed)
 
 	if (isMoving()) m_fvAcceleration -= fvFriction;
 	
-	
-
-
 	// Uses Euler method for integrating velocity.
 	// Uses Improved Euler to get the velocity and position of the object.
 	Vector2D<double> fvPredictedVelocity = m_fvVelocity + m_fvAcceleration * fElapsed;
@@ -192,7 +186,7 @@ void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
  *
  * \param pTexture Pointer to an SFML texture object.
  */
-void Car::setTexture(sf::Texture * pTexture)
+void Car::setTexture(shared_ptr<sf::Texture> pTexture)
 {
 	m_sprite.setTexture(*pTexture); // Sets car's sprite texture.
 	m_sprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 4); // Sets sprite's center as its origin (instead of its corner).
@@ -207,7 +201,7 @@ void Car::setTexture(sf::Texture * pTexture)
  *
  * \param pTexture Pointer to an SFML texture object.
  */
-void Car::setWheelTexture(sf::Texture * texture)
+void Car::setWheelTexture(shared_ptr<sf::Texture> texture)
 {
 	// Sets right wheel texture.
 	m_frontRightWheel.setTexture(*texture); // Sets right wheel's sprite texture.

@@ -34,15 +34,15 @@ OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, d
  *
  * \param pCollidable Pointer to an instance of any subclass of Collidable.
  */
-void OBB::checkCollision(Collidable* const pCollidable)
+void OBB::checkCollision(const shared_ptr<Collidable> pCollidable)
 {
-	pCollidable->checkCollision(this);
+	pCollidable->checkCollision(shared_from_this());
 }
 
 /*!
  * \param pCircle Pointer to a Circle object.
  */
-void OBB::checkCollision(Circle* const pCircle)
+void OBB::checkCollision(const shared_ptr<Circle> pCircle)
 {
 	// Performs a less costly broad check. If objects are not close enough, exits the function.
 	if (!broadCollisionCheck(pCircle)) return;
@@ -88,7 +88,7 @@ void OBB::checkCollision(Circle* const pCircle)
  *
  * \param pOtherObb Pointer to an OBB object.
  */
-void OBB::checkCollision(OBB* const pOtherObb)
+void OBB::checkCollision(const shared_ptr<OBB> pOtherObb)
 {
 	// Performs a less costly broad check. If objects are not close enough, exit the function.
 	if (!broadCollisionCheck(pOtherObb)) return;

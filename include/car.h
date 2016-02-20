@@ -31,6 +31,8 @@
 
 #include "obb.h"
 
+using namespace std;
+
 class Car : public OBB
 {
 public:
@@ -53,8 +55,8 @@ public:
 	sf::Sprite m_frontLeftWheel; //!< Sprite for the right front wheel.
 
 	// Setters and getters
-	void setTexture(sf::Texture * pTexture); //!< Override OBB's setTexture method.
-	void setWheelTexture(sf::Texture * pTexture); //!< Set front wheels texture.
+	void setTexture(shared_ptr<sf::Texture> pTexture); //!< Override OBB's setTexture method.
+	void setWheelTexture(shared_ptr<sf::Texture> pTexture); //!< Set front wheels texture.
 	void setVelocity(Vector2D<double> fvVelocity); //!< Updates velocity. Checks for maximum and maximum reverse speed.
 	double getFrictionCoefficient(); //!< Returns different coefficient for reverse gear.
 private:

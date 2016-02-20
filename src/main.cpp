@@ -26,31 +26,14 @@ int main()
 	RenderWindow window(VideoMode(700, 700), "IMAT2605 Course work");
 	window.setVerticalSyncEnabled(true);
 
-	
-
-
-
-
-	sf::Font font;
-	font.loadFromFile(".\\assets\\font\\Quartzo.ttf");
-	// Loading page.
-	sf::Text loadingText("Loading...", font, 28);
-	loadingText.setOrigin(loadingText.getLocalBounds().width / 2, loadingText.getLocalBounds().height / 2);
-	loadingText.move(window.getSize().x / 2, window.getSize().y / 2);
-	window.draw(loadingText);
-	window.display();
-
-	// Instantiats game.
 	Game game;
 	game.setMenuSize(window.getSize().x, window.getSize().y);
-	game.start();
-
+	
 	sf::View menuView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	menuView.setViewport(sf::FloatRect(0, 0, 1, 1));
 
 	sf::View player1View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	sf::View player2View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
-
 
 	do
 	{
@@ -70,12 +53,10 @@ int main()
 			if (event.type == Event::KeyPressed)
 				game.processKeyPress(event.key.code);
 		}
-		
+
 	} while (!game.m_startGame);
 
-
-	
-
+	game.load();
 	if (game.m_bMultiPlayer)
 	{
 		player1View.setViewport(sf::FloatRect(0, 0, 0.5, 1));
@@ -119,14 +100,14 @@ int main()
 		window.clear(Color::Magenta);
 
 		window.setView(player1View);
-		player1View.setCenter(game.player1.getPosition().getX(), game.player1.getPosition().getY());
+		player1View.setCenter(game.player1->getPosition().getX(), game.player1->getPosition().getY());
 		//player1View.setRotation(game.player1.getOrientation() * TO_DEGREES + 90);
 		window.draw(game);
 		
 		if (game.m_bMultiPlayer)
 		{
 			window.setView(player2View);
-			player2View.setCenter(game.player2.getPosition().getX(), game.player2.getPosition().getY());
+			player2View.setCenter(game.player2->getPosition().getX(), game.player2->getPosition().getY());
 			window.draw(game);
 		}
 

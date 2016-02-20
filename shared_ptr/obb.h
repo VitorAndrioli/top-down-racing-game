@@ -24,9 +24,9 @@ public:
 	OBB(); //!< Basic constructor.
 	//! Constructor receiving the position, half extents, orientation and restitution coefficient of box.
 	OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution = 1);
-	void checkCollision(Collidable* const pCollidable); //!< Checks collision with another Collidable.
-	void checkCollision(Circle* const pCircle); //!< Checks collision with an Circle.
-	void checkCollision(OBB* const pOtherObb); //!< Checks collision with another OBB.
+	void checkCollision(const shared_ptr<Collidable> pCollidable); //!< Checks collision with another Collidable.
+	void checkCollision(const shared_ptr<Circle> pCircle); //!< Checks collision with an Circle.
+	void checkCollision(const shared_ptr<OBB> pOtherObb); //!< Checks collision with another OBB.
 	
 	// Setters and Getters.
 	void setHalfExtents(double fHalfExtentX, double fHalfExtentY); //!< Sets X and Y values of half-extents vector and update object`s radius.

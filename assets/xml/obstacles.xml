@@ -7,18 +7,15 @@
 
 
   <!--<collidable type="circle" posX="50" posY="0" radius="80" />
-  
-  <collidable type="tyre" posX="250" posY="320" />
-
   <collidable type="obb" posX="50" posY="0" halfExtentX="20" halfExtentY="50" orientation="0" />
-
+-->
   <collidable type="tyre" posX="350" posY="221" />
   <collidable type="tyre" posX="350" posY="250" />
   <collidable type="tyre" posX="350" posY="279" />
   <collidable type="tyre" posX="350" posY="308" />
   <collidable type="tyre" posX="350" posY="337" />
   <collidable type="tyre" posX="350" posY="366" />
-  
+
   <collidable type="tyre" posX="379" posY="235" />
   <collidable type="tyre" posX="379" posY="264" />
   <collidable type="tyre" posX="379" posY="293" />
@@ -45,6 +42,6 @@
   <collidable type="tyre" posX="466" posY="279" />
   <collidable type="tyre" posX="466" posY="308" />
   <collidable type="tyre" posX="466" posY="337" />
-  <collidable type="tyre" posX="466" posY="366" />-->
+  <collidable type="tyre" posX="466" posY="366" />
 
 </obstacles>

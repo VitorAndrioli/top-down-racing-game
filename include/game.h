@@ -26,8 +26,8 @@ using namespace sf;
 class Game : public Drawable
 {
 public:
-	Car player1;
-	Car player2;
+	Car* player1;
+	Car* player2;
 	bool m_bMultiPlayer;
 	Menu m_menu;
 	void setMenuSize(double x, double y);
@@ -36,9 +36,10 @@ public:
 	bool m_startGame;
 
 	TextureManager *m_pTextureManager;
-	std::vector<Collidable*> obstacles;
+	//std::vector<std::shared_ptr<Collidable>> obstacles;
+	std::vector<Collidable*> pObstacles;
 	Game(); //!< Constructor
-	void start();
+	void load();
 	void draw(RenderTarget &target, RenderStates states) const; //!< Draw function (from sf::Drawable)
 	void update(float timestep); //!< Update all entities in the game
 	void processKeyPress(Keyboard::Key code); //!< Action any key presses

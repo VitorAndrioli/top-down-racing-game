@@ -86,7 +86,7 @@ void Collidable::updateSprite()
  *
  * \return Whether they are close to each other or not.
  */
-bool Collidable::broadCollisionCheck(Collidable* const pOtherCollidable)
+bool Collidable::broadCollisionCheck(shared_ptr<Collidable> pOtherCollidable)
 {
 	// Calculates distance of centers and sum of radii. Use squared values to avoid using sqrt().
 	double fCentreDistSquared = (m_fvPosition - pOtherCollidable->getPosition()).squaredMagnitude();
@@ -105,7 +105,7 @@ bool Collidable::broadCollisionCheck(Collidable* const pOtherCollidable)
  * \param fOverlap Amount of overlap between the two objects.
  * \param pfvContactPoint Pointer to contact point vector.
  */
-void Collidable::resolveCollision(Collidable* pOtherCollidable, Vector2D<double>* pfvCollisionNormal, double fOverlap, Vector2D<double>* pfvContactPoint)
+void Collidable::resolveCollision(shared_ptr<Collidable> pOtherCollidable, Vector2D<double> * pfvCollisionNormal, double fOverlap, Vector2D<double> * pfvContactPoint)
 {
 	// Undoes the overlapping by moving back the other collidable.
 	pOtherCollidable->setPosition(pOtherCollidable->getPosition() + (*pfvCollisionNormal * fOverlap));
@@ -142,7 +142,7 @@ void Collidable::resolveCollision(Collidable* pOtherCollidable, Vector2D<double>
  * \param fvImpulse Impulse vector.
  * \param pfvContactPoint Pointer to contact point vector.
  */
-void Collidable::applyImpulse(Vector2D<double>* pfvImpulse, Vector2D<double>* pfvContactPoint)
+void Collidable::applyImpulse(Vector2D<double> * pfvImpulse, Vector2D<double> * pfvContactPoint)
 {
 	Vector2D<double> ra = *pfvContactPoint - m_fvPosition;
 	

@@ -17,9 +17,9 @@ using namespace std;
 class CollidableFactory
 {
 protected:
-	Collidable* generateCollidable(const rapidxml::xml_node<>* pNode);
+	shared_ptr<Collidable> generateCollidable(const rapidxml::xml_node<>* pNode);
 public:
-	Collidable* makeCollidable(const rapidxml::xml_node<>* pNode);
+	shared_ptr<Collidable> makeCollidable(const rapidxml::xml_node<>* pNode);
 };
 
 #endif

@@ -2,15 +2,15 @@
 
 #include "collidableFactory.h"
 
-Collidable* CollidableFactory::generateCollidable(const rapidxml::xml_node<>* pNode)
+shared_ptr<Collidable> CollidableFactory::generateCollidable(const rapidxml::xml_node<>* pNode)
 {
-	Collidable* pCollidable;
+	shared_ptr<Collidable> pCollidable;
 	pCollidable = makeCollidable(pNode);
 
 	return pCollidable;
 }
 
-Collidable* CollidableFactory::makeCollidable(const rapidxml::xml_node<>* pNode)
+shared_ptr<Collidable> CollidableFactory::makeCollidable(const rapidxml::xml_node<>* pNode)
 {
 	TextureManager *textureManager = TextureManager::getInstance();
 	string sCollidableType = pNode->first_attribute("type")->value();
@@ -23,7 +23,7 @@ Collidable* CollidableFactory::makeCollidable(const rapidxml::xml_node<>* pNode)
 		double fHalfExtentY = atof(pNode->first_attribute("halfExtentY")->value());
 		double fOrientation = atof(pNode->first_attribute("orientation")->value());
 
-		Collidable* pCollidable = new OBB(fPosX, fPosY, fHalfExtentX, fHalfExtentY, fOrientation * 3.14159 / 180);
+		shared_ptr<Collidable> pCollidable(new OBB(fPosX, fPosY, fHalfExtentX, fHalfExtentY, fOrientation * 3.14159 / 180));
 		return pCollidable;
 	}
 	if (sCollidableType == "circle")
@@ -32,7 +32,7 @@ Collidable* CollidableFactory::makeCollidable(const rapidxml::xml_node<>* pNode)
 		double fPosY = atof(pNode->first_attribute("posY")->value());
 		double fRadius = atof(pNode->first_attribute("radius")->value());
 
-		Collidable* pCollidable = new Circle(fPosX, fPosY, fRadius);
+		shared_ptr<Collidable> pCollidable(new Circle(fPosX, fPosY, fRadius));
 		return pCollidable;
 	}
 	if (sCollidableType == "tyre")
@@ -40,7 +40,7 @@ Collidable* CollidableFactory::makeCollidable(const rapidxml::xml_node<>* pNode)
 		double fPosX = atof(pNode->first_attribute("posX")->value());
 		double fPosY = atof(pNode->first_attribute("posY")->value());
 
-		Collidable* pCollidable = new Tyre(fPosX, fPosY);
+		shared_ptr<Collidable> pCollidable(new Tyre(fPosX, fPosY));
 		pCollidable->setTexture(textureManager->getTexturePointer(sCollidableType));
 		return pCollidable;
 	}
@@ -51,7 +51,7 @@ Collidable* CollidableFactory::makeCollidable(const rapidxml::xml_node<>* pNode)
 		double fSize = atof(pNode->first_attribute("size")->value());
 		double fOrientation = atof(pNode->first_attribute("orientation")->value());
 
-		Collidable* pCollidable = new Box(fPosX, fPosY, fSize, fOrientation * 3.14159 / 180);
+		shared_ptr<Collidable> pCollidable(new Box(fPosX, fPosY, fSize, fOrientation * 3.14159 / 180));
 		pCollidable->setTexture(textureManager->getTexturePointer(sCollidableType));
 		return pCollidable;
 	}

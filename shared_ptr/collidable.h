@@ -29,7 +29,7 @@ using namespace std;
 class Circle;
 class OBB;
 
-class Collidable : public sf::Drawable
+class Collidable : public sf::Drawable, public enable_shared_from_this<Collidable>
 {
 protected:
 	double m_fInverseMass;  //!< Inverse of collidable's mass.
@@ -39,7 +39,6 @@ protected:
 
 	// Linear components.
 	Vector2D<double> m_fvPosition; //!< Center position vector.
-	Vector2D<double> m_fvVelocity; //!< Velocity vector.
 	Vector2D<double> m_fvAcceleration; //!< Acceleration vector.
 	Vector2D<double> m_fvThrust; //!< Thrust vector.
 	
@@ -54,27 +53,28 @@ protected:
 	sf::Sprite m_sprite; //!< Sprite to be drawn to the window.
 
 	//! Performs a broad and less costly collision check with another collidable.
-	bool broadCollisionCheck(Collidable* const pOtherCollidable);
+	bool broadCollisionCheck(shared_ptr<Collidable> pOtherCollidable);
 	//! Resolves collision between two colliding objects. 
-	void resolveCollision(Collidable* pOtherCollidable, Vector2D<double>* pfvCollisionNormal, double fOverlap, Vector2D<double>* pfvContactPoint);
+	void resolveCollision(shared_ptr<Collidable> pOtherCollidable, Vector2D<double> * pfvCollisionNormal, double fOverlap, Vector2D<double> * pfvContactPoint);
 	//! Applies an impulse (sudden change of velocity) to the object.
-	void applyImpulse(Vector2D<double>* pfvImpulse, Vector2D<double>* pfvContactPoint);
+	void applyImpulse(Vector2D<double> * pfvImpulse, Vector2D<double> * pfvContactPoint);
 
 public:
 	double m_fAngularVelocity; //!< protected
 	
-	
+	Vector2D<double> m_fvVelocity; //!< Velocity vector.
+
 	Collidable(); //!< Basic contructor.
-	void update(float elapsed); //!< Update method to be called every frame of the game.
+	virtual void update(float elapsed); //!< Update method to be called every frame of the game.
 	virtual void updatePoints() {}; //!< to be removed.
 	void updateSprite(); //!< Updates the sprite position and orientation.
 	bool isMoving(); //!< Checks if the collidable is moving.
 	bool isRotating(); //!< Checks if the collidable is rotating.
 	
 	// Virtual methods.
-	virtual void checkCollision(Collidable* const collidable) = 0; //!< Virtual method to check collision with another Collidable object.
-	virtual void checkCollision(Circle* const circle) = 0; //!< Virtual method to check collision with a Circle object.
-	virtual void checkCollision(OBB* const obb) = 0; //!< Virtual method to check collision with an OBB object.
+	virtual void checkCollision(const shared_ptr<Collidable> collidable) = 0; //!< Virtual method to check collision with another Collidable object.
+	virtual void checkCollision(const shared_ptr<Circle> circle) = 0; //!< Virtual method to check collision with a Circle object.
+	virtual void checkCollision(const shared_ptr<OBB> obb) = 0; //!< Virtual method to check collision with an OBB object.
 	virtual void setTexture(shared_ptr<sf::Texture> texture) = 0; //!< Virtual method to assign a texture to the object's sprite.
 
 	// Setter and getters
