@@ -23,10 +23,12 @@ using namespace sf;
 int main()
 {
 
-	RenderWindow window(VideoMode(1200, 700), "IMAT2605 Course work");
+	RenderWindow window(VideoMode(700, 700), "IMAT2605 Course work");
 	window.setVerticalSyncEnabled(true);
 
-	bool start = false;
+	
+
+
 
 
 	sf::Font font;
@@ -41,7 +43,8 @@ int main()
 	// Instantiats game.
 	Game game;
 	game.setMenuSize(window.getSize().x, window.getSize().y);
-	
+	game.start();
+
 	sf::View menuView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	menuView.setViewport(sf::FloatRect(0, 0, 1, 1));
 
@@ -67,9 +70,8 @@ int main()
 			if (event.type == Event::KeyPressed)
 				game.processKeyPress(event.key.code);
 		}
-		start = game.m_startGame;
-
-	} while (!start);
+		
+	} while (!game.m_startGame);
 
 
 	

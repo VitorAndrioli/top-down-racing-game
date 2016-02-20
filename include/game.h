@@ -13,9 +13,6 @@
 #include "vector2D.h"
 #include "menu.h"
 #include "rapidxml.hpp"
-#include "rapidxml_iterators.hpp"
-#include "rapidxml_print.hpp"
-#include "rapidxml_utils.hpp"
 #include <array>
 #include <iostream>
 #include <fstream>
@@ -38,9 +35,10 @@ public:
 	void setMode(bool mode);
 	bool m_startGame;
 
-	TextureManager m_textureManager;
+	TextureManager *m_pTextureManager;
 	std::vector<Collidable*> obstacles;
 	Game(); //!< Constructor
+	void start();
 	void draw(RenderTarget &target, RenderStates states) const; //!< Draw function (from sf::Drawable)
 	void update(float timestep); //!< Update all entities in the game
 	void processKeyPress(Keyboard::Key code); //!< Action any key presses

@@ -18,7 +18,7 @@ OBB::OBB()
  * \param fRadius Radius of the object.
  * \param fRestitudion Restitution coefficient of object. Optional and, if omitted, set to 1.
  */
-OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution)
+OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution)	
 {
 	// Assigns paramenters to respective member variables.
 	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);

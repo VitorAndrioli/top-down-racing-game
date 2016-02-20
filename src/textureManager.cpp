@@ -3,15 +3,23 @@
 
 using namespace std;
 
-TextureManager::TextureManager()
+bool TextureManager::m_bInstanceFlag = false;
+TextureManager* TextureManager::textureManager = nullptr;
+TextureManager* TextureManager::getInstance()
 {
+	if (!m_bInstanceFlag)
+	{
+		textureManager = new TextureManager;
+		m_bInstanceFlag = true;
+	}
+	return textureManager;
 }
 
-void TextureManager::loadTextures()
+TextureManager::TextureManager()
 {
 	sf::Texture texture1, texture2, texture3, texture4, texture5, texture6, texture7, texture8;
-	
-	texture1.loadFromFile("assets/img/car_01.png");
+
+	/*texture1.loadFromFile("assets/img/car_01.png");
 	texture2.loadFromFile("assets/img/car_02.png");
 	texture3.loadFromFile("assets/img/car_03.png");
 	texture4.loadFromFile("assets/img/car_04.png");
@@ -27,29 +35,36 @@ void TextureManager::loadTextures()
 	m_aTexture.push_back(texture5);
 	m_aTexture.push_back(texture6);
 	m_aTexture.push_back(texture7);
-	m_aTexture.push_back(texture8);
+	m_aTexture.push_back(texture8);*/
 }
 
-sf::Texture TextureManager::getImage(const string name)
+void TextureManager::loadTextures()
 {
-	for (std::map<std::string, sf::Texture>::const_iterator it = images_.begin();	it != images_.end(); ++it)
+	
+}
+
+sf::Texture* TextureManager::getImage(const string name)
+{
+	string dir = "assets/img/";
+	string extension = ".png";
+	for (std::map< std::string, sf::Texture >::iterator it = m_textures.begin(); it != m_textures.end(); ++it)
 	{
 		if (name == it->first)
 		{
-			return it->second;
+			return &(it->second);
 		}
 	}
-
+	
 	// The image doesen't exists. Create it and save it.
 	sf::Texture texture;
-	if (texture.loadFromFile(name))
+	if (texture.loadFromFile(dir + name + extension))
 	{
-		images_[name] = texture;
-		return images_[name];
+		m_textures[name] = texture;
+		return &m_textures[name];
 	}
-
-	images_[name] = texture;
-	return images_[name];
+	
+	m_textures[name] = texture;
+	return &m_textures[name];
 }
 
 

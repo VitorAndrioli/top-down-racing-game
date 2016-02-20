@@ -23,9 +23,14 @@ Game::Game()
 	m_bPaused = true;
 	m_bMultiPlayer = false;
 
-	m_textureManager.loadTextures();
+}
 
-	m_background.setTexture(m_textureManager.m_aTexture.at(7));
+void Game::start()
+{
+	m_pTextureManager = TextureManager::getInstance();
+
+	CollidableFactory collidableFactory;
+	m_background.setTexture(*m_pTextureManager->getImage("track"));
 	
 	rapidxml::xml_document<> doc;
 	ifstream file(".\\assets\\xml\\obstacles.xml");
@@ -37,13 +42,11 @@ Game::Game()
 	rapidxml::xml_node<>* pRoot = doc.first_node();
 	for (rapidxml::xml_node<> *pNode = pRoot->first_node("collidable"); pNode; pNode = pNode->next_sibling())
 	{
-		Collidable * newObstacle = CollidableFactory::NewCollidable(pNode, &m_textureManager);
+		Collidable* newObstacle = collidableFactory.makeCollidable(pNode);
 		if (newObstacle != NULL)
 		{
 			obstacles.push_back(newObstacle);
-			//obstacles.back()->setTexture(&m_textureManager.m_aTexture.at(1));
 		}
-		//*/
 	}
 
 	m_startGame = false;
@@ -54,14 +57,14 @@ void Game::setMode(bool mode)
 	m_bMultiPlayer = m_menu.m_bMultiPlayer;
 	
 	player1 = Car(50, 350, -90 * TO_RADIANS);
-	player1.setTexture(&m_textureManager.m_aTexture.at(1));
-	player1.setWheelTexture(&m_textureManager.m_aTexture.at(4));
+	player1.setTexture(m_pTextureManager->getImage("car_01"));
+	player1.setWheelTexture(m_pTextureManager->getImage("car_tyre"));
 
 	if (m_bMultiPlayer)
 	{
 		player2 = Car(150, 350, -90 * TO_RADIANS);
-		player2.setTexture(&m_textureManager.m_aTexture.at(2));
-		player2.setWheelTexture(&m_textureManager.m_aTexture.at(4));
+		player2.setTexture(m_pTextureManager->getImage("car_02"));
+		player2.setWheelTexture(m_pTextureManager->getImage("car_tyre"));
 	}
 
 	m_startGame = true;

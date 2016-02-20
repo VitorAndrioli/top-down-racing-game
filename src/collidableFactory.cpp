@@ -2,9 +2,18 @@
 
 #include "collidableFactory.h"
 
-Collidable * CollidableFactory::NewCollidable(const rapidxml::xml_node<>* pNode, TextureManager * textureManager)
+Collidable * CollidableFactory::generateCollidable(const rapidxml::xml_node<>* pNode)
 {
+	Collidable * collidable;
+	collidable = makeCollidable(pNode);
 
+	return collidable;
+}
+
+Collidable * CollidableFactory::makeCollidable(const rapidxml::xml_node<>* pNode)
+{
+	TextureManager *textureManager = TextureManager::getInstance();
+	Collidable *collidable = nullptr;
 	string sCollidableType = pNode->first_attribute("type")->value();
 
 	if (sCollidableType == "obb")
@@ -14,28 +23,23 @@ Collidable * CollidableFactory::NewCollidable(const rapidxml::xml_node<>* pNode,
 		double fHalfExtentX = atof(pNode->first_attribute("halfExtentX")->value());
 		double fHalfExtentY = atof(pNode->first_attribute("halfExtentY")->value());
 		double fOrientation = atof(pNode->first_attribute("orientation")->value());
-		
-		OBB * obb = new OBB(fPosX, fPosY, fHalfExtentX, fHalfExtentY, fOrientation * 3.14159 / 180);
-		obb->setTexture(&(textureManager->m_aTexture.at(6)));
-		return obb;
+
+		collidable = new OBB(fPosX, fPosY, fHalfExtentX, fHalfExtentY, fOrientation * 3.14159 / 180);
 	}
 	if (sCollidableType == "circle")
 	{
 		double fPosX = atof(pNode->first_attribute("posX")->value());
 		double fPosY = atof(pNode->first_attribute("posY")->value());
 		double fRadius = atof(pNode->first_attribute("radius")->value());
-		
-		return new Circle(fPosX, fPosY, fRadius);
+
+		collidable = new Circle(fPosX, fPosY, fRadius);
 	}
 	if (sCollidableType == "tyre")
 	{
 		double fPosX = atof(pNode->first_attribute("posX")->value());
 		double fPosY = atof(pNode->first_attribute("posY")->value());
-		
-		Tyre * tyre = new Tyre(fPosX, fPosY);
-		tyre->setTexture(&(textureManager->m_aTexture.at(5)));
-		
-		return tyre;
+
+		collidable = new Tyre(fPosX, fPosY);
 	}
 	if (sCollidableType == "box")
 	{
@@ -44,11 +48,9 @@ Collidable * CollidableFactory::NewCollidable(const rapidxml::xml_node<>* pNode,
 		double fSize = atof(pNode->first_attribute("size")->value());
 		double fOrientation = atof(pNode->first_attribute("orientation")->value());
 
-		Box * box = new Box(fPosX, fPosY, fSize, fOrientation * 3.14159 / 180);
-		box->setTexture(&(textureManager->m_aTexture.at(6)));
-		return box;
+		collidable = new Box(fPosX, fPosY, fSize, fOrientation * 3.14159 / 180);
 	}
-	return NULL;
-
+	collidable->setTexture(textureManager->getImage(sCollidableType));
+	return collidable;
 }
 

@@ -21,28 +21,22 @@ Menu::Menu()
 	m_instructions.setString(instructionsString);
 	m_instructions.setOrigin(m_instructions.getLocalBounds().width / 2, m_instructions.getLocalBounds().height / 2);
 
+	TextureManager *textureManager = TextureManager::getInstance();
 
-
-	m_initialMenuBackgroundTexture.loadFromFile(".\\assets\\img\\box.png");
-	m_initialMenuBackground.setTexture(m_initialMenuBackgroundTexture);
-	m_initialMenuBackground.setOrigin(m_initialMenuBackgroundTexture.getSize().x / 2, m_initialMenuBackgroundTexture.getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
+	m_initialMenuBackground.setTexture(*textureManager->getImage("menu_background"));
+	m_initialMenuBackground.setOrigin(m_initialMenuBackground.getTexture()->getSize().x / 2, m_initialMenuBackground.getTexture()->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
 	
-
-
 	m_pausedBackground.setSize(Vector2f(m_instructions.getLocalBounds().width + 15, m_instructions.getLocalBounds().height + 25));
 	m_pausedBackground.setFillColor(sf::Color(0, 0, 0, 120));
 	m_pausedBackground.setOrigin(m_pausedBackground.getSize().x / 2, m_pausedBackground.getSize().y / 2);
-
+		
+	m_initialMenuSprite.setTexture(*textureManager->getImage("menu"));
+	m_initialMenuSprite.setOrigin(m_initialMenuSprite.getTexture()->getSize().x / 2, m_initialMenuSprite.getTexture()->getSize().y / 4); // Sets sprite's center as its origin (instead of its corner).
+	m_initialMenuSprite.scale(100.f / m_initialMenuSprite.getTexture()->getSize().x, 200.f / m_initialMenuSprite.getTexture()->getSize().y); // Scales texture to make sure it fits the car.
 	
-	m_initialMenuTexture.loadFromFile(".\\assets\\img\\menu.png");
-	m_initialMenuSprite.setTexture(m_initialMenuTexture);
-	m_initialMenuSprite.setOrigin(m_initialMenuTexture.getSize().x / 2, m_initialMenuTexture.getSize().y / 4); // Sets sprite's center as its origin (instead of its corner).
-	m_initialMenuSprite.scale(100.f / m_initialMenuTexture.getSize().x, 200.f / m_initialMenuTexture.getSize().y); // Scales texture to make sure it fits the car.
-	
-	m_arrowTexture.loadFromFile(".\\assets\\img\\arrow.png");
-	m_arrowSprite.setTexture(m_arrowTexture);
-	m_arrowSprite.setOrigin(m_arrowTexture.getSize().x / 2, m_arrowTexture.getSize().y / 4); // Sets sprite's center as its origin (instead of its corner).
-	m_arrowSprite.scale(15.f / m_arrowTexture.getSize().x, 10.f / m_arrowTexture.getSize().y); // Scales texture to make sure it fits the car.
+	m_arrowSprite.setTexture(*textureManager->getImage("arrow"));
+	m_arrowSprite.setOrigin(m_arrowSprite.getTexture()->getSize().x / 2, m_arrowSprite.getTexture()->getSize().y / 4); // Sets sprite's center as its origin (instead of its corner).
+	m_arrowSprite.scale(15.f / m_arrowSprite.getTexture()->getSize().x, 10.f / m_arrowSprite.getTexture()->getSize().y); // Scales texture to make sure it fits the car.
 
 
 	
@@ -92,7 +86,7 @@ void Menu::setSize(double x, double y)
 	
 	m_arrowSprite.move((x / 2) - 60, (y / 2) - 20);
 
-	m_initialMenuBackground.scale(x / m_initialMenuBackgroundTexture.getSize().x, y / m_initialMenuBackgroundTexture.getSize().y); // Scales texture to make sure it fits the car.
+	m_initialMenuBackground.scale(x / m_initialMenuBackground.getTexture()->getSize().x, y / m_initialMenuBackground.getTexture()->getSize().y); // Scales texture to make sure it fits the car.
 	m_initialMenuBackground.move(x / 2, y / 2);
 	
 }

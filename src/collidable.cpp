@@ -6,25 +6,20 @@
 using namespace std;
 
 //! Initializes all relevant variables.
-Collidable::Collidable()
+Collidable::Collidable() : 
+	m_fvVelocity(0, 0), 
+	m_fvAcceleration(0, 0), 
+	m_fvThrust(0, 0), 
+	m_fOrientation(0), 
+	m_fInverseMass(0), 
+	m_fAngularVelocity(0), 
+	m_fAngularAcceleration(0), 
+	m_fTorque(0), 
+	m_fInverseMomentOfInertia(0),
+	m_fRadius(1),
+	m_fFrictionCoefficient(0), 
+	m_fRestitution(1)
 {
-	// Linear components
-	m_fvVelocity.setX(0); m_fvVelocity.setY(0);
-	m_fvAcceleration.setX(0); m_fvAcceleration.setY(0);
-	m_fvThrust.setX(0); m_fvThrust.setY(0);
-	setMass(0);
-	
-	// Angular components
-	m_fOrientation = 0;
-	m_fAngularVelocity = 0;
-	m_fAngularAcceleration = 0;
-	m_fTorque = 0;
-	m_fInverseMomentOfInertia = 0;
-
-	m_fRadius = 1;
-	m_fFrictionCoefficient = 0;
-	m_fRestitution = 1;
-
 	m_vaPoints.setPrimitiveType(sf::LinesStrip); // to be removed.
 }
 

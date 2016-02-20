@@ -6,6 +6,8 @@
 #include <streambuf>
 #include <iostream>
 
+#include "textureManager.h"
+
 using namespace sf;
 
 class Menu : public Drawable
@@ -22,13 +24,8 @@ public:
 	RectangleShape m_pausedBackground;
 	Text m_instructions;
 	
-	Texture m_initialMenuBackgroundTexture;
 	Sprite m_initialMenuBackground;
-	
-	Texture m_initialMenuTexture; 
 	Sprite m_initialMenuSprite;
-
-	Texture m_arrowTexture;
 	Sprite m_arrowSprite;
 
 	Font m_font;
