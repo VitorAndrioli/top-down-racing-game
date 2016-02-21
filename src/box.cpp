@@ -1,4 +1,7 @@
-//! \file box.cpp Implementation of Box class.
+/*!
+ * \file
+ * \brief Implementation of Box class.
+ */
 
 #include "box.h"
 
@@ -6,19 +9,19 @@ Box::Box()
 {
 }
 
-/*! Initializes the position, size and orientation with parameters received
- * and other member variables with the default values for box objects.
+/*! 
+ * Initializes the position, size and orientation with parameters 
+ * and assign default values to other member variables.
  * The orientation can be omitted in the instantiation of the object.
  *
  * \param fPosX,fPosY Coordinates for the position vector.
  * \param fSize Size of the box. It is always a square.
  * \param fOrientation Orientation of the box. If no value is passed, it will be set to zero.
- *
  */
 Box::Box(double fPosX, double fPosY, double fSize, double fOrientation)
 {
 	// Assigns paramenters to respective member variables.
-	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);
+	setPosition(fPosX, fPosY);
 	setHalfExtents(fSize, fSize); // Uses setter method to set half-extents and radius.
 	m_fOrientation = fOrientation;
 	// Assigns default values

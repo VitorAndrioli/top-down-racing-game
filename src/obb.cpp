@@ -1,36 +1,40 @@
-//! \file obb.cpp Implementation of OBB class.
+/*!
+ * \file
+ * \brief Implementation of OBB class.
+ */
 
 #include "obb.h"
-#include "circle.h"
 #include <array>
 
 OBB::OBB()
 {
 }
 
-/*! Initializes the position, half-extents, orientation and restitution coefficient with paramenters received.
+/*! 
+ * Initializes position, half-extents, orientation and restitution coefficient with paramenters.
  * The restitution coefficient can be omitted and, in this case, it will be set to 1 (fully elastic collision).
  *
  * \param fPosX,fPosY Coordinates for the position vector.
  * \param fHalfExtentX,fHalfExtentY X and Y values of object's half-extents vector.
- * \param fRadius Radius of the object.
+ * \param fRadius Radius of the object. Used for broad collision checks.
  * \param fRestitudion Restitution coefficient of object. Optional and, if omitted, set to 1.
  */
-OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution)	
+OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution) :
+	// Initialization list
+	m_fvHalfExtents(fHalfExtentX, fHalfExtentY)
 {
 	// Assigns paramenters to respective member variables.
-	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);
-	setHalfExtents(fHalfExtentX, fHalfExtentY);
+	setPosition(fPosX, fPosY);
 	m_fOrientation = fOrientation;
 	m_fRestitution = fRestitution;
 	// Assigns default values
 	setMass(0); // Makes the object immovable.
 	m_fFrictionCoefficient = 0; // As an immovable object, there is no friction coefficient.
 	m_fInverseMomentOfInertia = 0; // As an immovable object, there is no moment of inertia.
-	
 }
 
-/*! Used to solve "Double Dispatch" issue.
+/*!
+ * Method created to solve "Double Dispatch" issue.
  *
  * \param pCollidable Pointer to an instance of any subclass of Collidable.
  */
@@ -204,13 +208,14 @@ Vector2D<double> OBB::getHalfExtents()
 /*!
  * Use OBB's attributes to fit the texture into the shape.
  *
- * \param pTexture Pointer to an SFML texture object.
+ * \param pTexture Smart pointer to an SFML texture object.
  */
-void OBB::setTexture(shared_ptr<sf::Texture> texture)
+void OBB::setTexture(shared_ptr<sf::Texture> pTexture)
 {
-	m_sprite.setTexture(*texture); // Sets OBB's sprite texture.
-	m_sprite.setOrigin(texture->getSize().x / 2, texture->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
-	m_sprite.scale(m_fvHalfExtents.getX() * 2 / texture->getSize().x, m_fvHalfExtents.getY() * 2 / texture->getSize().y); // Scales texture to make sure it fits the OBB.
+	if (!pTexture) return; // Checks if pointer is not null.
+	m_sprite.setTexture(*pTexture); // Sets OBB's sprite texture.
+	m_sprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
+	m_sprite.scale(m_fvHalfExtents.getX() * 2 / pTexture->getSize().x, m_fvHalfExtents.getY() * 2 / pTexture->getSize().y); // Scales texture to make sure it fits the OBB.
 
 	updateSprite();
 }

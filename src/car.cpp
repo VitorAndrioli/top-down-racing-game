@@ -1,9 +1,10 @@
-//! \file car.cpp Implementation of Car class.
+/*!
+* \file
+* \brief Implementation of Car class.
+*/
 
 #include <SFML\Graphics.hpp>
 #include "car.h"
-#define _USE_MATH_DEFINES
-#include <math.h>
 #include <iostream>
 
 Car::Car()
@@ -11,20 +12,27 @@ Car::Car()
 
 }
 
-/*! Initializes the position and orientation with parameters received
- * and other member variables with the default values for box objects.
- * The orientation can be omitted in the instantiation of the object and.
+/*!
+ * Initializes position and orientation with parameters
+ * and  and assing default values to other member variables.
  *
  * \param fPosX,fPosY Coordinates for the position vector.
- * \param fOrientation Orientation of the box. If no value is passed, it will be set to zero.
- *
+ * \param fOrientation Orientation of the car. If no value is passed, it will be set to zero.
  */
-Car::Car(double fPosX, double fPosY, double fOrientation)
+Car::Car(double fPosX, double fPosY, double fOrientation) :
+	// Initialization list.
+	m_bMovingForward(false),
+	m_bReversing(false),
+	m_bAccelerating(false),
+	m_bTurningLeft(false),
+	m_bTurningRight(false),
+	m_bBraking(false),
+	m_bBrakingSprite(false)
 {
 	// Assigns paramenters to respective member variables.
-	m_fvPosition.setX(fPosX); m_fvPosition.setY(fPosY);
+	setPosition(fPosX, fPosY);
 	m_fOrientation = fOrientation;
-	m_fSteeringOrientation = fOrientation; // Orientation of the front wheel are, at start, the same as the car.
+	m_fSteeringOrientation = fOrientation; // Orientation of the front wheels is, at start, the same as the car.
 	
 	// Assigns default values
 	setHalfExtents(CAR_HALF_EXTENT_X, CAR_HALF_EXTENT_Y); // Uses setter method to set half-extents and radius.
@@ -34,41 +42,33 @@ Car::Car(double fPosX, double fPosY, double fOrientation)
 	setMass(CAR_MASS);
 	m_fInverseMomentOfInertia = 12 / (getMass() * (CAR_HALF_EXTENT_X*CAR_HALF_EXTENT_X + CAR_HALF_EXTENT_Y*CAR_HALF_EXTENT_Y)); // Equation for moment of inertia for rectangles.
 
-	// Set every control boolean to false.
-	m_bMovingForward = false;
-	m_bReversing = false;
-	m_bAccelerating = false;
-	m_bTurningLeft = false;
-	m_bTurningRight = false;
-	m_bBraking = false;
-	m_bBrakingSprite = false;
-
 	m_vaPoints.resize(5); // to remove
 }
 
 /*!
  * Implements mechanics for cars (motion and forces). 
- * Uses "bicycle steering" for updating car`s position and orientation.
+ * Uses "Improved Euler" to update the velocity and
+ * "Bicycle Steering" model for updating the position and orientation.
  *
- * \param elapsed Time elapsed since last frame.
+ * \param fElapsed Time elapsed since last frame.
  */
 void Car::update(float fElapsed)
 {
 	// Checks for player`s input.
 	controlInput();
 
-	// Calculates the friction of the object, based on the velocity.
+	// Calculates the friction of the object, based on the mass.
 	Vector2D<double> fvFriction(getFrictionCoefficient() * getMass(), 0);
 	fvFriction.rotate(m_fvVelocity.getOrientation());
 	
+	// Calculates air friction of the object, based on the velocity.
 	Vector2D<double> fvAirFriction = (m_fvVelocity * 0.1);
 	// Uses F = m.a equation to calculate the acceleration of the object.
 	m_fvAcceleration = (m_fvThrust - fvAirFriction) * m_fInverseMass;
-
+	// Friction only acts once the car is moving.
 	if (isMoving()) m_fvAcceleration -= fvFriction;
 	
-	// Uses Euler method for integrating velocity.
-	// Uses Improved Euler to get the velocity and position of the object.
+	// Uses Improved Euler to calculate the velocity of the object.
 	Vector2D<double> fvPredictedVelocity = m_fvVelocity + m_fvAcceleration * fElapsed;
 	Vector2D<double> fvNewFriction = fvPredictedVelocity * getFrictionCoefficient();
 	Vector2D<double> fvPredictedAcceleration = (m_fvThrust - fvNewFriction) * m_fInverseMass;
@@ -96,9 +96,6 @@ void Car::update(float fElapsed)
 	// Car's position is the average of wheels' positions.
 	setPosition((fvFrontWheelPos + fvRearWheelPos) / 2);
 
-	// TO DO 
-	// Y displacement.
-
 	// Updates car's and wheels' orientation.
 	double fOldCarOrientation = m_fOrientation;
 	setOrientation( atan2((fvFrontWheelPos.getY() - fvRearWheelPos.getY()), (fvFrontWheelPos.getX() - fvRearWheelPos.getX())) );
@@ -107,8 +104,6 @@ void Car::update(float fElapsed)
 	// Updates car's sprites.
 	updateSprite();
 	updatePoints(); // to remove.
-
-	//cout << m_fvVelocity.getOrientation() * TO_DEGREES << " | " << fvFriction.getOrientation() << endl;
 }
 
 /*!
@@ -184,10 +179,11 @@ void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
  * Use car's attributes to fit the texture into the shape. 
  * The texture is divided in 2: A "normal" one and one with braking lights on, thus, the texture is managed as to draw only half of it.
  *
- * \param pTexture Pointer to an SFML texture object.
+ * \param pTexture Smart pointer to an SFML texture object.
  */
 void Car::setTexture(shared_ptr<sf::Texture> pTexture)
 {
+	if (!pTexture) return; // Checks if pointer is not null.
 	m_sprite.setTexture(*pTexture); // Sets car's sprite texture.
 	m_sprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 4); // Sets sprite's center as its origin (instead of its corner).
 	m_sprite.setTextureRect(sf::IntRect(0, 0, pTexture->getSize().x, pTexture->getSize().y / 2)); // At first use non braking half of the texture.
@@ -197,20 +193,21 @@ void Car::setTexture(shared_ptr<sf::Texture> pTexture)
 }
 
 /*!
- * Use car's default values to fit the texture into the shape.
+ * Use car's default values to fit the wheels texture into the shape.
  *
- * \param pTexture Pointer to an SFML texture object.
+ * \param pTexture Smart pointer to an SFML texture object.
  */
-void Car::setWheelTexture(shared_ptr<sf::Texture> texture)
+void Car::setWheelTexture(shared_ptr<sf::Texture> pTexture)
 {
+	if (!pTexture) return; // Checks if pointer is not null.
 	// Sets right wheel texture.
-	m_frontRightWheel.setTexture(*texture); // Sets right wheel's sprite texture.
-	m_frontRightWheel.setOrigin(texture->getSize().x / 2, texture->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
-	m_frontRightWheel.scale(WHEEL_LENGHT / texture->getSize().x, WHEEL_WIDTH / texture->getSize().y); // Scales texture to make sure it fits the car.
+	m_frontRightWheel.setTexture(*pTexture); // Sets right wheel's sprite texture.
+	m_frontRightWheel.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
+	m_frontRightWheel.scale(WHEEL_LENGHT / pTexture->getSize().x, WHEEL_WIDTH / pTexture->getSize().y); // Scales texture to make sure it fits the car.
 	// Sets right wheel texture.
-	m_frontLeftWheel.setTexture(*texture);
-	m_frontLeftWheel.setOrigin(texture->getSize().x / 2, texture->getSize().y / 2);
-	m_frontLeftWheel.scale(WHEEL_LENGHT / texture->getSize().x, WHEEL_WIDTH / texture->getSize().y);
+	m_frontLeftWheel.setTexture(*pTexture);
+	m_frontLeftWheel.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2);
+	m_frontLeftWheel.scale(WHEEL_LENGHT / pTexture->getSize().x, WHEEL_WIDTH / pTexture->getSize().y);
 
 	updateSprite();
 }
@@ -242,6 +239,6 @@ void Car::setVelocity(Vector2D<double> velocity)
 
 double Car::getFrictionCoefficient()
 {
-	if (m_bBraking) return 1.1;
+	if (m_bBraking) return CAR_REVERSE_FRICTION_COEFFICIENT;
 	else return m_fFrictionCoefficient;
 }

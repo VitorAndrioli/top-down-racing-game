@@ -5,6 +5,11 @@
 /*! \mainpage Course Work - IMAT2605
 * \brief Brief explanation
 * More details explanation
+*
+*/
+/*
+* \dir /assets/img
+* \brief oioioi
 */
 
 

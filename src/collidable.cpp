@@ -1,4 +1,7 @@
-//! \file collidable.cpp Implementation of Collidable class.
+/*!
+* \file
+* \brief Implementation of Collidable class.
+*/
 
 #include "collidable.h"
 #include <iostream>
@@ -24,22 +27,21 @@ Collidable::Collidable() :
 /*!
  * Implements basic mechanics for movable objects (motion and forces).
  *
- * \param elapsed Time elapsed since last frame.
+ * \param fElapsed Time elapsed since last frame.
  */
 void Collidable::update(float fElapsed)
 {
-	// Calculates the friction of the object, based on the velocity.
+	// Calculates friction of the object, based on the mass.
 	Vector2D<double> fvFriction(5.5 * getMass(), 0);
 	fvFriction.rotate(m_fvVelocity.getOrientation());
 
+	// Calculates air friction of the object, based on the velocity.
 	Vector2D<double> fvAirFriction = (m_fvVelocity * getFrictionCoefficient());
 	// Uses F = m.a equation to calculate the acceleration of the object.
 	m_fvAcceleration = (m_fvThrust - fvAirFriction) *m_fInverseMass;
-
+	// Friction only acts once the car is moving.
 	if (isMoving()) m_fvAcceleration -= fvFriction;
 	
-	//cout << m_fvAcceleration.magnitude() << endl;
-
 	// Uses Improved Euler to get the velocity and position of the object.
 	Vector2D<double> fvPredictedVelocity = m_fvVelocity + m_fvAcceleration * fElapsed;
 	Vector2D<double> fvNewFriction = fvPredictedVelocity * getFrictionCoefficient();
@@ -48,7 +50,6 @@ void Collidable::update(float fElapsed)
 	setVelocity(m_fvVelocity + (m_fvAcceleration + fvPredictedAcceleration) * 0.5 * fElapsed);
 	m_fvPosition += m_fvVelocity * fElapsed;;
 
-	
 	// Calculates angular components.
 	double airFriction = m_fAngularVelocity * 1;
 	double friction = 0.1 * getMass();
@@ -60,17 +61,11 @@ void Collidable::update(float fElapsed)
 	
 	m_fAngularVelocity += m_fAngularAcceleration * fElapsed;
 	m_fOrientation += m_fAngularVelocity * fElapsed;
-	
+	if (abs(m_fAngularVelocity) < 1) m_fAngularVelocity = 0;
+
 	// Updates sprite.
 	updateSprite();
 	updatePoints(); // to be removed
-
-	if (abs(m_fAngularVelocity) < 1) m_fAngularVelocity = 0;
-
-	//if (m_fAngularVelocity != 0)	cout << m_fAngularAcceleration << " | " << friction << endl;
-
-
-	
 }
 
 void Collidable::updateSprite()
@@ -80,7 +75,7 @@ void Collidable::updateSprite()
 }
 
 /*!
- *	Use both collidable's radii to check if they are close enough to justify checking for collision.
+ *	Use both collidable's radii to check if they are close enough to justify checking for collisions.
  *
  * \param pOtherCollidable Pointer to oher Collidable object.
  *
@@ -144,11 +139,8 @@ void Collidable::resolveCollision(Collidable* pOtherCollidable, Vector2D<double>
  */
 void Collidable::applyImpulse(Vector2D<double>* pfvImpulse, Vector2D<double>* pfvContactPoint)
 {
-	Vector2D<double> ra = *pfvContactPoint - m_fvPosition;
-	
 	m_fvVelocity += (*pfvImpulse * m_fInverseMass);
-	//m_fAngularVelocity += ra.crossProduct(pfvImpulse) * m_fInverseMomentOfInertia;
-	//cout << (*pfvContactPoint).crossProduct(pfvImpulse) * m_fInverseMomentOfInertia << endl;
+	//m_fAngularVelocity += pfvContactPoint->crossProduct(pfvImpulse) * m_fInverseMomentOfInertia;
 }
 
 bool Collidable::isMoving()
@@ -158,11 +150,11 @@ bool Collidable::isMoving()
 
 bool Collidable::isRotating()
 {
-	return m_fAngularVelocity != 0;
+	return m_fAngularVelocity != 0.f;
 }
 
 /*!
- * Draws object sprite to target.
+ * Draws object's sprite to target.
  *
  * \param target Target to which draw the sprite.
  * \param states States used for drawing to a RenderTarget.
@@ -177,6 +169,11 @@ void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 void Collidable::setPosition(Vector2D<double> position)
 {
 	m_fvPosition = position;
+}
+void Collidable::setPosition(double fPositionX, double fPositionY)
+{
+	m_fvPosition.setX(fPositionX);
+	m_fvPosition.setY(fPositionY);
 }
 Vector2D<double> Collidable::getPosition()
 {

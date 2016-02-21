@@ -1,7 +1,18 @@
-//! \file tyre.h Declaration of Tyre class.
 /*!
- * \class Tyre
- * \brief Tyre to be used as collidable obstacle in the game.
+* \file
+* \brief Declaration of Tyre class.
+*/
+
+/*!
+ * \class Tyre tyre.h "tyre.h"
+ * \brief Collidable object to be used in the game.
+ *
+ * All tyres have the same size and mass.
+ * The same texture is drawn to the screen.
+ *
+ * \author Vitor Augusto Andrioli
+ * \version 1.0
+ * \date 25/02/2016
  */
 
 #ifndef TYRE_H
@@ -18,8 +29,8 @@
 class Tyre : public Circle
 {
 public:
-	Tyre(); //!< Basic constructor. Does not initialize any member variable.
-	Tyre(double fPosX, double fPosY); //!< Constructor receiving position.
+	Tyre(); //!< Basic constructor.
+	Tyre(double fPosX, double fPosY); //!< Constructor initializing position.
 	~Tyre(); //!< Basic destructor
 };
 

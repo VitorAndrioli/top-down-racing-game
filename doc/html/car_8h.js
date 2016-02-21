@@ -6,6 +6,7 @@ var car_8h =
     [ "CAR_HALF_EXTENT_Y", "car_8h.html#a26b677f7d0fdb66225cd282fc5f78f41", null ],
     [ "CAR_MASS", "car_8h.html#a943b74531e79dd26cb2512db8018a9d6", null ],
     [ "CAR_RESTITUTION_COEFFICIENT", "car_8h.html#ac377acb448f4c9586bbb5ef499dc0f66", null ],
+    [ "CAR_REVERSE_FRICTION_COEFFICIENT", "car_8h.html#abbb78c76e755ee802d9f58d8a9660db4", null ],
     [ "FRONT_WHEEL_DISTANCE", "car_8h.html#afec66def355bc83c5de64085b5a55592", null ],
     [ "MAXIMUM_REVERSE_SPEED", "car_8h.html#aa8fb66b6541f2a0438bae23b79831921", null ],
     [ "MAXIMUM_SPEED", "car_8h.html#aa8e6af92411e0744251777f3133c69dd", null ],

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['node_5fiterator',['node_iterator',['../classrapidxml_1_1node__iterator.html',1,'rapidxml']]]
+  ['vector2d',['Vector2D',['../class_vector2_d.html',1,'']]],
+  ['vector2d_3c_20double_20_3e',['Vector2D&lt; double &gt;',['../class_vector2_d.html',1,'']]]
 ];

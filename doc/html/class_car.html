@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Racing game: Car Class Reference</title>
+<title>Race game: Car Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Racing game
+   <div id="projectname">Race game
    </div>
   </td>
  </tr>
@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -108,16 +109,18 @@ $(document).ready(function(){initNavTree('class_car.html','');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_car-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Car Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Controlable car to be used by the player.  
+<p>Controllable car to be used by the player.  
  <a href="class_car.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="car_8h_source.html">car.h</a>&gt;</code></p>
+<p><code>#include &quot;<a class="el" href="car_8h_source.html">car.h</a>&quot;</code></p>
 <div class="dynheader">
 Inheritance diagram for Car:</div>
 <div class="dyncontent">
@@ -131,54 +134,50 @@ Inheritance diagram for Car:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1c803f7c5038d3e31b368b0d0a35493c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c803f7c5038d3e31b368b0d0a35493c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a1c803f7c5038d3e31b368b0d0a35493c">Car</a> ()</td></tr>
-<tr class="memdesc:a1c803f7c5038d3e31b368b0d0a35493c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic constructor. Does not initialize any member variable. <br /></td></tr>
+<tr class="memitem:a1c803f7c5038d3e31b368b0d0a35493c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a1c803f7c5038d3e31b368b0d0a35493c">Car</a> ()</td></tr>
+<tr class="memdesc:a1c803f7c5038d3e31b368b0d0a35493c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic constructor.  <a href="#a1c803f7c5038d3e31b368b0d0a35493c">More...</a><br /></td></tr>
 <tr class="separator:a1c803f7c5038d3e31b368b0d0a35493c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab941f06b66d0b9b4a7d6f2ec72494660"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#ab941f06b66d0b9b4a7d6f2ec72494660">Car</a> (double fPosX, double fPosY, double fOrientation=0)</td></tr>
-<tr class="memdesc:ab941f06b66d0b9b4a7d6f2ec72494660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor receiving position and orientation.  <a href="#ab941f06b66d0b9b4a7d6f2ec72494660">More...</a><br /></td></tr>
+<tr class="memdesc:ab941f06b66d0b9b4a7d6f2ec72494660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing position and orientation.  <a href="#ab941f06b66d0b9b4a7d6f2ec72494660">More...</a><br /></td></tr>
 <tr class="separator:ab941f06b66d0b9b4a7d6f2ec72494660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7860fcfd5e75787d358128e04442464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#ab7860fcfd5e75787d358128e04442464">update</a> (float elapsed)</td></tr>
-<tr class="memdesc:ab7860fcfd5e75787d358128e04442464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override <a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a>'s update method. To be called every frame of the game.  <a href="#ab7860fcfd5e75787d358128e04442464">More...</a><br /></td></tr>
+<tr class="memdesc:ab7860fcfd5e75787d358128e04442464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override of <a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a>'s update method. To be called every frame of the game.  <a href="#ab7860fcfd5e75787d358128e04442464">More...</a><br /></td></tr>
 <tr class="separator:ab7860fcfd5e75787d358128e04442464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a179e5e7f3d69e65d1ffa582d32259791"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a179e5e7f3d69e65d1ffa582d32259791">setTexture</a> (sf::Texture *pTexture)</td></tr>
-<tr class="memdesc:a179e5e7f3d69e65d1ffa582d32259791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override <a class="el" href="class_o_b_b.html" title="Oriented Bounding Box (OBB) collidables to be used in the game. ">OBB</a>'s setTexture method.  <a href="#a179e5e7f3d69e65d1ffa582d32259791">More...</a><br /></td></tr>
-<tr class="separator:a179e5e7f3d69e65d1ffa582d32259791"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e1aac426beef99001e87be0fa541c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a73e1aac426beef99001e87be0fa541c8">setWheelTexture</a> (sf::Texture *pTexture)</td></tr>
-<tr class="memdesc:a73e1aac426beef99001e87be0fa541c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set front wheels texture.  <a href="#a73e1aac426beef99001e87be0fa541c8">More...</a><br /></td></tr>
-<tr class="separator:a73e1aac426beef99001e87be0fa541c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd60b234c10b8ca0c637069c9c341b7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd60b234c10b8ca0c637069c9c341b7a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#abd60b234c10b8ca0c637069c9c341b7a">setVelocity</a> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; fvVelocity)</td></tr>
-<tr class="memdesc:abd60b234c10b8ca0c637069c9c341b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates velocity. Checks for maximum and maximum reverse speed. <br /></td></tr>
+<tr class="memitem:a3269228385ef71469c7df8b0ee2a5eb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a3269228385ef71469c7df8b0ee2a5eb8">setTexture</a> (shared_ptr&lt; sf::Texture &gt; pTexture)</td></tr>
+<tr class="memdesc:a3269228385ef71469c7df8b0ee2a5eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override <a class="el" href="class_o_b_b.html" title="Oriented Bounding Box (OBB) collidables to be used in the game. ">OBB</a>'s setTexture method.  <a href="#a3269228385ef71469c7df8b0ee2a5eb8">More...</a><br /></td></tr>
+<tr class="separator:a3269228385ef71469c7df8b0ee2a5eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66998d226ab90d775da949077b4a3205"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a66998d226ab90d775da949077b4a3205">setWheelTexture</a> (shared_ptr&lt; sf::Texture &gt; pTexture)</td></tr>
+<tr class="memdesc:a66998d226ab90d775da949077b4a3205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set front wheels texture.  <a href="#a66998d226ab90d775da949077b4a3205">More...</a><br /></td></tr>
+<tr class="separator:a66998d226ab90d775da949077b4a3205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd60b234c10b8ca0c637069c9c341b7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#abd60b234c10b8ca0c637069c9c341b7a">setVelocity</a> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; fvVelocity)</td></tr>
+<tr class="memdesc:abd60b234c10b8ca0c637069c9c341b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates velocity. Checks for maximum and minimum normal and reverse speed.  <a href="#abd60b234c10b8ca0c637069c9c341b7a">More...</a><br /></td></tr>
 <tr class="separator:abd60b234c10b8ca0c637069c9c341b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47fe72f08097245751cd5c6eea31a9cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47fe72f08097245751cd5c6eea31a9cb"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a47fe72f08097245751cd5c6eea31a9cb">getFrictionCoefficient</a> ()</td></tr>
-<tr class="memdesc:a47fe72f08097245751cd5c6eea31a9cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns different coefficient for reverse gear. <br /></td></tr>
+<tr class="memitem:a47fe72f08097245751cd5c6eea31a9cb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a47fe72f08097245751cd5c6eea31a9cb">getFrictionCoefficient</a> ()</td></tr>
+<tr class="memdesc:a47fe72f08097245751cd5c6eea31a9cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns different coefficient for reverse gear.  <a href="#a47fe72f08097245751cd5c6eea31a9cb">More...</a><br /></td></tr>
 <tr class="separator:a47fe72f08097245751cd5c6eea31a9cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_o_b_b"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_o_b_b')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_o_b_b.html">OBB</a></td></tr>
 <tr class="memitem:af752af068c6fc1787f06556b6a71c929 inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#af752af068c6fc1787f06556b6a71c929">OBB</a> ()</td></tr>
 <tr class="separator:af752af068c6fc1787f06556b6a71c929 inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a500a3520c516eadca64a3f6f432be5 inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a9a500a3520c516eadca64a3f6f432be5">OBB</a> (double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution=1)</td></tr>
-<tr class="memdesc:a9a500a3520c516eadca64a3f6f432be5 inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor receiving the position, half extents, orientation and restitution coefficient of box.  <a href="#a9a500a3520c516eadca64a3f6f432be5">More...</a><br /></td></tr>
+<tr class="memdesc:a9a500a3520c516eadca64a3f6f432be5 inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing position, half extents, orientation and restitution coefficient of box.  <a href="#a9a500a3520c516eadca64a3f6f432be5">More...</a><br /></td></tr>
 <tr class="separator:a9a500a3520c516eadca64a3f6f432be5 inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e26b518d5780cc3295f98e0f6b1008c inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a6e26b518d5780cc3295f98e0f6b1008c">checkCollision</a> (<a class="el" href="class_collidable.html">Collidable</a> *pCollidable)</td></tr>
-<tr class="memdesc:a6e26b518d5780cc3295f98e0f6b1008c inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks collision with another <a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a>.  <a href="#a6e26b518d5780cc3295f98e0f6b1008c">More...</a><br /></td></tr>
-<tr class="separator:a6e26b518d5780cc3295f98e0f6b1008c inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83b103d909f21edb578bb3cd324362a9 inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a83b103d909f21edb578bb3cd324362a9">checkCollision</a> (<a class="el" href="class_circle.html">Circle</a> *pCircle)</td></tr>
-<tr class="memdesc:a83b103d909f21edb578bb3cd324362a9 inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks collision with an <a class="el" href="class_circle.html" title="Circular collidables to be used in the game. ">Circle</a>.  <a href="#a83b103d909f21edb578bb3cd324362a9">More...</a><br /></td></tr>
-<tr class="separator:a83b103d909f21edb578bb3cd324362a9 inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fa42a8b95bf471ef890d758e9ca5b36 inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a8fa42a8b95bf471ef890d758e9ca5b36">checkCollision</a> (<a class="el" href="class_o_b_b.html">OBB</a> *pOtherObb)</td></tr>
-<tr class="memdesc:a8fa42a8b95bf471ef890d758e9ca5b36 inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks collision with another <a class="el" href="class_o_b_b.html" title="Oriented Bounding Box (OBB) collidables to be used in the game. ">OBB</a>.  <a href="#a8fa42a8b95bf471ef890d758e9ca5b36">More...</a><br /></td></tr>
-<tr class="separator:a8fa42a8b95bf471ef890d758e9ca5b36 inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed0b0ab7a4a9b59da7eef8f876ebf8d inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a1ed0b0ab7a4a9b59da7eef8f876ebf8d">checkCollision</a> (<a class="el" href="class_collidable.html">Collidable</a> *const pCollidable)</td></tr>
+<tr class="memdesc:a1ed0b0ab7a4a9b59da7eef8f876ebf8d inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks collision with another <a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a>.  <a href="#a1ed0b0ab7a4a9b59da7eef8f876ebf8d">More...</a><br /></td></tr>
+<tr class="separator:a1ed0b0ab7a4a9b59da7eef8f876ebf8d inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd925b4f20a569a3e7736a90154e2b6e inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#acd925b4f20a569a3e7736a90154e2b6e">checkCollision</a> (<a class="el" href="class_circle.html">Circle</a> *const pCircle)</td></tr>
+<tr class="memdesc:acd925b4f20a569a3e7736a90154e2b6e inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks collision with an <a class="el" href="class_circle.html" title="Circular collidables to be used in the game. ">Circle</a>.  <a href="#acd925b4f20a569a3e7736a90154e2b6e">More...</a><br /></td></tr>
+<tr class="separator:acd925b4f20a569a3e7736a90154e2b6e inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77009de32a0f293f1fb14566aab1077e inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a77009de32a0f293f1fb14566aab1077e">checkCollision</a> (<a class="el" href="class_o_b_b.html">OBB</a> *const pOtherObb)</td></tr>
+<tr class="memdesc:a77009de32a0f293f1fb14566aab1077e inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks collision with another <a class="el" href="class_o_b_b.html" title="Oriented Bounding Box (OBB) collidables to be used in the game. ">OBB</a>.  <a href="#a77009de32a0f293f1fb14566aab1077e">More...</a><br /></td></tr>
+<tr class="separator:a77009de32a0f293f1fb14566aab1077e inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0367f78bef8252fc122cf1b0c22e332c inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a0367f78bef8252fc122cf1b0c22e332c">setHalfExtents</a> (double fHalfExtentX, double fHalfExtentY)</td></tr>
 <tr class="memdesc:a0367f78bef8252fc122cf1b0c22e332c inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets X and Y values of half-extents vector and update object`s radius.  <a href="#a0367f78bef8252fc122cf1b0c22e332c">More...</a><br /></td></tr>
 <tr class="separator:a0367f78bef8252fc122cf1b0c22e332c inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb95cc5ca2f703da43444f6a029d117b inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb95cc5ca2f703da43444f6a029d117b"></a>
 <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getHalfExtents</b> ()</td></tr>
 <tr class="separator:acb95cc5ca2f703da43444f6a029d117b inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d0c690a6d3825865b8dd4e023a7cec3 inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a9d0c690a6d3825865b8dd4e023a7cec3">setTexture</a> (sf::Texture *texture)</td></tr>
-<tr class="memdesc:a9d0c690a6d3825865b8dd4e023a7cec3 inherit pub_methods_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a texture to the object's sprite.  <a href="#a9d0c690a6d3825865b8dd4e023a7cec3">More...</a><br /></td></tr>
-<tr class="separator:a9d0c690a6d3825865b8dd4e023a7cec3 inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac623d403ed9428397c00ee5782eda59e inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#ac623d403ed9428397c00ee5782eda59e">setTexture</a> (shared_ptr&lt; sf::Texture &gt; pTexture)</td></tr>
+<tr class="separator:ac623d403ed9428397c00ee5782eda59e inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3103d775e6ba4b27a80263ea14826309 inherit pub_methods_class_o_b_b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3103d775e6ba4b27a80263ea14826309"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updatePoints</b> ()</td></tr>
 <tr class="separator:a3103d775e6ba4b27a80263ea14826309 inherit pub_methods_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,13 +191,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updatePoints</b> ()</
 <tr class="memitem:a656ce92dd3e3f1b1981eb79c97ed3115 inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a656ce92dd3e3f1b1981eb79c97ed3115">updateSprite</a> ()</td></tr>
 <tr class="memdesc:a656ce92dd3e3f1b1981eb79c97ed3115 inherit pub_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">to be removed.  <a href="#a656ce92dd3e3f1b1981eb79c97ed3115">More...</a><br /></td></tr>
 <tr class="separator:a656ce92dd3e3f1b1981eb79c97ed3115 inherit pub_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d46b697385b10bc9447f1ac18a587a6 inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d46b697385b10bc9447f1ac18a587a6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6">isMoving</a> ()</td></tr>
-<tr class="memdesc:a8d46b697385b10bc9447f1ac18a587a6 inherit pub_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the collidable is moving. <br /></td></tr>
+<tr class="memitem:a8d46b697385b10bc9447f1ac18a587a6 inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6">isMoving</a> ()</td></tr>
+<tr class="memdesc:a8d46b697385b10bc9447f1ac18a587a6 inherit pub_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the collidable is moving.  <a href="#a8d46b697385b10bc9447f1ac18a587a6">More...</a><br /></td></tr>
 <tr class="separator:a8d46b697385b10bc9447f1ac18a587a6 inherit pub_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac30412922899257b1ad166dd444da2e inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#aac30412922899257b1ad166dd444da2e">isRotating</a> ()</td></tr>
+<tr class="memdesc:aac30412922899257b1ad166dd444da2e inherit pub_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the collidable is rotating.  <a href="#aac30412922899257b1ad166dd444da2e">More...</a><br /></td></tr>
+<tr class="separator:aac30412922899257b1ad166dd444da2e inherit pub_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae32eb0a55753347190758d00e403c7e8 inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae32eb0a55753347190758d00e403c7e8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; fvPosition)</td></tr>
 <tr class="separator:ae32eb0a55753347190758d00e403c7e8 inherit pub_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a510861fa7a871c0036670ada663fb296 inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a510861fa7a871c0036670ada663fb296"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (double fPositionX, double fPositionY)</td></tr>
+<tr class="separator:a510861fa7a871c0036670ada663fb296 inherit pub_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6355717261e9475643232f31ec46424 inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6355717261e9475643232f31ec46424"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setVelocity</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; fvVelocity)</td></tr>
 <tr class="separator:af6355717261e9475643232f31ec46424 inherit pub_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -256,138 +260,145 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getRadius</b> ()</t
 <tr class="memitem:a4368969a86c2e6fe908bfdd7ae8f7908 inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4368969a86c2e6fe908bfdd7ae8f7908"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getInverseInertia</b> ()</td></tr>
 <tr class="separator:a4368969a86c2e6fe908bfdd7ae8f7908 inherit pub_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4597915c92e32ea10220808da31c750 inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4597915c92e32ea10220808da31c750"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">print</a> ()</td></tr>
-<tr class="memdesc:ac4597915c92e32ea10220808da31c750 inherit pub_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">to be removed. <br /></td></tr>
+<tr class="memitem:ac4597915c92e32ea10220808da31c750 inherit pub_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">print</a> ()</td></tr>
+<tr class="memdesc:ac4597915c92e32ea10220808da31c750 inherit pub_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">to be removed.  <a href="#ac4597915c92e32ea10220808da31c750">More...</a><br /></td></tr>
 <tr class="separator:ac4597915c92e32ea10220808da31c750 inherit pub_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7f45340643c43ddd543d96662fe88911"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f45340643c43ddd543d96662fe88911"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a7f45340643c43ddd543d96662fe88911">m_bMovingForward</a></td></tr>
-<tr class="memdesc:a7f45340643c43ddd543d96662fe88911"><td class="mdescLeft">&#160;</td><td class="mdescRight">If car is current moving forward (NOT if the player is accelerating). <br /></td></tr>
+<tr class="memitem:a7f45340643c43ddd543d96662fe88911"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a7f45340643c43ddd543d96662fe88911">m_bMovingForward</a></td></tr>
+<tr class="memdesc:a7f45340643c43ddd543d96662fe88911"><td class="mdescLeft">&#160;</td><td class="mdescRight">If car is current moving forward (NOT if the player is accelerating).  <a href="#a7f45340643c43ddd543d96662fe88911">More...</a><br /></td></tr>
 <tr class="separator:a7f45340643c43ddd543d96662fe88911"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1caa04bed661507cc92dcc465374aa40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1caa04bed661507cc92dcc465374aa40"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a1caa04bed661507cc92dcc465374aa40">m_bTurningRight</a></td></tr>
-<tr class="memdesc:a1caa04bed661507cc92dcc465374aa40"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is turning right. <br /></td></tr>
+<tr class="memitem:a1caa04bed661507cc92dcc465374aa40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a1caa04bed661507cc92dcc465374aa40">m_bTurningRight</a></td></tr>
+<tr class="memdesc:a1caa04bed661507cc92dcc465374aa40"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is turning right.  <a href="#a1caa04bed661507cc92dcc465374aa40">More...</a><br /></td></tr>
 <tr class="separator:a1caa04bed661507cc92dcc465374aa40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab15cb88a73253d2d258368bed12be6cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab15cb88a73253d2d258368bed12be6cc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#ab15cb88a73253d2d258368bed12be6cc">m_bTurningLeft</a></td></tr>
-<tr class="memdesc:ab15cb88a73253d2d258368bed12be6cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is turning left. <br /></td></tr>
+<tr class="memitem:ab15cb88a73253d2d258368bed12be6cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#ab15cb88a73253d2d258368bed12be6cc">m_bTurningLeft</a></td></tr>
+<tr class="memdesc:ab15cb88a73253d2d258368bed12be6cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is turning left.  <a href="#ab15cb88a73253d2d258368bed12be6cc">More...</a><br /></td></tr>
 <tr class="separator:ab15cb88a73253d2d258368bed12be6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ca299e37b7a2b964e68877e7fc41d56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ca299e37b7a2b964e68877e7fc41d56"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a3ca299e37b7a2b964e68877e7fc41d56">m_bAccelerating</a></td></tr>
-<tr class="memdesc:a3ca299e37b7a2b964e68877e7fc41d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is acceleration. <br /></td></tr>
+<tr class="memitem:a3ca299e37b7a2b964e68877e7fc41d56"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a3ca299e37b7a2b964e68877e7fc41d56">m_bAccelerating</a></td></tr>
+<tr class="memdesc:a3ca299e37b7a2b964e68877e7fc41d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is acceleration.  <a href="#a3ca299e37b7a2b964e68877e7fc41d56">More...</a><br /></td></tr>
 <tr class="separator:a3ca299e37b7a2b964e68877e7fc41d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a5ba2979820d7c0f2a00571fd7755de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a5ba2979820d7c0f2a00571fd7755de"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a8a5ba2979820d7c0f2a00571fd7755de">m_bReversing</a></td></tr>
-<tr class="memdesc:a8a5ba2979820d7c0f2a00571fd7755de"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is activating reverse gear. <br /></td></tr>
+<tr class="memitem:a8a5ba2979820d7c0f2a00571fd7755de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a8a5ba2979820d7c0f2a00571fd7755de">m_bReversing</a></td></tr>
+<tr class="memdesc:a8a5ba2979820d7c0f2a00571fd7755de"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is activating reverse gear.  <a href="#a8a5ba2979820d7c0f2a00571fd7755de">More...</a><br /></td></tr>
 <tr class="separator:a8a5ba2979820d7c0f2a00571fd7755de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a5b2769f8000bc41da5ffacaff488bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a5b2769f8000bc41da5ffacaff488bd"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a0a5b2769f8000bc41da5ffacaff488bd">m_bBraking</a></td></tr>
-<tr class="memdesc:a0a5b2769f8000bc41da5ffacaff488bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is braking. <br /></td></tr>
+<tr class="memitem:a0a5b2769f8000bc41da5ffacaff488bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a0a5b2769f8000bc41da5ffacaff488bd">m_bBraking</a></td></tr>
+<tr class="memdesc:a0a5b2769f8000bc41da5ffacaff488bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">If player is braking.  <a href="#a0a5b2769f8000bc41da5ffacaff488bd">More...</a><br /></td></tr>
 <tr class="separator:a0a5b2769f8000bc41da5ffacaff488bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af67de6d3bb5203272670314409bd3ca8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af67de6d3bb5203272670314409bd3ca8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#af67de6d3bb5203272670314409bd3ca8">m_fSteeringOrientation</a></td></tr>
-<tr class="memdesc:af67de6d3bb5203272670314409bd3ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation of front wheels. <br /></td></tr>
-<tr class="separator:af67de6d3bb5203272670314409bd3ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7be779b298ee9803e8189e08f0cafc27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7be779b298ee9803e8189e08f0cafc27"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a7be779b298ee9803e8189e08f0cafc27">m_fWheelBase</a></td></tr>
-<tr class="memdesc:a7be779b298ee9803e8189e08f0cafc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between front and rear wheels. <br /></td></tr>
-<tr class="separator:a7be779b298ee9803e8189e08f0cafc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea62fd9764bf52faf154681914343316"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea62fd9764bf52faf154681914343316"></a>
-sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#aea62fd9764bf52faf154681914343316">m_frontRightWheel</a></td></tr>
-<tr class="memdesc:aea62fd9764bf52faf154681914343316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite for the right front wheel. <br /></td></tr>
-<tr class="separator:aea62fd9764bf52faf154681914343316"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17f7c49c8c95c1d6c238d48e6500ed52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17f7c49c8c95c1d6c238d48e6500ed52"></a>
-sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a17f7c49c8c95c1d6c238d48e6500ed52">m_frontLeftWheel</a></td></tr>
-<tr class="memdesc:a17f7c49c8c95c1d6c238d48e6500ed52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite for the right front wheel. <br /></td></tr>
-<tr class="separator:a17f7c49c8c95c1d6c238d48e6500ed52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_collidable"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_collidable')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_collidable.html">Collidable</a></td></tr>
-<tr class="memitem:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pub_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a6501f0c062b6c24f3121c5c68b59d4"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a5a6501f0c062b6c24f3121c5c68b59d4">m_fAngularVelocity</a></td></tr>
-<tr class="memdesc:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pub_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected <br /></td></tr>
+<tr class="memitem:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pub_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a5a6501f0c062b6c24f3121c5c68b59d4">m_fAngularVelocity</a></td></tr>
+<tr class="memdesc:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pub_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected  <a href="#a5a6501f0c062b6c24f3121c5c68b59d4">More...</a><br /></td></tr>
 <tr class="separator:a5a6501f0c062b6c24f3121c5c68b59d4 inherit pub_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a1b8b6e8701e2866dcb0db2213ef760c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a1b8b6e8701e2866dcb0db2213ef760c4">controlInput</a> ()</td></tr>
+<tr class="memdesc:a1b8b6e8701e2866dcb0db2213ef760c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control the car according to control booleans.  <a href="#a1b8b6e8701e2866dcb0db2213ef760c4">More...</a><br /></td></tr>
+<tr class="separator:a1b8b6e8701e2866dcb0db2213ef760c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f8e038ddc5fc3ca20c81fd0fbfe38b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a4f8e038ddc5fc3ca20c81fd0fbfe38b4">updateSprite</a> ()</td></tr>
+<tr class="memdesc:a4f8e038ddc5fc3ca20c81fd0fbfe38b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the sprites position and orientation. Changes sprite Rect while braking.  <a href="#a4f8e038ddc5fc3ca20c81fd0fbfe38b4">More...</a><br /></td></tr>
+<tr class="separator:a4f8e038ddc5fc3ca20c81fd0fbfe38b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_collidable"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_collidable')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_collidable.html">Collidable</a></td></tr>
-<tr class="memitem:a7ec62c2d35206abacbcad74f5bf42608 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7ec62c2d35206abacbcad74f5bf42608">broadCollisionCheck</a> (<a class="el" href="class_collidable.html">Collidable</a> *pOtherCollidable)</td></tr>
-<tr class="memdesc:a7ec62c2d35206abacbcad74f5bf42608 inherit pro_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a broad and less costly collision check with another collidable.  <a href="#a7ec62c2d35206abacbcad74f5bf42608">More...</a><br /></td></tr>
-<tr class="separator:a7ec62c2d35206abacbcad74f5bf42608 inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3089d5da571b2ad52b96d50a735c6b3 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#af3089d5da571b2ad52b96d50a735c6b3">broadCollisionCheck</a> (<a class="el" href="class_collidable.html">Collidable</a> *const pOtherCollidable)</td></tr>
+<tr class="memdesc:af3089d5da571b2ad52b96d50a735c6b3 inherit pro_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a broad and less costly collision check with another collidable.  <a href="#af3089d5da571b2ad52b96d50a735c6b3">More...</a><br /></td></tr>
+<tr class="separator:af3089d5da571b2ad52b96d50a735c6b3 inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ff9b7822edd612abd581437343f76b0 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a8ff9b7822edd612abd581437343f76b0">resolveCollision</a> (<a class="el" href="class_collidable.html">Collidable</a> *pOtherCollidable, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *pfvCollisionNormal, double fOverlap, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *pfvContactPoint)</td></tr>
 <tr class="memdesc:a8ff9b7822edd612abd581437343f76b0 inherit pro_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolves collision between two colliding objects.  <a href="#a8ff9b7822edd612abd581437343f76b0">More...</a><br /></td></tr>
 <tr class="separator:a8ff9b7822edd612abd581437343f76b0 inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab48a9401ae73d1c90a5200397b420f89 inherit pro_methods_class_collidable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ab48a9401ae73d1c90a5200397b420f89">applyImpulse</a> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *pfvImpulse, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *pfvContactPoint)</td></tr>
 <tr class="memdesc:ab48a9401ae73d1c90a5200397b420f89 inherit pro_methods_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies an impulse (sudden change of velocity) to the object.  <a href="#ab48a9401ae73d1c90a5200397b420f89">More...</a><br /></td></tr>
 <tr class="separator:ab48a9401ae73d1c90a5200397b420f89 inherit pro_methods_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:af67de6d3bb5203272670314409bd3ca8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#af67de6d3bb5203272670314409bd3ca8">m_fSteeringOrientation</a></td></tr>
+<tr class="memdesc:af67de6d3bb5203272670314409bd3ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation of front wheels.  <a href="#af67de6d3bb5203272670314409bd3ca8">More...</a><br /></td></tr>
+<tr class="separator:af67de6d3bb5203272670314409bd3ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be779b298ee9803e8189e08f0cafc27"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a7be779b298ee9803e8189e08f0cafc27">m_fWheelBase</a></td></tr>
+<tr class="memdesc:a7be779b298ee9803e8189e08f0cafc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between front and rear wheels.  <a href="#a7be779b298ee9803e8189e08f0cafc27">More...</a><br /></td></tr>
+<tr class="separator:a7be779b298ee9803e8189e08f0cafc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea62fd9764bf52faf154681914343316"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#aea62fd9764bf52faf154681914343316">m_frontRightWheel</a></td></tr>
+<tr class="memdesc:aea62fd9764bf52faf154681914343316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite for the right frontal wheel.  <a href="#aea62fd9764bf52faf154681914343316">More...</a><br /></td></tr>
+<tr class="separator:aea62fd9764bf52faf154681914343316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17f7c49c8c95c1d6c238d48e6500ed52"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a17f7c49c8c95c1d6c238d48e6500ed52">m_frontLeftWheel</a></td></tr>
+<tr class="memdesc:a17f7c49c8c95c1d6c238d48e6500ed52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite for the left frontal wheel.  <a href="#a17f7c49c8c95c1d6c238d48e6500ed52">More...</a><br /></td></tr>
+<tr class="separator:a17f7c49c8c95c1d6c238d48e6500ed52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f5b4e63338fccac99e7efbf0a737f04"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car.html#a7f5b4e63338fccac99e7efbf0a737f04">m_bBrakingSprite</a></td></tr>
+<tr class="memdesc:a7f5b4e63338fccac99e7efbf0a737f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Which piece of texture is being used (braking or normal).  <a href="#a7f5b4e63338fccac99e7efbf0a737f04">More...</a><br /></td></tr>
+<tr class="separator:a7f5b4e63338fccac99e7efbf0a737f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_o_b_b"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_o_b_b')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_o_b_b.html">OBB</a></td></tr>
-<tr class="memitem:a9bb0b948899d85dd6973d7526a574cc2 inherit pro_attribs_class_o_b_b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bb0b948899d85dd6973d7526a574cc2"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a9bb0b948899d85dd6973d7526a574cc2">m_fvHalfExtents</a></td></tr>
-<tr class="memdesc:a9bb0b948899d85dd6973d7526a574cc2 inherit pro_attribs_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Half-extents vector. <br /></td></tr>
+<tr class="memitem:a9bb0b948899d85dd6973d7526a574cc2 inherit pro_attribs_class_o_b_b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_b_b.html#a9bb0b948899d85dd6973d7526a574cc2">m_fvHalfExtents</a></td></tr>
+<tr class="memdesc:a9bb0b948899d85dd6973d7526a574cc2 inherit pro_attribs_class_o_b_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Half-extents vector.  <a href="#a9bb0b948899d85dd6973d7526a574cc2">More...</a><br /></td></tr>
 <tr class="separator:a9bb0b948899d85dd6973d7526a574cc2 inherit pro_attribs_class_o_b_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_collidable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_collidable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_collidable.html">Collidable</a></td></tr>
-<tr class="memitem:a7ea7747a2156545d13b4b7f6e06bfe38 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ea7747a2156545d13b4b7f6e06bfe38"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">m_fInverseMass</a></td></tr>
-<tr class="memdesc:a7ea7747a2156545d13b4b7f6e06bfe38 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse of collidable's mass. <br /></td></tr>
+<tr class="memitem:a7ea7747a2156545d13b4b7f6e06bfe38 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">m_fInverseMass</a></td></tr>
+<tr class="memdesc:a7ea7747a2156545d13b4b7f6e06bfe38 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse of collidable's mass.  <a href="#a7ea7747a2156545d13b4b7f6e06bfe38">More...</a><br /></td></tr>
 <tr class="separator:a7ea7747a2156545d13b4b7f6e06bfe38 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d243411e75ff019385dea0a4ff153e9 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d243411e75ff019385dea0a4ff153e9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">m_fFrictionCoefficient</a></td></tr>
-<tr class="memdesc:a7d243411e75ff019385dea0a4ff153e9 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient of collidable. <br /></td></tr>
+<tr class="memitem:a7d243411e75ff019385dea0a4ff153e9 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">m_fFrictionCoefficient</a></td></tr>
+<tr class="memdesc:a7d243411e75ff019385dea0a4ff153e9 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient of collidable.  <a href="#a7d243411e75ff019385dea0a4ff153e9">More...</a><br /></td></tr>
 <tr class="separator:a7d243411e75ff019385dea0a4ff153e9 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17a452821ac1a880542e596fbfcaae6a inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17a452821ac1a880542e596fbfcaae6a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">m_fRestitution</a></td></tr>
-<tr class="memdesc:a17a452821ac1a880542e596fbfcaae6a inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restitution coefficient. <br /></td></tr>
+<tr class="memitem:a17a452821ac1a880542e596fbfcaae6a inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">m_fRestitution</a></td></tr>
+<tr class="memdesc:a17a452821ac1a880542e596fbfcaae6a inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restitution coefficient.  <a href="#a17a452821ac1a880542e596fbfcaae6a">More...</a><br /></td></tr>
 <tr class="separator:a17a452821ac1a880542e596fbfcaae6a inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dde2844bbacaaf23b8b0652bf5ce906 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1dde2844bbacaaf23b8b0652bf5ce906"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a1dde2844bbacaaf23b8b0652bf5ce906">m_fRadius</a></td></tr>
-<tr class="memdesc:a1dde2844bbacaaf23b8b0652bf5ce906 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radius of collidable. For non circular child classes, used in broad collision checks. <br /></td></tr>
+<tr class="memitem:a1dde2844bbacaaf23b8b0652bf5ce906 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a1dde2844bbacaaf23b8b0652bf5ce906">m_fRadius</a></td></tr>
+<tr class="memdesc:a1dde2844bbacaaf23b8b0652bf5ce906 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radius of collidable. For non circular child classes, used in broad collision checks.  <a href="#a1dde2844bbacaaf23b8b0652bf5ce906">More...</a><br /></td></tr>
 <tr class="separator:a1dde2844bbacaaf23b8b0652bf5ce906 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac72f55f30a447a47bf165ce8d7584027 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac72f55f30a447a47bf165ce8d7584027"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">m_fvPosition</a></td></tr>
-<tr class="memdesc:ac72f55f30a447a47bf165ce8d7584027 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Center position vector. <br /></td></tr>
+<tr class="memitem:ac72f55f30a447a47bf165ce8d7584027 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">m_fvPosition</a></td></tr>
+<tr class="memdesc:ac72f55f30a447a47bf165ce8d7584027 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Center position vector.  <a href="#ac72f55f30a447a47bf165ce8d7584027">More...</a><br /></td></tr>
 <tr class="separator:ac72f55f30a447a47bf165ce8d7584027 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a46aab76b8a8651ca93f601f62c05fd inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a46aab76b8a8651ca93f601f62c05fd"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">m_fvVelocity</a></td></tr>
-<tr class="memdesc:a3a46aab76b8a8651ca93f601f62c05fd inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity vector. <br /></td></tr>
+<tr class="memitem:a3a46aab76b8a8651ca93f601f62c05fd inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">m_fvVelocity</a></td></tr>
+<tr class="memdesc:a3a46aab76b8a8651ca93f601f62c05fd inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity vector.  <a href="#a3a46aab76b8a8651ca93f601f62c05fd">More...</a><br /></td></tr>
 <tr class="separator:a3a46aab76b8a8651ca93f601f62c05fd inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43efbe42453578169f73f0b34cacc80c inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43efbe42453578169f73f0b34cacc80c"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">m_fvAcceleration</a></td></tr>
-<tr class="memdesc:a43efbe42453578169f73f0b34cacc80c inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceleration vector. <br /></td></tr>
+<tr class="memitem:a43efbe42453578169f73f0b34cacc80c inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">m_fvAcceleration</a></td></tr>
+<tr class="memdesc:a43efbe42453578169f73f0b34cacc80c inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceleration vector.  <a href="#a43efbe42453578169f73f0b34cacc80c">More...</a><br /></td></tr>
 <tr class="separator:a43efbe42453578169f73f0b34cacc80c inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad88d617204dde9a1abc37e013e7c3d51 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad88d617204dde9a1abc37e013e7c3d51"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51">m_fvThrust</a></td></tr>
-<tr class="memdesc:ad88d617204dde9a1abc37e013e7c3d51 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrust vector. <br /></td></tr>
+<tr class="memitem:ad88d617204dde9a1abc37e013e7c3d51 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51">m_fvThrust</a></td></tr>
+<tr class="memdesc:ad88d617204dde9a1abc37e013e7c3d51 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrust vector.  <a href="#ad88d617204dde9a1abc37e013e7c3d51">More...</a><br /></td></tr>
 <tr class="separator:ad88d617204dde9a1abc37e013e7c3d51 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9cea5a59438b7b3604b8c7aa023380f inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9cea5a59438b7b3604b8c7aa023380f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">m_fOrientation</a></td></tr>
-<tr class="memdesc:af9cea5a59438b7b3604b8c7aa023380f inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation of the collidable, in radians. <br /></td></tr>
+<tr class="memitem:af9cea5a59438b7b3604b8c7aa023380f inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">m_fOrientation</a></td></tr>
+<tr class="memdesc:af9cea5a59438b7b3604b8c7aa023380f inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation of the collidable, in radians.  <a href="#af9cea5a59438b7b3604b8c7aa023380f">More...</a><br /></td></tr>
 <tr class="separator:af9cea5a59438b7b3604b8c7aa023380f inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a376aa200ba174a1cea17766fbcbda760 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a376aa200ba174a1cea17766fbcbda760"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a376aa200ba174a1cea17766fbcbda760">m_fAngularAcceleration</a></td></tr>
-<tr class="memdesc:a376aa200ba174a1cea17766fbcbda760 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angular vAcceleration. <br /></td></tr>
+<tr class="memitem:a376aa200ba174a1cea17766fbcbda760 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a376aa200ba174a1cea17766fbcbda760">m_fAngularAcceleration</a></td></tr>
+<tr class="memdesc:a376aa200ba174a1cea17766fbcbda760 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angular vAcceleration.  <a href="#a376aa200ba174a1cea17766fbcbda760">More...</a><br /></td></tr>
 <tr class="separator:a376aa200ba174a1cea17766fbcbda760 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84f79454b1dac54f7b9042660d89e8ca inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84f79454b1dac54f7b9042660d89e8ca"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a84f79454b1dac54f7b9042660d89e8ca">m_fTorque</a></td></tr>
-<tr class="memdesc:a84f79454b1dac54f7b9042660d89e8ca inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Torque applied to object. <br /></td></tr>
+<tr class="memitem:a84f79454b1dac54f7b9042660d89e8ca inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a84f79454b1dac54f7b9042660d89e8ca">m_fTorque</a></td></tr>
+<tr class="memdesc:a84f79454b1dac54f7b9042660d89e8ca inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Torque applied to object.  <a href="#a84f79454b1dac54f7b9042660d89e8ca">More...</a><br /></td></tr>
 <tr class="separator:a84f79454b1dac54f7b9042660d89e8ca inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef9f604795e30d09737aee26beb128ae inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef9f604795e30d09737aee26beb128ae"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#aef9f604795e30d09737aee26beb128ae">m_fInverseMomentOfInertia</a></td></tr>
-<tr class="memdesc:aef9f604795e30d09737aee26beb128ae inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse moment of inertia. <br /></td></tr>
+<tr class="memitem:aef9f604795e30d09737aee26beb128ae inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#aef9f604795e30d09737aee26beb128ae">m_fInverseMomentOfInertia</a></td></tr>
+<tr class="memdesc:aef9f604795e30d09737aee26beb128ae inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse moment of inertia.  <a href="#aef9f604795e30d09737aee26beb128ae">More...</a><br /></td></tr>
 <tr class="separator:aef9f604795e30d09737aee26beb128ae inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13a62d6d9fb69397c5ad03e6ec1c3b2d inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13a62d6d9fb69397c5ad03e6ec1c3b2d"></a>
-sf::VertexArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">m_vaPoints</a></td></tr>
-<tr class="memdesc:a13a62d6d9fb69397c5ad03e6ec1c3b2d inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points to be drawn (to be removed) <br /></td></tr>
+<tr class="memitem:a13a62d6d9fb69397c5ad03e6ec1c3b2d inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">sf::VertexArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">m_vaPoints</a></td></tr>
+<tr class="memdesc:a13a62d6d9fb69397c5ad03e6ec1c3b2d inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points to be drawn (to be removed)  <a href="#a13a62d6d9fb69397c5ad03e6ec1c3b2d">More...</a><br /></td></tr>
 <tr class="separator:a13a62d6d9fb69397c5ad03e6ec1c3b2d inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5392bcb0ef0fef2e60b68a447e4d0ae7 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5392bcb0ef0fef2e60b68a447e4d0ae7"></a>
-sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">m_sprite</a></td></tr>
-<tr class="memdesc:a5392bcb0ef0fef2e60b68a447e4d0ae7 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite to be drawn to the window. <br /></td></tr>
+<tr class="memitem:a5392bcb0ef0fef2e60b68a447e4d0ae7 inherit pro_attribs_class_collidable"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">m_sprite</a></td></tr>
+<tr class="memdesc:a5392bcb0ef0fef2e60b68a447e4d0ae7 inherit pro_attribs_class_collidable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite to be drawn to the window.  <a href="#a5392bcb0ef0fef2e60b68a447e4d0ae7">More...</a><br /></td></tr>
 <tr class="separator:a5392bcb0ef0fef2e60b68a447e4d0ae7 inherit pro_attribs_class_collidable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Controlable car to be used by the player. </p>
-<p>Implements collision detection and texture allocation for circular objects. Can be used to turn background figures into immovable collidables. A circle instance is not drawn to the screen. </p>
+<div class="textblock"><p>Controllable car to be used by the player. </p>
+<p>Implements mechanics for drivable objects, including acceleration, reverse gear, steering and braking, based on user inputs. Also implements texture allocation for cars.</p>
+<dl class="section author"><dt>Author</dt><dd>Vitor Augusto Andrioli </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>25/02/2016</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Add drift to car.</dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>Turning while not accelerating (forwards or backwards) gets the car stuck. Method to identify whether the car is moving forward, to adjust bicycle steering, is defective.</dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a1c803f7c5038d3e31b368b0d0a35493c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Car::Car </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Basic constructor. </p>
+
+</div>
+</div>
 <a class="anchor" id="ab941f06b66d0b9b4a7d6f2ec72494660"></a>
 <div class="memitem">
 <div class="memproto">
@@ -418,12 +429,12 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
       </table>
 </div><div class="memdoc">
 
-<p>Constructor receiving position and orientation. </p>
-<p>Initializes the position and orientation with parameters received and other member variables with the default values for box objects. The orientation can be omitted in the instantiation of the object and.</p>
+<p>Constructor initializing position and orientation. </p>
+<p>Initializes position and orientation with parameters and and assing default values to other member variables.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fPosX,fPosY</td><td>Coordinates for the position vector. </td></tr>
-    <tr><td class="paramname">fOrientation</td><td>Orientation of the box. If no value is passed, it will be set to zero. </td></tr>
+    <tr><td class="paramname">fOrientation</td><td>Orientation of the car. If no value is passed, it will be set to zero. </td></tr>
   </table>
   </dd>
 </dl>
@@ -431,7 +442,50 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a179e5e7f3d69e65d1ffa582d32259791"></a>
+<a class="anchor" id="a1b8b6e8701e2866dcb0db2213ef760c4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Car::controlInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Control the car according to control booleans. </p>
+<p>Updates thrust for acceleration and reverse gear. Change front wheels orientation (steering). </p>
+
+</div>
+</div>
+<a class="anchor" id="a47fe72f08097245751cd5c6eea31a9cb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Car::getFrictionCoefficient </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns different coefficient for reverse gear. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3269228385ef71469c7df8b0ee2a5eb8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -441,7 +495,7 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
         <tr>
           <td class="memname">void Car::setTexture </td>
           <td>(</td>
-          <td class="paramtype">sf::Texture *&#160;</td>
+          <td class="paramtype">shared_ptr&lt; sf::Texture &gt;&#160;</td>
           <td class="paramname"><em>pTexture</em></td><td>)</td>
           <td></td>
         </tr>
@@ -457,34 +511,52 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <p>Use car's attributes to fit the texture into the shape. The texture is divided in 2: A "normal" one and one with braking lights on, thus, the texture is managed as to draw only half of it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pTexture</td><td>Pointer to an SFML texture object. </td></tr>
+    <tr><td class="paramname">pTexture</td><td>Smart pointer to an SFML texture object. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_collidable.html#ab591b36248e5178a6e3a430d3eb67144">Collidable</a>.</p>
+<p>Implements <a class="el" href="class_collidable.html#a0a5c9317e76129754cc91343238e01d3">Collidable</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a73e1aac426beef99001e87be0fa541c8"></a>
+<a class="anchor" id="abd60b234c10b8ca0c637069c9c341b7a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Car::setVelocity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>fvVelocity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates velocity. Checks for maximum and minimum normal and reverse speed. </p>
+
+</div>
+</div>
+<a class="anchor" id="a66998d226ab90d775da949077b4a3205"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Car::setWheelTexture </td>
           <td>(</td>
-          <td class="paramtype">sf::Texture *&#160;</td>
-          <td class="paramname"><em>texture</em></td><td>)</td>
+          <td class="paramtype">shared_ptr&lt; sf::Texture &gt;&#160;</td>
+          <td class="paramname"><em>pTexture</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Set front wheels texture. </p>
-<p>Use car's default values to fit the texture into the shape.</p>
+<p>Use car's default values to fit the wheels texture into the shape.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pTexture</td><td>Pointer to an SFML texture object. </td></tr>
+    <tr><td class="paramname">pTexture</td><td>Smart pointer to an SFML texture object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -499,26 +571,246 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
           <td class="memname">void Car::update </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>elapsed</em></td><td>)</td>
+          <td class="paramname"><em>fElapsed</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Override <a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a>'s update method. To be called every frame of the game. </p>
-<p>Implements mechanics for cars (motion and forces). Uses "bicycle steering" for updating car`s position and orientation.</p>
+<p>Override of <a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a>'s update method. To be called every frame of the game. </p>
+<p>Implements mechanics for cars (motion and forces). Uses "Improved Euler" to update the velocity and "Bicycle Steering" model for updating the position and orientation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">elapsed</td><td>Time elapsed since last frame. </td></tr>
+    <tr><td class="paramname">fElapsed</td><td>Time elapsed since last frame. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
+<a class="anchor" id="a4f8e038ddc5fc3ca20c81fd0fbfe38b4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Car::updateSprite </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the sprites position and orientation. Changes sprite Rect while braking. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a3ca299e37b7a2b964e68877e7fc41d56"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Car::m_bAccelerating</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If player is acceleration. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0a5b2769f8000bc41da5ffacaff488bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Car::m_bBraking</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If player is braking. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7f5b4e63338fccac99e7efbf0a737f04"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Car::m_bBrakingSprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Which piece of texture is being used (braking or normal). </p>
+
+</div>
+</div>
+<a class="anchor" id="a7f45340643c43ddd543d96662fe88911"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Car::m_bMovingForward</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If car is current moving forward (NOT if the player is accelerating). </p>
+
+</div>
+</div>
+<a class="anchor" id="a8a5ba2979820d7c0f2a00571fd7755de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Car::m_bReversing</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If player is activating reverse gear. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab15cb88a73253d2d258368bed12be6cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Car::m_bTurningLeft</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If player is turning left. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1caa04bed661507cc92dcc465374aa40"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Car::m_bTurningRight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If player is turning right. </p>
+
+</div>
+</div>
+<a class="anchor" id="a17f7c49c8c95c1d6c238d48e6500ed52"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite Car::m_frontLeftWheel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sprite for the left frontal wheel. </p>
+
+</div>
+</div>
+<a class="anchor" id="aea62fd9764bf52faf154681914343316"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite Car::m_frontRightWheel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sprite for the right frontal wheel. </p>
+
+</div>
+</div>
+<a class="anchor" id="af67de6d3bb5203272670314409bd3ca8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Car::m_fSteeringOrientation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Orientation of front wheels. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7be779b298ee9803e8189e08f0cafc27"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Car::m_fWheelBase</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distance between front and rear wheels. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/<a class="el" href="car_8h_source.html">car.h</a></li>
-<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/src/<a class="el" href="car_8cpp.html">car.cpp</a></li>
+<li><a class="el" href="car_8h_source.html">car.h</a></li>
+<li><a class="el" href="car_8cpp.html">car.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

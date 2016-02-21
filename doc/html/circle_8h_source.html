@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Racing game: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/circle.h Source File</title>
+<title>Race game: circle.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Racing game
+   <div id="projectname">Race game
    </div>
   </td>
  </tr>
@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -108,36 +109,34 @@ $(document).ready(function(){initNavTree('circle_8h_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="circle_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef CIRCLE_H</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define CIRCLE_H</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="collidable_8h.html">collidable.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obb_8h.html">obb.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_circle.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_circle.html">Circle</a> : <span class="keyword">public</span> <a class="code" href="class_collidable.html">Collidable</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_circle.html#ad1ecfcfc7bf34529c6a6d6c448bf70fe">Circle</a>(); </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_circle.html#ad1ecfcfc7bf34529c6a6d6c448bf70fe">Circle</a>(<span class="keywordtype">double</span> fPosX, <span class="keywordtype">double</span> fPosY, <span class="keywordtype">double</span> fRadius, <span class="keywordtype">double</span> fRestitution = 1);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_circle.html#ad74b27696652e85e97503aef986f32b5">checkCollision</a>(<a class="code" href="class_collidable.html">Collidable</a> * pCollidable); </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_circle.html#ad74b27696652e85e97503aef986f32b5">checkCollision</a>(<a class="code" href="class_circle.html">Circle</a> * pOtherCircle); </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_circle.html#ad74b27696652e85e97503aef986f32b5">checkCollision</a>(<a class="code" href="class_o_b_b.html">OBB</a> * pObb); </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_circle.html#ac6c48964ac829b4c1a15b313d9ae102a">setTexture</a>(sf::Texture * texture);  </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_circle.html#afe23c30a1bbc5e831b72063aef91b38f">updatePoints</a>(); </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_circle_html"><div class="ttname"><a href="class_circle.html">Circle</a></div><div class="ttdoc">Circular collidables to be used in the game. </div><div class="ttdef"><b>Definition:</b> circle.h:18</div></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef CIRCLE_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define CIRCLE_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="collidable_8h.html">collidable.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obb_8h.html">obb.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_circle.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_circle.html">Circle</a> : <span class="keyword">public</span> <a class="code" href="class_collidable.html">Collidable</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_circle.html">Circle</a>(); </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_circle.html">Circle</a>(<span class="keywordtype">double</span> fPosX, <span class="keywordtype">double</span> fPosY, <span class="keywordtype">double</span> fRadius, <span class="keywordtype">double</span> fRestitution = 1);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> checkCollision(<a class="code" href="class_collidable.html">Collidable</a>* <span class="keyword">const</span> pCollidable); </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> checkCollision(<a class="code" href="class_circle.html">Circle</a>* <span class="keyword">const</span> pOtherCircle); </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> checkCollision(<a class="code" href="class_o_b_b.html">OBB</a>* <span class="keyword">const</span> pObb); </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> setTexture(shared_ptr&lt;sf::Texture&gt; pTexture);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> updatePoints(); </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_circle_html"><div class="ttname"><a href="class_circle.html">Circle</a></div><div class="ttdoc">Circular collidables to be used in the game. </div><div class="ttdef"><b>Definition:</b> circle.h:27</div></div>
 <div class="ttc" id="collidable_8h_html"><div class="ttname"><a href="collidable_8h.html">collidable.h</a></div><div class="ttdoc">Declaration of Collidable class. </div></div>
 <div class="ttc" id="obb_8h_html"><div class="ttname"><a href="obb_8h.html">obb.h</a></div><div class="ttdoc">Declaration of OBB class. </div></div>
-<div class="ttc" id="class_circle_html_ad1ecfcfc7bf34529c6a6d6c448bf70fe"><div class="ttname"><a href="class_circle.html#ad1ecfcfc7bf34529c6a6d6c448bf70fe">Circle::Circle</a></div><div class="ttdeci">Circle()</div><div class="ttdef"><b>Definition:</b> circle.cpp:9</div></div>
-<div class="ttc" id="class_o_b_b_html"><div class="ttname"><a href="class_o_b_b.html">OBB</a></div><div class="ttdoc">Oriented Bounding Box (OBB) collidables to be used in the game. </div><div class="ttdef"><b>Definition:</b> obb.h:17</div></div>
-<div class="ttc" id="class_collidable_html"><div class="ttname"><a href="class_collidable.html">Collidable</a></div><div class="ttdoc">Base class for every collidable object in the game. </div><div class="ttdef"><b>Definition:</b> collidable.h:30</div></div>
-<div class="ttc" id="class_circle_html_ac6c48964ac829b4c1a15b313d9ae102a"><div class="ttname"><a href="class_circle.html#ac6c48964ac829b4c1a15b313d9ae102a">Circle::setTexture</a></div><div class="ttdeci">void setTexture(sf::Texture *texture)</div><div class="ttdoc">Assigns a texture to the object&#39;s sprite. </div><div class="ttdef"><b>Definition:</b> circle.cpp:118</div></div>
-<div class="ttc" id="class_circle_html_ad74b27696652e85e97503aef986f32b5"><div class="ttname"><a href="class_circle.html#ad74b27696652e85e97503aef986f32b5">Circle::checkCollision</a></div><div class="ttdeci">void checkCollision(Collidable *pCollidable)</div><div class="ttdoc">Checks collision with another Collidable. </div><div class="ttdef"><b>Definition:</b> circle.cpp:39</div></div>
-<div class="ttc" id="class_circle_html_afe23c30a1bbc5e831b72063aef91b38f"><div class="ttname"><a href="class_circle.html#afe23c30a1bbc5e831b72063aef91b38f">Circle::updatePoints</a></div><div class="ttdeci">void updatePoints()</div><div class="ttdoc">to be removed. </div><div class="ttdef"><b>Definition:</b> circle.cpp:128</div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="class_o_b_b_html"><div class="ttname"><a href="class_o_b_b.html">OBB</a></div><div class="ttdoc">Oriented Bounding Box (OBB) collidables to be used in the game. </div><div class="ttdef"><b>Definition:</b> obb.h:27</div></div>
+<div class="ttc" id="class_collidable_html"><div class="ttname"><a href="class_collidable.html">Collidable</a></div><div class="ttdoc">Base class for every collidable object in the game. </div><div class="ttdef"><b>Definition:</b> collidable.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

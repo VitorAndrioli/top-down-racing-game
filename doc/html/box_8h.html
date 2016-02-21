@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Racing game: C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/box.h File Reference</title>
+<title>Race game: box.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Racing game
+   <div id="projectname">Race game
    </div>
   </td>
  </tr>
@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -111,7 +112,7 @@ $(document).ready(function(){initNavTree('box_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Declaration of <a class="el" href="class_box.html" title="Box to be used as collidable obstacle in the game. ">Box</a> class.  
+<p>Declaration of <a class="el" href="class_box.html" title="Collidable object to be used in the game. ">Box</a> class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="obb_8h_source.html">obb.h</a>&quot;</code><br />
 </div>
@@ -120,27 +121,67 @@ $(document).ready(function(){initNavTree('box_8h.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_box.html">Box</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_box.html" title="Box to be used as collidable obstacle in the game. ">Box</a> to be used as collidable obstacle in the game.  <a href="class_box.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a> object to be used in the game.  <a href="class_box.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a35f10167e00dbe81bc0be55bbfce7011"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35f10167e00dbe81bc0be55bbfce7011"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="box_8h.html#a35f10167e00dbe81bc0be55bbfce7011">BOX_MASS_COEFFICIENT</a>&#160;&#160;&#160;2.0</td></tr>
-<tr class="memdesc:a35f10167e00dbe81bc0be55bbfce7011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default mass for box objects. <br /></td></tr>
+<tr class="memitem:a35f10167e00dbe81bc0be55bbfce7011"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="box_8h.html#a35f10167e00dbe81bc0be55bbfce7011">BOX_MASS_COEFFICIENT</a>&#160;&#160;&#160;0.4</td></tr>
+<tr class="memdesc:a35f10167e00dbe81bc0be55bbfce7011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default coefficient to define mass based on the its size.  <a href="#a35f10167e00dbe81bc0be55bbfce7011">More...</a><br /></td></tr>
 <tr class="separator:a35f10167e00dbe81bc0be55bbfce7011"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac417ea6f082a36721e8aae9b718bc543"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac417ea6f082a36721e8aae9b718bc543"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="box_8h.html#ac417ea6f082a36721e8aae9b718bc543">BOX_FRICTION_COEFFICIENT</a>&#160;&#160;&#160;0.68</td></tr>
-<tr class="memdesc:ac417ea6f082a36721e8aae9b718bc543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default friction coefficient for box objects. <br /></td></tr>
+<tr class="memitem:ac417ea6f082a36721e8aae9b718bc543"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="box_8h.html#ac417ea6f082a36721e8aae9b718bc543">BOX_FRICTION_COEFFICIENT</a>&#160;&#160;&#160;0.5</td></tr>
+<tr class="memdesc:ac417ea6f082a36721e8aae9b718bc543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default friction coefficient for boxes.  <a href="#ac417ea6f082a36721e8aae9b718bc543">More...</a><br /></td></tr>
 <tr class="separator:ac417ea6f082a36721e8aae9b718bc543"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab95fbdda1cb64b585be96fa15efb9254"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab95fbdda1cb64b585be96fa15efb9254"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="box_8h.html#ab95fbdda1cb64b585be96fa15efb9254">BOX_RESTITUTION_COEFFICIENT</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:ab95fbdda1cb64b585be96fa15efb9254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default restitution coefficient for box objects. <br /></td></tr>
+<tr class="memitem:ab95fbdda1cb64b585be96fa15efb9254"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="box_8h.html#ab95fbdda1cb64b585be96fa15efb9254">BOX_RESTITUTION_COEFFICIENT</a>&#160;&#160;&#160;0.5</td></tr>
+<tr class="memdesc:ab95fbdda1cb64b585be96fa15efb9254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default restitution coefficient for boxes.  <a href="#ab95fbdda1cb64b585be96fa15efb9254">More...</a><br /></td></tr>
 <tr class="separator:ab95fbdda1cb64b585be96fa15efb9254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Declaration of <a class="el" href="class_box.html" title="Box to be used as collidable obstacle in the game. ">Box</a> class. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>Declaration of <a class="el" href="class_box.html" title="Collidable object to be used in the game. ">Box</a> class. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ac417ea6f082a36721e8aae9b718bc543"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BOX_FRICTION_COEFFICIENT&#160;&#160;&#160;0.5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default friction coefficient for boxes. </p>
+
+</div>
+</div>
+<a class="anchor" id="a35f10167e00dbe81bc0be55bbfce7011"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BOX_MASS_COEFFICIENT&#160;&#160;&#160;0.4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default coefficient to define mass based on the its size. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab95fbdda1cb64b585be96fa15efb9254"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BOX_RESTITUTION_COEFFICIENT&#160;&#160;&#160;0.5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default restitution coefficient for boxes. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

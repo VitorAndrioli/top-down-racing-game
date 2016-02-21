@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Racing game: Collidable Class Reference</title>
+<title>Race game: Collidable Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Racing game
+   <div id="projectname">Race game
    </div>
   </td>
  </tr>
@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -128,9 +129,9 @@ Inheritance diagram for Collidable:</div>
   <map id="Collidable_map" name="Collidable_map">
 <area href="class_circle.html" title="Circular collidables to be used in the game. " alt="Circle" shape="rect" coords="0,112,68,136"/>
 <area href="class_o_b_b.html" title="Oriented Bounding Box (OBB) collidables to be used in the game. " alt="OBB" shape="rect" coords="117,112,185,136"/>
-<area href="class_tyre.html" title="Tyre to be used as collidable obstacle in the game. " alt="Tyre" shape="rect" coords="0,168,68,192"/>
-<area href="class_box.html" title="Box to be used as collidable obstacle in the game. " alt="Box" shape="rect" coords="78,168,146,192"/>
-<area href="class_car.html" title="Controlable car to be used by the player. " alt="Car" shape="rect" coords="156,168,224,192"/>
+<area href="class_tyre.html" title="Collidable object to be used in the game. " alt="Tyre" shape="rect" coords="0,168,68,192"/>
+<area href="class_box.html" title="Collidable object to be used in the game. " alt="Box" shape="rect" coords="78,168,146,192"/>
+<area href="class_car.html" title="Controllable car to be used by the player. " alt="Car" shape="rect" coords="156,168,224,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -148,29 +149,30 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updatePoints<
 <tr class="memitem:a656ce92dd3e3f1b1981eb79c97ed3115"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a656ce92dd3e3f1b1981eb79c97ed3115">updateSprite</a> ()</td></tr>
 <tr class="memdesc:a656ce92dd3e3f1b1981eb79c97ed3115"><td class="mdescLeft">&#160;</td><td class="mdescRight">to be removed.  <a href="#a656ce92dd3e3f1b1981eb79c97ed3115">More...</a><br /></td></tr>
 <tr class="separator:a656ce92dd3e3f1b1981eb79c97ed3115"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d46b697385b10bc9447f1ac18a587a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d46b697385b10bc9447f1ac18a587a6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6">isMoving</a> ()</td></tr>
-<tr class="memdesc:a8d46b697385b10bc9447f1ac18a587a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the collidable is moving. <br /></td></tr>
+<tr class="memitem:a8d46b697385b10bc9447f1ac18a587a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6">isMoving</a> ()</td></tr>
+<tr class="memdesc:a8d46b697385b10bc9447f1ac18a587a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the collidable is moving.  <a href="#a8d46b697385b10bc9447f1ac18a587a6">More...</a><br /></td></tr>
 <tr class="separator:a8d46b697385b10bc9447f1ac18a587a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25c916c15277425a1b2606d35c7405fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25c916c15277425a1b2606d35c7405fe"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a25c916c15277425a1b2606d35c7405fe">checkCollision</a> (<a class="el" href="class_collidable.html">Collidable</a> *collidable)=0</td></tr>
-<tr class="memdesc:a25c916c15277425a1b2606d35c7405fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to check collision with another <a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a> object. <br /></td></tr>
-<tr class="separator:a25c916c15277425a1b2606d35c7405fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a157281cb33cb695c8eb0c8dd971b84f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a157281cb33cb695c8eb0c8dd971b84f2"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a157281cb33cb695c8eb0c8dd971b84f2">checkCollision</a> (<a class="el" href="class_circle.html">Circle</a> *circle)=0</td></tr>
-<tr class="memdesc:a157281cb33cb695c8eb0c8dd971b84f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to check collision with a <a class="el" href="class_circle.html" title="Circular collidables to be used in the game. ">Circle</a> object. <br /></td></tr>
-<tr class="separator:a157281cb33cb695c8eb0c8dd971b84f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90789947098d0f6f43e3ef8a944a5657"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90789947098d0f6f43e3ef8a944a5657"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a90789947098d0f6f43e3ef8a944a5657">checkCollision</a> (<a class="el" href="class_o_b_b.html">OBB</a> *obb)=0</td></tr>
-<tr class="memdesc:a90789947098d0f6f43e3ef8a944a5657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to check collision with an <a class="el" href="class_o_b_b.html" title="Oriented Bounding Box (OBB) collidables to be used in the game. ">OBB</a> object. <br /></td></tr>
-<tr class="separator:a90789947098d0f6f43e3ef8a944a5657"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab591b36248e5178a6e3a430d3eb67144"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab591b36248e5178a6e3a430d3eb67144"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ab591b36248e5178a6e3a430d3eb67144">setTexture</a> (sf::Texture *texture)=0</td></tr>
-<tr class="memdesc:ab591b36248e5178a6e3a430d3eb67144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to assign a texture to the object's sprite. <br /></td></tr>
-<tr class="separator:ab591b36248e5178a6e3a430d3eb67144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac30412922899257b1ad166dd444da2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#aac30412922899257b1ad166dd444da2e">isRotating</a> ()</td></tr>
+<tr class="memdesc:aac30412922899257b1ad166dd444da2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the collidable is rotating.  <a href="#aac30412922899257b1ad166dd444da2e">More...</a><br /></td></tr>
+<tr class="separator:aac30412922899257b1ad166dd444da2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae044698fb721536d87a49519e09ecd91"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ae044698fb721536d87a49519e09ecd91">checkCollision</a> (<a class="el" href="class_collidable.html">Collidable</a> *const collidable)=0</td></tr>
+<tr class="memdesc:ae044698fb721536d87a49519e09ecd91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to check collision with another <a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a> object.  <a href="#ae044698fb721536d87a49519e09ecd91">More...</a><br /></td></tr>
+<tr class="separator:ae044698fb721536d87a49519e09ecd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44775496393c696b827afbd991951052"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a44775496393c696b827afbd991951052">checkCollision</a> (<a class="el" href="class_circle.html">Circle</a> *const circle)=0</td></tr>
+<tr class="memdesc:a44775496393c696b827afbd991951052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to check collision with a <a class="el" href="class_circle.html" title="Circular collidables to be used in the game. ">Circle</a> object.  <a href="#a44775496393c696b827afbd991951052">More...</a><br /></td></tr>
+<tr class="separator:a44775496393c696b827afbd991951052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63427a488e6947212423b1b153749919"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a63427a488e6947212423b1b153749919">checkCollision</a> (<a class="el" href="class_o_b_b.html">OBB</a> *const obb)=0</td></tr>
+<tr class="memdesc:a63427a488e6947212423b1b153749919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to check collision with an <a class="el" href="class_o_b_b.html" title="Oriented Bounding Box (OBB) collidables to be used in the game. ">OBB</a> object.  <a href="#a63427a488e6947212423b1b153749919">More...</a><br /></td></tr>
+<tr class="separator:a63427a488e6947212423b1b153749919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a5c9317e76129754cc91343238e01d3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a0a5c9317e76129754cc91343238e01d3">setTexture</a> (shared_ptr&lt; sf::Texture &gt; texture)=0</td></tr>
+<tr class="memdesc:a0a5c9317e76129754cc91343238e01d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to assign a texture to the object's sprite.  <a href="#a0a5c9317e76129754cc91343238e01d3">More...</a><br /></td></tr>
+<tr class="separator:a0a5c9317e76129754cc91343238e01d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae32eb0a55753347190758d00e403c7e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae32eb0a55753347190758d00e403c7e8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; fvPosition)</td></tr>
 <tr class="separator:ae32eb0a55753347190758d00e403c7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a510861fa7a871c0036670ada663fb296"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a510861fa7a871c0036670ada663fb296"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (double fPositionX, double fPositionY)</td></tr>
+<tr class="separator:a510861fa7a871c0036670ada663fb296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6355717261e9475643232f31ec46424"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6355717261e9475643232f31ec46424"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setVelocity</b> (<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; fvVelocity)</td></tr>
 <tr class="separator:af6355717261e9475643232f31ec46424"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -228,23 +230,21 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getRadius</b> ()</t
 <tr class="memitem:a4368969a86c2e6fe908bfdd7ae8f7908"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4368969a86c2e6fe908bfdd7ae8f7908"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getInverseInertia</b> ()</td></tr>
 <tr class="separator:a4368969a86c2e6fe908bfdd7ae8f7908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4597915c92e32ea10220808da31c750"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4597915c92e32ea10220808da31c750"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">print</a> ()</td></tr>
-<tr class="memdesc:ac4597915c92e32ea10220808da31c750"><td class="mdescLeft">&#160;</td><td class="mdescRight">to be removed. <br /></td></tr>
+<tr class="memitem:ac4597915c92e32ea10220808da31c750"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">print</a> ()</td></tr>
+<tr class="memdesc:ac4597915c92e32ea10220808da31c750"><td class="mdescLeft">&#160;</td><td class="mdescRight">to be removed.  <a href="#ac4597915c92e32ea10220808da31c750">More...</a><br /></td></tr>
 <tr class="separator:ac4597915c92e32ea10220808da31c750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5a6501f0c062b6c24f3121c5c68b59d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a6501f0c062b6c24f3121c5c68b59d4"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a5a6501f0c062b6c24f3121c5c68b59d4">m_fAngularVelocity</a></td></tr>
-<tr class="memdesc:a5a6501f0c062b6c24f3121c5c68b59d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected <br /></td></tr>
+<tr class="memitem:a5a6501f0c062b6c24f3121c5c68b59d4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a5a6501f0c062b6c24f3121c5c68b59d4">m_fAngularVelocity</a></td></tr>
+<tr class="memdesc:a5a6501f0c062b6c24f3121c5c68b59d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected  <a href="#a5a6501f0c062b6c24f3121c5c68b59d4">More...</a><br /></td></tr>
 <tr class="separator:a5a6501f0c062b6c24f3121c5c68b59d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a7ec62c2d35206abacbcad74f5bf42608"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7ec62c2d35206abacbcad74f5bf42608">broadCollisionCheck</a> (<a class="el" href="class_collidable.html">Collidable</a> *pOtherCollidable)</td></tr>
-<tr class="memdesc:a7ec62c2d35206abacbcad74f5bf42608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a broad and less costly collision check with another collidable.  <a href="#a7ec62c2d35206abacbcad74f5bf42608">More...</a><br /></td></tr>
-<tr class="separator:a7ec62c2d35206abacbcad74f5bf42608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3089d5da571b2ad52b96d50a735c6b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#af3089d5da571b2ad52b96d50a735c6b3">broadCollisionCheck</a> (<a class="el" href="class_collidable.html">Collidable</a> *const pOtherCollidable)</td></tr>
+<tr class="memdesc:af3089d5da571b2ad52b96d50a735c6b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a broad and less costly collision check with another collidable.  <a href="#af3089d5da571b2ad52b96d50a735c6b3">More...</a><br /></td></tr>
+<tr class="separator:af3089d5da571b2ad52b96d50a735c6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ff9b7822edd612abd581437343f76b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a8ff9b7822edd612abd581437343f76b0">resolveCollision</a> (<a class="el" href="class_collidable.html">Collidable</a> *pOtherCollidable, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *pfvCollisionNormal, double fOverlap, <a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *pfvContactPoint)</td></tr>
 <tr class="memdesc:a8ff9b7822edd612abd581437343f76b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolves collision between two colliding objects.  <a href="#a8ff9b7822edd612abd581437343f76b0">More...</a><br /></td></tr>
 <tr class="separator:a8ff9b7822edd612abd581437343f76b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -254,61 +254,47 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a7ea7747a2156545d13b4b7f6e06bfe38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ea7747a2156545d13b4b7f6e06bfe38"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">m_fInverseMass</a></td></tr>
-<tr class="memdesc:a7ea7747a2156545d13b4b7f6e06bfe38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse of collidable's mass. <br /></td></tr>
+<tr class="memitem:a7ea7747a2156545d13b4b7f6e06bfe38"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7ea7747a2156545d13b4b7f6e06bfe38">m_fInverseMass</a></td></tr>
+<tr class="memdesc:a7ea7747a2156545d13b4b7f6e06bfe38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse of collidable's mass.  <a href="#a7ea7747a2156545d13b4b7f6e06bfe38">More...</a><br /></td></tr>
 <tr class="separator:a7ea7747a2156545d13b4b7f6e06bfe38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d243411e75ff019385dea0a4ff153e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d243411e75ff019385dea0a4ff153e9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">m_fFrictionCoefficient</a></td></tr>
-<tr class="memdesc:a7d243411e75ff019385dea0a4ff153e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient of collidable. <br /></td></tr>
+<tr class="memitem:a7d243411e75ff019385dea0a4ff153e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a7d243411e75ff019385dea0a4ff153e9">m_fFrictionCoefficient</a></td></tr>
+<tr class="memdesc:a7d243411e75ff019385dea0a4ff153e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient of collidable.  <a href="#a7d243411e75ff019385dea0a4ff153e9">More...</a><br /></td></tr>
 <tr class="separator:a7d243411e75ff019385dea0a4ff153e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17a452821ac1a880542e596fbfcaae6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17a452821ac1a880542e596fbfcaae6a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">m_fRestitution</a></td></tr>
-<tr class="memdesc:a17a452821ac1a880542e596fbfcaae6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restitution coefficient. <br /></td></tr>
+<tr class="memitem:a17a452821ac1a880542e596fbfcaae6a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">m_fRestitution</a></td></tr>
+<tr class="memdesc:a17a452821ac1a880542e596fbfcaae6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restitution coefficient.  <a href="#a17a452821ac1a880542e596fbfcaae6a">More...</a><br /></td></tr>
 <tr class="separator:a17a452821ac1a880542e596fbfcaae6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dde2844bbacaaf23b8b0652bf5ce906"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1dde2844bbacaaf23b8b0652bf5ce906"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a1dde2844bbacaaf23b8b0652bf5ce906">m_fRadius</a></td></tr>
-<tr class="memdesc:a1dde2844bbacaaf23b8b0652bf5ce906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radius of collidable. For non circular child classes, used in broad collision checks. <br /></td></tr>
+<tr class="memitem:a1dde2844bbacaaf23b8b0652bf5ce906"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a1dde2844bbacaaf23b8b0652bf5ce906">m_fRadius</a></td></tr>
+<tr class="memdesc:a1dde2844bbacaaf23b8b0652bf5ce906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radius of collidable. For non circular child classes, used in broad collision checks.  <a href="#a1dde2844bbacaaf23b8b0652bf5ce906">More...</a><br /></td></tr>
 <tr class="separator:a1dde2844bbacaaf23b8b0652bf5ce906"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac72f55f30a447a47bf165ce8d7584027"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac72f55f30a447a47bf165ce8d7584027"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">m_fvPosition</a></td></tr>
-<tr class="memdesc:ac72f55f30a447a47bf165ce8d7584027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Center position vector. <br /></td></tr>
+<tr class="memitem:ac72f55f30a447a47bf165ce8d7584027"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac72f55f30a447a47bf165ce8d7584027">m_fvPosition</a></td></tr>
+<tr class="memdesc:ac72f55f30a447a47bf165ce8d7584027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Center position vector.  <a href="#ac72f55f30a447a47bf165ce8d7584027">More...</a><br /></td></tr>
 <tr class="separator:ac72f55f30a447a47bf165ce8d7584027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a46aab76b8a8651ca93f601f62c05fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a46aab76b8a8651ca93f601f62c05fd"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">m_fvVelocity</a></td></tr>
-<tr class="memdesc:a3a46aab76b8a8651ca93f601f62c05fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity vector. <br /></td></tr>
+<tr class="memitem:a3a46aab76b8a8651ca93f601f62c05fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd">m_fvVelocity</a></td></tr>
+<tr class="memdesc:a3a46aab76b8a8651ca93f601f62c05fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity vector.  <a href="#a3a46aab76b8a8651ca93f601f62c05fd">More...</a><br /></td></tr>
 <tr class="separator:a3a46aab76b8a8651ca93f601f62c05fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43efbe42453578169f73f0b34cacc80c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43efbe42453578169f73f0b34cacc80c"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">m_fvAcceleration</a></td></tr>
-<tr class="memdesc:a43efbe42453578169f73f0b34cacc80c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceleration vector. <br /></td></tr>
+<tr class="memitem:a43efbe42453578169f73f0b34cacc80c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a43efbe42453578169f73f0b34cacc80c">m_fvAcceleration</a></td></tr>
+<tr class="memdesc:a43efbe42453578169f73f0b34cacc80c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceleration vector.  <a href="#a43efbe42453578169f73f0b34cacc80c">More...</a><br /></td></tr>
 <tr class="separator:a43efbe42453578169f73f0b34cacc80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad88d617204dde9a1abc37e013e7c3d51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad88d617204dde9a1abc37e013e7c3d51"></a>
-<a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51">m_fvThrust</a></td></tr>
-<tr class="memdesc:ad88d617204dde9a1abc37e013e7c3d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrust vector. <br /></td></tr>
+<tr class="memitem:ad88d617204dde9a1abc37e013e7c3d51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51">m_fvThrust</a></td></tr>
+<tr class="memdesc:ad88d617204dde9a1abc37e013e7c3d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrust vector.  <a href="#ad88d617204dde9a1abc37e013e7c3d51">More...</a><br /></td></tr>
 <tr class="separator:ad88d617204dde9a1abc37e013e7c3d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9cea5a59438b7b3604b8c7aa023380f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9cea5a59438b7b3604b8c7aa023380f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">m_fOrientation</a></td></tr>
-<tr class="memdesc:af9cea5a59438b7b3604b8c7aa023380f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation of the collidable, in radians. <br /></td></tr>
+<tr class="memitem:af9cea5a59438b7b3604b8c7aa023380f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">m_fOrientation</a></td></tr>
+<tr class="memdesc:af9cea5a59438b7b3604b8c7aa023380f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation of the collidable, in radians.  <a href="#af9cea5a59438b7b3604b8c7aa023380f">More...</a><br /></td></tr>
 <tr class="separator:af9cea5a59438b7b3604b8c7aa023380f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a376aa200ba174a1cea17766fbcbda760"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a376aa200ba174a1cea17766fbcbda760"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a376aa200ba174a1cea17766fbcbda760">m_fAngularAcceleration</a></td></tr>
-<tr class="memdesc:a376aa200ba174a1cea17766fbcbda760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angular vAcceleration. <br /></td></tr>
+<tr class="memitem:a376aa200ba174a1cea17766fbcbda760"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a376aa200ba174a1cea17766fbcbda760">m_fAngularAcceleration</a></td></tr>
+<tr class="memdesc:a376aa200ba174a1cea17766fbcbda760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angular vAcceleration.  <a href="#a376aa200ba174a1cea17766fbcbda760">More...</a><br /></td></tr>
 <tr class="separator:a376aa200ba174a1cea17766fbcbda760"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84f79454b1dac54f7b9042660d89e8ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84f79454b1dac54f7b9042660d89e8ca"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a84f79454b1dac54f7b9042660d89e8ca">m_fTorque</a></td></tr>
-<tr class="memdesc:a84f79454b1dac54f7b9042660d89e8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Torque applied to object. <br /></td></tr>
+<tr class="memitem:a84f79454b1dac54f7b9042660d89e8ca"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a84f79454b1dac54f7b9042660d89e8ca">m_fTorque</a></td></tr>
+<tr class="memdesc:a84f79454b1dac54f7b9042660d89e8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Torque applied to object.  <a href="#a84f79454b1dac54f7b9042660d89e8ca">More...</a><br /></td></tr>
 <tr class="separator:a84f79454b1dac54f7b9042660d89e8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef9f604795e30d09737aee26beb128ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef9f604795e30d09737aee26beb128ae"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#aef9f604795e30d09737aee26beb128ae">m_fInverseMomentOfInertia</a></td></tr>
-<tr class="memdesc:aef9f604795e30d09737aee26beb128ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse moment of inertia. <br /></td></tr>
+<tr class="memitem:aef9f604795e30d09737aee26beb128ae"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#aef9f604795e30d09737aee26beb128ae">m_fInverseMomentOfInertia</a></td></tr>
+<tr class="memdesc:aef9f604795e30d09737aee26beb128ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse moment of inertia.  <a href="#aef9f604795e30d09737aee26beb128ae">More...</a><br /></td></tr>
 <tr class="separator:aef9f604795e30d09737aee26beb128ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13a62d6d9fb69397c5ad03e6ec1c3b2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13a62d6d9fb69397c5ad03e6ec1c3b2d"></a>
-sf::VertexArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">m_vaPoints</a></td></tr>
-<tr class="memdesc:a13a62d6d9fb69397c5ad03e6ec1c3b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points to be drawn (to be removed) <br /></td></tr>
+<tr class="memitem:a13a62d6d9fb69397c5ad03e6ec1c3b2d"><td class="memItemLeft" align="right" valign="top">sf::VertexArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">m_vaPoints</a></td></tr>
+<tr class="memdesc:a13a62d6d9fb69397c5ad03e6ec1c3b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points to be drawn (to be removed)  <a href="#a13a62d6d9fb69397c5ad03e6ec1c3b2d">More...</a><br /></td></tr>
 <tr class="separator:a13a62d6d9fb69397c5ad03e6ec1c3b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5392bcb0ef0fef2e60b68a447e4d0ae7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5392bcb0ef0fef2e60b68a447e4d0ae7"></a>
-sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">m_sprite</a></td></tr>
-<tr class="memdesc:a5392bcb0ef0fef2e60b68a447e4d0ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite to be drawn to the window. <br /></td></tr>
+<tr class="memitem:a5392bcb0ef0fef2e60b68a447e4d0ae7"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">m_sprite</a></td></tr>
+<tr class="memdesc:a5392bcb0ef0fef2e60b68a447e4d0ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite to be drawn to the window.  <a href="#a5392bcb0ef0fef2e60b68a447e4d0ae7">More...</a><br /></td></tr>
 <tr class="separator:a5392bcb0ef0fef2e60b68a447e4d0ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -345,13 +331,13 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
           <td class="memname">void Collidable::applyImpulse </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *&#160;</td>
-          <td class="paramname"><em>fvImpulse</em>, </td>
+          <td class="paramname"><em>pfvImpulse</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt; double &gt; *&#160;</td>
-          <td class="paramname"><em>fvContactPoint</em>&#160;</td>
+          <td class="paramname"><em>pfvContactPoint</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -377,7 +363,7 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 
 </div>
 </div>
-<a class="anchor" id="a7ec62c2d35206abacbcad74f5bf42608"></a>
+<a class="anchor" id="af3089d5da571b2ad52b96d50a735c6b3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -387,7 +373,7 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
         <tr>
           <td class="memname">bool Collidable::broadCollisionCheck </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_collidable.html">Collidable</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_collidable.html">Collidable</a> *const&#160;</td>
           <td class="paramname"><em>pOtherCollidable</em></td><td>)</td>
           <td></td>
         </tr>
@@ -408,6 +394,149 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Whether they are close to each other or not. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae044698fb721536d87a49519e09ecd91"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Collidable::checkCollision </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_collidable.html">Collidable</a> *const&#160;</td>
+          <td class="paramname"><em>collidable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual method to check collision with another <a class="el" href="class_collidable.html" title="Base class for every collidable object in the game. ">Collidable</a> object. </p>
+
+<p>Implemented in <a class="el" href="class_o_b_b.html#a1ed0b0ab7a4a9b59da7eef8f876ebf8d">OBB</a>, and <a class="el" href="class_circle.html#a1c54c0c9992d94902aa610bd10290512">Circle</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44775496393c696b827afbd991951052"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Collidable::checkCollision </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_circle.html">Circle</a> *const&#160;</td>
+          <td class="paramname"><em>circle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual method to check collision with a <a class="el" href="class_circle.html" title="Circular collidables to be used in the game. ">Circle</a> object. </p>
+
+<p>Implemented in <a class="el" href="class_o_b_b.html#acd925b4f20a569a3e7736a90154e2b6e">OBB</a>, and <a class="el" href="class_circle.html#ae35b144decf4c215432185bbfce000f9">Circle</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a63427a488e6947212423b1b153749919"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Collidable::checkCollision </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_o_b_b.html">OBB</a> *const&#160;</td>
+          <td class="paramname"><em>obb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual method to check collision with an <a class="el" href="class_o_b_b.html" title="Oriented Bounding Box (OBB) collidables to be used in the game. ">OBB</a> object. </p>
+
+<p>Implemented in <a class="el" href="class_o_b_b.html#a77009de32a0f293f1fb14566aab1077e">OBB</a>, and <a class="el" href="class_circle.html#a4ab15624db62f39064f90247495941eb">Circle</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d46b697385b10bc9447f1ac18a587a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Collidable::isMoving </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the collidable is moving. </p>
+
+</div>
+</div>
+<a class="anchor" id="aac30412922899257b1ad166dd444da2e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Collidable::isRotating </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the collidable is rotating. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac4597915c92e32ea10220808da31c750"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Collidable::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>to be removed. </p>
 
 </div>
 </div>
@@ -469,6 +598,34 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 
 </div>
 </div>
+<a class="anchor" id="a0a5c9317e76129754cc91343238e01d3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Collidable::setTexture </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; sf::Texture &gt;&#160;</td>
+          <td class="paramname"><em>texture</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual method to assign a texture to the object's sprite. </p>
+
+<p>Implemented in <a class="el" href="class_car.html#a3269228385ef71469c7df8b0ee2a5eb8">Car</a>, <a class="el" href="class_o_b_b.html#ac623d403ed9428397c00ee5782eda59e">OBB</a>, and <a class="el" href="class_circle.html#a122be687e96014c2a448ecbebacfd314">Circle</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ad636cf1a7fab85fb2dfedf08c02c7745"></a>
 <div class="memitem">
 <div class="memproto">
@@ -512,9 +669,332 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a376aa200ba174a1cea17766fbcbda760"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Collidable::m_fAngularAcceleration</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Angular vAcceleration. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5a6501f0c062b6c24f3121c5c68b59d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Collidable::m_fAngularVelocity</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>protected </p>
+
+</div>
+</div>
+<a class="anchor" id="a7d243411e75ff019385dea0a4ff153e9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Collidable::m_fFrictionCoefficient</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Friction coefficient of collidable. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7ea7747a2156545d13b4b7f6e06bfe38"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Collidable::m_fInverseMass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inverse of collidable's mass. </p>
+
+</div>
+</div>
+<a class="anchor" id="aef9f604795e30d09737aee26beb128ae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Collidable::m_fInverseMomentOfInertia</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inverse moment of inertia. </p>
+
+</div>
+</div>
+<a class="anchor" id="af9cea5a59438b7b3604b8c7aa023380f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Collidable::m_fOrientation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Orientation of the collidable, in radians. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1dde2844bbacaaf23b8b0652bf5ce906"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Collidable::m_fRadius</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Radius of collidable. For non circular child classes, used in broad collision checks. </p>
+
+</div>
+</div>
+<a class="anchor" id="a17a452821ac1a880542e596fbfcaae6a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Collidable::m_fRestitution</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Restitution coefficient. </p>
+
+</div>
+</div>
+<a class="anchor" id="a84f79454b1dac54f7b9042660d89e8ca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Collidable::m_fTorque</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Torque applied to object. </p>
+
+</div>
+</div>
+<a class="anchor" id="a43efbe42453578169f73f0b34cacc80c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt;double&gt; Collidable::m_fvAcceleration</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Acceleration vector. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac72f55f30a447a47bf165ce8d7584027"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt;double&gt; Collidable::m_fvPosition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Center position vector. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad88d617204dde9a1abc37e013e7c3d51"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt;double&gt; Collidable::m_fvThrust</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Thrust vector. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3a46aab76b8a8651ca93f601f62c05fd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector2_d.html">Vector2D</a>&lt;double&gt; Collidable::m_fvVelocity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Velocity vector. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5392bcb0ef0fef2e60b68a447e4d0ae7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite Collidable::m_sprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sprite to be drawn to the window. </p>
+
+</div>
+</div>
+<a class="anchor" id="a13a62d6d9fb69397c5ad03e6ec1c3b2d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::VertexArray Collidable::m_vaPoints</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Points to be drawn (to be removed) </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/<a class="el" href="collidable_8h_source.html">collidable.h</a></li>
-<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/src/<a class="el" href="collidable_8cpp.html">collidable.cpp</a></li>
+<li><a class="el" href="collidable_8h_source.html">collidable.h</a></li>
+<li><a class="el" href="collidable_8cpp.html">collidable.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

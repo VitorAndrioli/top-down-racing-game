@@ -3,6 +3,7 @@ var searchData=
   ['my_20personal_20index_20page',['My Personal Index Page',['../index.html',1,'']]],
   ['m_5fbaccelerating',['m_bAccelerating',['../class_car.html#a3ca299e37b7a2b964e68877e7fc41d56',1,'Car']]],
   ['m_5fbbraking',['m_bBraking',['../class_car.html#a0a5b2769f8000bc41da5ffacaff488bd',1,'Car']]],
+  ['m_5fbbrakingsprite',['m_bBrakingSprite',['../class_car.html#a7f5b4e63338fccac99e7efbf0a737f04',1,'Car']]],
   ['m_5fbmovingforward',['m_bMovingForward',['../class_car.html#a7f45340643c43ddd543d96662fe88911',1,'Car']]],
   ['m_5fbreversing',['m_bReversing',['../class_car.html#a8a5ba2979820d7c0f2a00571fd7755de',1,'Car']]],
   ['m_5fbturningleft',['m_bTurningLeft',['../class_car.html#ab15cb88a73253d2d258368bed12be6cc',1,'Car']]],
@@ -30,5 +31,6 @@ var searchData=
   ['magnitude',['magnitude',['../class_vector2_d.html#aab76e76bb642784480bdd231b90b1273',1,'Vector2D']]],
   ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
   ['maximum_5freverse_5fspeed',['MAXIMUM_REVERSE_SPEED',['../car_8h.html#aa8fb66b6541f2a0438bae23b79831921',1,'car.h']]],
-  ['maximum_5fspeed',['MAXIMUM_SPEED',['../car_8h.html#aa8e6af92411e0744251777f3133c69dd',1,'car.h']]]
+  ['maximum_5fspeed',['MAXIMUM_SPEED',['../car_8h.html#aa8e6af92411e0744251777f3133c69dd',1,'car.h']]],
+  ['menu',['Menu',['../class_menu.html',1,'']]]
 ];

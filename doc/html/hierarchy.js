@@ -2,6 +2,9 @@ var hierarchy =
 [
     [ "CollidableFactory", "class_collidable_factory.html", null ],
     [ "Drawable", null, [
+      [ "Menu", "class_menu.html", null ]
+    ] ],
+    [ "Drawable", null, [
       [ "Collidable", "class_collidable.html", [
         [ "Circle", "class_circle.html", [
           [ "Tyre", "class_tyre.html", null ]

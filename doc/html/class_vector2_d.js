@@ -6,6 +6,7 @@ var class_vector2_d =
     [ "crossProduct", "class_vector2_d.html#a5d05faaee31dd6f71dfdc4a57502e4f8", null ],
     [ "dotProduct", "class_vector2_d.html#aa69f34ef68bbce55afb63c2e87391203", null ],
     [ "flip", "class_vector2_d.html#a6191843e792557d9532da82b79b026aa", null ],
+    [ "getOrientation", "class_vector2_d.html#a22c679997c97857d84061d50aeed7f2e", null ],
     [ "getX", "class_vector2_d.html#a46521876fbb0b52881eba97a074ba59c", null ],
     [ "getY", "class_vector2_d.html#ac0ecf6cdb4b8106b8c1c2a08efc728df", null ],
     [ "magnitude", "class_vector2_d.html#aab76e76bb642784480bdd231b90b1273", null ],

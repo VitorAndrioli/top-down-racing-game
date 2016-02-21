@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Racing game: TextureManager Class Reference</title>
+<title>Race game: TextureManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Racing game
+   <div id="projectname">Race game
    </div>
   </td>
  </tr>
@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -107,7 +108,7 @@ $(document).ready(function(){initNavTree('class_texture_manager.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_texture_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TextureManager Class Reference</div>  </div>
@@ -116,19 +117,84 @@ $(document).ready(function(){initNavTree('class_texture_manager.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a859dd5bc435ebd53938e7c966f85e69b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a859dd5bc435ebd53938e7c966f85e69b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadTextures</b> ()</td></tr>
-<tr class="separator:a859dd5bc435ebd53938e7c966f85e69b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a001d6d74674961db79987e3222682576"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_manager.html#a001d6d74674961db79987e3222682576">~TextureManager</a> ()</td></tr>
+<tr class="memdesc:a001d6d74674961db79987e3222682576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic destructor.  <a href="#a001d6d74674961db79987e3222682576">More...</a><br /></td></tr>
+<tr class="separator:a001d6d74674961db79987e3222682576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad18b2f53fe1d844df7e6c121ca2dc1fe"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; sf::Texture &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_manager.html#ad18b2f53fe1d844df7e6c121ca2dc1fe">getTexturePointer</a> (const string name)</td></tr>
+<tr class="memdesc:ad18b2f53fe1d844df7e6c121ca2dc1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets pointer to a texture by its name.  <a href="#ad18b2f53fe1d844df7e6c121ca2dc1fe">More...</a><br /></td></tr>
+<tr class="separator:ad18b2f53fe1d844df7e6c121ca2dc1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a8b9ef15786994b25c0640318c6294f3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b9ef15786994b25c0640318c6294f3f"></a>
-std::vector&lt; sf::Texture &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_aTexture</b></td></tr>
-<tr class="separator:a8b9ef15786994b25c0640318c6294f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ad54c51d3aa7c0d1f978cdc58cc014f09"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_texture_manager.html">TextureManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_manager.html#ad54c51d3aa7c0d1f978cdc58cc014f09">getInstance</a> ()</td></tr>
+<tr class="memdesc:ad54c51d3aa7c0d1f978cdc58cc014f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets single instance of <a class="el" href="class_texture_manager.html">TextureManager</a>.  <a href="#ad54c51d3aa7c0d1f978cdc58cc014f09">More...</a><br /></td></tr>
+<tr class="separator:ad54c51d3aa7c0d1f978cdc58cc014f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a001d6d74674961db79987e3222682576"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TextureManager::~TextureManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Basic destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad54c51d3aa7c0d1f978cdc58cc014f09"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_texture_manager.html">TextureManager</a> * TextureManager::getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets single instance of <a class="el" href="class_texture_manager.html">TextureManager</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad18b2f53fe1d844df7e6c121ca2dc1fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt; sf::Texture &gt; TextureManager::getTexturePointer </td>
+          <td>(</td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets pointer to a texture by its name. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/include/<a class="el" href="texture_manager_8h_source.html">textureManager.h</a></li>
-<li>C:/Users/Vitor/Documents/Visual Studio 2013/Projects/CourseWork/src/textureManager.cpp</li>
+<li><a class="el" href="texture_manager_8h_source.html">textureManager.h</a></li>
+<li>textureManager.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

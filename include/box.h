@@ -1,7 +1,19 @@
-//! \file box.h Declaration of Box class.
+/*! 
+ * \file 
+ * \brief Declaration of Box class.
+ */
+
 /*!
- * \class Box
- * \brief Box to be used as collidable obstacle in the game.
+ * \class Box box.h "box.h"
+ * \brief Collidable object to be used in the game.
+ * 
+ * Boxes can have different sizes, however they are always square.
+ * Its mass is based on the size.
+ * The same texture (albeit sacaled) is draw to the screen.
+ *
+ * \author Vitor Augusto Andrioli
+ * \version 1.0 
+ * \date 25/02/2016
  */
 
 #ifndef BOX_H
@@ -9,20 +21,16 @@
 
 #include "obb.h"
 
-/*!
- */
-
 // Definition of constant values to be assigned for box objects.
-#define BOX_MASS_COEFFICIENT 0.4 //!< Default mass for box objects.
-#define BOX_FRICTION_COEFFICIENT 0.5 //!< Default friction coefficient for box objects.
-#define BOX_RESTITUTION_COEFFICIENT 0.5 //!< Default restitution coefficient for box objects.
+#define BOX_MASS_COEFFICIENT 0.4 //!< Default coefficient to define mass based on the its size.
+#define BOX_FRICTION_COEFFICIENT 0.5 //!< Default friction coefficient for boxes.
+#define BOX_RESTITUTION_COEFFICIENT 0.5 //!< Default restitution coefficient for boxes.
 
 class Box : public OBB
 {
 public:
-	Box(); //!< Basic constructor. Does not initialize any member variable.
-	//! Constructor receiving object's position, size and orientation.
-	Box(double fPosX, double fPosY, double fSize, double fOrientation = 0);
+	Box(); //!< Basic constructor.
+	Box(double fPosX, double fPosY, double fSize, double fOrientation = 0); //!< Constructor initializing position, size and orientation.
 	~Box(); //!< Basic destructor.
 };
 

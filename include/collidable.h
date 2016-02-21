@@ -1,12 +1,21 @@
-//! \file collidable.h Declaration of Collidable class.
 /*!
- * \class Collidable
+* \file
+* \brief Declaration of Collidable class.
+*/
+
+/*!
+ * \class Collidable collidable.h "collidable.h"
+ * \brief Template class for every collidable object in the game.
  *
- * \brief Base class for every collidable object in the game.
+ * Implements basic mechanics and integration methods to move objects, 
+ * as well as broad collision tests, collision response and impulse application.
+ * Declares virtual methods for detecting collision, allowing polymorphic calls.
  *
- * Implements basic mechanics and integration methods to move objects and collisions response.
- * Declares virtual methods for drawning and detecting collision.
+ * \author Vitor Augusto Andrioli
+ * \version 1.0
+ * \date 25/02/2016
  *
+ * \todo Angular movement.
  */
 
 #ifndef COLLIDABLE_H
@@ -21,7 +30,7 @@
 
 #define TO_RADIANS  M_PI / 180 //!< Used to transform degrees to radians.
 #define TO_DEGREES  180 / M_PI //!< Used to transform radians to degrees.
-#define STOPPING_VELOCITY  10 //!< Used to stop moving collidables.
+#define STOPPING_VELOCITY  10 //!< (Squared) Used to stop moving collidables.
 
 using namespace std;
 
@@ -35,7 +44,7 @@ protected:
 	double m_fInverseMass;  //!< Inverse of collidable's mass.
 	double m_fFrictionCoefficient; //!< Friction coefficient of collidable.
 	double m_fRestitution; //!< Restitution coefficient.
-	double m_fRadius; //!< Radius of collidable. For non circular child classes, used in broad collision checks.
+	double m_fRadius; //!< Radius of collidable. For non circular child classes it is used in broad collision checks.
 
 	// Linear components.
 	Vector2D<double> m_fvPosition; //!< Center position vector.
@@ -45,8 +54,8 @@ protected:
 	
 	// Angular components
 	double m_fOrientation; //!< Orientation of the collidable, in radians.
-	//double m_fAngularVelocity; //!< Angular velocity.
-	double m_fAngularAcceleration; //!< Angular vAcceleration.
+	double m_fAngularVelocity; //!< Angular velocity.
+	double m_fAngularAcceleration; //!< Angular acceleration.
 	double m_fTorque; //!< Torque applied to object.
 	double m_fInverseMomentOfInertia; //!< Inverse moment of inertia.
 	
@@ -61,24 +70,21 @@ protected:
 	void applyImpulse(Vector2D<double>* pfvImpulse, Vector2D<double>* pfvContactPoint);
 
 public:
-	double m_fAngularVelocity; //!< protected
-	
-	
 	Collidable(); //!< Basic contructor.
-	void update(float elapsed); //!< Update method to be called every frame of the game.
-	virtual void updatePoints() {}; //!< to be removed.
+	void update(float fElapsed); //!< Update method to be called every frame of the game.
 	void updateSprite(); //!< Updates the sprite position and orientation.
 	bool isMoving(); //!< Checks if the collidable is moving.
 	bool isRotating(); //!< Checks if the collidable is rotating.
 	
 	// Virtual methods.
-	virtual void checkCollision(Collidable* const collidable) = 0; //!< Virtual method to check collision with another Collidable object.
-	virtual void checkCollision(Circle* const circle) = 0; //!< Virtual method to check collision with a Circle object.
-	virtual void checkCollision(OBB* const obb) = 0; //!< Virtual method to check collision with an OBB object.
-	virtual void setTexture(shared_ptr<sf::Texture> texture) = 0; //!< Virtual method to assign a texture to the object's sprite.
+	virtual void checkCollision(Collidable* const pCollidable) = 0; //!< Virtual method to check collision with another Collidable object.
+	virtual void checkCollision(Circle* const pCircle) = 0; //!< Virtual method to check collision with a Circle object.
+	virtual void checkCollision(OBB* const pObb) = 0; //!< Virtual method to check collision with an OBB object.
+	virtual void setTexture(shared_ptr<sf::Texture> pTexture) = 0; //!< Virtual method to assign a texture to the object's sprite.
 
 	// Setter and getters
 	void setPosition(Vector2D<double> fvPosition);
+	void setPosition(double fPositionX, double fPositionY);
 	void setVelocity(Vector2D<double> fvVelocity);
 	void setAcceleration(Vector2D<double> fvAcceleration);
 	void setThrust(Vector2D<double> fvThrust);
@@ -101,6 +107,7 @@ public:
 	
 
 
+	virtual void updatePoints() {}; //!< to be removed.
 	void print() { cout << "Car: " << getVelocity().magnitude() << " | " << getAcceleration().getY() << endl; } //!< to be removed.
 
 
