@@ -52,6 +52,8 @@ public:
 	
 	Vector2f getP1Position(); //!< Gets first player position.
 	Vector2f getP2Position(); //!< Gets second player position, if multiplayer.
+	CarDisplay* getP1Display();
+	CarDisplay* getP2Display();
 	RectangleShape getInstructionsBackground(); //!< Gets second player position, if multiplayer.
 	Text getInstructions(); //!< Gets second player position, if multiplayer.
 

@@ -5,10 +5,9 @@
 
 #include "game.h"
 
-Game::Game() :
-	m_bMultiPlayer(false),
-	m_bPaused(true)
-{ }
+Game::Game() : m_bMultiPlayer(false), m_bPaused(true)
+{ 
+}
 
 /*!
  * Move instructions screen to the center of the window and calls setSize() method of main menu.
@@ -57,7 +56,7 @@ void Game::load()
 	std::string instructionsString((std::istreambuf_iterator<char>(instructionsFile)), std::istreambuf_iterator<char>());
 	
 	// Assign font, font size, string and origin to SFML text member variable.
-	m_font.loadFromFile("./assets/font/Quartzo.ttf");
+	m_font.loadFromFile("./assets/font/GOTHICB.ttf");
 	m_instructions.setFont(m_font);
 	m_instructions.setCharacterSize(18);
 	m_instructions.setString(instructionsString);
@@ -255,4 +254,14 @@ RectangleShape Game::getInstructionsBackground()
 Text Game::getInstructions()
 {
 	return m_instructions;
+}
+
+CarDisplay* Game::getP1Display()
+{
+	return player1->getDisplay();
+}
+
+CarDisplay* Game::getP2Display()
+{
+	return player2->getDisplay();
 }

@@ -25,13 +25,25 @@ int main()
 	
 	sf::View menuView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	menuView.setViewport(sf::FloatRect(0, 0, 1, 1));
-
 	sf::View player1View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	sf::View player2View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
+
+	sf::View mapView(sf::FloatRect(0, 0, 1500, 1600));
+	mapView.setViewport(sf::FloatRect(0.8, 0, 0.2, 0.2));
+
+	sf::View p1displayView;
+	p1displayView.setSize(100, 100);
+	p1displayView.setCenter(50, 50);
+	
+	sf::View p2displayView;
+	p2displayView.setSize(100, 100);
+	p2displayView.setCenter(50, 50);
+	
+	
 	
 	do
 	{
-		window.clear(Color::Magenta);
+		window.clear(Color::Green);
 		window.setView(menuView);
 		window.draw(game);
 		window.display();
@@ -55,26 +67,22 @@ int main()
 	{
 		player2View.setViewport(sf::FloatRect(0, 0, 0.5, 1));
 		player2View.setSize(window.getSize().x / 2, window.getSize().y);
+		p2displayView.setViewport(sf::FloatRect(0, 0, 0.3, 0.3));
 
 		player1View.setViewport(sf::FloatRect(0.5, 0, 0.5, 1));
 		player1View.setSize(window.getSize().x / 2, window.getSize().y);
+		p1displayView.setViewport(sf::FloatRect(0.5, 0, 0.3, 0.3));
+
 	}
 	else
 	{
 		player1View.setViewport(sf::FloatRect(0, 0, 1, 1));
 		player1View.setSize(window.getSize().x, window.getSize().y);
+		p1displayView.setViewport(sf::FloatRect(0, 0, 0.3, 0.3));
 	}
 
-
-	sf::View miniView(sf::FloatRect(0, 0, 1500, 1600));
-	miniView.setViewport(sf::FloatRect(0.8, 0, 0.2, 0.2));
-	
-	CarDisplay display;
-	sf::View displayView(sf::FloatRect(0, 0, 100, 100));
-	displayView.setViewport(sf::FloatRect(0, 0, 1, 1));
-
 	Clock clock;
-	
+	int cout = 0;
 	while (window.isOpen())
 	{
 		Event event;
@@ -95,7 +103,6 @@ int main()
 			clock.restart();
 		}
 
-
 		window.clear(Color::Magenta);
 
 		
@@ -104,25 +111,32 @@ int main()
 		//player1View.setRotation(game.player1.getOrientation() * TO_DEGREES + 90);
 		window.draw(game);
 
+		window.setView(p1displayView);
+		window.draw(*game.getP1Display());
+
 		if (game.isMultiplayer())
 		{
 			window.setView(player2View);
 			player2View.setCenter(game.getP2Position());
 			window.draw(game);
+
+			window.setView(p2displayView);
+			window.draw(*game.getP2Display());
+
 		}
 
-		window.setView(miniView);
+		window.setView(mapView);
 		window.draw(game);
 
-		//window.setView(displayView);
-		//window.draw(display);
-		
 		if (game.isPaused())
 		{
 			window.setView(menuView);
 			window.draw(game.getInstructionsBackground());
 			window.draw(game.getInstructions());
 		}
+
+
+		
 
 		window.display();
 	}

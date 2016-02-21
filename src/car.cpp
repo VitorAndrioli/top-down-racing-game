@@ -20,14 +20,15 @@ Car::Car()
  * \param fOrientation Orientation of the car. If no value is passed, it will be set to zero.
  */
 Car::Car(double fPosX, double fPosY, double fOrientation) :
-	// Initialization list.
+// Initialization list.
 	m_bMovingForward(false),
 	m_bReversing(false),
 	m_bAccelerating(false),
 	m_bTurningLeft(false),
 	m_bTurningRight(false),
 	m_bBraking(false),
-	m_bBrakingSprite(false)
+	m_bBrakingSprite(false),
+	m_display(MAXIMUM_SPEED*MAXIMUM_REVERSE_SPEED)
 {
 	// Assigns paramenters to respective member variables.
 	setPosition(fPosX, fPosY);
@@ -103,6 +104,10 @@ void Car::update(float fElapsed)
 
 	// Updates car's sprites.
 	updateSprite();
+
+	// Updates analog display
+	m_display.update(m_fvVelocity.squaredMagnitude());
+	
 	updatePoints(); // to remove.
 }
 
@@ -241,4 +246,9 @@ double Car::getFrictionCoefficient()
 {
 	if (m_bBraking) return CAR_REVERSE_FRICTION_COEFFICIENT;
 	else return m_fFrictionCoefficient;
+}
+
+CarDisplay* Car::getDisplay()
+{
+	return &m_display;
 }

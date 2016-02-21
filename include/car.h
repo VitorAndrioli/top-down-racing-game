@@ -26,6 +26,7 @@
 #define CAR_H
 
 #include "obb.h"
+#include "carDisplay.h"
 
 // Definition of constant values to be assigned for cars objects.
 #define MAXIMUM_SPEED 330 //!< Maximum speed of the car.
@@ -67,8 +68,10 @@ public:
 	void setWheelTexture(shared_ptr<sf::Texture> pTexture); //!< Set front wheels texture.
 	void setVelocity(Vector2D<double> fvVelocity); //!< Updates velocity. Checks for maximum and minimum normal and reverse speed.
 	double getFrictionCoefficient(); //!< Returns different coefficient for reverse gear.
+	CarDisplay* getDisplay(); //!< Get pointer to display (velocimeter).
 
 protected:
+	CarDisplay m_display; //<! Analog velocimeter.
 	double m_fSteeringOrientation; //!< Orientation of front wheels.
 	double m_fWheelBase; //!< Distance between front and rear wheels.
 	sf::Sprite m_frontRightWheel; //!< Sprite for the right frontal wheel.
