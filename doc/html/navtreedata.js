@@ -1,12 +1,6 @@
 var NAVTREE =
 [
-  [ "Race game", "index.html", [
-    [ "My Personal Index Page", "index.html", [
-      [ "Introduction", "index.html#intro_sec", null ],
-      [ "Installation", "index.html#install_sec", [
-        [ "Step 1: Opening the box", "index.html#step1", null ]
-      ] ]
-    ] ],
+  [ "Course Work - IMAT2605", "index.html", [
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Classes", "annotated.html", [

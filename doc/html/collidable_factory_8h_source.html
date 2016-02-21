@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Race game: collidableFactory.h Source File</title>
+<title>collidableFactory.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,10 +31,6 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
-  <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Race game
-   </div>
-  </td>
  </tr>
  </tbody>
 </table>
@@ -109,38 +105,45 @@ $(document).ready(function(){initNavTree('collidable_factory_8h_source.html','')
 </div><!--header-->
 <div class="contents">
 <a href="collidable_factory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef COLLIDABLE_FACTORY_H</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define COLLIDABLE_FACTORY_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="collidable_8h.html">collidable.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obb_8h.html">obb.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="circle_8h.html">circle.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tyre_8h.html">tyre.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="box_8h.html">box.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="texture_manager_8h.html">textureManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;SFML\Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;rapidxml.hpp&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_collidable_factory.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_collidable_factory.html">CollidableFactory</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_collidable.html">Collidable</a>* generateCollidable(<span class="keyword">const</span> rapidxml::xml_node&lt;&gt;* pNode);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_collidable.html">Collidable</a>* makeCollidable(<span class="keyword">const</span> rapidxml::xml_node&lt;&gt;* pNode);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef COLLIDABLE_FACTORY_H</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define COLLIDABLE_FACTORY_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="collidable_8h.html">collidable.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obb_8h.html">obb.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="circle_8h.html">circle.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tyre_8h.html">tyre.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="box_8h.html">box.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="texture_manager_8h.html">textureManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;SFML\Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;rapidxml.hpp&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_collidable_factory.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_collidable_factory.html">CollidableFactory</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_collidable_factory.html">CollidableFactory</a>(); </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_collidable.html">Collidable</a>* makeCollidable(<span class="keyword">const</span> rapidxml::xml_node&lt;&gt;* pNode); </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    ~<a class="code" href="class_collidable_factory.html">CollidableFactory</a>(); </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_collidable.html">Collidable</a>* generateCollidable(<span class="keyword">const</span> rapidxml::xml_node&lt;&gt;* pNode); </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_collidable_factory.html#a118a18652a175389f81b165a5afbadfc">   42</a></span>&#160;    <a class="code" href="class_texture_manager.html">TextureManager</a>* <a class="code" href="class_collidable_factory.html#a118a18652a175389f81b165a5afbadfc">m_pTextureManager</a>; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_texture_manager_html"><div class="ttname"><a href="class_texture_manager.html">TextureManager</a></div><div class="ttdoc">Singleton for managing textures. </div><div class="ttdef"><b>Definition:</b> textureManager.h:26</div></div>
 <div class="ttc" id="circle_8h_html"><div class="ttname"><a href="circle_8h.html">circle.h</a></div><div class="ttdoc">Declaration of Circle class. </div></div>
 <div class="ttc" id="tyre_8h_html"><div class="ttname"><a href="tyre_8h.html">tyre.h</a></div><div class="ttdoc">Declaration of Tyre class. </div></div>
 <div class="ttc" id="collidable_8h_html"><div class="ttname"><a href="collidable_8h.html">collidable.h</a></div><div class="ttdoc">Declaration of Collidable class. </div></div>
 <div class="ttc" id="obb_8h_html"><div class="ttname"><a href="obb_8h.html">obb.h</a></div><div class="ttdoc">Declaration of OBB class. </div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="class_collidable_factory_html"><div class="ttname"><a href="class_collidable_factory.html">CollidableFactory</a></div><div class="ttdef"><b>Definition:</b> collidableFactory.h:17</div></div>
+<div class="ttc" id="class_collidable_factory_html_a118a18652a175389f81b165a5afbadfc"><div class="ttname"><a href="class_collidable_factory.html#a118a18652a175389f81b165a5afbadfc">CollidableFactory::m_pTextureManager</a></div><div class="ttdeci">TextureManager * m_pTextureManager</div><div class="ttdoc">Pointer to texture manager. </div><div class="ttdef"><b>Definition:</b> collidableFactory.h:42</div></div>
+<div class="ttc" id="class_collidable_factory_html"><div class="ttname"><a href="class_collidable_factory.html">CollidableFactory</a></div><div class="ttdoc">Factory for creating different collidable objects. </div><div class="ttdef"><b>Definition:</b> collidableFactory.h:33</div></div>
 <div class="ttc" id="box_8h_html"><div class="ttname"><a href="box_8h.html">box.h</a></div><div class="ttdoc">Declaration of Box class. </div></div>
-<div class="ttc" id="class_collidable_html"><div class="ttname"><a href="class_collidable.html">Collidable</a></div><div class="ttdoc">Base class for every collidable object in the game. </div><div class="ttdef"><b>Definition:</b> collidable.h:32</div></div>
-<div class="ttc" id="texture_manager_8h_html"><div class="ttname"><a href="texture_manager_8h.html">textureManager.h</a></div><div class="ttdoc">Declaration of Box class. </div></div>
+<div class="ttc" id="class_collidable_html"><div class="ttname"><a href="class_collidable.html">Collidable</a></div><div class="ttdoc">Template class for every collidable object in the game. </div><div class="ttdef"><b>Definition:</b> collidable.h:41</div></div>
+<div class="ttc" id="texture_manager_8h_html"><div class="ttname"><a href="texture_manager_8h.html">textureManager.h</a></div><div class="ttdoc">Declaration of TextureManager class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

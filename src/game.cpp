@@ -143,8 +143,6 @@ void Game::processKeyPress(Keyboard::Key code)
 	if (code == Keyboard::Return) if (!m_startGame) setMode(m_menu.getOption());
 	
 
-	if (code == Keyboard::Space) pObstacles.front()->m_fAngularVelocity = -5;
-
 }
 
 void Game::processKeyRelease(Keyboard::Key code)

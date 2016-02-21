@@ -21,7 +21,7 @@ Menu::Menu()
 	m_instructions.setString(instructionsString);
 	m_instructions.setOrigin(m_instructions.getLocalBounds().width / 2, m_instructions.getLocalBounds().height / 2);
 
-	TextureManager *textureManager = TextureManager::getInstance();
+	TextureManager* textureManager = TextureManager::getInstance();
 
 	m_initialMenuBackground.setTexture(*textureManager->getTexturePointer("menu_background"));
 	m_initialMenuBackground.setOrigin(m_initialMenuBackground.getTexture()->getSize().x / 2, m_initialMenuBackground.getTexture()->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).

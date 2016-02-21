@@ -2,17 +2,6 @@
 \file main.cpp
 */
 
-/*! \mainpage Course Work - IMAT2605
-* \brief Brief explanation
-* More details explanation
-*
-*/
-/*
-* \dir /assets/img
-* \brief oioioi
-*/
-
-
 #include <SFML/Graphics.hpp>
 #include "game.h"
 #include "menu.h"

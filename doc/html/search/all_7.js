@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['my_20personal_20index_20page',['My Personal Index Page',['../index.html',1,'']]],
   ['m_5fbaccelerating',['m_bAccelerating',['../class_car.html#a3ca299e37b7a2b964e68877e7fc41d56',1,'Car']]],
   ['m_5fbbraking',['m_bBraking',['../class_car.html#a0a5b2769f8000bc41da5ffacaff488bd',1,'Car']]],
   ['m_5fbbrakingsprite',['m_bBrakingSprite',['../class_car.html#a7f5b4e63338fccac99e7efbf0a737f04',1,'Car']]],
@@ -26,10 +25,12 @@ var searchData=
   ['m_5ffvthrust',['m_fvThrust',['../class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51',1,'Collidable']]],
   ['m_5ffvvelocity',['m_fvVelocity',['../class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd',1,'Collidable']]],
   ['m_5ffwheelbase',['m_fWheelBase',['../class_car.html#a7be779b298ee9803e8189e08f0cafc27',1,'Car']]],
+  ['m_5fptexturemanager',['m_pTextureManager',['../class_collidable_factory.html#a118a18652a175389f81b165a5afbadfc',1,'CollidableFactory']]],
   ['m_5fsprite',['m_sprite',['../class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7',1,'Collidable']]],
   ['m_5fvapoints',['m_vaPoints',['../class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d',1,'Collidable']]],
   ['magnitude',['magnitude',['../class_vector2_d.html#aab76e76bb642784480bdd231b90b1273',1,'Vector2D']]],
   ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['makecollidable',['makeCollidable',['../class_collidable_factory.html#af8b36949aaa1cc9fc444b3e59cc53c43',1,'CollidableFactory']]],
   ['maximum_5freverse_5fspeed',['MAXIMUM_REVERSE_SPEED',['../car_8h.html#aa8fb66b6541f2a0438bae23b79831921',1,'car.h']]],
   ['maximum_5fspeed',['MAXIMUM_SPEED',['../car_8h.html#aa8e6af92411e0744251777f3133c69dd',1,'car.h']]],
   ['menu',['Menu',['../class_menu.html',1,'']]]

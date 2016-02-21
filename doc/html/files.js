@@ -24,6 +24,7 @@ var files =
     [ "obb.h", "obb_8h.html", [
       [ "OBB", "class_o_b_b.html", "class_o_b_b" ]
     ] ],
+    [ "textureManager.cpp", "texture_manager_8cpp.html", null ],
     [ "textureManager.h", "texture_manager_8h.html", [
       [ "TextureManager", "class_texture_manager.html", "class_texture_manager" ]
     ] ],

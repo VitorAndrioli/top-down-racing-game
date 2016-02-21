@@ -8,6 +8,7 @@
 
 //! Initializes all relevant variables.
 Collidable::Collidable() : 
+	// Initialization list.
 	m_fvVelocity(0, 0), 
 	m_fvAcceleration(0, 0), 
 	m_fvThrust(0, 0), 

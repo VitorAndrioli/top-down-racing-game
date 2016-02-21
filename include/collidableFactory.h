@@ -1,4 +1,19 @@
-//! \file collidableFactory.h Declaration of CollidableFactory class.
+/*!
+ * \file
+ * \brief Declaration of CollidableFactory class.
+ */
+
+/*!
+ * \class CollidableFactory collidableFactory.h "collidableFactory.h"
+ * \brief Factory for creating different collidable objects.
+ *
+ * Implements Factory design pattern to assist in the generation of collidable objects
+ * of different types (subclasses) from xml nodes.
+ * 
+ * \author Vitor Augusto Andrioli
+ * \version 1.0
+ * \date 25/02/2016
+ */
 
 #ifndef COLLIDABLE_FACTORY_H
 #define COLLIDABLE_FACTORY_H
@@ -12,14 +27,19 @@
 #include <SFML\Graphics.hpp>
 #include "rapidxml.hpp"
 #include <memory>
+
 using namespace std;
 
 class CollidableFactory
 {
-protected:
-	Collidable* generateCollidable(const rapidxml::xml_node<>* pNode);
 public:
-	Collidable* makeCollidable(const rapidxml::xml_node<>* pNode);
+	CollidableFactory(); //!< Basic constructor.
+	Collidable* makeCollidable(const rapidxml::xml_node<>* pNode); //!< Makes a new collidable.
+	~CollidableFactory(); //!< Basic destructor.
+
+protected:
+	Collidable* generateCollidable(const rapidxml::xml_node<>* pNode); //!< Generates and assigns texture to a new collidable from xml node.
+	TextureManager* m_pTextureManager; //!< Pointer to texture manager.
 };
 
 #endif

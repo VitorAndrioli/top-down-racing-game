@@ -1,44 +1,60 @@
+/*!
+ * \file
+ * \brief Implementation of TextureManager class.
+ */
+
 #include "textureManager.h"
 
+// Initiates static variables.
 bool TextureManager::m_bInstanceFlag = false;
 TextureManager* TextureManager::m_pTextureManager = nullptr;
+
+TextureManager::TextureManager()
+{
+}
+
+/*!
+ * \return Pointer to the texture manager instance.
+ */
 TextureManager* TextureManager::getInstance()
 {
+	// Checks if ans instance of TextureManager already exists.
 	if (!m_bInstanceFlag)
 	{
+		// If not, creates one.
 		m_pTextureManager = new TextureManager;
 		m_bInstanceFlag = true;
 	}
 	return m_pTextureManager;
 }
 
-TextureManager::TextureManager()
+/*!
+ * \param sName Name of the texture we wish to use.
+ * \return Smart pointer to a texture.
+ */
+shared_ptr<sf::Texture> TextureManager::getTexturePointer(const string sName)
 {
+	string dir = "assets/img/"; // Images directory.
+	string extension = ".png"; // Extension of images.
 
-}
-
-shared_ptr<sf::Texture> TextureManager::getTexturePointer(const string name)
-{
-	string dir = "assets/img/";
-	string extension = ".png";
+	// Looks in map for a texture associated with the name passed.
 	for (map< string, shared_ptr<sf::Texture> >::iterator it = m_textures.begin(); it != m_textures.end(); ++it)
 	{
-		if (name == it->first)
-		{
-			return it->second;
-		}
+		// If there is one, return texture's shared pointer.
+		if (sName == it->first)	return it->second;
 	}
 	
-	// The image doesen't exists. Create it and save it.
-	shared_ptr<sf::Texture> texture(new sf::Texture);
-	if (texture->loadFromFile(dir + name + extension))
+	// If the texture doesn't exists, try to load one and add it to the map.
+	shared_ptr<sf::Texture> texture(new sf::Texture); // Blank texture to prevent runtime errors.
+	if (texture->loadFromFile(dir + sName + extension))
 	{
-		m_textures[name] = texture;
-		return m_textures[name];
+		m_textures[sName] = texture;
+		return m_textures[sName];
 	}
 	
-	m_textures[name] = texture;
-	return m_textures[name];
+	// If no texture is found, save a blank texture instead.
+	m_textures[sName] = texture;
+	return m_textures[sName];
 }
 
 

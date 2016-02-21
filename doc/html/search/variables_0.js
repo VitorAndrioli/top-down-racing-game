@@ -25,6 +25,7 @@ var searchData=
   ['m_5ffvthrust',['m_fvThrust',['../class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51',1,'Collidable']]],
   ['m_5ffvvelocity',['m_fvVelocity',['../class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd',1,'Collidable']]],
   ['m_5ffwheelbase',['m_fWheelBase',['../class_car.html#a7be779b298ee9803e8189e08f0cafc27',1,'Car']]],
+  ['m_5fptexturemanager',['m_pTextureManager',['../class_collidable_factory.html#a118a18652a175389f81b165a5afbadfc',1,'CollidableFactory']]],
   ['m_5fsprite',['m_sprite',['../class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7',1,'Collidable']]],
   ['m_5fvapoints',['m_vaPoints',['../class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d',1,'Collidable']]]
 ];

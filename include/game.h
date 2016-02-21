@@ -35,7 +35,7 @@ public:
 	void setMode(bool mode);
 	bool m_startGame;
 
-	TextureManager *m_pTextureManager;
+	TextureManager* m_pTextureManager;
 	//std::vector<std::shared_ptr<Collidable>> obstacles;
 	std::vector<Collidable*> pObstacles;
 	Game(); //!< Constructor
