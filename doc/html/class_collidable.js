@@ -19,6 +19,7 @@ var class_collidable =
     [ "getVelocity", "class_collidable.html#abfdcd815a5f8aabd860e2b69bc4bea21", null ],
     [ "isMoving", "class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6", null ],
     [ "isRotating", "class_collidable.html#aac30412922899257b1ad166dd444da2e", null ],
+    [ "moved", "class_collidable.html#a75d5c8313b38f6016938f1b4aef5465c", null ],
     [ "print", "class_collidable.html#ac4597915c92e32ea10220808da31c750", null ],
     [ "resolveCollision", "class_collidable.html#a8ff9b7822edd612abd581437343f76b0", null ],
     [ "setAcceleration", "class_collidable.html#a669e3a62211f10242fdd9d18ed160356", null ],

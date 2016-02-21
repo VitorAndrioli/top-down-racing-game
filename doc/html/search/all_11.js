@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['_7ebox',['~Box',['../class_box.html#a6a5e09398e85d602a046b429062fb9c2',1,'Box']]],
-  ['_7ecollidablefactory',['~CollidableFactory',['../class_collidable_factory.html#ab5c688735d2c252e8891099b1ab8edb8',1,'CollidableFactory']]],
-  ['_7etexturemanager',['~TextureManager',['../class_texture_manager.html#a001d6d74674961db79987e3222682576',1,'TextureManager']]],
-  ['_7etyre',['~Tyre',['../class_tyre.html#a3ace196877f68acd82b89e8cd33825ec',1,'Tyre']]]
+  ['vector2d',['Vector2D',['../class_vector2_d.html',1,'Vector2D&lt; G &gt;'],['../class_vector2_d.html#a3bce991141a2cfd9c381651c06d2bee5',1,'Vector2D::Vector2D()'],['../class_vector2_d.html#a25ac574bd1a4deb41a9b198afd5f2787',1,'Vector2D::Vector2D(G x, G y)']]],
+  ['vector2d_2eh',['vector2D.h',['../vector2_d_8h.html',1,'']]],
+  ['vector2d_3c_20double_20_3e',['Vector2D&lt; double &gt;',['../class_vector2_d.html',1,'']]]
 ];

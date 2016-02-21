@@ -15,9 +15,6 @@
 template <class G>
 class Vector2D
 {
-private:
-	G m_x; //!< X value of the vector
-	G m_y; //!< Y value of the vector
 public:
 	Vector2D(); //!< Basic constructor that creates an empty vector.
 	Vector2D(G x, G y); //!< Constructor that creates and vector with X and Y values.
@@ -46,6 +43,10 @@ public:
 	Vector2D<G> operator* (double fScalar);
 	Vector2D<G> operator/ (double fScalar);
 	bool operator== (Vector2D<G>& pOtherVector);
+
+private:
+	G m_x; //!< X value of the vector
+	G m_y; //!< Y value of the vector
 };
 
 template <class G>

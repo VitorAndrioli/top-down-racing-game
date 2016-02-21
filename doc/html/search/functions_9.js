@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['obb',['OBB',['../class_o_b_b.html#af752af068c6fc1787f06556b6a71c929',1,'OBB::OBB()'],['../class_o_b_b.html#a9a500a3520c516eadca64a3f6f432be5',1,'OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution=1)']]]
+  ['magnitude',['magnitude',['../class_vector2_d.html#aab76e76bb642784480bdd231b90b1273',1,'Vector2D']]],
+  ['makecollidable',['makeCollidable',['../class_collidable_factory.html#af8b36949aaa1cc9fc444b3e59cc53c43',1,'CollidableFactory']]],
+  ['moved',['moved',['../class_collidable.html#a75d5c8313b38f6016938f1b4aef5465c',1,'Collidable']]]
 ];

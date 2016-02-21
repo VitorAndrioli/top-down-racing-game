@@ -4,6 +4,7 @@ var files =
     [ "box.h", "box_8h.html", "box_8h" ],
     [ "car.cpp", "car_8cpp.html", null ],
     [ "car.h", "car_8h.html", "car_8h" ],
+    [ "carDisplay.h", "car_display_8h_source.html", null ],
     [ "circle.cpp", "circle_8cpp.html", null ],
     [ "circle.h", "circle_8h.html", [
       [ "Circle", "class_circle.html", "class_circle" ]

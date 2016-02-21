@@ -48,6 +48,9 @@
     <ClCompile Include="src\menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\carDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\collidable.h">
@@ -83,20 +86,26 @@
     <ClInclude Include="include\menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\carDisplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="assets\xml\obstacles.xml">
+    <None Include="assets\txt\mainPage.dox">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="assets\xml\collidables.xml">
       <Filter>Resource Files</Filter>
     </Xml>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="assets\txt\menu.txt">
+    <Text Include="assets\txt\instructions _single_payer.txt">
       <Filter>Resource Files</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="assets\txt\intro.dox">
+    <Text Include="assets\txt\instructions_multi_player.txt">
       <Filter>Resource Files</Filter>
-    </None>
+    </Text>
   </ItemGroup>
 </Project>

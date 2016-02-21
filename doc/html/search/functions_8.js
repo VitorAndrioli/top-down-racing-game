@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['normalize',['normalize',['../class_vector2_d.html#a0de406dcf396cb5b629bf196c1101621',1,'Vector2D']]]
+  ['load',['load',['../class_game.html#a9f67e04bd108aa5943479bc17680a599',1,'Game']]]
 ];

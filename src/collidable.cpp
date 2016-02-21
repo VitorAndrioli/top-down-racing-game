@@ -154,6 +154,12 @@ bool Collidable::isRotating()
 	return m_fAngularVelocity != 0.f;
 }
 
+bool Collidable::moved()
+{
+	return (m_fvVelocity.squaredMagnitude() > 0 || m_fAngularVelocity != 0.f);
+}
+
+
 /*!
  * Draws object's sprite to target.
  *

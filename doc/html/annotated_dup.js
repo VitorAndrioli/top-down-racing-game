@@ -2,6 +2,7 @@ var annotated_dup =
 [
     [ "Box", "class_box.html", "class_box" ],
     [ "Car", "class_car.html", "class_car" ],
+    [ "CarDisplay", "class_car_display.html", "class_car_display" ],
     [ "Circle", "class_circle.html", "class_circle" ],
     [ "Collidable", "class_collidable.html", "class_collidable" ],
     [ "CollidableFactory", "class_collidable_factory.html", "class_collidable_factory" ],

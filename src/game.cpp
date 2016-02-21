@@ -1,45 +1,89 @@
-//! \file game.cpp Implementation of Game class.
-
-
-/*! \mainpage My Personal Index Page
-*
-* \section intro_sec Introduction
-*
-* This is the introduction.
-*
-* \section install_sec Installation
-*
-* \subsection step1 Step 1: Opening the box
-*
-* etc...
+/*!
+* \file
+* \brief Implementation of Car class.
 */
-#include "game.h"
 
+#include "game.h"
 
 Game::Game() :
 	m_bMultiPlayer(false),
-	m_bPaused(true),
-	m_pTextureManager(TextureManager::getInstance())
+	m_bPaused(true)
 { }
 
-void Game::load()
+/*!
+ * Move instructions screen to the center of the window and calls setSize() method of main menu.
+ *
+ * \param fWidth,fHeight Width and height of the window.
+ */
+void Game::setMenuSize(const double fWidth, const double fHeight)
 {
+	m_instructions.move(fWidth / 2, fHeight / 2); // Centers instructions text.
+	m_instructionsBackground.move(fWidth / 2, fHeight / 2); // Centers instructions background.
+	m_menu.setSize(fWidth, fHeight);
+}
+
+/*!
+ * Gets selected option from menu and starts the game.
+ * Game starts paused to show the players the instructions.
+ */
+void Game::setMode()
+{
+	m_bMultiPlayer = m_menu.getOption();
+	m_bStarted = true;
+	m_bPaused = true;
+}
+
+/*!
+ * Loads instructions text based on the game mode and creates its background.
+ * Instantiate cars and use a Factory to, from xml file, create every collidable object.
+ * Assign all the respective textures, using the Singleton Texture Manager.
+ *
+ */
+void Game::load()
+{	
+	// Gets instance of Texture manager.
+	TextureManager* pTextureManager = TextureManager::getInstance();
+	// Instantiates a Collidable Factory.
+	CollidableFactory collidableFactory;
+
+	// Assigns background texture.
+	m_background.setTexture(*pTextureManager->getTexturePointer("track_small"));
+
+	// Read instructions from .txt file.
+	std::string s_fontPath;
+	if (m_bMultiPlayer) s_fontPath = "./assets/txt/instructions_multi_player.txt";
+	else s_fontPath = "./assets/txt/instructions_single_payer.txt";
+	std::ifstream instructionsFile(s_fontPath);
+	std::string instructionsString((std::istreambuf_iterator<char>(instructionsFile)), std::istreambuf_iterator<char>());
+	
+	// Assign font, font size, string and origin to SFML text member variable.
+	m_font.loadFromFile("./assets/font/Quartzo.ttf");
+	m_instructions.setFont(m_font);
+	m_instructions.setCharacterSize(18);
+	m_instructions.setString(instructionsString);
+	m_instructions.setOrigin(m_instructions.getLocalBounds().width / 2, m_instructions.getLocalBounds().height / 2);
+
+	// Creates a semi-transparent backgrounf for instructions screen, based on its size (adding margins).
+	m_instructionsBackground.setSize(Vector2f(m_instructions.getLocalBounds().width + 15, m_instructions.getLocalBounds().height + 25));
+	m_instructionsBackground.setFillColor(Color(0, 0, 0, 120));
+	m_instructionsBackground.setOrigin(m_instructionsBackground.getSize().x / 2, m_instructionsBackground.getSize().y / 2);
+
+	// Instantiantes first player and, if necessary, second player. Assigns their textures.
 	player1 = new Car(50, 350, -90 * TO_RADIANS);
-	player1->setTexture(m_pTextureManager->getTexturePointer("car_01"));
-	player1->setWheelTexture(m_pTextureManager->getTexturePointer("car_tyre"));
+	player1->setTexture(pTextureManager->getTexturePointer("car_01"));
+	player1->setWheelTexture(pTextureManager->getTexturePointer("car_tyre"));
 	
 	if (m_bMultiPlayer)
 	{
 		player2 = new Car(150, 350, -90 * TO_RADIANS);
-		player2->setTexture(m_pTextureManager->getTexturePointer("car_02"));
-		player2->setWheelTexture(m_pTextureManager->getTexturePointer("car_tyre"));
+		player2->setTexture(pTextureManager->getTexturePointer("car_02"));
+		player2->setWheelTexture(pTextureManager->getTexturePointer("car_tyre"));
 	}
 
-	CollidableFactory collidableFactory;
-	m_background.setTexture(*m_pTextureManager->getTexturePointer("track"));
-
+	
+	// Read xml file to get details of every collidable to be created.	
 	rapidxml::xml_document<> doc;
-	ifstream file(".\\assets\\xml\\obstacles.xml");
+	ifstream file("./assets/xml/collidables.xml");
 	stringstream buffer;
 	buffer << file.rdbuf();
 	file.close();
@@ -48,114 +92,167 @@ void Game::load()
 	rapidxml::xml_node<>* pRoot = doc.first_node();
 	for (rapidxml::xml_node<> *pNode = pRoot->first_node("collidable"); pNode; pNode = pNode->next_sibling())
 	{
-		//std::shared_ptr<Collidable> newObstacle = collidableFactory.makeCollidable(pNode);
+		// For every xml node, create a new collidable.
 		Collidable* newObstacle = collidableFactory.makeCollidable(pNode);
-		if (newObstacle != NULL)
-		{
-			//obstacles.push_back(newObstacle);
-			pObstacles.push_back(newObstacle);
-		}
+		if (newObstacle != NULL) m_pvCollidables.push_back(newObstacle);
 	}
 }
 
-void Game::setMode(bool mode)
-{
-	m_bMultiPlayer = m_menu.m_bMultiPlayer;
-	
-	m_startGame = true;
-	m_menu.m_bShowInitialMenu = false;
-	m_bPaused = false;
-}
-
-void Game::setMenuSize(double x, double y)
-{
-	m_menu.setSize(x, y);
-}
-
+/*!
+ * If the game has not yet started, draws the main menu. Else, draws the background, cars and collidable objects.
+ * 
+ * \param target Target to which draw the sprite.
+ * \param states States used for drawing to a RenderTarget.
+ */
 void Game::draw(RenderTarget &target, RenderStates states) const
 {
-	
-	target.draw(m_background);
-	target.draw(*player1);
-	if (m_bMultiPlayer) target.draw(*player2);
-	for (auto it = pObstacles.begin(); it != pObstacles.end(); ++it)
+	if (!m_bStarted) target.draw(m_menu);
+	else 
 	{
-		target.draw(**it);
+		target.draw(m_background);
+		target.draw(*player1);
+		if (m_bMultiPlayer) target.draw(*player2);
+		for (auto it = m_pvCollidables.begin(); it != m_pvCollidables.end(); ++it) target.draw(**it);
 	}
 }
 
+/*!
+ * If game is paused, objects are not updated.
+ * Else, updates and checks for collision with other collidables. 
+ * Collision tests are only performed if the object has moved since last frame, to avoid wasting processing.
+ */
 void Game::update(float timestep)
 {
-	
+	// If paused, exit method.
 	if (m_bPaused) return;
-	player1->update(timestep);
-	if (m_bMultiPlayer) player2->update(timestep);
-	//player1->print();
 	
-	if (m_bMultiPlayer && player1->isMoving()) player1->checkCollision(player2);
-	if (m_bMultiPlayer && player2->isMoving()) player2->checkCollision(player1);
-
-	for (auto it = pObstacles.begin(); it != pObstacles.end(); ++it)
+	// Update first player.
+	player1->update(timestep);
+	
+	// If multi player mode is on, updates second player and check for collisions between the cars.
+	if (m_bMultiPlayer)
 	{
-		(*it)->update(timestep);
-		if (player1->isMoving() || player1->isRotating()) player1->checkCollision(*it);
-		if (m_bMultiPlayer && (player2->isMoving() || player1->isRotating())) player2->checkCollision(*it);
+		player2->update(timestep);
+		if (player1->moved()) player1->checkCollision(player2);
+		if (player2->moved()) player2->checkCollision(player1);
+	}
+	
+	// Iterates through every collidable, updates it and check for collisions with other collidables.
+	for (auto collidable_it1 = m_pvCollidables.begin(); collidable_it1 != m_pvCollidables.end(); ++collidable_it1)
+	{
+		// Updates.
+		(*collidable_it1)->update(timestep);
+		// Check for collisions with cars if they have moved.
+		if (player1->moved()) player1->checkCollision(*collidable_it1);
+		if (m_bMultiPlayer && player2->moved()) player2->checkCollision(*collidable_it1);
 		
-		if ((*it)->isMoving() || (*it)->isRotating()) player1->checkCollision(*it);
-		if (m_bMultiPlayer && ((*it)->isMoving() || (*it)->isRotating())) player2->checkCollision(*it);
-		
-		for (auto it2 = pObstacles.begin(); it2 != pObstacles.end(); ++it2)
+		// Check if collidable has moved since last frame.
+		if ((*collidable_it1)->moved())
 		{
-			if (it2 != it && ((*it)->isMoving() || (*it)->isRotating()))
+			// If so, checks collision with cars.
+			player1->checkCollision(*collidable_it1);
+			if (m_bMultiPlayer) player2->checkCollision(*collidable_it1);
+			
+			// Iterates again through every collidable checking for collision.
+			for (auto it2 = m_pvCollidables.begin(); it2 != m_pvCollidables.end(); ++it2)
 			{
-				(*it)->checkCollision(*it2);
+				if (it2 != collidable_it1) (*collidable_it1)->checkCollision(*it2);
 			}
 		}
 	}
-
-
 }
 
+/*!
+ * Ensures objects are not affected when game is paused and that no null pointer is used.
+ */
 void Game::processKeyPress(Keyboard::Key code)
 {
-	if (code == Keyboard::Up)
+	if (!m_bStarted)
 	{
-		if (m_bPaused) m_menu.toggleOptions();
-		else player1->m_bAccelerating = true;
+		if (code == Keyboard::Up || code == Keyboard::Down)	if (m_bPaused) m_menu.toggleOptions();
+		if (code == Keyboard::Return) setMode();
 	}
-	if (code == Keyboard::Down) 
+	else
 	{
-		if (m_bPaused) m_menu.toggleOptions();
-		else player1->m_bReversing = true;
+		if (code == Keyboard::P) m_bPaused = !m_bPaused;
+
+		if (!m_bPaused)
+		{
+			if (code == Keyboard::Up) player1->m_bAccelerating = true;
+			if (code == Keyboard::Down)	player1->m_bReversing = true;
+			if (code == Keyboard::Right) player1->m_bTurningRight = true;
+			if (code == Keyboard::Left) player1->m_bTurningLeft = true;
+			if (code == Keyboard::RControl) player1->m_bBraking = true;
+
+			if (m_bMultiPlayer)
+			{
+				if (code == Keyboard::W) player2->m_bAccelerating = true;
+				if (code == Keyboard::S) player2->m_bReversing = true;
+				if (code == Keyboard::D)  player2->m_bTurningRight = true;
+				if (code == Keyboard::A)  player2->m_bTurningLeft = true;
+				if (code == Keyboard::LControl) player2->m_bBraking = true;
+			}
+		}
 	}
-
-	if (code == Keyboard::Right) player1->m_bTurningRight = true;
-	if (code == Keyboard::Left) player1->m_bTurningLeft = true;
-	if (code == Keyboard::RControl) player1->m_bBraking = true;
-	
-	if (code == Keyboard::W) player2->m_bAccelerating = true;
-	if (code == Keyboard::S) player2->m_bReversing = true;
-	if (code == Keyboard::D)  player2->m_bTurningRight = true;
-	if (code == Keyboard::A)  player2->m_bTurningLeft = true;
-	if (code == Keyboard::LControl) player2->m_bBraking = true;
-
-	if (code == Keyboard::P) m_bPaused = !m_bPaused;
-	if (code == Keyboard::Return) if (!m_startGame) setMode(m_menu.getOption());
-	
-
 }
 
+/*!
+* Ensures objects are not affected when game is paused and that no null pointer is used.
+*/
 void Game::processKeyRelease(Keyboard::Key code)
 {
-	if (code == Keyboard::Up) player1->m_bAccelerating = false;
-	if (code == Keyboard::Down) player1->m_bReversing = false;
-	if (code == Keyboard::Right)  player1->m_bTurningRight = false;
-	if (code == Keyboard::Left)  player1->m_bTurningLeft = false;
-	if (code == Keyboard::RControl) player1->m_bBraking = false;
+	if (m_bStarted)
+	{
+		if (!m_bPaused)
+		{
+			if (code == Keyboard::Up) player1->m_bAccelerating = false;
+			if (code == Keyboard::Down)	player1->m_bReversing = false;
+			if (code == Keyboard::Right) player1->m_bTurningRight = false;
+			if (code == Keyboard::Left) player1->m_bTurningLeft = false;
+			if (code == Keyboard::RControl) player1->m_bBraking = false;
 
-	if (code == Keyboard::W) player2->m_bAccelerating = false;
-	if (code == Keyboard::S) player2->m_bReversing = false;
-	if (code == Keyboard::D)  player2->m_bTurningRight = false;
-	if (code == Keyboard::A)  player2->m_bTurningLeft = false;
-	if (code == Keyboard::LControl) player2->m_bBraking = false;
+			if (m_bMultiPlayer)
+			{
+				if (code == Keyboard::W) player2->m_bAccelerating = false;
+				if (code == Keyboard::S) player2->m_bReversing = false;
+				if (code == Keyboard::D)  player2->m_bTurningRight = false;
+				if (code == Keyboard::A)  player2->m_bTurningLeft = false;
+				if (code == Keyboard::LControl) player2->m_bBraking = false;
+			}
+		}
+	}
+}
+
+bool Game::isPaused()
+{
+	return m_bPaused;
+}
+bool Game::hasStarted()
+{
+	return m_bStarted;
+}
+bool Game::isMultiplayer()
+{
+	return m_bMultiPlayer;
+}
+
+// Setters and getters
+Vector2f Game::getP1Position()
+{
+	return Vector2f(player1->getPosition().getX(), player1->getPosition().getY());
+}
+
+Vector2f Game::getP2Position()
+{
+	return Vector2f(player2->getPosition().getX(), player2->getPosition().getY());
+}
+
+RectangleShape Game::getInstructionsBackground()
+{
+	return m_instructionsBackground;
+}
+
+Text Game::getInstructions()
+{
+	return m_instructions;
 }

@@ -49,6 +49,25 @@ using namespace std;
 
 class Car : public OBB
 {
+public:
+	Car(); //!< Basic constructor.
+	Car(double fPosX, double fPosY, double fOrientation = 0); //!< Constructor initializing position and orientation.
+	void update(float elapsed); //!< Override of Collidable's update method. To be called every frame of the game.
+
+	// Control booleans.
+	bool m_bMovingForward; //!< If car is current moving forward (NOT if the player is accelerating).
+	bool m_bTurningRight; //!< If player is turning right.
+	bool m_bTurningLeft; //!< If player is turning left.
+	bool m_bAccelerating; //!< If player is acceleration.
+	bool m_bReversing; //!< If player is activating reverse gear.
+	bool m_bBraking; //!< If player is braking.
+
+	// Setters and getters
+	void setTexture(shared_ptr<sf::Texture> pTexture); //!< Override OBB's setTexture method.
+	void setWheelTexture(shared_ptr<sf::Texture> pTexture); //!< Set front wheels texture.
+	void setVelocity(Vector2D<double> fvVelocity); //!< Updates velocity. Checks for maximum and minimum normal and reverse speed.
+	double getFrictionCoefficient(); //!< Returns different coefficient for reverse gear.
+
 protected:
 	double m_fSteeringOrientation; //!< Orientation of front wheels.
 	double m_fWheelBase; //!< Distance between front and rear wheels.
@@ -58,26 +77,8 @@ protected:
 	void controlInput(); //!< Control the car according to control booleans.
 	void updateSprite(); //!< Updates the sprites position and orientation. Changes sprite Rect while braking.
 
-public:
-	Car(); //!< Basic constructor.
-	Car(double fPosX, double fPosY, double fOrientation = 0); //!< Constructor initializing position and orientation.
-	void update(float elapsed); //!< Override of Collidable's update method. To be called every frame of the game.
-	
-	// Control booleans.
-	bool m_bMovingForward; //!< If car is current moving forward (NOT if the player is accelerating).
-	bool m_bTurningRight; //!< If player is turning right.
-	bool m_bTurningLeft; //!< If player is turning left.
-	bool m_bAccelerating; //!< If player is acceleration.
-	bool m_bReversing; //!< If player is activating reverse gear.
-	bool m_bBraking; //!< If player is braking.
-	
-	// Setters and getters
-	void setTexture(shared_ptr<sf::Texture> pTexture); //!< Override OBB's setTexture method.
-	void setWheelTexture(shared_ptr<sf::Texture> pTexture); //!< Set front wheels texture.
-	void setVelocity(Vector2D<double> fvVelocity); //!< Updates velocity. Checks for maximum and minimum normal and reverse speed.
-	double getFrictionCoefficient(); //!< Returns different coefficient for reverse gear.
 private:
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method inherited from Drawable class.
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method inherited from Drawable class.
 };
 
 #endif

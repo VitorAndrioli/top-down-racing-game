@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ismoving',['isMoving',['../class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6',1,'Collidable']]],
-  ['isrotating',['isRotating',['../class_collidable.html#aac30412922899257b1ad166dd444da2e',1,'Collidable']]]
+  ['hasstarted',['hasStarted',['../class_game.html#a382ac135c4eea51254ec2d0d2b2da61d',1,'Game']]]
 ];

@@ -1,7 +1,7 @@
 /*!
-* \file
-* \brief Implementation of Car class.
-*/
+ * \file
+ * \brief Implementation of Car class.
+ */
 
 #include <SFML\Graphics.hpp>
 #include "car.h"

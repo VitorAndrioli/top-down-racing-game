@@ -2,9 +2,7 @@ var hierarchy =
 [
     [ "CollidableFactory", "class_collidable_factory.html", null ],
     [ "Drawable", null, [
-      [ "Menu", "class_menu.html", null ]
-    ] ],
-    [ "Drawable", null, [
+      [ "CarDisplay", "class_car_display.html", null ],
       [ "Collidable", "class_collidable.html", [
         [ "Circle", "class_circle.html", [
           [ "Tyre", "class_tyre.html", null ]
@@ -15,6 +13,9 @@ var hierarchy =
         ] ]
       ] ],
       [ "Game", "class_game.html", null ]
+    ] ],
+    [ "Drawable", null, [
+      [ "Menu", "class_menu.html", null ]
     ] ],
     [ "TextureManager", "class_texture_manager.html", null ],
     [ "Vector2D< G >", "class_vector2_d.html", null ],

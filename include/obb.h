@@ -26,8 +26,6 @@ using namespace std;
 
 class OBB : public Collidable
 {
-protected:
-	Vector2D<double> m_fvHalfExtents; //!< Half-extents vector.
 public:
 	OBB(); //!< Basic constructor.
 	//! Constructor initializing position, half extents, orientation and restitution coefficient of box.
@@ -43,6 +41,9 @@ public:
 
 
 	void updatePoints(); // remove
+
+protected:
+	Vector2D<double> m_fvHalfExtents; //!< Half-extents vector.
 };
 
 #endif

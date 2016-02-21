@@ -40,40 +40,12 @@ class OBB;
 
 class Collidable : public sf::Drawable
 {
-protected:
-	double m_fInverseMass;  //!< Inverse of collidable's mass.
-	double m_fFrictionCoefficient; //!< Friction coefficient of collidable.
-	double m_fRestitution; //!< Restitution coefficient.
-	double m_fRadius; //!< Radius of collidable. For non circular child classes it is used in broad collision checks.
-
-	// Linear components.
-	Vector2D<double> m_fvPosition; //!< Center position vector.
-	Vector2D<double> m_fvVelocity; //!< Velocity vector.
-	Vector2D<double> m_fvAcceleration; //!< Acceleration vector.
-	Vector2D<double> m_fvThrust; //!< Thrust vector.
-	
-	// Angular components
-	double m_fOrientation; //!< Orientation of the collidable, in radians.
-	double m_fAngularVelocity; //!< Angular velocity.
-	double m_fAngularAcceleration; //!< Angular acceleration.
-	double m_fTorque; //!< Torque applied to object.
-	double m_fInverseMomentOfInertia; //!< Inverse moment of inertia.
-	
-	sf::VertexArray m_vaPoints; //!< Points to be drawn (to be removed)
-	sf::Sprite m_sprite; //!< Sprite to be drawn to the window.
-
-	//! Performs a broad and less costly collision check with another collidable.
-	bool broadCollisionCheck(Collidable* const pOtherCollidable);
-	//! Resolves collision between two colliding objects. 
-	void resolveCollision(Collidable* pOtherCollidable, Vector2D<double>* pfvCollisionNormal, double fOverlap, Vector2D<double>* pfvContactPoint);
-	//! Applies an impulse (sudden change of velocity) to the object.
-	void applyImpulse(Vector2D<double>* pfvImpulse, Vector2D<double>* pfvContactPoint);
-
 public:
 	Collidable(); //!< Basic contructor.
 	void update(float fElapsed); //!< Update method to be called every frame of the game.
 	void updateSprite(); //!< Updates the sprite position and orientation.
-	bool isMoving(); //!< Checks if the collidable is moving.
+	bool moved(); //!< Checks if the collidable is moving linearly or rotated since last frame.
+	bool isMoving(); //!< Checks if the collidable is moving linearly.
 	bool isRotating(); //!< Checks if the collidable is rotating.
 	
 	// Virtual methods.
@@ -110,6 +82,35 @@ public:
 	virtual void updatePoints() {}; //!< to be removed.
 	void print() { cout << "Car: " << getVelocity().magnitude() << " | " << getAcceleration().getY() << endl; } //!< to be removed.
 
+
+protected:
+	double m_fInverseMass;  //!< Inverse of collidable's mass.
+	double m_fFrictionCoefficient; //!< Friction coefficient of collidable.
+	double m_fRestitution; //!< Restitution coefficient.
+	double m_fRadius; //!< Radius of collidable. For non circular child classes it is used in broad collision checks.
+
+	// Linear components.
+	Vector2D<double> m_fvPosition; //!< Center position vector.
+	Vector2D<double> m_fvVelocity; //!< Velocity vector.
+	Vector2D<double> m_fvAcceleration; //!< Acceleration vector.
+	Vector2D<double> m_fvThrust; //!< Thrust vector.
+
+	// Angular components
+	double m_fOrientation; //!< Orientation of the collidable, in radians.
+	double m_fAngularVelocity; //!< Angular velocity.
+	double m_fAngularAcceleration; //!< Angular acceleration.
+	double m_fTorque; //!< Torque applied to object.
+	double m_fInverseMomentOfInertia; //!< Inverse moment of inertia.
+
+	sf::VertexArray m_vaPoints; //!< Points to be drawn (to be removed)
+	sf::Sprite m_sprite; //!< Sprite to be drawn to the window.
+
+	//! Performs a broad and less costly collision check with another collidable.
+	bool broadCollisionCheck(Collidable* const pOtherCollidable);
+	//! Resolves collision between two colliding objects. 
+	void resolveCollision(Collidable* pOtherCollidable, Vector2D<double>* pfvCollisionNormal, double fOverlap, Vector2D<double>* pfvContactPoint);
+	//! Applies an impulse (sudden change of velocity) to the object.
+	void applyImpulse(Vector2D<double>* pfvImpulse, Vector2D<double>* pfvContactPoint);
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method inherited from Drawable class.

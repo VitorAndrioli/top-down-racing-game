@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClCompile Include="src\box.cpp" />
     <ClCompile Include="src\car.cpp" />
+    <ClCompile Include="src\carDisplay.cpp" />
     <ClCompile Include="src\circle.cpp" />
     <ClCompile Include="src\collidable.cpp" />
     <ClCompile Include="src\collidableFactory.cpp" />
@@ -89,6 +90,7 @@
   <ItemGroup>
     <ClInclude Include="include\box.h" />
     <ClInclude Include="include\car.h" />
+    <ClInclude Include="include\carDisplay.h" />
     <ClInclude Include="include\circle.h" />
     <ClInclude Include="include\collidable.h" />
     <ClInclude Include="include\collidableFactory.h" />
@@ -100,13 +102,14 @@
     <ClInclude Include="include\vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="assets\xml\obstacles.xml" />
+    <Xml Include="assets\xml\collidables.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="assets\txt\menu.txt" />
+    <None Include="assets\txt\mainPage.dox" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\txt\intro.dox" />
+    <Text Include="assets\txt\instructions _single_payer.txt" />
+    <Text Include="assets\txt\instructions_multi_player.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

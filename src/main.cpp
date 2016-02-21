@@ -28,12 +28,12 @@ int main()
 
 	sf::View player1View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	sf::View player2View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
-
+	
 	do
 	{
 		window.clear(Color::Magenta);
 		window.setView(menuView);
-		window.draw(game.m_menu);
+		window.draw(game);
 		window.display();
 
 		Event event;
@@ -48,16 +48,16 @@ int main()
 				game.processKeyPress(event.key.code);
 		}
 
-	} while (!game.m_startGame);
+	} while (!game.hasStarted());
 
 	game.load();
-	if (game.m_bMultiPlayer)
+	if (game.isMultiplayer())
 	{
-		player1View.setViewport(sf::FloatRect(0, 0, 0.5, 1));
-		player1View.setSize(window.getSize().x / 2, window.getSize().y);
-
-		player2View.setViewport(sf::FloatRect(0.5, 0, 0.5, 1));
+		player2View.setViewport(sf::FloatRect(0, 0, 0.5, 1));
 		player2View.setSize(window.getSize().x / 2, window.getSize().y);
+
+		player1View.setViewport(sf::FloatRect(0.5, 0, 0.5, 1));
+		player1View.setSize(window.getSize().x / 2, window.getSize().y);
 	}
 	else
 	{
@@ -69,6 +69,10 @@ int main()
 	sf::View miniView(sf::FloatRect(0, 0, 1500, 1600));
 	miniView.setViewport(sf::FloatRect(0.8, 0, 0.2, 0.2));
 	
+	CarDisplay display;
+	sf::View displayView(sf::FloatRect(0, 0, 100, 100));
+	displayView.setViewport(sf::FloatRect(0, 0, 1, 1));
+
 	Clock clock;
 	
 	while (window.isOpen())
@@ -91,33 +95,36 @@ int main()
 			clock.restart();
 		}
 
+
 		window.clear(Color::Magenta);
 
+		
 		window.setView(player1View);
-		player1View.setCenter(game.player1->getPosition().getX(), game.player1->getPosition().getY());
+		player1View.setCenter(game.getP1Position());
 		//player1View.setRotation(game.player1.getOrientation() * TO_DEGREES + 90);
 		window.draw(game);
-		
-		if (game.m_bMultiPlayer)
+
+		if (game.isMultiplayer())
 		{
 			window.setView(player2View);
-			player2View.setCenter(game.player2->getPosition().getX(), game.player2->getPosition().getY());
+			player2View.setCenter(game.getP2Position());
 			window.draw(game);
 		}
 
 		window.setView(miniView);
 		window.draw(game);
 
-		if (game.m_bPaused)
+		//window.setView(displayView);
+		//window.draw(display);
+		
+		if (game.isPaused())
 		{
 			window.setView(menuView);
-			window.draw(game.m_menu);
+			window.draw(game.getInstructionsBackground());
+			window.draw(game.getInstructions());
 		}
-			
-		window.display();
-		
 
-		
+		window.display();
 	}
 
 	return 0;

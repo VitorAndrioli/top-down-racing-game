@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tyre',['Tyre',['../class_tyre.html#a162dbaad7ae74443df530dfb147fb694',1,'Tyre::Tyre()'],['../class_tyre.html#aa8316602e846dd79412579a2c3ad92c7',1,'Tyre::Tyre(double fPosX, double fPosY)']]]
+  ['resolvecollision',['resolveCollision',['../class_collidable.html#a8ff9b7822edd612abd581437343f76b0',1,'Collidable']]],
+  ['rotate',['rotate',['../class_vector2_d.html#a85f594928169b9c4bb74cc26ab43d111',1,'Vector2D']]]
 ];

@@ -1,0 +1,14 @@
+P - pause / resume
+
+W - player 1 accelerate
+S - player 1 reverse gear
+F - player 1 turn right
+A - player 1 turn left
+Left Ctrl - player 1 brake
+
+Arrow up - player 2 accelerate
+Arrow down - player 2 reverse gear
+Arrow right - player 2 turn right
+Arrow left - player 2 turn left
+Right Ctrl - player 2 brake
+
