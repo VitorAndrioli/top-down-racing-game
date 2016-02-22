@@ -19,12 +19,11 @@ OBB::OBB()
  * \param fRadius Radius of the object. Used for broad collision checks.
  * \param fRestitudion (Optional) Restitution coefficient of object. If omitted, it will be set to 1.
  */
-OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution) :
-	// Initialization list
-	m_fvHalfExtents(fHalfExtentX, fHalfExtentY)
+OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution)
 {
 	// Assigns paramenters to respective member variables.
 	setPosition(fPosX, fPosY);
+	setHalfExtents(fHalfExtentX, fHalfExtentY);
 	m_fOrientation = fOrientation;
 	m_fRestitution = fRestitution;
 	// Assigns default values
@@ -226,8 +225,8 @@ void OBB::setTexture(shared_ptr<sf::Texture> pTexture)
 
 void OBB::updatePoints()
 {
-	/*
-	m_vaPoints.resize(5);
+	
+	/*m_vaPoints.resize(5);
 	Vector2D<double> rotationMatrixLine1(cos(m_fOrientation), -sin(m_fOrientation));
 	Vector2D<double> rotationMatrixLine2(sin(m_fOrientation), cos(m_fOrientation));
 

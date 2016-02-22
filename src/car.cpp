@@ -63,18 +63,22 @@ void Car::update(float fElapsed)
 	fvFriction.rotate(m_fvVelocity.getOrientation());
 	
 	// Calculates air friction of the object, based on the velocity.
-	Vector2D<double> fvAirFriction = (m_fvVelocity * 0.1);
+	Vector2D<double> fvAirFriction = (m_fvVelocity * 0.5);
 	// Uses F = m.a equation to calculate the acceleration of the object.
 	m_fvAcceleration = (m_fvThrust - fvAirFriction) * m_fInverseMass;
 	// Friction only acts once the car is moving.
 	if (isMoving()) m_fvAcceleration -= fvFriction;
 	
+	//cout << m_fvVelocity.magnitude() << " | " << m_fvVelocity.getY() << endl;
+
 	// Uses Improved Euler to calculate the velocity of the object.
 	Vector2D<double> fvPredictedVelocity = m_fvVelocity + m_fvAcceleration * fElapsed;
 	Vector2D<double> fvNewFriction = fvPredictedVelocity * getFrictionCoefficient();
 	Vector2D<double> fvPredictedAcceleration = (m_fvThrust - fvNewFriction) * m_fInverseMass;
+	if (isMoving()) fvPredictedAcceleration -= fvFriction;
 
 	setVelocity(m_fvVelocity + (m_fvAcceleration + fvPredictedAcceleration) * 0.5 * fElapsed);
+	//m_fvPosition += m_fvVelocity * fElapsed;
 
 	// Uses Bicycle Steering for updating car's position and orientation.
 	// Gets vector for car's and steering's orientation.
@@ -217,10 +221,10 @@ void Car::setWheelTexture(shared_ptr<sf::Texture> pTexture)
 	updateSprite();
 }
 
-void Car::setVelocity(Vector2D<double> velocity)
+void Car::setVelocity(Vector2D<double> fvVelocity)
 {
 	// Updates velocity.
-	m_fvVelocity = velocity;
+	m_fvVelocity = fvVelocity;
 
 	// If moving forwards, makes sure it is not faster than maximum speed.
 	if (m_bAccelerating && m_fvVelocity.squaredMagnitude() > MAXIMUM_SPEED*MAXIMUM_SPEED)

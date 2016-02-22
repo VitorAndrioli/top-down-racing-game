@@ -19,6 +19,7 @@
 
 #include <SFML\Graphics.hpp>
 #include "textureManager.h"
+#include <iostream>
 
 #define MINIMUM_ROTATION 0 //!< Minimum rotation of the pointer, in degrees.
 #define MAXIMUM_ROTATION 225 //!< Maximum rotation of the pointer, in degrees.

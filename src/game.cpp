@@ -29,7 +29,7 @@ void Game::setMode()
 {
 	m_bMultiPlayer = m_menu.getOption();
 	m_bStarted = true;
-	m_bPaused = true;
+	m_bPaused = false;
 }
 
 /*!
@@ -46,7 +46,9 @@ void Game::load()
 	CollidableFactory collidableFactory;
 
 	// Assigns background texture.
-	m_background.setTexture(*pTextureManager->getTexturePointer("track_small"));
+	m_background.setTexture(*pTextureManager->getTexturePointer("track"));
+	m_background.scale(5386.f / m_background.getTexture()->getSize().x, 5136.f / m_background.getTexture()->getSize().y); // Scales texture to make sure it fits the car.
+
 
 	// Read instructions from .txt file.
 	std::string s_fontPath;
@@ -68,13 +70,14 @@ void Game::load()
 	m_instructionsBackground.setOrigin(m_instructionsBackground.getSize().x / 2, m_instructionsBackground.getSize().y / 2);
 
 	// Instantiantes first player and, if necessary, second player. Assigns their textures.
-	player1 = new Car(50, 350, -90 * TO_RADIANS);
+	player1 = new Car(3779, 3141, -90 * TO_RADIANS);
+	//player1 = new Car(3000, 5000, -90 * TO_RADIANS);
 	player1->setTexture(pTextureManager->getTexturePointer("car_01"));
 	player1->setWheelTexture(pTextureManager->getTexturePointer("car_tyre"));
 	
 	if (m_bMultiPlayer)
 	{
-		player2 = new Car(150, 350, -90 * TO_RADIANS);
+		player2 = new Car(3000, 3100, -90 * TO_RADIANS);
 		player2->setTexture(pTextureManager->getTexturePointer("car_02"));
 		player2->setWheelTexture(pTextureManager->getTexturePointer("car_tyre"));
 	}

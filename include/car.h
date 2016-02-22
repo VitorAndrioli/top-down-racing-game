@@ -29,16 +29,16 @@
 #include "carDisplay.h"
 
 // Definition of constant values to be assigned for cars objects.
-#define MAXIMUM_SPEED 330 //!< Maximum speed of the car.
+#define MAXIMUM_SPEED 430 //!< Maximum speed of the car.
 #define STOPPING_SPEED 8 //!< (Squared) Used to stop car with no shivering.
 #define MAXIMUM_REVERSE_SPEED 230 //!< Default speed while going on reverse.
 #define TYRE_MAXIMUM_ORIENTATION 25 * TO_RADIANS //!< Defines the limit the front wheels can rotate.
 #define TYRE_STOPPING_ORIENTATION 0.05 * TO_RADIANS //!< Defines a minimum threshold to stop rotating the wheels.
-#define TYRE_MOVEMENT 0.7 * TO_RADIANS //!< Defines how much the wheels rotate at each frame.
+#define TYRE_MOVEMENT 1.1 * TO_RADIANS //!< Defines how much the wheels rotate at each frame.
 #define CAR_FRICTION_COEFFICIENT 0.1 //!< Default friction coefficient for car objects.
 #define CAR_REVERSE_FRICTION_COEFFICIENT 1.1 //!< Default friction coefficient while on reverse gear for car objects.
 #define CAR_RESTITUTION_COEFFICIENT 0.6 //!< Default restitution coefficient for car objects.
-#define CAR_MASS 1500.f //!< Default mass for car objects.
+#define CAR_MASS 1000.f //!< Default mass for car objects.
 #define CAR_HALF_EXTENT_X 37 //!< Default X half-extent for car objects.
 #define CAR_HALF_EXTENT_Y 17 //!< Default Y half-extent for car objects.
 #define WHEEL_BASE (CAR_HALF_EXTENT_X*2) - 25  //!< Default distance between front and rear wheels for car objects.

@@ -1,14 +1,497 @@
 <?xml version="1.0" encoding="utf-8"?>
 <obstacles>
+  
+  <!-- Tyres -->
+  <collidable type="tyre" posX="3892" posY="1532" />
+  <collidable type="tyre" posX="3884" posY="1501" />
+  <collidable type="tyre" posX="3874" posY="1472" />
+  <collidable type="tyre" posX="3860" posY="1443" />
+  <collidable type="tyre" posX="3846" posY="1416" />
+  <collidable type="tyre" posX="3827" posY="1390" />
+  <collidable type="tyre" posX="3807" posY="1366" />
+  <collidable type="tyre" posX="3784" posY="1344" />
+  <collidable type="tyre" posX="3757" posY="1323" />
+  <collidable type="tyre" posX="3731" posY="1306" />
+  <collidable type="tyre" posX="3700" posY="1291" />
+  <collidable type="tyre" posX="3671" posY="1280" />
+  <collidable type="tyre" posX="3641" posY="1271" />
+  <collidable type="tyre" posX="3610" posY="1265" />
+  <collidable type="tyre" posX="3579" posY="1260" />
+  <collidable type="tyre" posX="3548" posY="1256" />
+  <collidable type="tyre" posX="3516" posY="1255" />
+  <collidable type="tyre" posX="3482" posY="1254" />
 
+  <collidable type="tyre" posX="3040" posY="1301" />
+  <collidable type="tyre" posX="3009" posY="1311" />
+  <collidable type="tyre" posX="2980" posY="1324" />
+  <collidable type="tyre" posX="2949" posY="1338" />
+  <collidable type="tyre" posX="2922" posY="1352" />
+  <collidable type="tyre" posX="2895" posY="1368" />
+  <collidable type="tyre" posX="2868" posY="1386" />
+
+  <collidable type="tyre" posX="2844" posY="1405" />
+  <collidable type="tyre" posX="2823" posY="1429" />
+  <collidable type="tyre" posX="2805" posY="1454" />
+  <collidable type="tyre" posX="2788" posY="1481" />
+  <collidable type="tyre" posX="2771" posY="1507" />
+  <collidable type="tyre" posX="2755" posY="1536" />
+  <collidable type="tyre" posX="2741" posY="1567" />
+  <collidable type="tyre" posX="2724" posY="1593" />
+  <collidable type="tyre" posX="2708" posY="1620" />
+  <collidable type="tyre" posX="2691" posY="1647" />
+  <collidable type="tyre" posX="2674" posY="1672" />
+  <collidable type="tyre" posX="2657" posY="1699" />
+  <collidable type="tyre" posX="2639" posY="1726" />
+  <collidable type="tyre" posX="2621" posY="1751" />
+  <collidable type="tyre" posX="2604" posY="1777" />
+  <collidable type="tyre" posX="2592" posY="1807" />
+  <collidable type="tyre" posX="2582" posY="1838" />
+
+  <collidable type="tyre" posX="2825" posY="1372" />
+  <collidable type="tyre" posX="2810" posY="1401" />
+  <collidable type="tyre" posX="2792" posY="1426" />
+  <collidable type="tyre" posX="2772" posY="1450" />
+  <collidable type="tyre" posX="2757" posY="1481" />
+  <collidable type="tyre" posX="2741" posY="1508" />
+  <collidable type="tyre" posX="2725" posY="1538" />
+  <collidable type="tyre" posX="2709" posY="1566" />
+  <collidable type="tyre" posX="2694" posY="1592" />
+  <collidable type="tyre" posX="2678" posY="1619" />
+  <collidable type="tyre" posX="2661" posY="1645" />
+  <collidable type="tyre" posX="2644" posY="1671" />
+  <collidable type="tyre" posX="2626" posY="1699" />
+  <collidable type="tyre" posX="2609" posY="1722" />
+  <collidable type="tyre" posX="2590" posY="1747" />
+  <collidable type="tyre" posX="2570" posY="1772" />
+  <collidable type="tyre" posX="2543" posY="1786" />
+  <collidable type="tyre" posX="2513" posY="1802" />
+
+  <collidable type="tyre" posX="2567" posY="1873" />
+  <collidable type="tyre" posX="2555" posY="1906" />
+  <collidable type="tyre" posX="2544" posY="1938" />
+  <collidable type="tyre" posX="2533" posY="1972" />
+  <collidable type="tyre" posX="2522" posY="2004" />
+  <collidable type="tyre" posX="2511" posY="2038" />
+  <collidable type="tyre" posX="2501" posY="2069" />
+  <collidable type="tyre" posX="2491" posY="2099" />
+  <collidable type="tyre" posX="2481" posY="2129" />
+  <collidable type="tyre" posX="2470" posY="2162" />
+  <collidable type="tyre" posX="2459" posY="2193" />
+  <collidable type="tyre" posX="2451" posY="2224" />
+  <collidable type="tyre" posX="2441" posY="2256" />
+  <collidable type="tyre" posX="2431" posY="2285" />
+
+  <collidable type="tyre" posX="2410" posY="2313" />
+  <collidable type="tyre" posX="2401" posY="2343" />
+  <collidable type="tyre" posX="2394" posY="2373" />
+  <collidable type="tyre" posX="2387" posY="2403" />
+  <collidable type="tyre" posX="2378" posY="2431" />
+  <collidable type="tyre" posX="2371" posY="2461" />
+  <collidable type="tyre" posX="2364" posY="2490" />
+  <collidable type="tyre" posX="2358" posY="2526" />
+  <collidable type="tyre" posX="2349" posY="2559" />
+  <collidable type="tyre" posX="2342" posY="2590" />
+
+  <collidable type="tyre" posX="2400" posY="2280" />
+  <collidable type="tyre" posX="2411" posY="2246" />
+  <collidable type="tyre" posX="2418" posY="2214" />
+  <collidable type="tyre" posX="2424" posY="2183" />
+  <collidable type="tyre" posX="2426" posY="2152" />
+  <collidable type="tyre" posX="2428" posY="2119" />
+  <collidable type="tyre" posX="2428" posY="2087" />
+  <collidable type="tyre" posX="2425" posY="2057" />
+  <collidable type="tyre" posX="2418" posY="2026" />
+  <collidable type="tyre" posX="2409" posY="1995" />
+  <collidable type="tyre" posX="2397" posY="1965" />
+  <collidable type="tyre" posX="2384" posY="1936" />
+  <collidable type="tyre" posX="2367" posY="1908" />
+  <collidable type="tyre" posX="2348" posY="1882" />
+  <collidable type="tyre" posX="2330" posY="1855" />
+  <collidable type="tyre" posX="2362" posY="1849" />
+  <collidable type="tyre" posX="2393" posY="1845" />
+  <collidable type="tyre" posX="2423" posY="1836" />
+  <collidable type="tyre" posX="2452" posY="1828" />
+  <collidable type="tyre" posX="2483" posY="1816" />
+
+  <collidable type="tyre" posX="2756" posY="2710" />
+  <collidable type="tyre" posX="2746" posY="2740" />
+  <collidable type="tyre" posX="2736" posY="2772" />
+  <collidable type="tyre" posX="2724" posY="2801" />
+  <collidable type="tyre" posX="2712" posY="2831" />
+  <collidable type="tyre" posX="2696" posY="2859" />
+  <collidable type="tyre" posX="2679" posY="2887" />
+  <collidable type="tyre" posX="2659" posY="2912" />
+  <collidable type="tyre" posX="2635" posY="2936" />
+  <collidable type="tyre" posX="2611" posY="2956" />
+
+  <collidable type="tyre" posX="2585" posY="2974" />
+  <collidable type="tyre" posX="2557" posY="2989" />
+  <collidable type="tyre" posX="2527" posY="3002" />
+  <collidable type="tyre" posX="2496" posY="3010" />
+  <collidable type="tyre" posX="2466" posY="3017" />
+  <collidable type="tyre" posX="2434" posY="3022" />
+  <collidable type="tyre" posX="2404" posY="3024" />
+  <collidable type="tyre" posX="2372" posY="3026" />
+  <collidable type="tyre" posX="2340" posY="3027" />
+  <collidable type="tyre" posX="2308" posY="3026" />
+
+  <collidable type="tyre" posX="2277" posY="3026" />
+  <collidable type="tyre" posX="2244" posY="3024" />
+  <collidable type="tyre" posX="2214" posY="3022" />
+  <collidable type="tyre" posX="2183" posY="3018" />
+  <collidable type="tyre" posX="2151" posY="3013" />
+  <collidable type="tyre" posX="2121" posY="3004" />
+  <collidable type="tyre" posX="2091" posY="2994" />
+  <collidable type="tyre" posX="2061" posY="2981" />
+  <collidable type="tyre" posX="2034" posY="2964" />
+  <collidable type="tyre" posX="2009" posY="2944" />
+
+  <collidable type="tyre" posX="1984" posY="2923" />
+  <collidable type="tyre" posX="1963" posY="2898" />
+  <collidable type="tyre" posX="1946" posY="2872" />
+  <collidable type="tyre" posX="1931" posY="2844" />
+  <collidable type="tyre" posX="1919" posY="2814" />
+  <collidable type="tyre" posX="1910" posY="2783" />
+  <collidable type="tyre" posX="1905" posY="2753" />
+  <collidable type="tyre" posX="1901" posY="2721" />
+  <collidable type="tyre" posX="1899" posY="2690" />
+  <collidable type="tyre" posX="1900" posY="2659" />
+  <collidable type="tyre" posX="1901" posY="2627" />
+  <collidable type="tyre" posX="1905" posY="2595" />
+
+  <collidable type="tyre" posX="1622" posY="1877" />
+  <collidable type="tyre" posX="1598" posY="1852" />
+  <collidable type="tyre" posX="1576" posY="1827" />
+  <collidable type="tyre" posX="1558" posY="1800" />
+  <collidable type="tyre" posX="1541" posY="1773" />
+  <collidable type="tyre" posX="1526" posY="1743" />
+  <collidable type="tyre" posX="1515" posY="1713" />
+  <collidable type="tyre" posX="1508" posY="1681" />
+  <collidable type="tyre" posX="1504" posY="1649" />
+  <collidable type="tyre" posX="1502" posY="1618" />
+
+  <collidable type="tyre" posX="1504" posY="1586" />
+  <collidable type="tyre" posX="1510" posY="1556" />
+  <collidable type="tyre" posX="1516" posY="1525" />
+  <collidable type="tyre" posX="1528" posY="1495" />
+  <collidable type="tyre" posX="1541" posY="1465" />
+  <collidable type="tyre" posX="1556" posY="1437" />
+  <collidable type="tyre" posX="1571" posY="1408" />
+  <collidable type="tyre" posX="1589" posY="1380" />
+  <collidable type="tyre" posX="1607" posY="1355" />
+  <collidable type="tyre" posX="1628" posY="1332" />
+
+  <collidable type="tyre" posX="1650" posY="1311" />
+  <collidable type="tyre" posX="1676" posY="1291" />
+  <collidable type="tyre" posX="1703" posY="1274" />
+  <collidable type="tyre" posX="1732" posY="1262" />
+  <collidable type="tyre" posX="1763" posY="1251" />
+  <collidable type="tyre" posX="1795" posY="1244" />
+  <collidable type="tyre" posX="1828" posY="1241" />
+  <collidable type="tyre" posX="1859" posY="1242" />
+  <collidable type="tyre" posX="1893" posY="1245" />
+  <collidable type="tyre" posX="1923" posY="1250" />
+  <collidable type="tyre" posX="1954" posY="1260" />
+  <collidable type="tyre" posX="1985" posY="1271" />
+  <collidable type="tyre" posX="2013" posY="1283" />
+  <collidable type="tyre" posX="2041" posY="1298" />
+
+  <collidable type="tyre" posX="2919" posY="1053" />
+  <collidable type="tyre" posX="2925" posY="1021" />
+  <collidable type="tyre" posX="2928" posY="989" />
+  <collidable type="tyre" posX="2931" posY="956" />
+  <collidable type="tyre" posX="2932" posY="920" />
+  <collidable type="tyre" posX="2930" posY="886" />
+  <collidable type="tyre" posX="2925" posY="853" />
+  <collidable type="tyre" posX="2919" posY="821" />
+  <collidable type="tyre" posX="2909" posY="789" />
+  <collidable type="tyre" posX="2898" posY="759" />
+  <collidable type="tyre" posX="2885" posY="730" />
+  <collidable type="tyre" posX="2869" posY="699" />
+  <collidable type="tyre" posX="2851" posY="672" />
+  <collidable type="tyre" posX="2833" posY="645" />
+  <collidable type="tyre" posX="2812" posY="621" />
+  <collidable type="tyre" posX="2791" posY="597" />
+  <collidable type="tyre" posX="2768" posY="576" />
+  <collidable type="tyre" posX="2741" posY="558" />
+  <collidable type="tyre" posX="2715" posY="540" />
+  <collidable type="tyre" posX="2687" posY="525" />
+  <collidable type="tyre" posX="2658" posY="514" />
+  <collidable type="tyre" posX="2628" posY="502" />
+  <collidable type="tyre" posX="2597" posY="494" />
+  <collidable type="tyre" posX="2567" posY="486" />
+  <collidable type="tyre" posX="2535" posY="482" />
+  <collidable type="tyre" posX="2502" posY="479" />
+  <collidable type="tyre" posX="2470" posY="476" />
+  <collidable type="tyre" posX="2438" posY="476" />
+
+  <collidable type="tyre" posX="2293" posY="4457" />
+  <collidable type="tyre" posX="2313" posY="4482" />
+  <collidable type="tyre" posX="2334" posY="4505" />
+  <collidable type="tyre" posX="2358" posY="4526" />
+  <collidable type="tyre" posX="2383" posY="4547" />
+  <collidable type="tyre" posX="2409" posY="4565" />
+  <collidable type="tyre" posX="2439" posY="4580" />
+  <collidable type="tyre" posX="2466" posY="4593" />
+  <collidable type="tyre" posX="2497" posY="4604" />
+  <collidable type="tyre" posX="2529" posY="4610" />
+  <collidable type="tyre" posX="2559" posY="4614" />
+  <collidable type="tyre" posX="2593" posY="4615" />
+  <collidable type="tyre" posX="2624" posY="4614" />
+  <collidable type="tyre" posX="2656" posY="4610" />
+  <collidable type="tyre" posX="2687" posY="4603" />
+  <collidable type="tyre" posX="2718" posY="4593" />
+  <collidable type="tyre" posX="2748" posY="4579" />
+  <collidable type="tyre" posX="2777" posY="4562" />
+  <collidable type="tyre" posX="2803" posY="4544" />
+  <collidable type="tyre" posX="2827" posY="4522" />
+  <collidable type="tyre" posX="2848" posY="4499" />
+  <collidable type="tyre" posX="2869" posY="4475" />
+
+  <collidable type="tyre" posX="2677" posY="4003" />
+  <collidable type="tyre" posX="2699" posY="3980" />
+  <collidable type="tyre" posX="2723" posY="3961" />
+  <collidable type="tyre" posX="2750" posY="3942" />
+  <collidable type="tyre" posX="2777" posY="3926" />
+  <collidable type="tyre" posX="2806" posY="3914" />
+  <collidable type="tyre" posX="2836" posY="3903" />
+  <collidable type="tyre" posX="2867" posY="3895" />
+  <collidable type="tyre" posX="2898" posY="3890" />
+  <collidable type="tyre" posX="2929" posY="3886" />
+  <collidable type="tyre" posX="2960" posY="3886" />
+  <collidable type="tyre" posX="2991" posY="3889" />
+  <collidable type="tyre" posX="3023" posY="3893" />
+  <collidable type="tyre" posX="3053" posY="3900" />
+  <collidable type="tyre" posX="3085" posY="3907" />
+  <collidable type="tyre" posX="3114" posY="3917" />
+
+  <collidable type="tyre" posX="3200" posY="4367" />
+  <collidable type="tyre" posX="3234" posY="4367" />
+  <collidable type="tyre" posX="3266" posY="4366" />
+  <collidable type="tyre" posX="3296" posY="4362" />
+  <collidable type="tyre" posX="3329" posY="4357" />
+  <collidable type="tyre" posX="3359" posY="4350" />
+  <collidable type="tyre" posX="3390" posY="4342" />
+  <collidable type="tyre" posX="3420" posY="4333" />
+  <collidable type="tyre" posX="3450" posY="4322" />
+  <collidable type="tyre" posX="3480" posY="4310" />
+  <collidable type="tyre" posX="3509" posY="4296" />
+  <collidable type="tyre" posX="3537" posY="4282" />
+  <collidable type="tyre" posX="3565" posY="4266" />
+  <collidable type="tyre" posX="3593" posY="4249" />
+  <collidable type="tyre" posX="3619" posY="4231" />
+  <collidable type="tyre" posX="3645" posY="4212" />
+  <collidable type="tyre" posX="3669" posY="4190" />
+  <collidable type="tyre" posX="3693" posY="4166" />
+  <collidable type="tyre" posX="3714" posY="4140" />
+  <collidable type="tyre" posX="3733" posY="4115" />
+  <collidable type="tyre" posX="3752" posY="4088" />
+  <collidable type="tyre" posX="3770" posY="4060" />
+  <collidable type="tyre" posX="3786" posY="4031" />
+  <collidable type="tyre" posX="3801" posY="4003" />
+  <collidable type="tyre" posX="3813" posY="3973" />
+  <collidable type="tyre" posX="3825" posY="3943" />
+  <collidable type="tyre" posX="3836" posY="3914" />
+
+
+  <!-- Boxes -->
+  <collidable type="box" posX="3488" posY="1047" size="20" orientation="36" />
+  <collidable type="box" posX="3449" posY="998" size="20" orientation="5" />
+  <collidable type="box" posX="3499" posY="989" size="20" orientation="0" />
+  <collidable type="box" posX="3443" posY="1036" size="20" orientation="0" />
+  <collidable type="box" posX="3400" posY="1049" size="20" orientation="0" />
+  <collidable type="box" posX="3394" posY="1005" size="20" orientation="10" />
+
+  <collidable type="box" posX="732" posY="1177" size="40" orientation="-16" />
+  <collidable type="box" posX="711" posY="1273" size="40" orientation="1" />
+  <collidable type="box" posX="822" posY="1178" size="28" orientation="-30" />
+  <collidable type="box" posX="782" posY="1241" size="20" orientation="10" />
+
+  <collidable type="box" posX="4655" posY="4904" size="56" orientation="0" />
+  <collidable type="box" posX="4557" posY="4922" size="38" orientation="0" />
+  <collidable type="box" posX="4463" posY="4911" size="38" orientation="-18" />
+  <collidable type="box" posX="4557" posY="4826" size="41" orientation="15" />
+
+
+
+  <!-- Gardens -->
+  <collidable type="circle" posX="447" posY="471" radius="277" restitution="0.25" />
+  <collidable type="circle" posX="4884" posY="471" radius="277" restitution="0.25" />
+  <collidable type="circle" posX="447" posY="4632" radius="277" restitution="0.25" />
+  <collidable type="circle" posX="4884" posY="4632" radius="277" restitution="0.25" />
+  <collidable type="circle" posX="2904" posY="3369" radius="277" restitution="0.25" />
+
+  <!-- Right audience -->
+  <collidable type="obb" posX="4009" posY="1760" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4009" posY="1960" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4009" posY="2160" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4009" posY="2360" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4009" posY="2560" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4009" posY="2760" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4009" posY="2960" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4009" posY="3160" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4009" posY="3360" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4009" posY="3499" halfExtentX="50" halfExtentY="39" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="1760" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="1960" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="2160" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="2360" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="2560" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="2760" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="2960" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="3160" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="3360" halfExtentX="50" halfExtentY="100" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4435" posY="3499" halfExtentX="50" halfExtentY="39" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4222" posY="1710" halfExtentX="162" halfExtentY="50" orientation="0" restitution="0.32" />
+  <collidable type="obb" posX="4222" posY="3488" halfExtentX="162" halfExtentY="50" orientation="0" restitution="0.32" />
+
+  <!-- Left audience -->
+  <collidable type="obb" posX="1147" posY="2799" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1249" posY="2971" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1351" posY="3143" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1453" posY="3315" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1555" posY="3487" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1658" posY="3659" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1760" posY="3831" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1862" posY="4003" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1964" posY="4175" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="2035" posY="4294" halfExtentX="50" halfExtentY="39" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="788" posY="3013" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="890" posY="3185" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="992" posY="3357" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1094" posY="3529" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1196" posY="3701" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1299" posY="3873" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1401" posY="4045" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1503" posY="4217" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1605" posY="4389" halfExtentX="50" halfExtentY="100" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1676" posY="4508" halfExtentX="50" halfExtentY="39" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="943" posY="2862" halfExtentX="159" halfExtentY="50" orientation="-30.7" restitution="0.32" />
+  <collidable type="obb" posX="1849" posY="4392" halfExtentX="159" halfExtentY="50" orientation="-30.7" restitution="0.32" />
+  
+  <!-- Left wall -->
+  <collidable type="obb" posX="65" posY="225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="1025" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="1225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="1425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="1625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="1825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="2025" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="2225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="2425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="2625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="2825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="3025" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="3225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="3425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="3625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="3825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="4025" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="4225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="4425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="4625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="4825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="65" posY="4945" halfExtentX="56" halfExtentY="20" orientation="0" restitution="0.25" />
+
+  <!-- Right wall -->
+  <collidable type="obb" posX="5266" posY="225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="1025" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="1225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="1425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="1625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="1825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="2025" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="2225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="2425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="2625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="2825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="3025" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="3225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="3425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="3625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="3825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="4025" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="4225" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="4425" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="4625" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="4825" halfExtentX="56" halfExtentY="100" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5266" posY="4945" halfExtentX="56" halfExtentY="20" orientation="0" restitution="0.25" />
+
+  <!-- Top wall -->
+  <collidable type="obb" posX="109" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="309" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="509" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="709" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="909" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1109" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1309" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1509" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1709" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1909" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2109" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2309" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2509" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2709" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2909" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3109" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3309" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3509" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3709" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3909" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4109" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4309" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4509" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4709" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4909" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5109" posY="68" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5265" posY="68" halfExtentX="57" halfExtentY="56" orientation="0" restitution="0.25" />
+
+  <!-- botton wall -->
+  <collidable type="obb" posX="109" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="309" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="509" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="709" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="909" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1109" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1309" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1509" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1709" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="1909" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2109" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2309" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2509" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2709" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="2909" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3109" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3309" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3509" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3709" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="3909" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4109" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4309" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4509" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4709" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="4909" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5109" posY="5022" halfExtentX="100" halfExtentY="56" orientation="0" restitution="0.25" />
+  <collidable type="obb" posX="5265" posY="5022" halfExtentX="57" halfExtentY="56" orientation="0" restitution="0.25" />
+
+
+
+  <!--
   <collidable type="box" posX="70" posY="60" size="30" orientation="0" />
   <collidable type="tyre" posX="50" posY="150" />
 
 
 
-  <!--<collidable type="circle" posX="50" posY="0" radius="80" />
+  
   <collidable type="obb" posX="50" posY="0" halfExtentX="20" halfExtentY="50" orientation="0" />
--->
+
   <collidable type="tyre" posX="350" posY="221" />
   <collidable type="tyre" posX="350" posY="250" />
   <collidable type="tyre" posX="350" posY="279" />
@@ -43,5 +526,5 @@
   <collidable type="tyre" posX="466" posY="308" />
   <collidable type="tyre" posX="466" posY="337" />
   <collidable type="tyre" posX="466" posY="366" />
-
+-->
 </obstacles>

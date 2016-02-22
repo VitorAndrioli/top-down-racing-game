@@ -21,12 +21,12 @@ CarDisplay::CarDisplay(double fMaximumSpeed) : m_fMaximumSpeedSquared(fMaximumSp
 
 	// Assigns and scale textures.
 	m_velocimeter.setTexture(*textureManager->getTexturePointer("velocimeter"));
-	m_velocimeter.scale(100.f / m_velocimeter.getTexture()->getSize().x, 100.f / m_velocimeter.getTexture()->getSize().y);
+	m_velocimeter.scale(60.f / m_velocimeter.getTexture()->getSize().x, 60.f / m_velocimeter.getTexture()->getSize().y);
 
 	m_velocimeterPointer.setTexture(*textureManager->getTexturePointer("pointer"));
 	m_velocimeterPointer.setOrigin(m_velocimeterPointer.getTexture()->getSize().x / 2, m_velocimeterPointer.getTexture()->getSize().y / 2);
-	m_velocimeterPointer.scale(100.f / m_velocimeterPointer.getTexture()->getSize().x, 100.f / m_velocimeterPointer.getTexture()->getSize().y);
-	m_velocimeterPointer.setPosition(50, 50);
+	m_velocimeterPointer.scale(60.f / m_velocimeterPointer.getTexture()->getSize().x, 60.f / m_velocimeterPointer.getTexture()->getSize().y);
+	m_velocimeterPointer.setPosition(30, 30);
 }
 
 /*!

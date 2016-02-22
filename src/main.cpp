@@ -17,7 +17,7 @@ using namespace sf;
 int main()
 {
 
-	RenderWindow window(VideoMode(700, 700), "IMAT2605 Course work");
+	RenderWindow window(VideoMode(1200, 700), "IMAT2605 Course work");
 	window.setVerticalSyncEnabled(true);
 
 	Game game;
@@ -28,22 +28,17 @@ int main()
 	sf::View player1View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 	sf::View player2View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 
-	sf::View mapView(sf::FloatRect(0, 0, 1500, 1600));
+	sf::View mapView(sf::FloatRect(0, 0, 6700, 6700));
 	mapView.setViewport(sf::FloatRect(0.8, 0, 0.2, 0.2));
 
-	sf::View p1displayView;
-	p1displayView.setSize(100, 100);
-	p1displayView.setCenter(50, 50);
+	sf::View p1displayView(sf::FloatRect(0, 0, 60, 60));
 	
-	sf::View p2displayView;
-	p2displayView.setSize(100, 100);
-	p2displayView.setCenter(50, 50);
-	
+	sf::View p2displayView(sf::FloatRect(0, 0, 60, 60));
 	
 	
 	do
 	{
-		window.clear(Color::Green);
+		window.clear(Color(43, 130, 62, 255));
 		window.setView(menuView);
 		window.draw(game);
 		window.display();
@@ -65,24 +60,26 @@ int main()
 	game.load();
 	if (game.isMultiplayer())
 	{
-		player2View.setViewport(sf::FloatRect(0, 0, 0.5, 1));
+		player2View.setViewport(sf::FloatRect(0, 0, 0.499, 1));
 		player2View.setSize(window.getSize().x / 2, window.getSize().y);
-		p2displayView.setViewport(sf::FloatRect(0, 0, 0.3, 0.3));
+		p2displayView.setViewport(sf::FloatRect(0.02, 0.8, 0.17, 0.17));
 
-		player1View.setViewport(sf::FloatRect(0.5, 0, 0.5, 1));
+		player1View.setViewport(sf::FloatRect(0.501, 0, 0.499, 1));
 		player1View.setSize(window.getSize().x / 2, window.getSize().y);
-		p1displayView.setViewport(sf::FloatRect(0.5, 0, 0.3, 0.3));
+		p1displayView.setViewport(sf::FloatRect(0.52, 0.8, 0.17, 0.17));
 
 	}
 	else
 	{
 		player1View.setViewport(sf::FloatRect(0, 0, 1, 1));
 		player1View.setSize(window.getSize().x, window.getSize().y);
-		p1displayView.setViewport(sf::FloatRect(0, 0, 0.3, 0.3));
+		p1displayView.setViewport(sf::FloatRect(0.02, 0.8, 0.17, 0.17));
 	}
 
 	Clock clock;
-	int cout = 0;
+	player1View.setCenter(game.getP1Position());
+
+
 	while (window.isOpen())
 	{
 		Event event;
@@ -97,23 +94,23 @@ int main()
 										
 		}
 
-		if (clock.getElapsedTime().asSeconds() > 0.0005)
+		if (clock.getElapsedTime().asSeconds() > 0.001)
 		{
 			game.update(clock.getElapsedTime().asSeconds());
 			clock.restart();
 		}
 
-		window.clear(Color::Magenta);
+		window.clear(Color::Yellow);
 
 		
 		window.setView(player1View);
-		player1View.setCenter(game.getP1Position());
-		//player1View.setRotation(game.player1.getOrientation() * TO_DEGREES + 90);
 		window.draw(game);
-
+		//player1View.setCenter(game.getP1Position());
+		//player1View.setRotation(game.player1.getOrientation() * TO_DEGREES + 90);
+		
 		window.setView(p1displayView);
 		window.draw(*game.getP1Display());
-
+		
 		if (game.isMultiplayer())
 		{
 			window.setView(player2View);

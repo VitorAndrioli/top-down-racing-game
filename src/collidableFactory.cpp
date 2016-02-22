@@ -43,16 +43,18 @@ Collidable* CollidableFactory::makeCollidable(const rapidxml::xml_node<>* pNode)
 		double fHalfExtentX = atof(pNode->first_attribute("halfExtentX")->value());
 		double fHalfExtentY = atof(pNode->first_attribute("halfExtentY")->value());
 		double fOrientation = atof(pNode->first_attribute("orientation")->value());
+		double fRestitution = atof(pNode->first_attribute("restitution")->value());
 
-		pCollidable = new OBB(fPosX, fPosY, fHalfExtentX, fHalfExtentY, fOrientation * 3.14159 / 180);
+		pCollidable = new OBB(fPosX, fPosY, fHalfExtentX, fHalfExtentY, fOrientation * 3.14159 / 180, fRestitution);
 	}
 	else if (sCollidableType == "circle")
 	{
 		double fPosX = atof(pNode->first_attribute("posX")->value());
 		double fPosY = atof(pNode->first_attribute("posY")->value());
 		double fRadius = atof(pNode->first_attribute("radius")->value());
+		double fRestitution = atof(pNode->first_attribute("restitution")->value());
 
-		pCollidable = new Circle(fPosX, fPosY, fRadius);
+		pCollidable = new Circle(fPosX, fPosY, fRadius, fRestitution);
 	}
 	else if (sCollidableType == "tyre")
 	{
