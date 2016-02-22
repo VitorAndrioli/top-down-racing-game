@@ -1,4 +1,7 @@
-//! \file vector2D.h Declaration of Vector2D class.
+/*!
+* \file
+* \brief Declaration and implementation of templated Vector2D class.
+*/
 
 /*!
  * \class Vector2D
@@ -16,10 +19,10 @@ template <class G>
 class Vector2D
 {
 public:
-	Vector2D(); //!< Basic constructor that creates an empty vector.
-	Vector2D(G x, G y); //!< Constructor that creates and vector with X and Y values.
-	double dotProduct(Vector2D<G> * pOtherVector); //!< Calculates dot product with another vector.
-	double crossProduct(Vector2D<G> * pOtherVector); //!< Calculates cross product with another vector.
+	Vector2D(); //!< Default constructor that creates an empty vector.
+	Vector2D(G x, G y); //!< Constructor that creates a vector with X and Y values.
+	double dotProduct(Vector2D<G>* pOtherVector); //!< Calculates dot product with another vector.
+	double crossProduct(Vector2D<G>* pOtherVector); //!< Calculates cross product with another vector.
 	Vector2D<G> crossProduct(double fScalar); //!< Calculates cross product with a scalar.
 	Vector2D<G> unitVector(); //!< Gets unitary vector.
 	void normalize(); //!< Turns into unitary vector.
@@ -36,13 +39,13 @@ public:
 	void setY(G y);
 
 	// Ovreload operators.
-	Vector2D<G> operator+ (Vector2D<G>& pOtherVector);
-	Vector2D<G> operator- (Vector2D<G>& pOtherVector);
-	void operator+= (Vector2D<G>& pOtherVector);
-	void operator-= (Vector2D<G>& pOtherVector);
-	Vector2D<G> operator* (double fScalar);
-	Vector2D<G> operator/ (double fScalar);
-	bool operator== (Vector2D<G>& pOtherVector);
+	Vector2D<G> operator+ (Vector2D<G>& pOtherVector); //!< Overloads + operand (Sum with a vector)
+	Vector2D<G> operator- (Vector2D<G>& pOtherVector); //!< Overloads - operand (Subtraction with a vector)
+	void operator+= (Vector2D<G>& pOtherVector); //!< Overloads += operand (Increment of a vector)
+	void operator-= (Vector2D<G>& pOtherVector); //!< Overloads -= operand (Decrement of a vector)
+	Vector2D<G> operator* (double fScalar); //!< Overloads * operand (Multiplication by a scalar)
+	Vector2D<G> operator/ (double fScalar); //!< Overloads / operand (Division by a scalar)
+	bool operator== (Vector2D<G>& pOtherVector); //!< Overloads == operand (Comparison with a vector)
 
 private:
 	G m_x; //!< X value of the vector
@@ -72,7 +75,7 @@ Vector2D<G>::Vector2D(G x, G y)
  * \return Dot product.
  */
 template <class G>
-double Vector2D<G>::dotProduct(Vector2D<G> * pOtherVector)
+double Vector2D<G>::dotProduct(Vector2D<G>* pOtherVector)
 {
 	return m_x * pOtherVector->getX() + m_y * pOtherVector->getY();
 }
@@ -87,7 +90,7 @@ double Vector2D<G>::dotProduct(Vector2D<G> * pOtherVector)
  * \return Scalar cross product.
  */
 template <class G>
-double Vector2D<G>::crossProduct(Vector2D<G> * pOtherVector)
+double Vector2D<G>::crossProduct(Vector2D<G>* pOtherVector)
 {
 	return m_x * pOtherVector->getY() - m_y * pOtherVector->getX();
 }
@@ -197,18 +200,18 @@ double Vector2D<G>::getOrientation()
 
 // Operators override
 template <class G>
-Vector2D<G> Vector2D<G>::operator+(Vector2D<G>& other)
+Vector2D<G> Vector2D<G>::operator+(Vector2D<G>& otherVector)
 {
-	G x = m_x + other.getX();
-	G y = m_y + other.getY();
+	G x = m_x + otherVector.getX();
+	G y = m_y + otherVector.getY();
 	return Vector2D<G>(x, y);
 }
 
 template <class G>
-Vector2D<G> Vector2D<G>::operator-(Vector2D<G>& other)
+Vector2D<G> Vector2D<G>::operator-(Vector2D<G>& otherVector)
 {
-	G x = m_x - other.getX();
-	G y = m_y - other.getY();
+	G x = m_x - otherVector.getX();
+	G y = m_y - otherVector.getY();
 	return Vector2D<G>(x, y);
 }
 
@@ -229,26 +232,23 @@ Vector2D<G> Vector2D<G>::operator/(double scalar)
 }
 
 template <class G>
-void Vector2D<G>::operator+=(Vector2D<G>& other)
+void Vector2D<G>::operator+=(Vector2D<G>& otherVector)
 {
-	m_x = m_x + other.getX();
-	m_y = m_y + other.getY();
+	m_x = m_x + otherVector.getX();
+	m_y = m_y + otherVector.getY();
 }
 
 template <class G>
-void Vector2D<G>::operator-=(Vector2D<G>& other)
+void Vector2D<G>::operator-=(Vector2D<G>& otherVector)
 {
-	m_x = m_x - other.getX();
-	m_y = m_y - other.getY();
+	m_x = m_x - otherVector.getX();
+	m_y = m_y - otherVector.getY();
 }
 
 template <class G>
-bool Vector2D<G>::operator== (Vector2D<G>& pOtherVector)
+bool Vector2D<G>::operator== (Vector2D<G>& otherVector)
 {
-	return m_x == pOtherVector->getX() && m_y == pOtherVector->getY();
+	return m_x == otherVector.getX() && m_y == otherVector.getY();
 }
-
-
-
 
 #endif

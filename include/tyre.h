@@ -29,9 +29,9 @@
 class Tyre : public Circle
 {
 public:
-	Tyre(); //!< Basic constructor.
+	Tyre(); //!< Default constructor.
 	Tyre(double fPosX, double fPosY); //!< Constructor initializing position.
-	~Tyre(); //!< Basic destructor
+	~Tyre(); //!< Default destructor
 };
 
 #endif

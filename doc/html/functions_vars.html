@@ -79,6 +79,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
     </ul>
   </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li class="current"><a href="#index_p"><span>p</span></a></li>
+    </ul>
+  </div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -109,9 +115,17 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>m_arrowSprite
+: <a class="el" href="class_menu.html#a77d09ae69470169844c192ce864d0806">Menu</a>
+</li>
 <li>m_bAccelerating
 : <a class="el" href="class_car.html#a3ca299e37b7a2b964e68877e7fc41d56">Car</a>
+</li>
+<li>m_background
+: <a class="el" href="class_game.html#ac31e7648a891d49262aa0b2238483db1">Game</a>
 </li>
 <li>m_bBraking
 : <a class="el" href="class_car.html#a0a5b2769f8000bc41da5ffacaff488bd">Car</a>
@@ -119,17 +133,33 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>m_bBrakingSprite
 : <a class="el" href="class_car.html#a7f5b4e63338fccac99e7efbf0a737f04">Car</a>
 </li>
+<li>m_bInstanceFlag
+: <a class="el" href="class_texture_manager.html#add483aec578a81c835058d7b84d3df6e">TextureManager</a>
+</li>
 <li>m_bMovingForward
 : <a class="el" href="class_car.html#a7f45340643c43ddd543d96662fe88911">Car</a>
 </li>
+<li>m_bMultiPlayer
+: <a class="el" href="class_game.html#afa908ba1b06092a54ed3b10a0c081d83">Game</a>
+, <a class="el" href="class_menu.html#adacfed5ba91f4c6292218bfd6c97581f">Menu</a>
+</li>
+<li>m_bPaused
+: <a class="el" href="class_game.html#a55cbee6e0e0fc4080a234e8c230d9001">Game</a>
+</li>
 <li>m_bReversing
 : <a class="el" href="class_car.html#a8a5ba2979820d7c0f2a00571fd7755de">Car</a>
+</li>
+<li>m_bStarted
+: <a class="el" href="class_game.html#a3d268dacb983e6879e2215a0e6f60e6c">Game</a>
 </li>
 <li>m_bTurningLeft
 : <a class="el" href="class_car.html#ab15cb88a73253d2d258368bed12be6cc">Car</a>
 </li>
 <li>m_bTurningRight
 : <a class="el" href="class_car.html#a1caa04bed661507cc92dcc465374aa40">Car</a>
+</li>
+<li>m_display
+: <a class="el" href="class_car.html#adaa5d9c678fe3f12640d67ce8e970a3e">Car</a>
 </li>
 <li>m_fAngularAcceleration
 : <a class="el" href="class_collidable.html#a376aa200ba174a1cea17766fbcbda760">Collidable</a>
@@ -146,6 +176,12 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>m_fInverseMomentOfInertia
 : <a class="el" href="class_collidable.html#aef9f604795e30d09737aee26beb128ae">Collidable</a>
 </li>
+<li>m_fMaximumSpeedSquared
+: <a class="el" href="class_car_display.html#aa10f8cf583e187d61a49495723e1c76e">CarDisplay</a>
+</li>
+<li>m_font
+: <a class="el" href="class_game.html#a2141a4a7b82e11a9c4f4dd1ec62bb0eb">Game</a>
+</li>
 <li>m_fOrientation
 : <a class="el" href="class_collidable.html#af9cea5a59438b7b3604b8c7aa023380f">Collidable</a>
 </li>
@@ -154,12 +190,6 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </li>
 <li>m_fRestitution
 : <a class="el" href="class_collidable.html#a17a452821ac1a880542e596fbfcaae6a">Collidable</a>
-</li>
-<li>m_frontLeftWheel
-: <a class="el" href="class_car.html#a17f7c49c8c95c1d6c238d48e6500ed52">Car</a>
-</li>
-<li>m_frontRightWheel
-: <a class="el" href="class_car.html#aea62fd9764bf52faf154681914343316">Car</a>
 </li>
 <li>m_fSteeringOrientation
 : <a class="el" href="class_car.html#af67de6d3bb5203272670314409bd3ca8">Car</a>
@@ -185,14 +215,61 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>m_fWheelBase
 : <a class="el" href="class_car.html#a7be779b298ee9803e8189e08f0cafc27">Car</a>
 </li>
+<li>m_instructions
+: <a class="el" href="class_game.html#afeb58381f0928707a72345478cef29f9">Game</a>
+</li>
+<li>m_instructionsBackground
+: <a class="el" href="class_game.html#ae8c28b8ba6d15aa7273a831d60df0224">Game</a>
+</li>
+<li>m_leftWheelSprite
+: <a class="el" href="class_car.html#a65a30a302d28b3d623c232958a0c5cca">Car</a>
+</li>
+<li>m_menu
+: <a class="el" href="class_game.html#a1f46dd91cacb019881502dd7ae180f4d">Game</a>
+</li>
+<li>m_menuSprite
+: <a class="el" href="class_menu.html#a0c1461fb97364a0670797c45c93ee2bd">Menu</a>
+</li>
 <li>m_pTextureManager
 : <a class="el" href="class_collidable_factory.html#a118a18652a175389f81b165a5afbadfc">CollidableFactory</a>
+, <a class="el" href="class_texture_manager.html#a43279ea4511d284560cb8072314a7f31">TextureManager</a>
+</li>
+<li>m_pvCollidables
+: <a class="el" href="class_game.html#a7b490e2c7d26b614d2ae0d59c820cf21">Game</a>
+</li>
+<li>m_rightWheelSprite
+: <a class="el" href="class_car.html#a018a7c0feb5513f97701d372207251d2">Car</a>
 </li>
 <li>m_sprite
 : <a class="el" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">Collidable</a>
 </li>
+<li>m_textures
+: <a class="el" href="class_texture_manager.html#a5b254d9bdc883c5e40d4e68762bd220d">TextureManager</a>
+</li>
 <li>m_vaPoints
 : <a class="el" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">Collidable</a>
+</li>
+<li>m_velocimeter
+: <a class="el" href="class_car_display.html#afa690dbcaa3f740b9b3cefba75223763">CarDisplay</a>
+</li>
+<li>m_velocimeterPointer
+: <a class="el" href="class_car_display.html#a94d2d06092db796f5dfc0512f52e8f5e">CarDisplay</a>
+</li>
+<li>m_x
+: <a class="el" href="class_vector2_d.html#a5d01d66591e3664f3f189b94e2fe9a61">Vector2D&lt; G &gt;</a>
+</li>
+<li>m_y
+: <a class="el" href="class_vector2_d.html#a2651774fbd2bc5db1775723868985c9a">Vector2D&lt; G &gt;</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>player1
+: <a class="el" href="class_game.html#aa48d70af270f6cb8b6234aa894093877">Game</a>
+</li>
+<li>player2
+: <a class="el" href="class_game.html#a1af4f668976472486981789c2bdd0cb1">Game</a>
 </li>
 </ul>
 </div><!-- contents -->

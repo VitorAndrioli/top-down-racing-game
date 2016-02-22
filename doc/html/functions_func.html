@@ -155,13 +155,16 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>Car()
 : <a class="el" href="class_car.html#a1c803f7c5038d3e31b368b0d0a35493c">Car</a>
 </li>
+<li>CarDisplay()
+: <a class="el" href="class_car_display.html#a08875f024134c6fa01878519d85cd9c2">CarDisplay</a>
+</li>
 <li>checkCollision()
-: <a class="el" href="class_circle.html#ae35b144decf4c215432185bbfce000f9">Circle</a>
-, <a class="el" href="class_collidable.html#a5b81f90dada213b64b66fd5b1d5bcfec">Collidable</a>
-, <a class="el" href="class_o_b_b.html#a77009de32a0f293f1fb14566aab1077e">OBB</a>
+: <a class="el" href="class_circle.html#a1c54c0c9992d94902aa610bd10290512">Circle</a>
+, <a class="el" href="class_collidable.html#a3387ac2eca02a75205e7cc79bdcba1fe">Collidable</a>
+, <a class="el" href="class_o_b_b.html#a1ed0b0ab7a4a9b59da7eef8f876ebf8d">OBB</a>
 </li>
 <li>Circle()
-: <a class="el" href="class_circle.html#ad1ecfcfc7bf34529c6a6d6c448bf70fe">Circle</a>
+: <a class="el" href="class_circle.html#a70b2953314268546bc4f784c3e82df1b">Circle</a>
 </li>
 <li>Collidable()
 : <a class="el" href="class_collidable.html#a92ce9e2b08086bb2f466168ffc69c9ed">Collidable</a>
@@ -182,6 +185,13 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>dotProduct()
 : <a class="el" href="class_vector2_d.html#aa69f34ef68bbce55afb63c2e87391203">Vector2D&lt; G &gt;</a>
 </li>
+<li>draw()
+: <a class="el" href="class_car.html#a27409c8d267f646a00d808a2e8bf4f13">Car</a>
+, <a class="el" href="class_car_display.html#a12cf3cf94a339fd2a066bb4aa5db8747">CarDisplay</a>
+, <a class="el" href="class_collidable.html#a9ab91eb66109f7cd06841e878eb1588e">Collidable</a>
+, <a class="el" href="class_game.html#a260c4d5123eb3a51cbd0bb685546cef4">Game</a>
+, <a class="el" href="class_menu.html#acb662946523a799be26c42d993854a0f">Menu</a>
+</li>
 </ul>
 
 
@@ -199,8 +209,18 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>generateCollidable()
 : <a class="el" href="class_collidable_factory.html#a74ad8e35d211bb32b6325c2de9108e7d">CollidableFactory</a>
 </li>
+<li>getAcceleration()
+: <a class="el" href="class_collidable.html#ac6387b72fd5e194cd3e38cf22e30e75a">Collidable</a>
+</li>
+<li>getDisplay()
+: <a class="el" href="class_car.html#afa8c1d4ad086446dc362082dcbb59c50">Car</a>
+</li>
 <li>getFrictionCoefficient()
 : <a class="el" href="class_car.html#a47fe72f08097245751cd5c6eea31a9cb">Car</a>
+, <a class="el" href="class_collidable.html#abba60551401e8054396b6c2408af7a8d">Collidable</a>
+</li>
+<li>getHalfExtents()
+: <a class="el" href="class_o_b_b.html#acb95cc5ca2f703da43444f6a029d117b">OBB</a>
 </li>
 <li>getInstance()
 : <a class="el" href="class_texture_manager.html#ad54c51d3aa7c0d1f978cdc58cc014f09">TextureManager</a>
@@ -211,14 +231,57 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>getInstructionsBackground()
 : <a class="el" href="class_game.html#a13138b102c41e04f9db17bc2774c3655">Game</a>
 </li>
+<li>getInverseInertia()
+: <a class="el" href="class_collidable.html#a4368969a86c2e6fe908bfdd7ae8f7908">Collidable</a>
+</li>
+<li>getInverseMass()
+: <a class="el" href="class_collidable.html#a3ceb05fc466651c75f1c23231a9cf7a9">Collidable</a>
+</li>
+<li>getMass()
+: <a class="el" href="class_collidable.html#a345fc798e6a77b293c1db72861f0e0e7">Collidable</a>
+</li>
+<li>getOption()
+: <a class="el" href="class_menu.html#aa1c5cab8bc401de0881160f090d4d915">Menu</a>
+</li>
+<li>getOrientation()
+: <a class="el" href="class_collidable.html#a0f8359be0151a1459adb832a8bc579fe">Collidable</a>
+, <a class="el" href="class_vector2_d.html#a22c679997c97857d84061d50aeed7f2e">Vector2D&lt; G &gt;</a>
+</li>
+<li>getP1Display()
+: <a class="el" href="class_game.html#aaab82ab6c75edb6cebdf7d206323b628">Game</a>
+</li>
 <li>getP1Position()
 : <a class="el" href="class_game.html#ae4cacc09ec463c642452e09846deee6d">Game</a>
+</li>
+<li>getP2Display()
+: <a class="el" href="class_game.html#a09a4271f33deb2ef5c2a66a2ab98789e">Game</a>
 </li>
 <li>getP2Position()
 : <a class="el" href="class_game.html#a9eaa90e4a158cacdf3ef89c17dc49ce0">Game</a>
 </li>
+<li>getPosition()
+: <a class="el" href="class_collidable.html#ad5022811d28d0db8a58e4ecfda914f4b">Collidable</a>
+</li>
+<li>getRadius()
+: <a class="el" href="class_collidable.html#a265fb4ef01dc1997494374205181a6bb">Collidable</a>
+</li>
+<li>getRestitution()
+: <a class="el" href="class_collidable.html#acf2920747b5a970b7f8280b1d04cdc94">Collidable</a>
+</li>
 <li>getTexturePointer()
 : <a class="el" href="class_texture_manager.html#a6280bd839f11dd84d61f5bd9973edf3a">TextureManager</a>
+</li>
+<li>getThrust()
+: <a class="el" href="class_collidable.html#aea55329ca9229dc988a38d4d59509c02">Collidable</a>
+</li>
+<li>getVelocity()
+: <a class="el" href="class_collidable.html#abfdcd815a5f8aabd860e2b69bc4bea21">Collidable</a>
+</li>
+<li>getX()
+: <a class="el" href="class_vector2_d.html#a46521876fbb0b52881eba97a074ba59c">Vector2D&lt; G &gt;</a>
+</li>
+<li>getY()
+: <a class="el" href="class_vector2_d.html#ac0ecf6cdb4b8106b8c1c2a08efc728df">Vector2D&lt; G &gt;</a>
 </li>
 </ul>
 
@@ -260,6 +323,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>makeCollidable()
 : <a class="el" href="class_collidable_factory.html#af8b36949aaa1cc9fc444b3e59cc53c43">CollidableFactory</a>
 </li>
+<li>Menu()
+: <a class="el" href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu</a>
+</li>
 <li>moved()
 : <a class="el" href="class_collidable.html#a75d5c8313b38f6016938f1b4aef5465c">Collidable</a>
 </li>
@@ -276,6 +342,27 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
 <li>OBB()
 : <a class="el" href="class_o_b_b.html#af752af068c6fc1787f06556b6a71c929">OBB</a>
+</li>
+<li>operator*()
+: <a class="el" href="class_vector2_d.html#a8bd1a6f5a8df8670a27fe8edb5d9ec54">Vector2D&lt; G &gt;</a>
+</li>
+<li>operator+()
+: <a class="el" href="class_vector2_d.html#ad571f44f13b020b74f441503b6bf7425">Vector2D&lt; G &gt;</a>
+</li>
+<li>operator+=()
+: <a class="el" href="class_vector2_d.html#ac7e988225c010045df597cb7a6001117">Vector2D&lt; G &gt;</a>
+</li>
+<li>operator-()
+: <a class="el" href="class_vector2_d.html#a8ff9c277a0e44773a6e805c503d633b3">Vector2D&lt; G &gt;</a>
+</li>
+<li>operator-=()
+: <a class="el" href="class_vector2_d.html#a49cd9a9980f36936bb6713ac53592832">Vector2D&lt; G &gt;</a>
+</li>
+<li>operator/()
+: <a class="el" href="class_vector2_d.html#aac1986fafb802574b20fdd2451786fbc">Vector2D&lt; G &gt;</a>
+</li>
+<li>operator==()
+: <a class="el" href="class_vector2_d.html#ac876ccd00b2e92c0533e57a80c90493c">Vector2D&lt; G &gt;</a>
 </li>
 </ul>
 
@@ -304,14 +391,38 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>setAcceleration()
+: <a class="el" href="class_collidable.html#a669e3a62211f10242fdd9d18ed160356">Collidable</a>
+</li>
+<li>setFrictionCoefficient()
+: <a class="el" href="class_collidable.html#ae245dadba8e78387701796177e1e635e">Collidable</a>
+</li>
 <li>setHalfExtents()
 : <a class="el" href="class_o_b_b.html#a0367f78bef8252fc122cf1b0c22e332c">OBB</a>
+</li>
+<li>setMass()
+: <a class="el" href="class_collidable.html#a0e7594f377c9ce8e47edf88b49e75f81">Collidable</a>
 </li>
 <li>setMenuSize()
 : <a class="el" href="class_game.html#a7f4b13a897fb57b9f84b73c3ca1a47bd">Game</a>
 </li>
 <li>setMode()
-: <a class="el" href="class_game.html#a4b701fddd209020d3f7bcffd1813038e">Game</a>
+: <a class="el" href="class_game.html#a19e8ba44e3be503664afc8e21ae578c2">Game</a>
+</li>
+<li>setOrientation()
+: <a class="el" href="class_collidable.html#aabf7ace85a4c054cee3553686efd831b">Collidable</a>
+</li>
+<li>setPosition()
+: <a class="el" href="class_collidable.html#ae32eb0a55753347190758d00e403c7e8">Collidable</a>
+</li>
+<li>setRadius()
+: <a class="el" href="class_collidable.html#a80b43860029e06e0baae666c762b6521">Collidable</a>
+</li>
+<li>setRestitution()
+: <a class="el" href="class_collidable.html#aee5e648d122a9dad08cfc04b2a84e079">Collidable</a>
+</li>
+<li>setSize()
+: <a class="el" href="class_menu.html#af653e999eef6eb1dad4c4c3b72275a53">Menu</a>
 </li>
 <li>setTexture()
 : <a class="el" href="class_car.html#a3269228385ef71469c7df8b0ee2a5eb8">Car</a>
@@ -319,11 +430,21 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="class_collidable.html#a3d8b57d27b9b32b01ec1b26046cb89b3">Collidable</a>
 , <a class="el" href="class_o_b_b.html#ac623d403ed9428397c00ee5782eda59e">OBB</a>
 </li>
+<li>setThrust()
+: <a class="el" href="class_collidable.html#a2fa1b52be385f9ff2cf08670a9606cc1">Collidable</a>
+</li>
 <li>setVelocity()
 : <a class="el" href="class_car.html#abd60b234c10b8ca0c637069c9c341b7a">Car</a>
+, <a class="el" href="class_collidable.html#af6355717261e9475643232f31ec46424">Collidable</a>
 </li>
 <li>setWheelTexture()
 : <a class="el" href="class_car.html#a66998d226ab90d775da949077b4a3205">Car</a>
+</li>
+<li>setX()
+: <a class="el" href="class_vector2_d.html#a6c5526343de1af297d3cc4baca03a9b1">Vector2D&lt; G &gt;</a>
+</li>
+<li>setY()
+: <a class="el" href="class_vector2_d.html#ac7ba076a26efb04c2e590a0cdd3fd20e">Vector2D&lt; G &gt;</a>
 </li>
 <li>squaredMagnitude()
 : <a class="el" href="class_vector2_d.html#af4162d18ba5939bd0175ae01ad6f0221">Vector2D&lt; G &gt;</a>
@@ -332,6 +453,12 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>TextureManager()
+: <a class="el" href="class_texture_manager.html#ad76abb178b37cedf4514eb0154349935">TextureManager</a>
+</li>
+<li>toggleOptions()
+: <a class="el" href="class_menu.html#a720d9adc13c62585bf837570d11c939a">Menu</a>
+</li>
 <li>Tyre()
 : <a class="el" href="class_tyre.html#a162dbaad7ae74443df530dfb147fb694">Tyre</a>
 </li>
@@ -344,11 +471,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>update()
 : <a class="el" href="class_car.html#ab7860fcfd5e75787d358128e04442464">Car</a>
+, <a class="el" href="class_car_display.html#af279cec8da2d04a72b3fb395dbd5c28b">CarDisplay</a>
 , <a class="el" href="class_collidable.html#a7279e719dd96da33f127aa791fd908c6">Collidable</a>
 , <a class="el" href="class_game.html#acc8519c7ced1cf9eb9bbb3a2f325f6a0">Game</a>
 </li>
 <li>updatePoints()
 : <a class="el" href="class_circle.html#afe23c30a1bbc5e831b72063aef91b38f">Circle</a>
+, <a class="el" href="class_collidable.html#abeb14a34d7c7dc47b0c3c51a25a44e64">Collidable</a>
+, <a class="el" href="class_o_b_b.html#a3103d775e6ba4b27a80263ea14826309">OBB</a>
 </li>
 <li>updateSprite()
 : <a class="el" href="class_car.html#a4f8e038ddc5fc3ca20c81fd0fbfe38b4">Car</a>
@@ -368,8 +498,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>~Box()
 : <a class="el" href="class_box.html#a6a5e09398e85d602a046b429062fb9c2">Box</a>
 </li>
+<li>~CarDisplay()
+: <a class="el" href="class_car_display.html#a89161ca88816dbd1fcc0b554affca71a">CarDisplay</a>
+</li>
 <li>~CollidableFactory()
 : <a class="el" href="class_collidable_factory.html#ab5c688735d2c252e8891099b1ab8edb8">CollidableFactory</a>
+</li>
+<li>~Menu()
+: <a class="el" href="class_menu.html#a831387f51358cfb88cd018e1777bc980">Menu</a>
 </li>
 <li>~TextureManager()
 : <a class="el" href="class_texture_manager.html#a001d6d74674961db79987e3222682576">TextureManager</a>

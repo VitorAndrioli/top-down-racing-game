@@ -27,13 +27,12 @@ using namespace std;
 class Circle : public Collidable
 {
 public:
-	Circle(); //!< Basic constructor.
-	//! Constructor initializing the position, radius and restitution coefficient.
-	Circle(double fPosX, double fPosY, double fRadius, double fRestitution = 1);
+	Circle(); //!< Default constructor.
+	Circle(double fPosX, double fPosY, double fRadius, double fRestitution = 1);//!< Constructor initializing position, radius and restitution coefficient.
 	void checkCollision(Collidable* const pCollidable); //!< Checks collision with another Collidable.
 	void checkCollision(Circle* const pOtherCircle); //!< Checks collision with another Circle.
 	void checkCollision(OBB* const pObb); //!< Checks collision with an OBB.
-	void setTexture(shared_ptr<sf::Texture> pTexture);
+	void setTexture(shared_ptr<sf::Texture> pTexture); //!< Implements Collidable's setTexture virtual method.
 
 	void updatePoints(); //!< to be removed.
 };

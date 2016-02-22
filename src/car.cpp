@@ -17,7 +17,7 @@ Car::Car()
  * and  and assing default values to other member variables.
  *
  * \param fPosX,fPosY Coordinates for the position vector.
- * \param fOrientation Orientation of the car. If no value is passed, it will be set to zero.
+ * \param fOrientation (Optional) Orientation of the car. If omitted, it will be set to zero.
  */
 Car::Car(double fPosX, double fPosY, double fOrientation) :
 // Initialization list.
@@ -28,7 +28,7 @@ Car::Car(double fPosX, double fPosY, double fOrientation) :
 	m_bTurningRight(false),
 	m_bBraking(false),
 	m_bBrakingSprite(false),
-	m_display(MAXIMUM_SPEED*MAXIMUM_REVERSE_SPEED)
+	m_display(MAXIMUM_SPEED)
 {
 	// Assigns paramenters to respective member variables.
 	setPosition(fPosX, fPosY);
@@ -48,7 +48,7 @@ Car::Car(double fPosX, double fPosY, double fOrientation) :
 
 /*!
  * Implements mechanics for cars (motion and forces). 
- * Uses "Improved Euler" to update the velocity and
+ * Uses Improved Euler to integrate the velocity and
  * "Bicycle Steering" model for updating the position and orientation.
  *
  * \param fElapsed Time elapsed since last frame.
@@ -105,7 +105,7 @@ void Car::update(float fElapsed)
 	// Updates car's sprites.
 	updateSprite();
 
-	// Updates analog display
+	// Updates analog display. Use squared velocity to avoid using sqrt() function.
 	m_display.update(m_fvVelocity.squaredMagnitude());
 	
 	updatePoints(); // to remove.
@@ -159,21 +159,21 @@ void Car::updateSprite()
 	Vector2D<double> fvRightWheelPosition(WHEEL_BASE * 2, FRONT_WHEEL_DISTANCE);
 	fvRightWheelPosition.rotate(m_fOrientation); 
 	fvRightWheelPosition += m_fvPosition;
-	m_frontRightWheel.setPosition(fvRightWheelPosition.getX(), fvRightWheelPosition.getY());
-	m_frontRightWheel.setRotation(m_fSteeringOrientation * TO_DEGREES);
+	m_rightWheelSprite.setPosition(fvRightWheelPosition.getX(), fvRightWheelPosition.getY());
+	m_rightWheelSprite.setRotation(m_fSteeringOrientation * TO_DEGREES);
 	
 	Vector2D<double> fvLeftWheelPosition(WHEEL_BASE * 2, -FRONT_WHEEL_DISTANCE);
 	fvLeftWheelPosition.rotate(m_fOrientation);
 	fvLeftWheelPosition += m_fvPosition;
-	m_frontLeftWheel.setPosition(fvLeftWheelPosition.getX(), fvLeftWheelPosition.getY());
-	m_frontLeftWheel.setRotation(m_fSteeringOrientation * TO_DEGREES);
+	m_leftWheelSprite.setPosition(fvLeftWheelPosition.getX(), fvLeftWheelPosition.getY());
+	m_leftWheelSprite.setRotation(m_fSteeringOrientation * TO_DEGREES);
 }
 
 void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	// Draw sprite of the car and of the front wheels.
-	target.draw(m_frontRightWheel);
-	target.draw(m_frontLeftWheel);
+	target.draw(m_rightWheelSprite);
+	target.draw(m_leftWheelSprite);
 	target.draw(m_sprite);
 	target.draw(m_vaPoints, states); // remove
 }
@@ -181,7 +181,7 @@ void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
 // Setters and getters
 
 /*!
- * Use car's attributes to fit the texture into the shape. 
+ * Use car's attributes to fit the texture into the car's OBB. 
  * The texture is divided in 2: A "normal" one and one with braking lights on, thus, the texture is managed as to draw only half of it.
  *
  * \param pTexture Smart pointer to an SFML texture object.
@@ -198,7 +198,7 @@ void Car::setTexture(shared_ptr<sf::Texture> pTexture)
 }
 
 /*!
- * Use car's default values to fit the wheels texture into the shape.
+ * Use car's default values to fit the wheels texture into wheels size. Both wheels use the same texture.
  *
  * \param pTexture Smart pointer to an SFML texture object.
  */
@@ -206,13 +206,13 @@ void Car::setWheelTexture(shared_ptr<sf::Texture> pTexture)
 {
 	if (!pTexture) return; // Checks if pointer is not null.
 	// Sets right wheel texture.
-	m_frontRightWheel.setTexture(*pTexture); // Sets right wheel's sprite texture.
-	m_frontRightWheel.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
-	m_frontRightWheel.scale(WHEEL_LENGHT / pTexture->getSize().x, WHEEL_WIDTH / pTexture->getSize().y); // Scales texture to make sure it fits the car.
+	m_rightWheelSprite.setTexture(*pTexture); // Sets right wheel's sprite texture.
+	m_rightWheelSprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2); // Sets sprite's center as its origin (instead of its corner).
+	m_rightWheelSprite.scale(WHEEL_LENGHT / pTexture->getSize().x, WHEEL_WIDTH / pTexture->getSize().y); // Scales texture to make sure it fits the car.
 	// Sets right wheel texture.
-	m_frontLeftWheel.setTexture(*pTexture);
-	m_frontLeftWheel.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2);
-	m_frontLeftWheel.scale(WHEEL_LENGHT / pTexture->getSize().x, WHEEL_WIDTH / pTexture->getSize().y);
+	m_leftWheelSprite.setTexture(*pTexture);
+	m_leftWheelSprite.setOrigin(pTexture->getSize().x / 2, pTexture->getSize().y / 2);
+	m_leftWheelSprite.scale(WHEEL_LENGHT / pTexture->getSize().x, WHEEL_WIDTH / pTexture->getSize().y);
 
 	updateSprite();
 }

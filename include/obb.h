@@ -5,7 +5,7 @@
 
 /*!
  * \class OBB obb.h "obb.h"
- * \brief Oriented Bounding Box (OBB) collidables to be used in the game.
+ * \brief Oriented bounding box collidables to be used in the game.
  *
  * Implements collision detection and texture allocation for OBB objects.
  * Can be used to turn background figures into immovable collidables. 
@@ -27,8 +27,9 @@ using namespace std;
 class OBB : public Collidable
 {
 public:
-	OBB(); //!< Basic constructor.
-	//! Constructor initializing position, half extents, orientation and restitution coefficient of box.
+	OBB(); //!< Default constructor.
+	
+	//! Constructor initializing position, half extents, orientation and restitution coefficient.
 	OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution = 1);
 	void checkCollision(Collidable* const pCollidable); //!< Checks collision with another Collidable.
 	void checkCollision(Circle* const pCircle); //!< Checks collision with an Circle.
@@ -37,7 +38,7 @@ public:
 	// Setters and Getters.
 	void setHalfExtents(double fHalfExtentX, double fHalfExtentY); //!< Sets X and Y values of half-extents vector and update object`s radius.
 	Vector2D<double> getHalfExtents();
-	void setTexture(shared_ptr<sf::Texture> pTexture);
+	void setTexture(shared_ptr<sf::Texture> pTexture); //!< Implements Collidable's setTexture virtual method.
 
 
 	void updatePoints(); // remove

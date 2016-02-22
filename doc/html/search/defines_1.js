@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['car_5ffriction_5fcoefficient',['CAR_FRICTION_COEFFICIENT',['../car_8h.html#aab27a281ab71adf4eec937e43d1eae46',1,'car.h']]],
-  ['car_5fhalf_5fextent_5fx',['CAR_HALF_EXTENT_X',['../car_8h.html#a63b45959e1ffbdfec02d940ae5e3d35b',1,'car.h']]],
-  ['car_5fhalf_5fextent_5fy',['CAR_HALF_EXTENT_Y',['../car_8h.html#a26b677f7d0fdb66225cd282fc5f78f41',1,'car.h']]],
-  ['car_5fmass',['CAR_MASS',['../car_8h.html#a943b74531e79dd26cb2512db8018a9d6',1,'car.h']]],
-  ['car_5frestitution_5fcoefficient',['CAR_RESTITUTION_COEFFICIENT',['../car_8h.html#ac377acb448f4c9586bbb5ef499dc0f66',1,'car.h']]],
-  ['car_5freverse_5ffriction_5fcoefficient',['CAR_REVERSE_FRICTION_COEFFICIENT',['../car_8h.html#abbb78c76e755ee802d9f58d8a9660db4',1,'car.h']]]
+  ['box_5ffriction_5fcoefficient',['BOX_FRICTION_COEFFICIENT',['../box_8h.html#ac417ea6f082a36721e8aae9b718bc543',1,'box.h']]],
+  ['box_5fmass_5fcoefficient',['BOX_MASS_COEFFICIENT',['../box_8h.html#a35f10167e00dbe81bc0be55bbfce7011',1,'box.h']]],
+  ['box_5frestitution_5fcoefficient',['BOX_RESTITUTION_COEFFICIENT',['../box_8h.html#ab95fbdda1cb64b585be96fa15efb9254',1,'box.h']]]
 ];

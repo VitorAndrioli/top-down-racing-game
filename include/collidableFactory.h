@@ -33,9 +33,9 @@ using namespace std;
 class CollidableFactory
 {
 public:
-	CollidableFactory(); //!< Basic constructor.
+	CollidableFactory(); //!< Default constructor.
 	Collidable* makeCollidable(const rapidxml::xml_node<>* pNode); //!< Makes a new collidable.
-	~CollidableFactory(); //!< Basic destructor.
+	~CollidableFactory(); //!< Default destructor.
 
 protected:
 	Collidable* generateCollidable(const rapidxml::xml_node<>* pNode); //!< Generates and assigns texture to a new collidable from xml node.

@@ -17,7 +17,7 @@ OBB::OBB()
  * \param fPosX,fPosY Coordinates for the position vector.
  * \param fHalfExtentX,fHalfExtentY X and Y values of object's half-extents vector.
  * \param fRadius Radius of the object. Used for broad collision checks.
- * \param fRestitudion Restitution coefficient of object. Optional and, if omitted, set to 1.
+ * \param fRestitudion (Optional) Restitution coefficient of object. If omitted, it will be set to 1.
  */
 OBB::OBB(double fPosX, double fPosY, double fHalfExtentX, double fHalfExtentY, double fOrientation, double fRestitution) :
 	// Initialization list
@@ -206,7 +206,7 @@ Vector2D<double> OBB::getHalfExtents()
 }
 
 /*!
- * Use OBB's attributes to fit the texture into the shape.
+ * Use OBB's attributes to fit the texture into the obb.
  *
  * \param pTexture Smart pointer to an SFML texture object.
  */

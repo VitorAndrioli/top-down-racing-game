@@ -1,14 +1,5 @@
 var searchData=
 [
-  ['game',['Game',['../class_game.html',1,'Game'],['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game::Game()']]],
-  ['game_2ecpp',['game.cpp',['../game_8cpp.html',1,'']]],
-  ['game_2eh',['game.h',['../game_8h.html',1,'']]],
-  ['generatecollidable',['generateCollidable',['../class_collidable_factory.html#a74ad8e35d211bb32b6325c2de9108e7d',1,'CollidableFactory']]],
-  ['getfrictioncoefficient',['getFrictionCoefficient',['../class_car.html#a47fe72f08097245751cd5c6eea31a9cb',1,'Car']]],
-  ['getinstance',['getInstance',['../class_texture_manager.html#ad54c51d3aa7c0d1f978cdc58cc014f09',1,'TextureManager']]],
-  ['getinstructions',['getInstructions',['../class_game.html#a144253858723b655d4dc928c3ad4d27d',1,'Game']]],
-  ['getinstructionsbackground',['getInstructionsBackground',['../class_game.html#a13138b102c41e04f9db17bc2774c3655',1,'Game']]],
-  ['getp1position',['getP1Position',['../class_game.html#ae4cacc09ec463c642452e09846deee6d',1,'Game']]],
-  ['getp2position',['getP2Position',['../class_game.html#a9eaa90e4a158cacdf3ef89c17dc49ce0',1,'Game']]],
-  ['gettexturepointer',['getTexturePointer',['../class_texture_manager.html#a6280bd839f11dd84d61f5bd9973edf3a',1,'TextureManager']]]
+  ['flip',['flip',['../class_vector2_d.html#a6191843e792557d9532da82b79b026aa',1,'Vector2D']]],
+  ['front_5fwheel_5fdistance',['FRONT_WHEEL_DISTANCE',['../car_8h.html#afec66def355bc83c5de64085b5a55592',1,'car.h']]]
 ];

@@ -22,5 +22,7 @@ var class_vector2_d =
     [ "setX", "class_vector2_d.html#a6c5526343de1af297d3cc4baca03a9b1", null ],
     [ "setY", "class_vector2_d.html#ac7ba076a26efb04c2e590a0cdd3fd20e", null ],
     [ "squaredMagnitude", "class_vector2_d.html#af4162d18ba5939bd0175ae01ad6f0221", null ],
-    [ "unitVector", "class_vector2_d.html#a1a734dd9f1ca01a88bac3f6bf2be97d0", null ]
+    [ "unitVector", "class_vector2_d.html#a1a734dd9f1ca01a88bac3f6bf2be97d0", null ],
+    [ "m_x", "class_vector2_d.html#a5d01d66591e3664f3f189b94e2fe9a61", null ],
+    [ "m_y", "class_vector2_d.html#a2651774fbd2bc5db1775723868985c9a", null ]
 ];

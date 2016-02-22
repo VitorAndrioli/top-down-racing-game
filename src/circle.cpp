@@ -15,7 +15,7 @@ Circle::Circle()
  *
  * \param fPosX,fPosY Coordinates for the position vector.
  * \param fRadius Radius of the object.
- * \param fRestitudion Restitution coefficient of object. Optional and, if omitted, set to 1.
+ * \param fRestitudion (Optional) Restitution coefficient of object. If omitted, it will be set to 1.
  */
 Circle::Circle(double fPosX, double fPosY, double fRadius, double fRestitution)
 {
@@ -110,7 +110,7 @@ void Circle::checkCollision(OBB* const pObb)
 }
 
 /*!
- * Use circle's attributes to fit the texture into the shape.
+ * Use circle's attributes to fit the texture into the circle.
  *
  * \param pTexture Smart pointer to an SFML texture object.
  */

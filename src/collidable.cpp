@@ -26,7 +26,7 @@ Collidable::Collidable() :
 }
 
 /*!
- * Implements basic mechanics for movable objects (motion and forces).
+ * Implements basic mechanics for movable objects (motion and forces) using Improved Euler to integrate the velocity.
  *
  * \param fElapsed Time elapsed since last frame.
  */

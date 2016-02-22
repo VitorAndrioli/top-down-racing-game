@@ -15,7 +15,7 @@
  * \version 1.0
  * \date 25/02/2016
  *
- * \todo Angular movement.
+ * \todo Add angular movement.
  */
 
 #ifndef COLLIDABLE_H
@@ -41,10 +41,10 @@ class OBB;
 class Collidable : public sf::Drawable
 {
 public:
-	Collidable(); //!< Basic contructor.
+	Collidable(); //!< Default contructor.
 	void update(float fElapsed); //!< Update method to be called every frame of the game.
 	void updateSprite(); //!< Updates the sprite position and orientation.
-	bool moved(); //!< Checks if the collidable is moving linearly or rotated since last frame.
+	bool moved(); //!< Checks if the collidable has moved linearly or rotated since last frame.
 	bool isMoving(); //!< Checks if the collidable is moving linearly.
 	bool isRotating(); //!< Checks if the collidable is rotating.
 	

@@ -10,13 +10,13 @@ Box::Box()
 }
 
 /*! 
- * Initializes the position, size and orientation with parameters 
+ * Initializes position, size and orientation with parameters 
  * and assign default values to other member variables.
- * The orientation can be omitted in the instantiation of the object.
+ * The orientation can be omitted in the instantiation of the object and, in this case, will be set to zero.
  *
  * \param fPosX,fPosY Coordinates for the position vector.
  * \param fSize Size of the box. It is always a square.
- * \param fOrientation Orientation of the box. If no value is passed, it will be set to zero.
+ * \param fOrientation (Optional) Orientation of the box. If omitted, it will be set to zero.
  */
 Box::Box(double fPosX, double fPosY, double fSize, double fOrientation)
 {

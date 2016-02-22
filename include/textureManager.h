@@ -27,7 +27,7 @@ class TextureManager
 {
 public:
 	static TextureManager* getInstance(); //!< Gets single instance of TextureManager.
-	~TextureManager(); //!< Basic destructor.
+	~TextureManager(); //!< Default destructor.
 	shared_ptr<sf::Texture> getTexturePointer(const string sName); //!< Gets pointer to a texture by its name.
 
 private:

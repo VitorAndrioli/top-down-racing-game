@@ -34,8 +34,8 @@ void Game::setMode()
 
 /*!
  * Loads instructions text based on the game mode and creates its background.
- * Instantiate cars and use a Factory to, from xml file, create every collidable object.
- * Assign all the respective textures, using the Singleton Texture Manager.
+ * Instantiate cars and use a Factory to, from a xml file, create every collidable object.
+ * Assigns all the respective textures, using the Singleton Texture Manager.
  *
  */
 void Game::load()
@@ -118,7 +118,7 @@ void Game::draw(RenderTarget &target, RenderStates states) const
 /*!
  * If game is paused, objects are not updated.
  * Else, updates and checks for collision with other collidables. 
- * Collision tests are only performed if the object has moved since last frame, to avoid wasting processing.
+ * Collision tests are only performed if the object has moved since last frame, to avoid processing waste.
  */
 void Game::update(float timestep)
 {

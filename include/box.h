@@ -7,9 +7,8 @@
  * \class Box box.h "box.h"
  * \brief Collidable object to be used in the game.
  * 
- * Boxes can have different sizes, however they are always square.
- * Its mass is based on the size.
- * The same texture (albeit sacaled) is draw to the screen.
+ * Boxes can have different squared sizes. Its mass is based on its area.
+ * The same texture (albeit sacaled) is draw to the screen for every instance.
  *
  * \author Vitor Augusto Andrioli
  * \version 1.0 
@@ -29,9 +28,9 @@
 class Box : public OBB
 {
 public:
-	Box(); //!< Basic constructor.
+	Box(); //!< Default constructor.
 	Box(double fPosX, double fPosY, double fSize, double fOrientation = 0); //!< Constructor initializing position, size and orientation.
-	~Box(); //!< Basic destructor.
+	~Box(); //!< Default destructor.
 };
 
 #endif

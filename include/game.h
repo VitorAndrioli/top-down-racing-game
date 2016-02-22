@@ -5,7 +5,7 @@
 
 /*!
  * \class Game game.h "game.h"
- * \brief Main class game.
+ * \brief Main game class.
  *
  * Instantiates every object in the game (cars, collidables, menus), updates and draws them.
  * Defines game mode (single or multi player) and controls user input.
@@ -50,21 +50,21 @@ public:
 	void processKeyPress(Keyboard::Key code); //!< Process any key presses.
 	void processKeyRelease(Keyboard::Key code); //!< Process any key releases.
 	
-	Vector2f getP1Position(); //!< Gets first player position.
-	Vector2f getP2Position(); //!< Gets second player position, if multiplayer.
-	CarDisplay* getP1Display();
-	CarDisplay* getP2Display();
-	RectangleShape getInstructionsBackground(); //!< Gets second player position, if multiplayer.
-	Text getInstructions(); //!< Gets second player position, if multiplayer.
-
 	bool isPaused(); //!< Check if game is paused.
 	bool hasStarted(); //!< Check if game has started.
 	bool isMultiplayer(); //!< Check if game is set to multiplayer.
 
+	Vector2f getP1Position(); //!< Gets first player position.
+	Vector2f getP2Position(); //!< Gets second player position, if multiplayer.
+	CarDisplay* getP1Display(); //!< Gets pointer to first player velocimeter.
+	CarDisplay* getP2Display(); //!< Gets pointer to second player velocimeter, if multiplayer.
+	RectangleShape getInstructionsBackground();
+	Text getInstructions();
+	
 private:
 	Car* player1; //!< Pointer to first player.
 	Car* player2;  //!< Pointer to second player, if multi player mode is active.
-	std::vector<Collidable*> m_pvCollidables; //!< Vector with pointer to every collidable object in the game.
+	std::vector<Collidable*> m_pvCollidables; //!< Vector with pointers to every collidable object in the game.
 	
 	Font m_font; //!< Font used to write instructions
 	Menu m_menu; //!< Main menu.

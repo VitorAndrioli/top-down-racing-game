@@ -3,6 +3,8 @@ var class_car =
     [ "Car", "class_car.html#a1c803f7c5038d3e31b368b0d0a35493c", null ],
     [ "Car", "class_car.html#ab941f06b66d0b9b4a7d6f2ec72494660", null ],
     [ "controlInput", "class_car.html#a1b8b6e8701e2866dcb0db2213ef760c4", null ],
+    [ "draw", "class_car.html#a27409c8d267f646a00d808a2e8bf4f13", null ],
+    [ "getDisplay", "class_car.html#afa8c1d4ad086446dc362082dcbb59c50", null ],
     [ "getFrictionCoefficient", "class_car.html#a47fe72f08097245751cd5c6eea31a9cb", null ],
     [ "setTexture", "class_car.html#a3269228385ef71469c7df8b0ee2a5eb8", null ],
     [ "setVelocity", "class_car.html#abd60b234c10b8ca0c637069c9c341b7a", null ],
@@ -16,8 +18,9 @@ var class_car =
     [ "m_bReversing", "class_car.html#a8a5ba2979820d7c0f2a00571fd7755de", null ],
     [ "m_bTurningLeft", "class_car.html#ab15cb88a73253d2d258368bed12be6cc", null ],
     [ "m_bTurningRight", "class_car.html#a1caa04bed661507cc92dcc465374aa40", null ],
-    [ "m_frontLeftWheel", "class_car.html#a17f7c49c8c95c1d6c238d48e6500ed52", null ],
-    [ "m_frontRightWheel", "class_car.html#aea62fd9764bf52faf154681914343316", null ],
+    [ "m_display", "class_car.html#adaa5d9c678fe3f12640d67ce8e970a3e", null ],
     [ "m_fSteeringOrientation", "class_car.html#af67de6d3bb5203272670314409bd3ca8", null ],
-    [ "m_fWheelBase", "class_car.html#a7be779b298ee9803e8189e08f0cafc27", null ]
+    [ "m_fWheelBase", "class_car.html#a7be779b298ee9803e8189e08f0cafc27", null ],
+    [ "m_leftWheelSprite", "class_car.html#a65a30a302d28b3d623c232958a0c5cca", null ],
+    [ "m_rightWheelSprite", "class_car.html#a018a7c0feb5513f97701d372207251d2", null ]
 ];

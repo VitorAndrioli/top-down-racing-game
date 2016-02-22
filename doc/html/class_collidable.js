@@ -6,6 +6,7 @@ var class_collidable =
     [ "checkCollision", "class_collidable.html#a3387ac2eca02a75205e7cc79bdcba1fe", null ],
     [ "checkCollision", "class_collidable.html#a4f9b68270c2c1f7931b66394b97d3a9a", null ],
     [ "checkCollision", "class_collidable.html#a5b81f90dada213b64b66fd5b1d5bcfec", null ],
+    [ "draw", "class_collidable.html#a9ab91eb66109f7cd06841e878eb1588e", null ],
     [ "getAcceleration", "class_collidable.html#ac6387b72fd5e194cd3e38cf22e30e75a", null ],
     [ "getFrictionCoefficient", "class_collidable.html#abba60551401e8054396b6c2408af7a8d", null ],
     [ "getInverseInertia", "class_collidable.html#a4368969a86c2e6fe908bfdd7ae8f7908", null ],

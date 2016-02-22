@@ -4,7 +4,8 @@ var files =
     [ "box.h", "box_8h.html", "box_8h" ],
     [ "car.cpp", "car_8cpp.html", null ],
     [ "car.h", "car_8h.html", "car_8h" ],
-    [ "carDisplay.h", "car_display_8h_source.html", null ],
+    [ "carDisplay.cpp", "car_display_8cpp.html", null ],
+    [ "carDisplay.h", "car_display_8h.html", "car_display_8h" ],
     [ "circle.cpp", "circle_8cpp.html", null ],
     [ "circle.h", "circle_8h.html", [
       [ "Circle", "class_circle.html", "class_circle" ]
@@ -20,7 +21,10 @@ var files =
       [ "Game", "class_game.html", "class_game" ]
     ] ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
-    [ "menu.h", "menu_8h_source.html", null ],
+    [ "menu.cpp", "menu_8cpp.html", null ],
+    [ "menu.h", "menu_8h.html", [
+      [ "Menu", "class_menu.html", "class_menu" ]
+    ] ],
     [ "obb.cpp", "obb_8cpp.html", null ],
     [ "obb.h", "obb_8h.html", [
       [ "OBB", "class_o_b_b.html", "class_o_b_b" ]

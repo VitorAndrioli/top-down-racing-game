@@ -104,11 +104,18 @@ $(document).ready(function(){initNavTree('class_car_display.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_car_display-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CarDisplay Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Displays velocity of a <a class="el" href="class_car.html" title="Controllable car to be used by the player. ">Car</a> instance as an analog velocimeter.  
+ <a href="class_car_display.html#details">More...</a></p>
+
+<p><code>#include &quot;<a class="el" href="car_display_8h_source.html">carDisplay.h</a>&quot;</code></p>
 <div class="dynheader">
 Inheritance diagram for CarDisplay:</div>
 <div class="dyncontent">
@@ -120,13 +127,235 @@ Inheritance diagram for CarDisplay:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a60bd7a803246e4b1da4fe465d1d75be3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60bd7a803246e4b1da4fe465d1d75be3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (double fElapsed)</td></tr>
-<tr class="separator:a60bd7a803246e4b1da4fe465d1d75be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7344fd622d87631881186c2cee2c6b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car_display.html#ac7344fd622d87631881186c2cee2c6b4">CarDisplay</a> ()</td></tr>
+<tr class="memdesc:ac7344fd622d87631881186c2cee2c6b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#ac7344fd622d87631881186c2cee2c6b4">More...</a><br /></td></tr>
+<tr class="separator:ac7344fd622d87631881186c2cee2c6b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08875f024134c6fa01878519d85cd9c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car_display.html#a08875f024134c6fa01878519d85cd9c2">CarDisplay</a> (double fMaximumVelocity)</td></tr>
+<tr class="memdesc:a08875f024134c6fa01878519d85cd9c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing the maximum velocity displayed.  <a href="#a08875f024134c6fa01878519d85cd9c2">More...</a><br /></td></tr>
+<tr class="separator:a08875f024134c6fa01878519d85cd9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89161ca88816dbd1fcc0b554affca71a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car_display.html#a89161ca88816dbd1fcc0b554affca71a">~CarDisplay</a> ()</td></tr>
+<tr class="memdesc:a89161ca88816dbd1fcc0b554affca71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a89161ca88816dbd1fcc0b554affca71a">More...</a><br /></td></tr>
+<tr class="separator:a89161ca88816dbd1fcc0b554affca71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af279cec8da2d04a72b3fb395dbd5c28b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car_display.html#af279cec8da2d04a72b3fb395dbd5c28b">update</a> (double fSpeedSquared)</td></tr>
+<tr class="memdesc:af279cec8da2d04a72b3fb395dbd5c28b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates pointer's orientation.  <a href="#af279cec8da2d04a72b3fb395dbd5c28b">More...</a><br /></td></tr>
+<tr class="separator:af279cec8da2d04a72b3fb395dbd5c28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a12cf3cf94a339fd2a066bb4aa5db8747"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car_display.html#a12cf3cf94a339fd2a066bb4aa5db8747">draw</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const </td></tr>
+<tr class="memdesc:a12cf3cf94a339fd2a066bb4aa5db8747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual draw method inherited from Drawable class.  <a href="#a12cf3cf94a339fd2a066bb4aa5db8747">More...</a><br /></td></tr>
+<tr class="separator:a12cf3cf94a339fd2a066bb4aa5db8747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:afa690dbcaa3f740b9b3cefba75223763"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car_display.html#afa690dbcaa3f740b9b3cefba75223763">m_velocimeter</a></td></tr>
+<tr class="memdesc:afa690dbcaa3f740b9b3cefba75223763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocimeter sprite.  <a href="#afa690dbcaa3f740b9b3cefba75223763">More...</a><br /></td></tr>
+<tr class="separator:afa690dbcaa3f740b9b3cefba75223763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94d2d06092db796f5dfc0512f52e8f5e"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car_display.html#a94d2d06092db796f5dfc0512f52e8f5e">m_velocimeterPointer</a></td></tr>
+<tr class="memdesc:a94d2d06092db796f5dfc0512f52e8f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer sprite.  <a href="#a94d2d06092db796f5dfc0512f52e8f5e">More...</a><br /></td></tr>
+<tr class="separator:a94d2d06092db796f5dfc0512f52e8f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa10f8cf583e187d61a49495723e1c76e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_car_display.html#aa10f8cf583e187d61a49495723e1c76e">m_fMaximumSpeedSquared</a></td></tr>
+<tr class="memdesc:aa10f8cf583e187d61a49495723e1c76e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum speed the car can achieve. Use squared value to avoid using sqrt() function.  <a href="#aa10f8cf583e187d61a49495723e1c76e">More...</a><br /></td></tr>
+<tr class="separator:aa10f8cf583e187d61a49495723e1c76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Displays velocity of a <a class="el" href="class_car.html" title="Controllable car to be used by the player. ">Car</a> instance as an analog velocimeter. </p>
+<p>Uses car maximum speed and current speed to show the current velocity to the player.</p>
+<dl class="section author"><dt>Author</dt><dd>Vitor Augusto Andrioli </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>25/02/2016 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ac7344fd622d87631881186c2cee2c6b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CarDisplay::CarDisplay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+
+</div>
+</div>
+<a class="anchor" id="a08875f024134c6fa01878519d85cd9c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CarDisplay::CarDisplay </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fMaximumSpeed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor initializing the maximum velocity displayed. </p>
+<p>Allocates respectives textures to velocimeter and pointer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fMaximumSpeed</td><td>Maximum speed the car can achieve. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a89161ca88816dbd1fcc0b554affca71a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CarDisplay::~CarDisplay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a12cf3cf94a339fd2a066bb4aa5db8747"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CarDisplay::draw </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderTarget &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::RenderStates&#160;</td>
+          <td class="paramname"><em>states</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual draw method inherited from Drawable class. </p>
+
+</div>
+</div>
+<a class="anchor" id="af279cec8da2d04a72b3fb395dbd5c28b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CarDisplay::update </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fSpeedSquared</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates pointer's orientation. </p>
+<p>Uses maximum and current speed to find the right orientation for the velocimeter's pointer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fSpeedSquared</td><td><a class="el" href="class_car.html" title="Controllable car to be used by the player. ">Car</a>'s current velocity (squared). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aa10f8cf583e187d61a49495723e1c76e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double CarDisplay::m_fMaximumSpeedSquared</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maximum speed the car can achieve. Use squared value to avoid using sqrt() function. </p>
+
+</div>
+</div>
+<a class="anchor" id="afa690dbcaa3f740b9b3cefba75223763"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite CarDisplay::m_velocimeter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Velocimeter sprite. </p>
+
+</div>
+</div>
+<a class="anchor" id="a94d2d06092db796f5dfc0512f52e8f5e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite CarDisplay::m_velocimeterPointer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer sprite. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="car_display_8h_source.html">carDisplay.h</a></li>
-<li>carDisplay.cpp</li>
+<li><a class="el" href="car_display_8cpp.html">carDisplay.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

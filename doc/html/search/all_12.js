@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['wheel_5fbase',['WHEEL_BASE',['../car_8h.html#aba417e114296ca6ffc4ca022e72b9901',1,'car.h']]],
-  ['wheel_5flenght',['WHEEL_LENGHT',['../car_8h.html#a0d00affa09ef1e5014bfb3344db083f4',1,'car.h']]],
-  ['wheel_5fwidth',['WHEEL_WIDTH',['../car_8h.html#a2b9d11b81cbab8ee6f6376c8ff2184ea',1,'car.h']]]
+  ['vector2d',['Vector2D',['../class_vector2_d.html',1,'Vector2D&lt; G &gt;'],['../class_vector2_d.html#a3bce991141a2cfd9c381651c06d2bee5',1,'Vector2D::Vector2D()'],['../class_vector2_d.html#a25ac574bd1a4deb41a9b198afd5f2787',1,'Vector2D::Vector2D(G x, G y)']]],
+  ['vector2d_2eh',['vector2D.h',['../vector2_d_8h.html',1,'']]],
+  ['vector2d_3c_20double_20_3e',['Vector2D&lt; double &gt;',['../class_vector2_d.html',1,'']]]
 ];

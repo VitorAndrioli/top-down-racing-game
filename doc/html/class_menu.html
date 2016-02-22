@@ -104,12 +104,18 @@ $(document).ready(function(){initNavTree('class_menu.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_menu-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Menu Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Displays a home screen with setting options for the user to choose from.  
+ <a href="class_menu.html#details">More...</a></p>
+
+<p><code>#include &quot;<a class="el" href="menu_8h_source.html">menu.h</a>&quot;</code></p>
 <div class="dynheader">
 Inheritance diagram for Menu:</div>
 <div class="dyncontent">
@@ -121,40 +127,251 @@ Inheritance diagram for Menu:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a888b00c5adfd37cd4b74049443295d85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a888b00c5adfd37cd4b74049443295d85"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Menu</b> (Vector2f windowSize)</td></tr>
-<tr class="separator:a888b00c5adfd37cd4b74049443295d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a846c0378ec3d4d9d24674bf667cfa3bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a846c0378ec3d4d9d24674bf667cfa3bc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (double x, double y)</td></tr>
-<tr class="separator:a846c0378ec3d4d9d24674bf667cfa3bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a720d9adc13c62585bf837570d11c939a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a720d9adc13c62585bf837570d11c939a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleOptions</b> ()</td></tr>
+<tr class="memitem:ad466dd83355124a6ed958430450bfe94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu</a> ()</td></tr>
+<tr class="memdesc:ad466dd83355124a6ed958430450bfe94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default contructor.  <a href="#ad466dd83355124a6ed958430450bfe94">More...</a><br /></td></tr>
+<tr class="separator:ad466dd83355124a6ed958430450bfe94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a831387f51358cfb88cd018e1777bc980"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a831387f51358cfb88cd018e1777bc980">~Menu</a> ()</td></tr>
+<tr class="memdesc:a831387f51358cfb88cd018e1777bc980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a831387f51358cfb88cd018e1777bc980">More...</a><br /></td></tr>
+<tr class="separator:a831387f51358cfb88cd018e1777bc980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af653e999eef6eb1dad4c4c3b72275a53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#af653e999eef6eb1dad4c4c3b72275a53">setSize</a> (double fWindowWidth, double fWindowHeight)</td></tr>
+<tr class="memdesc:af653e999eef6eb1dad4c4c3b72275a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set sprites sizes and position based on window's size.  <a href="#af653e999eef6eb1dad4c4c3b72275a53">More...</a><br /></td></tr>
+<tr class="separator:af653e999eef6eb1dad4c4c3b72275a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a720d9adc13c62585bf837570d11c939a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a720d9adc13c62585bf837570d11c939a">toggleOptions</a> ()</td></tr>
+<tr class="memdesc:a720d9adc13c62585bf837570d11c939a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes between menu options.  <a href="#a720d9adc13c62585bf837570d11c939a">More...</a><br /></td></tr>
 <tr class="separator:a720d9adc13c62585bf837570d11c939a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1c5cab8bc401de0881160f090d4d915"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1c5cab8bc401de0881160f090d4d915"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getOption</b> ()</td></tr>
+<tr class="memitem:aa1c5cab8bc401de0881160f090d4d915"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#aa1c5cab8bc401de0881160f090d4d915">getOption</a> ()</td></tr>
+<tr class="memdesc:aa1c5cab8bc401de0881160f090d4d915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets selected option.  <a href="#aa1c5cab8bc401de0881160f090d4d915">More...</a><br /></td></tr>
 <tr class="separator:aa1c5cab8bc401de0881160f090d4d915"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:aa7878fc244dc4a56af4c81530512e241"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7878fc244dc4a56af4c81530512e241"></a>
-Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>m_initialMenuBackground</b></td></tr>
-<tr class="separator:aa7878fc244dc4a56af4c81530512e241"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad08cc894ca842e1b1153ba6ec9fd3921"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad08cc894ca842e1b1153ba6ec9fd3921"></a>
-Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>m_initialMenuSprite</b></td></tr>
-<tr class="separator:ad08cc894ca842e1b1153ba6ec9fd3921"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77d09ae69470169844c192ce864d0806"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77d09ae69470169844c192ce864d0806"></a>
-Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>m_arrowSprite</b></td></tr>
-<tr class="separator:a77d09ae69470169844c192ce864d0806"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1a8a6bcf023b67267639e02793b7a3a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1a8a6bcf023b67267639e02793b7a3a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_bShowInitialMenu</b></td></tr>
-<tr class="separator:aa1a8a6bcf023b67267639e02793b7a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adacfed5ba91f4c6292218bfd6c97581f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adacfed5ba91f4c6292218bfd6c97581f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_bMultiPlayer</b></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:acb662946523a799be26c42d993854a0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#acb662946523a799be26c42d993854a0f">draw</a> (RenderTarget &amp;target, RenderStates states) const </td></tr>
+<tr class="memdesc:acb662946523a799be26c42d993854a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw function (from sf::Drawable)  <a href="#acb662946523a799be26c42d993854a0f">More...</a><br /></td></tr>
+<tr class="separator:acb662946523a799be26c42d993854a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:adacfed5ba91f4c6292218bfd6c97581f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#adacfed5ba91f4c6292218bfd6c97581f">m_bMultiPlayer</a></td></tr>
+<tr class="memdesc:adacfed5ba91f4c6292218bfd6c97581f"><td class="mdescLeft">&#160;</td><td class="mdescRight">If option selected is multi player.  <a href="#adacfed5ba91f4c6292218bfd6c97581f">More...</a><br /></td></tr>
 <tr class="separator:adacfed5ba91f4c6292218bfd6c97581f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c1461fb97364a0670797c45c93ee2bd"><td class="memItemLeft" align="right" valign="top">Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a0c1461fb97364a0670797c45c93ee2bd">m_menuSprite</a></td></tr>
+<tr class="memdesc:a0c1461fb97364a0670797c45c93ee2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main menu sprite.  <a href="#a0c1461fb97364a0670797c45c93ee2bd">More...</a><br /></td></tr>
+<tr class="separator:a0c1461fb97364a0670797c45c93ee2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77d09ae69470169844c192ce864d0806"><td class="memItemLeft" align="right" valign="top">Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a77d09ae69470169844c192ce864d0806">m_arrowSprite</a></td></tr>
+<tr class="memdesc:a77d09ae69470169844c192ce864d0806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selector arrow sprite.  <a href="#a77d09ae69470169844c192ce864d0806">More...</a><br /></td></tr>
+<tr class="separator:a77d09ae69470169844c192ce864d0806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Displays a home screen with setting options for the user to choose from. </p>
+<p>User can choose between single and multi player options before starting the game.</p>
+<dl class="section author"><dt>Author</dt><dd>Vitor Augusto Andrioli </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>25/02/2016 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad466dd83355124a6ed958430450bfe94"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Menu::Menu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default contructor. </p>
+
+</div>
+</div>
+<a class="anchor" id="a831387f51358cfb88cd018e1777bc980"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Menu::~Menu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="acb662946523a799be26c42d993854a0f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Menu::draw </td>
+          <td>(</td>
+          <td class="paramtype">RenderTarget &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RenderStates&#160;</td>
+          <td class="paramname"><em>states</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draw function (from sf::Drawable) </p>
+
+</div>
+</div>
+<a class="anchor" id="aa1c5cab8bc401de0881160f090d4d915"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Menu::getOption </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets selected option. </p>
+
+</div>
+</div>
+<a class="anchor" id="af653e999eef6eb1dad4c4c3b72275a53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Menu::setSize </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fWindowWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fWindowHeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set sprites sizes and position based on window's size. </p>
+
+</div>
+</div>
+<a class="anchor" id="a720d9adc13c62585bf837570d11c939a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Menu::toggleOptions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes between menu options. </p>
+<p>Changes game mode between single and multi player and moves selector arrow accordingly. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a77d09ae69470169844c192ce864d0806"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sprite Menu::m_arrowSprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Selector arrow sprite. </p>
+
+</div>
+</div>
+<a class="anchor" id="adacfed5ba91f4c6292218bfd6c97581f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Menu::m_bMultiPlayer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If option selected is multi player. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0c1461fb97364a0670797c45c93ee2bd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sprite Menu::m_menuSprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Main menu sprite. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="menu_8h_source.html">menu.h</a></li>
-<li>menu.cpp</li>
+<li><a class="el" href="menu_8cpp.html">menu.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
