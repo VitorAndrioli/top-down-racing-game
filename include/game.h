@@ -13,6 +13,8 @@
  * \author Vitor Augusto Andrioli
  * \version 1.0
  * \date 25/02/2016
+ *
+ * \todo Change the minimap to display a bigger image of the cars, and to use a smaller texture for the background.
  */
 
 #ifndef GAME_H

@@ -21,8 +21,8 @@ class Vector2D
 public:
 	Vector2D(); //!< Default constructor that creates an empty vector.
 	Vector2D(G x, G y); //!< Constructor that creates a vector with X and Y values.
-	double dotProduct(Vector2D<G>* pOtherVector); //!< Calculates dot product with another vector.
-	double crossProduct(Vector2D<G>* pOtherVector); //!< Calculates cross product with another vector.
+	G dotProduct(Vector2D<G>* pOtherVector); //!< Calculates dot product with another vector.
+	G crossProduct(Vector2D<G>* pOtherVector); //!< Calculates cross product with another vector.
 	Vector2D<G> crossProduct(double fScalar); //!< Calculates cross product with a scalar.
 	Vector2D<G> unitVector(); //!< Gets unitary vector.
 	void normalize(); //!< Turns into unitary vector.
@@ -32,8 +32,8 @@ public:
 	void flip(); //!< Flips vector in both axes.
 	
 	// Setters and getters.
-	G getX();
-	G getY();
+	double getX();
+	double getY();
 	double getOrientation();
 	void setX(G x);
 	void setY(G y);
@@ -46,6 +46,7 @@ public:
 	Vector2D<G> operator* (double fScalar); //!< Overloads * operand (Multiplication by a scalar)
 	Vector2D<G> operator/ (double fScalar); //!< Overloads / operand (Division by a scalar)
 	bool operator== (Vector2D<G>& pOtherVector); //!< Overloads == operand (Comparison with a vector)
+	bool operator!= (Vector2D<G>& pOtherVector); //!< Overloads != operand (Comparison with a vector)
 
 private:
 	G m_x; //!< X value of the vector
@@ -75,7 +76,7 @@ Vector2D<G>::Vector2D(G x, G y)
  * \return Dot product.
  */
 template <class G>
-double Vector2D<G>::dotProduct(Vector2D<G>* pOtherVector)
+G Vector2D<G>::dotProduct(Vector2D<G>* pOtherVector)
 {
 	return m_x * pOtherVector->getX() + m_y * pOtherVector->getY();
 }
@@ -90,7 +91,7 @@ double Vector2D<G>::dotProduct(Vector2D<G>* pOtherVector)
  * \return Scalar cross product.
  */
 template <class G>
-double Vector2D<G>::crossProduct(Vector2D<G>* pOtherVector)
+G Vector2D<G>::crossProduct(Vector2D<G>* pOtherVector)
 {
 	return m_x * pOtherVector->getY() - m_y * pOtherVector->getX();
 }
@@ -113,8 +114,11 @@ Vector2D<G> Vector2D<G>::crossProduct(double fScalar)
 template<class G>
 Vector2D<G> Vector2D<G>::unitVector()
 {
-	G x = m_x / magnitude();
-	G y = m_y / magnitude();
+	double fMagnitude = magnitude();
+	if (fMagnitude == 0) return Vector2D<G>(0, 0);
+
+	G x = m_x / fMagnitude;
+	G y = m_y / fMagnitude;
 	return Vector2D<G>(x, y);
 }
 
@@ -156,10 +160,19 @@ void Vector2D<G>::flip()
 template <class G>
 void Vector2D<G>::normalize()
 {
-	G newX = m_x / magnitude();
-	G newY = m_y / magnitude();
-	m_x = newX;
-	m_y = newY;
+	double fMagnitude = magnitude();
+	if (fMagnitude == 0)
+	{
+		m_x = 0;
+		m_y = 0;
+	}
+	else
+	{
+		G newX = m_x / fMagnitude;
+		G newY = m_y / fMagnitude;
+		m_x = newX;
+		m_y = newY;
+	}
 }
 
 // Setters and getters.
@@ -176,13 +189,13 @@ void Vector2D<G>::setY(G y)
 }
 
 template <class G>
-G Vector2D<G>::getX()
+double Vector2D<G>::getX()
 {
 	return m_x;
 }
 
 template <class G>
-G Vector2D<G>::getY()
+double Vector2D<G>::getY()
 {
 	return m_y;
 }
@@ -226,6 +239,7 @@ Vector2D<G> Vector2D<G>::operator*(double scalar)
 template <class G>
 Vector2D<G> Vector2D<G>::operator/(double scalar)
 {
+	if (scalar == 0) return Vector2D<G>(0, 0);
 	G x = m_x / scalar;
 	G y = m_y / scalar;
 	return Vector2D<G>(x, y);
@@ -249,6 +263,12 @@ template <class G>
 bool Vector2D<G>::operator== (Vector2D<G>& otherVector)
 {
 	return m_x == otherVector.getX() && m_y == otherVector.getY();
+}
+
+template <class G>
+bool Vector2D<G>::operator!= (Vector2D<G>& otherVector)
+{
+	return m_x != otherVector.getX() || m_y != otherVector.getY();
 }
 
 #endif

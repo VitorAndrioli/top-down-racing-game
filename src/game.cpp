@@ -67,7 +67,7 @@ void Game::load()
 	// Assign font, font size, color and origin to SFML text timer member variable.
 	m_timerText.setFont(m_font);
 	m_timerText.setCharacterSize(45);
-	m_timerText.setColor(Color::Black);
+	m_timerText.setColor(Color(255, 207, 46));
 	m_timerText.setOrigin(m_timerText.getLocalBounds().width / 2, m_timerText.getLocalBounds().height / 2);
 
 	// Creates a semi-transparent backgrounf for instructions screen, based on its size (adding margins).
@@ -76,14 +76,13 @@ void Game::load()
 	m_instructionsBackground.setOrigin(m_instructionsBackground.getSize().x / 2, m_instructionsBackground.getSize().y / 2);
 
 	// Instantiantes first player and, if necessary, second player. Assigns their textures.
-	player1 = new Car(3779, 3141, -90 * TO_RADIANS);
-	//player1 = new Car(3000, 5000, -90 * TO_RADIANS);
+	player1 = new Car(3780, 3141, -90 * TO_RADIANS);
 	player1->setTexture(pTextureManager->getTexturePointer("car_01"));
 	player1->setWheelTexture(pTextureManager->getTexturePointer("car_tyre"));
 	
 	if (m_bMultiPlayer)
 	{
-		player2 = new Car(3000, 3100, -90 * TO_RADIANS);
+		player2 = new Car(3620, 3141, -90 * TO_RADIANS);
 		player2->setTexture(pTextureManager->getTexturePointer("car_02"));
 		player2->setWheelTexture(pTextureManager->getTexturePointer("car_tyre"));
 	}
@@ -157,7 +156,7 @@ void Game::update(float timestep)
 		// Updates.
 		(*collidable_it1)->update(timestep);
 		// Check for collisions with cars if they have moved.
-		if (player1->moved()) player1->checkCollision(*collidable_it1);
+		if (player1->moved())	player1->checkCollision(*collidable_it1);
 		if (m_bMultiPlayer && player2->moved()) player2->checkCollision(*collidable_it1);
 		
 		// Check if collidable has moved since last frame.
@@ -196,15 +195,20 @@ void Game::processKeyPress(Keyboard::Key code)
 			if (code == Keyboard::Down)	player1->m_bReversing = true;
 			if (code == Keyboard::Right) player1->m_bTurningRight = true;
 			if (code == Keyboard::Left) player1->m_bTurningLeft = true;
-			if (code == Keyboard::RControl) player1->m_bBraking = true;
+			
 
 			if (m_bMultiPlayer)
 			{
+				if (code == Keyboard::RControl) player1->m_bBraking = true;
+
 				if (code == Keyboard::W) player2->m_bAccelerating = true;
 				if (code == Keyboard::S) player2->m_bReversing = true;
 				if (code == Keyboard::D)  player2->m_bTurningRight = true;
 				if (code == Keyboard::A)  player2->m_bTurningLeft = true;
 				if (code == Keyboard::LControl) player2->m_bBraking = true;
+			}
+			else {
+				if (code == Keyboard::Space) player1->m_bBraking = true;
 			}
 		}
 	}
@@ -223,15 +227,20 @@ void Game::processKeyRelease(Keyboard::Key code)
 			if (code == Keyboard::Down)	player1->m_bReversing = false;
 			if (code == Keyboard::Right) player1->m_bTurningRight = false;
 			if (code == Keyboard::Left) player1->m_bTurningLeft = false;
-			if (code == Keyboard::RControl) player1->m_bBraking = false;
+			
 
 			if (m_bMultiPlayer)
 			{
+				if (code == Keyboard::RControl) player1->m_bBraking = false;
+
 				if (code == Keyboard::W) player2->m_bAccelerating = false;
 				if (code == Keyboard::S) player2->m_bReversing = false;
 				if (code == Keyboard::D)  player2->m_bTurningRight = false;
 				if (code == Keyboard::A)  player2->m_bTurningLeft = false;
 				if (code == Keyboard::LControl) player2->m_bBraking = false;
+			}
+			else {
+				if (code == Keyboard::Space) player1->m_bBraking = false;
 			}
 		}
 	}

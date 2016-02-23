@@ -2,6 +2,8 @@ var searchData=
 [
   ['to_5fdegrees',['TO_DEGREES',['../collidable_8h.html#a36cd60c08427f09487b7825432385d0d',1,'collidable.h']]],
   ['to_5fradians',['TO_RADIANS',['../collidable_8h.html#adb239346b66785ddb0718881e4284206',1,'collidable.h']]],
+  ['track_5fheight',['TRACK_HEIGHT',['../main_8cpp.html#a729c6d077b082f3980b62f2eb3701734',1,'main.cpp']]],
+  ['track_5fwidth',['TRACK_WIDTH',['../main_8cpp.html#aaa2708101c6941b7f207ee73a7234350',1,'main.cpp']]],
   ['tyre_5ffriction_5fcoefficient',['TYRE_FRICTION_COEFFICIENT',['../tyre_8h.html#ad5c106f1e96a5f6d5dc56f36945bdfba',1,'tyre.h']]],
   ['tyre_5fmass',['TYRE_MASS',['../tyre_8h.html#a22a854f8c13cf9afb24deaacf8bb013f',1,'tyre.h']]],
   ['tyre_5fmaximum_5forientation',['TYRE_MAXIMUM_ORIENTATION',['../car_8h.html#acee33222c9054bc14a558621d020fb6a',1,'car.h']]],

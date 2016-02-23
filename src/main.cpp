@@ -3,7 +3,9 @@
  * \brief Entance point to software..
  */
 
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+
 #include "game.h"
 #include "menu.h"
 #include <iostream>
@@ -14,7 +16,7 @@
 #include <streambuf>
 
 #define WINDOW_WIDTH 1200 //!< Window width.
-#define WINDOW_HEIGHT 700 //!< Window height.
+#define WINDOW_HEIGHT 1000 //!< Window height.
 #define TRACK_WIDTH 5386 //!< Window width.
 #define TRACK_HEIGHT 5136 //!< Window height.
 
@@ -32,15 +34,15 @@ int main()
 	game.setMenuSize(window.getSize().x, window.getSize().y);
 	
 	// Creates views.
-	sf::View menuView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)); // View for initial menu / instructions
-	sf::View player1View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)); //  View for first player.
-	sf::View player2View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)); // View for second player.
-	sf::View mapView(sf::FloatRect(0, 0, TRACK_WIDTH, TRACK_HEIGHT)); // View for mini map.
-	mapView.setViewport(sf::FloatRect(0.8, 0.05, 0.2, 0.2)); // Puts mini map at top left.
-	sf::View p1displayView(sf::FloatRect(0, 0, 60, 60)); // View for first player's velocimeter.
-	sf::View p2displayView(sf::FloatRect(0, 0, 60, 60)); // View for second player's velocimeter.
-	sf::View clockView(sf::FloatRect(0, 0, 200, 100)); // View for timer.
-	clockView.setViewport(sf::FloatRect(0.4, 0, 0.2, 0.2));
+	View menuView(FloatRect(0, 0, window.getSize().x, window.getSize().y)); // View for initial menu / instructions
+	View player1View(FloatRect(0, 0, window.getSize().x, window.getSize().y)); //  View for first player.
+	View player2View(FloatRect(0, 0, window.getSize().x, window.getSize().y)); // View for second player.
+	View mapView(FloatRect(0, 0, TRACK_WIDTH, TRACK_HEIGHT)); // View for mini map.
+	mapView.setViewport(FloatRect(0.78, 0.02, 0.2, 0.2)); // Puts mini map at top left.
+	View p1displayView(FloatRect(0, 0, 60, 60)); // View for first player's velocimeter.
+	View p2displayView(FloatRect(0, 0, 60, 60)); // View for second player's velocimeter.
+	View clockView(FloatRect(0, 0, 200, 100)); // View for timer.
+	clockView.setViewport(FloatRect(0.4, 0, 0.2, 0.2));
 
 	// Main menu loop
 	do
@@ -79,24 +81,31 @@ int main()
 
 	// Load game.
 	game.load();
-
+	
 	// If multiplayer, splits screen.
 	if (game.isMultiplayer())
 	{
-		player2View.setViewport(sf::FloatRect(0, 0, 0.499, 1));
+		player2View.setViewport(FloatRect(0, 0, 0.499, 1));
 		player2View.setSize(window.getSize().x / 2, window.getSize().y);
-		p2displayView.setViewport(sf::FloatRect(0.02, 0.8, 0.17, 0.17));
+		p2displayView.setViewport(FloatRect(0.02, 0.8, 0.17, 0.17));
 
-		player1View.setViewport(sf::FloatRect(0.501, 0, 0.499, 1));
+		player1View.setViewport(FloatRect(0.501, 0, 0.499, 1));
 		player1View.setSize(window.getSize().x / 2, window.getSize().y);
-		p1displayView.setViewport(sf::FloatRect(0.52, 0.8, 0.17, 0.17));
+		p1displayView.setViewport(FloatRect(0.52, 0.8, 0.17, 0.17));
 	}
 	else
 	{
-		player1View.setViewport(sf::FloatRect(0, 0, 1, 1));
+		player1View.setViewport(FloatRect(0, 0, 1, 1));
 		player1View.setSize(window.getSize().x, window.getSize().y);
-		p1displayView.setViewport(sf::FloatRect(0.02, 0.8, 0.17, 0.17));
+		p1displayView.setViewport(FloatRect(0.02, 0.8, 0.17, 0.17));
 	}
+
+
+	sf::Music backgroundMusic;
+	backgroundMusic.openFromFile("./assets/sounds/music.wav");
+	backgroundMusic.setLoop(true);
+	backgroundMusic.play();
+
 
 	Clock clock;
 
@@ -116,7 +125,7 @@ int main()
 		}
 
 		// Updates at 60 frames per second.
-		if (clock.getElapsedTime().asSeconds() > 0.016f)
+		if (clock.getElapsedTime().asSeconds() > 0.002f)
 		{
 			game.update(clock.restart().asSeconds());
 		}
@@ -125,8 +134,8 @@ int main()
 
 		// Draws player 1 view.
 		window.setView(player1View);
-		window.draw(game);
 		player1View.setCenter(game.getP1Position());
+		window.draw(game);
 		
 		window.setView(p1displayView);
 		window.draw(*game.getP1Display());

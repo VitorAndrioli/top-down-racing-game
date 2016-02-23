@@ -1,6 +1,7 @@
 var NAVTREE =
 [
-  [ "Course Work - IMAT2605", "index.html", [
+  [ "My Project", "index.html", [
+    [ "Course Work - IMAT2605", "index.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Classes", "annotated.html", [

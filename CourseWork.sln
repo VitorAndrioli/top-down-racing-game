@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CourseWork", "CourseWork.vcxproj", "{FB64F42B-5F68-4700-87A4-DBB1C9DB0FE8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VectorUnitTest", "VectorUnitTest\VectorUnitTest.vcxproj", "{EFE20E20-FE5C-4425-B2ED-D819306DA80C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{FB64F42B-5F68-4700-87A4-DBB1C9DB0FE8}.Debug|Win32.Build.0 = Debug|Win32
 		{FB64F42B-5F68-4700-87A4-DBB1C9DB0FE8}.Release|Win32.ActiveCfg = Release|Win32
 		{FB64F42B-5F68-4700-87A4-DBB1C9DB0FE8}.Release|Win32.Build.0 = Release|Win32
+		{EFE20E20-FE5C-4425-B2ED-D819306DA80C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EFE20E20-FE5C-4425-B2ED-D819306DA80C}.Debug|Win32.Build.0 = Debug|Win32
+		{EFE20E20-FE5C-4425-B2ED-D819306DA80C}.Release|Win32.ActiveCfg = Release|Win32
+		{EFE20E20-FE5C-4425-B2ED-D819306DA80C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

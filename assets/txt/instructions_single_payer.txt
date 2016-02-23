@@ -4,4 +4,4 @@ Arrow up - accelerate
 Arrow down - reverse gear
 Arrow right - turn right
 Arrow left - turn left
-Right Ctrl - brake
+Spacebar - brake

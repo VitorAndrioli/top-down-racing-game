@@ -18,6 +18,7 @@
 #define MENU_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <string>
 
 #include "textureManager.h"
@@ -38,6 +39,8 @@ private:
 	bool m_bMultiPlayer; //!< If option selected is multi player.
 	Sprite m_menuSprite; //!< Main menu sprite.
 	Sprite m_arrowSprite; //!< Selector arrow sprite.
+	sf::SoundBuffer m_buttonBuffer;
+	sf::Sound m_buttonSound;
 
 };
 

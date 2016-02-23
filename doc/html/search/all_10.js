@@ -8,6 +8,8 @@ var searchData=
   ['to_5fradians',['TO_RADIANS',['../collidable_8h.html#adb239346b66785ddb0718881e4284206',1,'collidable.h']]],
   ['todo_20list',['Todo List',['../todo.html',1,'']]],
   ['toggleoptions',['toggleOptions',['../class_menu.html#a720d9adc13c62585bf837570d11c939a',1,'Menu']]],
+  ['track_5fheight',['TRACK_HEIGHT',['../main_8cpp.html#a729c6d077b082f3980b62f2eb3701734',1,'main.cpp']]],
+  ['track_5fwidth',['TRACK_WIDTH',['../main_8cpp.html#aaa2708101c6941b7f207ee73a7234350',1,'main.cpp']]],
   ['tyre',['Tyre',['../class_tyre.html',1,'Tyre'],['../class_tyre.html#a162dbaad7ae74443df530dfb147fb694',1,'Tyre::Tyre()'],['../class_tyre.html#aa8316602e846dd79412579a2c3ad92c7',1,'Tyre::Tyre(double fPosX, double fPosY)']]],
   ['tyre_2ecpp',['tyre.cpp',['../tyre_8cpp.html',1,'']]],
   ['tyre_2eh',['tyre.h',['../tyre_8h.html',1,'']]],

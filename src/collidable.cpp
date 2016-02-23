@@ -66,7 +66,7 @@ void Collidable::update(float fElapsed)
 
 	// Updates sprite.
 	updateSprite();
-	updatePoints(); // to be removed
+	//updatePoints(); // to be removed
 }
 
 void Collidable::updateSprite()
@@ -115,8 +115,10 @@ void Collidable::resolveCollision(Collidable* pOtherCollidable, Vector2D<double>
 	Vector2D<double> fvDistOtherCollidable = *pfvContactPoint - pOtherCollidable->getPosition();
 
 	// Calculates relative velocity.
-	//Vector2D<double> relVelocity = m_fvVelocity - otherCollidable->getVelocity();
-	Vector2D<double> relativeVelocity = (m_fvVelocity + fvDistCollidable.crossProduct(m_fAngularVelocity)) - (pOtherCollidable->getVelocity() + fvDistOtherCollidable.crossProduct(pOtherCollidable->m_fAngularVelocity));
+	// Relativ velocity NOT using angular momentum
+	Vector2D<double> relativeVelocity = m_fvVelocity - pOtherCollidable->getVelocity();
+	// Relativ velocity using angular momentum
+	//Vector2D<double> relativeVelocity = (m_fvVelocity + fvDistCollidable.crossProduct(m_fAngularVelocity)) - (pOtherCollidable->getVelocity() + fvDistOtherCollidable.crossProduct(pOtherCollidable->m_fAngularVelocity));
 	// Checks if collidables are moving towards each other. If not, there is no reason to continue.
 	if (relativeVelocity.dotProduct(pfvCollisionNormal) > 0) return;
 	
@@ -124,6 +126,8 @@ void Collidable::resolveCollision(Collidable* pOtherCollidable, Vector2D<double>
 	Vector2D<double> rb = *pfvContactPoint - pOtherCollidable->getPosition();
 
 	// Calculates impulse scalar (j).
+	// Impulse scalar NOT using angular momentum
+	// Impulse scalar using angular momentum
 	//double fImpulseScalar = -(1 + fRestitution) * relativeVelocity.dotProduct(pfvCollisionNormal) / (m_fInverseMass + pOtherCollidable->getInverseMass() + (m_fInverseMomentOfInertia*pow(ra.crossProduct(pfvCollisionNormal), 2)) + (pOtherCollidable->getInverseInertia() * pow(rb.crossProduct(pfvCollisionNormal), 2)));
 	double fImpulseScalar = -(1 + fRestitution) * relativeVelocity.dotProduct(pfvCollisionNormal) / (m_fInverseMass + pOtherCollidable->getInverseMass());
 	
@@ -141,6 +145,7 @@ void Collidable::resolveCollision(Collidable* pOtherCollidable, Vector2D<double>
 void Collidable::applyImpulse(Vector2D<double>* pfvImpulse, Vector2D<double>* pfvContactPoint)
 {
 	m_fvVelocity += (*pfvImpulse * m_fInverseMass);
+	// Apply angular impulse
 	//m_fAngularVelocity += pfvContactPoint->crossProduct(pfvImpulse) * m_fInverseMomentOfInertia;
 }
 
@@ -158,7 +163,6 @@ bool Collidable::moved()
 {
 	return (m_fvVelocity.squaredMagnitude() > 0 || m_fAngularVelocity != 0.f);
 }
-
 
 /*!
  * Draws object's sprite to target.

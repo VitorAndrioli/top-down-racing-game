@@ -63,14 +63,12 @@ void Car::update(float fElapsed)
 	fvFriction.rotate(m_fvVelocity.getOrientation());
 	
 	// Calculates air friction of the object, based on the velocity.
-	Vector2D<double> fvAirFriction = (m_fvVelocity * 0.5);
+	Vector2D<double> fvAirFriction = (m_fvVelocity * 0.8);
 	// Uses F = m.a equation to calculate the acceleration of the object.
 	m_fvAcceleration = (m_fvThrust - fvAirFriction) * m_fInverseMass;
 	// Friction only acts once the car is moving.
 	if (isMoving()) m_fvAcceleration -= fvFriction;
 	
-	//cout << m_fvVelocity.magnitude() << " | " << m_fvVelocity.getY() << endl;
-
 	// Uses Improved Euler to calculate the velocity of the object.
 	Vector2D<double> fvPredictedVelocity = m_fvVelocity + m_fvAcceleration * fElapsed;
 	Vector2D<double> fvNewFriction = fvPredictedVelocity * getFrictionCoefficient();

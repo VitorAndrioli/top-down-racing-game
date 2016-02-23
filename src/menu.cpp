@@ -19,6 +19,9 @@ Menu::Menu() : m_bMultiPlayer(false)
 	m_arrowSprite.setTexture(*textureManager->getTexturePointer("arrow"));
 	m_arrowSprite.setOrigin(m_arrowSprite.getTexture()->getSize().x / 2, m_arrowSprite.getTexture()->getSize().y / 4); // Sets sprite's center as its origin (instead of its corner).
 	m_arrowSprite.scale(40.f / m_arrowSprite.getTexture()->getSize().x, 47.f / m_arrowSprite.getTexture()->getSize().y); // Scales texture to make sure it fits the car.
+
+	m_buttonBuffer.loadFromFile("./assets/sounds/button.wav");
+	m_buttonSound.setBuffer(m_buttonBuffer);
 }
 
 /*!
@@ -28,6 +31,7 @@ void Menu::toggleOptions()
 {
 	// Toggle game mode option.
 	m_bMultiPlayer = !m_bMultiPlayer;
+	m_buttonSound.play();
 
 	// Move arrow.
 	if (m_bMultiPlayer)
@@ -42,6 +46,7 @@ void Menu::toggleOptions()
 
 bool Menu::getOption()
 {
+	m_buttonSound.play();
 	return m_bMultiPlayer;
 }
 
