@@ -3,6 +3,7 @@ var searchData=
   ['texturemanager',['TextureManager',['../class_texture_manager.html',1,'TextureManager'],['../class_texture_manager.html#ad76abb178b37cedf4514eb0154349935',1,'TextureManager::TextureManager()']]],
   ['texturemanager_2ecpp',['textureManager.cpp',['../texture_manager_8cpp.html',1,'']]],
   ['texturemanager_2eh',['textureManager.h',['../texture_manager_8h.html',1,'']]],
+  ['timerbuffer',['timerBuffer',['../class_game.html#aabe1516c15049d912c08bdb48d7fc869',1,'Game']]],
   ['to_5fdegrees',['TO_DEGREES',['../collidable_8h.html#a36cd60c08427f09487b7825432385d0d',1,'collidable.h']]],
   ['to_5fradians',['TO_RADIANS',['../collidable_8h.html#adb239346b66785ddb0718881e4284206',1,'collidable.h']]],
   ['todo_20list',['Todo List',['../todo.html',1,'']]],

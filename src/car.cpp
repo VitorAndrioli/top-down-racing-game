@@ -78,8 +78,7 @@ void Car::update(float fElapsed)
 	if (isMoving()) fvPredictedAcceleration -= fvFriction;
 
 	setVelocity(m_fvVelocity + (m_fvAcceleration + fvPredictedAcceleration) * 0.5 * fElapsed);
-	//m_fvPosition += m_fvVelocity * fElapsed;
-
+	
 	// Uses Bicycle Steering for updating car's position and orientation.
 	// Gets vector for car's and steering's orientation.
 	Vector2D<double> fvCarOrientation(cos(m_fOrientation), sin(m_fOrientation));

@@ -60,6 +60,8 @@ public:
 	CarDisplay* getP2Display(); //!< Gets pointer to second player velocimeter, if multiplayer.
 	RectangleShape getInstructionsBackground();
 	Text getInstructions();
+	Text getTimer();
+	
 	
 private:
 	Car* player1; //!< Pointer to first player.
@@ -70,6 +72,9 @@ private:
 	Menu m_menu; //!< Main menu.
 	RectangleShape m_instructionsBackground; //!< Background for instructions;
 	Text m_instructions; //!< Instruction to be displayed when paused.
+	Text m_timerText; //!< Timer to be draw into the screen.
+	float m_fTimer; //!< Variable to store time elapsed of the game.
+	char timerBuffer[100]; //!< Buffer to turn timer intp string.
 	Sprite m_background; //!< Background of game (racing track).
 	
 	bool m_bMultiPlayer; //!< If game is defined as multi player.

@@ -108,8 +108,8 @@
     <None Include="assets\txt\mainPage.dox" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="assets\txt\instructions _single_payer.txt" />
     <Text Include="assets\txt\instructions_multi_player.txt" />
+    <Text Include="assets\txt\instructions_single_payer.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

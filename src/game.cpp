@@ -5,7 +5,7 @@
 
 #include "game.h"
 
-Game::Game() : m_bMultiPlayer(false), m_bPaused(true)
+Game::Game() : m_bMultiPlayer(false), m_bPaused(true), m_fTimer(0)
 { 
 }
 
@@ -63,6 +63,12 @@ void Game::load()
 	m_instructions.setCharacterSize(18);
 	m_instructions.setString(instructionsString);
 	m_instructions.setOrigin(m_instructions.getLocalBounds().width / 2, m_instructions.getLocalBounds().height / 2);
+
+	// Assign font, font size, color and origin to SFML text timer member variable.
+	m_timerText.setFont(m_font);
+	m_timerText.setCharacterSize(45);
+	m_timerText.setColor(Color::Black);
+	m_timerText.setOrigin(m_timerText.getLocalBounds().width / 2, m_timerText.getLocalBounds().height / 2);
 
 	// Creates a semi-transparent backgrounf for instructions screen, based on its size (adding margins).
 	m_instructionsBackground.setSize(Vector2f(m_instructions.getLocalBounds().width + 15, m_instructions.getLocalBounds().height + 25));
@@ -125,10 +131,16 @@ void Game::draw(RenderTarget &target, RenderStates states) const
  */
 void Game::update(float timestep)
 {
-	// If paused, exit method.
+
+	// If paused, exits method.
 	if (m_bPaused) return;
 	
-	// Update first player.
+	// Updates timer
+	m_fTimer += timestep;
+	sprintf_s<sizeof(timerBuffer)>(timerBuffer, "%02.0f:%02.0f:%02.0f", floor(m_fTimer / 3600.0), floor(fmod(m_fTimer, 3600.0) / 60.0), fmod(m_fTimer, 60.0));
+	m_timerText.setString(timerBuffer);
+	
+	// Updates first player.
 	player1->update(timestep);
 	
 	// If multi player mode is on, updates second player and check for collisions between the cars.
@@ -257,6 +269,11 @@ RectangleShape Game::getInstructionsBackground()
 Text Game::getInstructions()
 {
 	return m_instructions;
+}
+
+Text Game::getTimer()
+{
+	return m_timerText;
 }
 
 CarDisplay* Game::getP1Display()

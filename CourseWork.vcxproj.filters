@@ -101,10 +101,10 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="assets\txt\instructions _single_payer.txt">
+    <Text Include="assets\txt\instructions_multi_player.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="assets\txt\instructions_multi_player.txt">
+    <Text Include="assets\txt\instructions_single_payer.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

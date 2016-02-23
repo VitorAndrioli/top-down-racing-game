@@ -1,6 +1,7 @@
-/**
-\file main.cpp
-*/
+/*!
+ * \file
+ * \brief Entance point to software..
+ */
 
 #include <SFML/Graphics.hpp>
 #include "game.h"
@@ -12,32 +13,39 @@
 #include <fstream>
 #include <streambuf>
 
+#define WINDOW_WIDTH 1200 //!< Window width.
+#define WINDOW_HEIGHT 700 //!< Window height.
+#define TRACK_WIDTH 5386 //!< Window width.
+#define TRACK_HEIGHT 5136 //!< Window height.
 
 using namespace sf;
+
 int main()
 {
-
-	RenderWindow window(VideoMode(1200, 700), "IMAT2605 Course work");
+	// Instantiates window object.
+	RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "IMAT2605 Course work");
 	window.setVerticalSyncEnabled(true);
 
+	// Instantiates game object.
 	Game game;
+	//  Sets menu size.
 	game.setMenuSize(window.getSize().x, window.getSize().y);
 	
-	sf::View menuView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
-	menuView.setViewport(sf::FloatRect(0, 0, 1, 1));
-	sf::View player1View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
-	sf::View player2View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
+	// Creates views.
+	sf::View menuView(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)); // View for initial menu / instructions
+	sf::View player1View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)); //  View for first player.
+	sf::View player2View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)); // View for second player.
+	sf::View mapView(sf::FloatRect(0, 0, TRACK_WIDTH, TRACK_HEIGHT)); // View for mini map.
+	mapView.setViewport(sf::FloatRect(0.8, 0.05, 0.2, 0.2)); // Puts mini map at top left.
+	sf::View p1displayView(sf::FloatRect(0, 0, 60, 60)); // View for first player's velocimeter.
+	sf::View p2displayView(sf::FloatRect(0, 0, 60, 60)); // View for second player's velocimeter.
+	sf::View clockView(sf::FloatRect(0, 0, 200, 100)); // View for timer.
+	clockView.setViewport(sf::FloatRect(0.4, 0, 0.2, 0.2));
 
-	sf::View mapView(sf::FloatRect(0, 0, 6700, 6700));
-	mapView.setViewport(sf::FloatRect(0.8, 0, 0.2, 0.2));
-
-	sf::View p1displayView(sf::FloatRect(0, 0, 60, 60));
-	
-	sf::View p2displayView(sf::FloatRect(0, 0, 60, 60));
-	
-	
+	// Main menu loop
 	do
 	{
+		// Clear window and draw menu until game starts.
 		window.clear(Color(43, 130, 62, 255));
 		window.setView(menuView);
 		window.draw(game);
@@ -57,7 +65,22 @@ int main()
 
 	} while (!game.hasStarted());
 
+	// Display loading screen.
+	Font font;
+	font.loadFromFile("./assets/font/GOTHICB.ttf");
+	Text loading("Loading game...", font);
+	loading.setCharacterSize(25);
+	loading.setOrigin(loading.getGlobalBounds().width / 2, loading.getGlobalBounds().height/ 2);
+	loading.setPosition(window.getSize().x / 2, window.getSize().y / 2);
+	window.clear(Color::Black);
+	window.setView(menuView);
+	window.draw(loading);
+	window.display();
+
+	// Load game.
 	game.load();
+
+	// If multiplayer, splits screen.
 	if (game.isMultiplayer())
 	{
 		player2View.setViewport(sf::FloatRect(0, 0, 0.499, 1));
@@ -67,7 +90,6 @@ int main()
 		player1View.setViewport(sf::FloatRect(0.501, 0, 0.499, 1));
 		player1View.setSize(window.getSize().x / 2, window.getSize().y);
 		p1displayView.setViewport(sf::FloatRect(0.52, 0.8, 0.17, 0.17));
-
 	}
 	else
 	{
@@ -77,9 +99,8 @@ int main()
 	}
 
 	Clock clock;
-	player1View.setCenter(game.getP1Position());
 
-
+	// Game loop
 	while (window.isOpen())
 	{
 		Event event;
@@ -94,23 +115,23 @@ int main()
 										
 		}
 
-		if (clock.getElapsedTime().asSeconds() > 0.001)
+		// Updates at 60 frames per second.
+		if (clock.getElapsedTime().asSeconds() > 0.016f)
 		{
-			game.update(clock.getElapsedTime().asSeconds());
-			clock.restart();
+			game.update(clock.restart().asSeconds());
 		}
 
-		window.clear(Color::Yellow);
+		window.clear(Color::White);
 
-		
+		// Draws player 1 view.
 		window.setView(player1View);
 		window.draw(game);
-		//player1View.setCenter(game.getP1Position());
-		//player1View.setRotation(game.player1.getOrientation() * TO_DEGREES + 90);
+		player1View.setCenter(game.getP1Position());
 		
 		window.setView(p1displayView);
 		window.draw(*game.getP1Display());
 		
+		// If multiplayer, draws player 2 view.
 		if (game.isMultiplayer())
 		{
 			window.setView(player2View);
@@ -119,21 +140,23 @@ int main()
 
 			window.setView(p2displayView);
 			window.draw(*game.getP2Display());
-
 		}
-
+		
+		// Draws mini map.
 		window.setView(mapView);
 		window.draw(game);
 
+		// Draws timer.
+		window.setView(clockView);
+		window.draw(game.getTimer());
+
+		// If paused, draw instructions.
 		if (game.isPaused())
 		{
 			window.setView(menuView);
 			window.draw(game.getInstructionsBackground());
 			window.draw(game.getInstructions());
 		}
-
-
-		
 
 		window.display();
 	}

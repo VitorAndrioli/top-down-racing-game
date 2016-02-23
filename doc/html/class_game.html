@@ -173,6 +173,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a13138b102c41e04f9db17bc2774c3655"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a144253858723b655d4dc928c3ad4d27d"><td class="memItemLeft" align="right" valign="top">Text&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a144253858723b655d4dc928c3ad4d27d">getInstructions</a> ()</td></tr>
 <tr class="separator:a144253858723b655d4dc928c3ad4d27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadca5f863c08d1a88b459fdf785f8244"><td class="memItemLeft" align="right" valign="top">Text&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#aadca5f863c08d1a88b459fdf785f8244">getTimer</a> ()</td></tr>
+<tr class="separator:aadca5f863c08d1a88b459fdf785f8244"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -203,6 +205,15 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:afeb58381f0928707a72345478cef29f9"><td class="memItemLeft" align="right" valign="top">Text&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#afeb58381f0928707a72345478cef29f9">m_instructions</a></td></tr>
 <tr class="memdesc:afeb58381f0928707a72345478cef29f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instruction to be displayed when paused.  <a href="#afeb58381f0928707a72345478cef29f9">More...</a><br /></td></tr>
 <tr class="separator:afeb58381f0928707a72345478cef29f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade9488f94159f5b0b0ba431491e03ac8"><td class="memItemLeft" align="right" valign="top">Text&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#ade9488f94159f5b0b0ba431491e03ac8">m_timerText</a></td></tr>
+<tr class="memdesc:ade9488f94159f5b0b0ba431491e03ac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer to be draw into the screen.  <a href="#ade9488f94159f5b0b0ba431491e03ac8">More...</a><br /></td></tr>
+<tr class="separator:ade9488f94159f5b0b0ba431491e03ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78e5ed8e4d45d6f8e883154d6d1db960"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a78e5ed8e4d45d6f8e883154d6d1db960">m_fTimer</a></td></tr>
+<tr class="memdesc:a78e5ed8e4d45d6f8e883154d6d1db960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to store time elapsed of the game.  <a href="#a78e5ed8e4d45d6f8e883154d6d1db960">More...</a><br /></td></tr>
+<tr class="separator:a78e5ed8e4d45d6f8e883154d6d1db960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabe1516c15049d912c08bdb48d7fc869"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#aabe1516c15049d912c08bdb48d7fc869">timerBuffer</a> [100]</td></tr>
+<tr class="memdesc:aabe1516c15049d912c08bdb48d7fc869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer to turn timer intp string.  <a href="#aabe1516c15049d912c08bdb48d7fc869">More...</a><br /></td></tr>
+<tr class="separator:aabe1516c15049d912c08bdb48d7fc869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac31e7648a891d49262aa0b2238483db1"><td class="memItemLeft" align="right" valign="top">Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#ac31e7648a891d49262aa0b2238483db1">m_background</a></td></tr>
 <tr class="memdesc:ac31e7648a891d49262aa0b2238483db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Background of game (racing track).  <a href="#ac31e7648a891d49262aa0b2238483db1">More...</a><br /></td></tr>
 <tr class="separator:ac31e7648a891d49262aa0b2238483db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -380,6 +391,21 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets second player position, if multiplayer. </p>
+
+</div>
+</div>
+<a class="anchor" id="aadca5f863c08d1a88b459fdf785f8244"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Text Game::getTimer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -673,6 +699,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a78e5ed8e4d45d6f8e883154d6d1db960"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Game::m_fTimer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Variable to store time elapsed of the game. </p>
+
+</div>
+</div>
 <a class="anchor" id="afeb58381f0928707a72345478cef29f9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -761,6 +809,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ade9488f94159f5b0b0ba431491e03ac8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Text Game::m_timerText</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Timer to be draw into the screen. </p>
+
+</div>
+</div>
 <a class="anchor" id="aa48d70af270f6cb8b6234aa894093877"></a>
 <div class="memitem">
 <div class="memproto">
@@ -802,6 +872,28 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Pointer to second player, if multi player mode is active. </p>
+
+</div>
+</div>
+<a class="anchor" id="aabe1516c15049d912c08bdb48d7fc869"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Game::timerBuffer[100]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Buffer to turn timer intp string. </p>
 
 </div>
 </div>
