@@ -218,37 +218,3 @@ void OBB::setTexture(shared_ptr<sf::Texture> pTexture)
 
 	updateSprite();
 }
-
-
-
-
-
-void OBB::updatePoints()
-{
-	
-	/*m_vaPoints.resize(5);
-	Vector2D<double> rotationMatrixLine1(cos(m_fOrientation), -sin(m_fOrientation));
-	Vector2D<double> rotationMatrixLine2(sin(m_fOrientation), cos(m_fOrientation));
-
-	Vector2D<double> tempVector(-m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
-	tempVector.rotate(m_fOrientation);
-	m_vaPoints[0].position.x = m_vaPoints[4].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[0].position.y = m_vaPoints[4].position.y = (tempVector + getPosition()).getY();
-
-	tempVector = Vector2D<double>(m_fvHalfExtents.getX(), m_fvHalfExtents.getY());
-	tempVector.rotate(m_fOrientation);
-	m_vaPoints[1].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[1].position.y = (tempVector + getPosition()).getY();
-
-	tempVector = Vector2D<double>(m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
-	tempVector.rotate(m_fOrientation);
-	m_vaPoints[2].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[2].position.y = (tempVector + getPosition()).getY();
-
-	tempVector = Vector2D<double>(-m_fvHalfExtents.getX(), -m_fvHalfExtents.getY());
-	tempVector.rotate(m_fOrientation);
-	m_vaPoints[3].position.x = (tempVector + getPosition()).getX();
-	m_vaPoints[3].position.y = (tempVector + getPosition()).getY();
-	//*/
-}
-

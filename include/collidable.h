@@ -77,12 +77,6 @@ public:
 	double getRadius();
 	double getInverseInertia();
 	
-
-
-	virtual void updatePoints() {}; //!< to be removed.
-	void print() { cout << "Car: " << getVelocity().magnitude() << " | " << getAcceleration().getY() << endl; } //!< to be removed.
-
-
 protected:
 	double m_fInverseMass;  //!< Inverse of collidable's mass.
 	double m_fFrictionCoefficient; //!< Friction coefficient of collidable.
@@ -102,7 +96,6 @@ protected:
 	double m_fTorque; //!< Torque applied to object.
 	double m_fInverseMomentOfInertia; //!< Inverse moment of inertia.
 
-	sf::VertexArray m_vaPoints; //!< Points to be drawn (to be removed)
 	sf::Sprite m_sprite; //!< Sprite to be drawn to the window.
 
 	//! Performs a broad and less costly collision check with another collidable.

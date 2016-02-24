@@ -123,19 +123,3 @@ void Circle::setTexture(shared_ptr<sf::Texture> pTexture)
 	
 	updateSprite();
 }
-
-
-
-// to remove
-void Circle::updatePoints()
-{
-	/*int iCirclePointNumber = 31;
-	m_vaPoints.resize(iCirclePointNumber);
-	for (int i = 0; i < iCirclePointNumber; i++) {
-		double angle = (2 * 3.14159) / (iCirclePointNumber - 1) * i;
-		double x = m_fvPosition.getX() + m_fRadius * cos(angle);
-		double y = m_fvPosition.getY() + m_fRadius * sin(angle);
-		m_vaPoints[i].position = sf::Vector2f(x, y);
-	}
-	//*/
-}

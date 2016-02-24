@@ -22,7 +22,6 @@ Collidable::Collidable() :
 	m_fFrictionCoefficient(0), 
 	m_fRestitution(1)
 {
-	m_vaPoints.setPrimitiveType(sf::LinesStrip); // to be removed.
 }
 
 /*!
@@ -173,7 +172,6 @@ bool Collidable::moved()
 void Collidable::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(m_sprite, states);
-	target.draw(m_vaPoints, states); // to remove.
 }
 
 // Setters and getters.

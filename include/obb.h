@@ -40,9 +40,6 @@ public:
 	Vector2D<double> getHalfExtents();
 	void setTexture(shared_ptr<sf::Texture> pTexture); //!< Implements Collidable's setTexture virtual method.
 
-
-	void updatePoints(); // remove
-
 protected:
 	Vector2D<double> m_fvHalfExtents; //!< Half-extents vector.
 };

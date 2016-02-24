@@ -33,8 +33,6 @@ public:
 	void checkCollision(Circle* const pOtherCircle); //!< Checks collision with another Circle.
 	void checkCollision(OBB* const pObb); //!< Checks collision with an OBB.
 	void setTexture(shared_ptr<sf::Texture> pTexture); //!< Implements Collidable's setTexture virtual method.
-
-	void updatePoints(); //!< to be removed.
 };
 
 #endif

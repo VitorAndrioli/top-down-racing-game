@@ -43,7 +43,6 @@ Car::Car(double fPosX, double fPosY, double fOrientation) :
 	setMass(CAR_MASS);
 	m_fInverseMomentOfInertia = 12 / (getMass() * (CAR_HALF_EXTENT_X*CAR_HALF_EXTENT_X + CAR_HALF_EXTENT_Y*CAR_HALF_EXTENT_Y)); // Equation for moment of inertia for rectangles.
 
-	m_vaPoints.resize(5); // to remove
 }
 
 /*!
@@ -108,8 +107,6 @@ void Car::update(float fElapsed)
 
 	// Updates analog display. Use squared velocity to avoid using sqrt() function.
 	m_display.update(m_fvVelocity.squaredMagnitude());
-	
-	updatePoints(); // to remove.
 }
 
 /*!
@@ -176,7 +173,6 @@ void Car::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	target.draw(m_rightWheelSprite);
 	target.draw(m_leftWheelSprite);
 	target.draw(m_sprite);
-	target.draw(m_vaPoints, states); // remove
 }
 
 // Setters and getters
