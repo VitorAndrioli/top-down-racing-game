@@ -7,5 +7,5 @@ var searchData=
   ['collidable',['Collidable',['../class_collidable.html#a92ce9e2b08086bb2f466168ffc69c9ed',1,'Collidable']]],
   ['collidablefactory',['CollidableFactory',['../class_collidable_factory.html#ab8ca4781af6346772459898a4b9ee115',1,'CollidableFactory']]],
   ['controlinput',['controlInput',['../class_car.html#a1b8b6e8701e2866dcb0db2213ef760c4',1,'Car']]],
-  ['crossproduct',['crossProduct',['../class_vector2_d.html#a4be7b15eb3e4e5a4ec415a484061b10d',1,'Vector2D::crossProduct(Vector2D&lt; G &gt; *pOtherVector)'],['../class_vector2_d.html#a5d05faaee31dd6f71dfdc4a57502e4f8',1,'Vector2D::crossProduct(double fScalar)']]]
+  ['crossproduct',['crossProduct',['../class_vector2_d.html#af488e28c772a8c3725b677ece8dd5666',1,'Vector2D::crossProduct(Vector2D&lt; G &gt; *pOtherVector)'],['../class_vector2_d.html#a5d05faaee31dd6f71dfdc4a57502e4f8',1,'Vector2D::crossProduct(double fScalar)']]]
 ];

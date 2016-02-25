@@ -106,7 +106,7 @@ protected:
 	void applyImpulse(Vector2D<double>* pfvImpulse, Vector2D<double>* pfvContactPoint);
 
 private:
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method inherited from Drawable class.
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method inherited from Drawable class.
 };
 
 #endif

@@ -8,6 +8,5 @@ var class_o_b_b =
     [ "getHalfExtents", "class_o_b_b.html#acb95cc5ca2f703da43444f6a029d117b", null ],
     [ "setHalfExtents", "class_o_b_b.html#a0367f78bef8252fc122cf1b0c22e332c", null ],
     [ "setTexture", "class_o_b_b.html#ac623d403ed9428397c00ee5782eda59e", null ],
-    [ "updatePoints", "class_o_b_b.html#a3103d775e6ba4b27a80263ea14826309", null ],
     [ "m_fvHalfExtents", "class_o_b_b.html#a9bb0b948899d85dd6973d7526a574cc2", null ]
 ];

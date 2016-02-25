@@ -25,6 +25,6 @@ var searchData=
   ['getthrust',['getThrust',['../class_collidable.html#aea55329ca9229dc988a38d4d59509c02',1,'Collidable']]],
   ['gettimer',['getTimer',['../class_game.html#aadca5f863c08d1a88b459fdf785f8244',1,'Game']]],
   ['getvelocity',['getVelocity',['../class_collidable.html#abfdcd815a5f8aabd860e2b69bc4bea21',1,'Collidable']]],
-  ['getx',['getX',['../class_vector2_d.html#a46521876fbb0b52881eba97a074ba59c',1,'Vector2D']]],
-  ['gety',['getY',['../class_vector2_d.html#ac0ecf6cdb4b8106b8c1c2a08efc728df',1,'Vector2D']]]
+  ['getx',['getX',['../class_vector2_d.html#a9ccb4bd828c080f14704207e375063bb',1,'Vector2D']]],
+  ['gety',['getY',['../class_vector2_d.html#aaada210acae6e60a29607f5f1c9afea5',1,'Vector2D']]]
 ];

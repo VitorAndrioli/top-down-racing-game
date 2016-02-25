@@ -20,13 +20,13 @@ CarDisplay::CarDisplay(double fMaximumSpeed) : m_fMaximumSpeedSquared(fMaximumSp
 	TextureManager* textureManager = TextureManager::getInstance();
 
 	// Assigns and scale textures.
-	m_velocimeter.setTexture(*textureManager->getTexturePointer("velocimeter"));
-	m_velocimeter.scale(60.f / m_velocimeter.getTexture()->getSize().x, 60.f / m_velocimeter.getTexture()->getSize().y);
+	m_speedometer.setTexture(*textureManager->getTexturePointer("speedometer"));
+	m_speedometer.scale(60.f / m_speedometer.getTexture()->getSize().x, 60.f / m_speedometer.getTexture()->getSize().y);
 
-	m_velocimeterPointer.setTexture(*textureManager->getTexturePointer("pointer"));
-	m_velocimeterPointer.setOrigin(m_velocimeterPointer.getTexture()->getSize().x / 2, m_velocimeterPointer.getTexture()->getSize().y / 2);
-	m_velocimeterPointer.scale(60.f / m_velocimeterPointer.getTexture()->getSize().x, 60.f / m_velocimeterPointer.getTexture()->getSize().y);
-	m_velocimeterPointer.setPosition(30, 30);
+	m_speedometerPointer.setTexture(*textureManager->getTexturePointer("pointer"));
+	m_speedometerPointer.setOrigin(m_speedometerPointer.getTexture()->getSize().x / 2, m_speedometerPointer.getTexture()->getSize().y / 2);
+	m_speedometerPointer.scale(60.f / m_speedometerPointer.getTexture()->getSize().x, 60.f / m_speedometerPointer.getTexture()->getSize().y);
+	m_speedometerPointer.setPosition(30, 30);
 }
 
 /*!
@@ -39,15 +39,15 @@ void CarDisplay::update(double fSpeedSquared)
 	// Calculates the orientation for given speed.
 	double orientation = fSpeedSquared * MAXIMUM_ROTATION / m_fMaximumSpeedSquared;
 	// Updates pointer orientation.
-	m_velocimeterPointer.setRotation(orientation);
+	m_speedometerPointer.setRotation(orientation);
 }
 
 
 void CarDisplay::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	// Draw sprites.
-	target.draw(m_velocimeter);
-	target.draw(m_velocimeterPointer);
+	target.draw(m_speedometer);
+	target.draw(m_speedometerPointer);
 }
 
 

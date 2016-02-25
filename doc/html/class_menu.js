@@ -8,5 +8,7 @@ var class_menu =
     [ "toggleOptions", "class_menu.html#a720d9adc13c62585bf837570d11c939a", null ],
     [ "m_arrowSprite", "class_menu.html#a77d09ae69470169844c192ce864d0806", null ],
     [ "m_bMultiPlayer", "class_menu.html#adacfed5ba91f4c6292218bfd6c97581f", null ],
+    [ "m_buttonBuffer", "class_menu.html#a7a8adab4418cf3bcfcb77a65485ab82e", null ],
+    [ "m_buttonSound", "class_menu.html#ae6d1a8703f41446340e26a87ab9cfad1", null ],
     [ "m_menuSprite", "class_menu.html#a0c1461fb97364a0670797c45c93ee2bd", null ]
 ];

@@ -33,8 +33,8 @@ public:
 	void update(double fSpeedSquared); //!< Updates pointer's orientation.
 
 private:
-	sf::Sprite m_velocimeter; //!< Velocimeter sprite.
-	sf::Sprite m_velocimeterPointer; //!< Pointer sprite.
+	sf::Sprite m_speedometer; //!< Velocimeter sprite.
+	sf::Sprite m_speedometerPointer; //!< Pointer sprite.
 	double m_fMaximumSpeedSquared; //!< Maximum speed the car can achieve. Use squared value to avoid using sqrt() function.
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method inherited from Drawable class.
 };

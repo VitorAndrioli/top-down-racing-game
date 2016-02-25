@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -72,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -123,17 +124,11 @@ $(document).ready(function(){initNavTree('class_menu.html','');});
 <div class="dynheader">
 Inheritance diagram for Menu:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_menu__inherit__graph.png" border="0" usemap="#_menu_inherit__map" alt="Inheritance graph"/></div>
-<map name="_menu_inherit__map" id="_menu_inherit__map">
+ <div class="center">
+  <img src="class_menu.png" usemap="#Menu_map" alt=""/>
+  <map id="Menu_map" name="Menu_map">
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for Menu:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_menu__coll__graph.png" border="0" usemap="#_menu_coll__map" alt="Collaboration graph"/></div>
-<map name="_menu_coll__map" id="_menu_coll__map">
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -170,6 +165,10 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a77d09ae69470169844c192ce864d0806"><td class="memItemLeft" align="right" valign="top">Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a77d09ae69470169844c192ce864d0806">m_arrowSprite</a></td></tr>
 <tr class="memdesc:a77d09ae69470169844c192ce864d0806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selector arrow sprite.  <a href="#a77d09ae69470169844c192ce864d0806">More...</a><br /></td></tr>
 <tr class="separator:a77d09ae69470169844c192ce864d0806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a8adab4418cf3bcfcb77a65485ab82e"><td class="memItemLeft" align="right" valign="top">sf::SoundBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a7a8adab4418cf3bcfcb77a65485ab82e">m_buttonBuffer</a></td></tr>
+<tr class="separator:a7a8adab4418cf3bcfcb77a65485ab82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6d1a8703f41446340e26a87ab9cfad1"><td class="memItemLeft" align="right" valign="top">sf::Sound&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#ae6d1a8703f41446340e26a87ab9cfad1">m_buttonSound</a></td></tr>
+<tr class="separator:ae6d1a8703f41446340e26a87ab9cfad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Displays a home screen with setting options for the user to choose from. </p>
@@ -354,6 +353,46 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>If option selected is multi player. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7a8adab4418cf3bcfcb77a65485ab82e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::SoundBuffer Menu::m_buttonBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae6d1a8703f41446340e26a87ab9cfad1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sound Menu::m_buttonSound</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

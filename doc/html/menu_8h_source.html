@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -113,36 +114,41 @@ $(document).ready(function(){initNavTree('menu_8h_source.html','');});
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define MENU_H</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="texture_manager_8h.html">textureManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacesf.html">sf</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_menu.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_menu.html">Menu</a> : <span class="keyword">public</span> Drawable</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_menu.html">Menu</a>(); </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ~<a class="code" href="class_menu.html">Menu</a>(); </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> setSize(<span class="keywordtype">double</span> fWindowWidth, <span class="keywordtype">double</span> fWindowHeight); </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> toggleOptions(); </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> getOption(); </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> draw(RenderTarget &amp;target, RenderStates states) <span class="keyword">const</span>; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_menu.html#adacfed5ba91f4c6292218bfd6c97581f">   38</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_menu.html#adacfed5ba91f4c6292218bfd6c97581f">m_bMultiPlayer</a>; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_menu.html#a0c1461fb97364a0670797c45c93ee2bd">   39</a></span>&#160;    Sprite <a class="code" href="class_menu.html#a0c1461fb97364a0670797c45c93ee2bd">m_menuSprite</a>; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_menu.html#a77d09ae69470169844c192ce864d0806">   40</a></span>&#160;    Sprite <a class="code" href="class_menu.html#a77d09ae69470169844c192ce864d0806">m_arrowSprite</a>; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_menu_html_a77d09ae69470169844c192ce864d0806"><div class="ttname"><a href="class_menu.html#a77d09ae69470169844c192ce864d0806">Menu::m_arrowSprite</a></div><div class="ttdeci">Sprite m_arrowSprite</div><div class="ttdoc">Selector arrow sprite. </div><div class="ttdef"><b>Definition:</b> menu.h:40</div></div>
-<div class="ttc" id="class_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdoc">Displays a home screen with setting options for the user to choose from. </div><div class="ttdef"><b>Definition:</b> menu.h:27</div></div>
-<div class="ttc" id="class_menu_html_adacfed5ba91f4c6292218bfd6c97581f"><div class="ttname"><a href="class_menu.html#adacfed5ba91f4c6292218bfd6c97581f">Menu::m_bMultiPlayer</a></div><div class="ttdeci">bool m_bMultiPlayer</div><div class="ttdoc">If option selected is multi player. </div><div class="ttdef"><b>Definition:</b> menu.h:38</div></div>
-<div class="ttc" id="class_menu_html_a0c1461fb97364a0670797c45c93ee2bd"><div class="ttname"><a href="class_menu.html#a0c1461fb97364a0670797c45c93ee2bd">Menu::m_menuSprite</a></div><div class="ttdeci">Sprite m_menuSprite</div><div class="ttdoc">Main menu sprite. </div><div class="ttdef"><b>Definition:</b> menu.h:39</div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;SFML/Audio.hpp&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="texture_manager_8h.html">textureManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacesf.html">sf</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_menu.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_menu.html">Menu</a> : <span class="keyword">public</span> Drawable</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_menu.html">Menu</a>(); </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ~<a class="code" href="class_menu.html">Menu</a>(); </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> setSize(<span class="keywordtype">double</span> fWindowWidth, <span class="keywordtype">double</span> fWindowHeight); </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> toggleOptions(); </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> getOption(); </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> draw(RenderTarget &amp;target, RenderStates states) <span class="keyword">const</span>; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_menu.html#adacfed5ba91f4c6292218bfd6c97581f">   39</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_menu.html#adacfed5ba91f4c6292218bfd6c97581f">m_bMultiPlayer</a>; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_menu.html#a0c1461fb97364a0670797c45c93ee2bd">   40</a></span>&#160;    Sprite <a class="code" href="class_menu.html#a0c1461fb97364a0670797c45c93ee2bd">m_menuSprite</a>; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_menu.html#a77d09ae69470169844c192ce864d0806">   41</a></span>&#160;    Sprite <a class="code" href="class_menu.html#a77d09ae69470169844c192ce864d0806">m_arrowSprite</a>; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_menu.html#a7a8adab4418cf3bcfcb77a65485ab82e">   42</a></span>&#160;    sf::SoundBuffer <a class="code" href="class_menu.html#a7a8adab4418cf3bcfcb77a65485ab82e">m_buttonBuffer</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_menu.html#ae6d1a8703f41446340e26a87ab9cfad1">   43</a></span>&#160;    sf::Sound <a class="code" href="class_menu.html#ae6d1a8703f41446340e26a87ab9cfad1">m_buttonSound</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_menu_html_a77d09ae69470169844c192ce864d0806"><div class="ttname"><a href="class_menu.html#a77d09ae69470169844c192ce864d0806">Menu::m_arrowSprite</a></div><div class="ttdeci">Sprite m_arrowSprite</div><div class="ttdoc">Selector arrow sprite. </div><div class="ttdef"><b>Definition:</b> menu.h:41</div></div>
+<div class="ttc" id="class_menu_html_ae6d1a8703f41446340e26a87ab9cfad1"><div class="ttname"><a href="class_menu.html#ae6d1a8703f41446340e26a87ab9cfad1">Menu::m_buttonSound</a></div><div class="ttdeci">sf::Sound m_buttonSound</div><div class="ttdef"><b>Definition:</b> menu.h:43</div></div>
+<div class="ttc" id="class_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdoc">Displays a home screen with setting options for the user to choose from. </div><div class="ttdef"><b>Definition:</b> menu.h:28</div></div>
+<div class="ttc" id="class_menu_html_adacfed5ba91f4c6292218bfd6c97581f"><div class="ttname"><a href="class_menu.html#adacfed5ba91f4c6292218bfd6c97581f">Menu::m_bMultiPlayer</a></div><div class="ttdeci">bool m_bMultiPlayer</div><div class="ttdoc">If option selected is multi player. </div><div class="ttdef"><b>Definition:</b> menu.h:39</div></div>
+<div class="ttc" id="class_menu_html_a0c1461fb97364a0670797c45c93ee2bd"><div class="ttname"><a href="class_menu.html#a0c1461fb97364a0670797c45c93ee2bd">Menu::m_menuSprite</a></div><div class="ttdeci">Sprite m_menuSprite</div><div class="ttdoc">Main menu sprite. </div><div class="ttdef"><b>Definition:</b> menu.h:40</div></div>
 <div class="ttc" id="namespacesf_html"><div class="ttname"><a href="namespacesf.html">sf</a></div></div>
 <div class="ttc" id="texture_manager_8h_html"><div class="ttname"><a href="texture_manager_8h.html">textureManager.h</a></div><div class="ttdoc">Declaration of TextureManager class. </div></div>
+<div class="ttc" id="class_menu_html_a7a8adab4418cf3bcfcb77a65485ab82e"><div class="ttname"><a href="class_menu.html#a7a8adab4418cf3bcfcb77a65485ab82e">Menu::m_buttonBuffer</a></div><div class="ttdeci">sf::SoundBuffer m_buttonBuffer</div><div class="ttdef"><b>Definition:</b> menu.h:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

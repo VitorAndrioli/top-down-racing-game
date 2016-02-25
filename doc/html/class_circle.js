@@ -5,6 +5,5 @@ var class_circle =
     [ "checkCollision", "class_circle.html#a1c54c0c9992d94902aa610bd10290512", null ],
     [ "checkCollision", "class_circle.html#ae35b144decf4c215432185bbfce000f9", null ],
     [ "checkCollision", "class_circle.html#a4ab15624db62f39064f90247495941eb", null ],
-    [ "setTexture", "class_circle.html#a122be687e96014c2a448ecbebacfd314", null ],
-    [ "updatePoints", "class_circle.html#afe23c30a1bbc5e831b72063aef91b38f", null ]
+    [ "setTexture", "class_circle.html#a122be687e96014c2a448ecbebacfd314", null ]
 ];

@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -72,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -124,17 +125,16 @@ $(document).ready(function(){initNavTree('class_collidable.html','');});
 <div class="dynheader">
 Inheritance diagram for Collidable:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_collidable__inherit__graph.png" border="0" usemap="#_collidable_inherit__map" alt="Inheritance graph"/></div>
-<map name="_collidable_inherit__map" id="_collidable_inherit__map">
+ <div class="center">
+  <img src="class_collidable.png" usemap="#Collidable_map" alt=""/>
+  <map id="Collidable_map" name="Collidable_map">
+<area href="class_circle.html" title="Circular collidables to be used in the game. " alt="Circle" shape="rect" coords="0,112,68,136"/>
+<area href="class_o_b_b.html" title="Oriented bounding box collidables to be used in the game. " alt="OBB" shape="rect" coords="117,112,185,136"/>
+<area href="class_tyre.html" title="Collidable object to be used in the game. " alt="Tyre" shape="rect" coords="0,168,68,192"/>
+<area href="class_box.html" title="Collidable object to be used in the game. " alt="Box" shape="rect" coords="78,168,146,192"/>
+<area href="class_car.html" title="Controllable car to be used by the player. " alt="Car" shape="rect" coords="156,168,224,192"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for Collidable:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_collidable__coll__graph.png" border="0" usemap="#_collidable_coll__map" alt="Collaboration graph"/></div>
-<map name="_collidable_coll__map" id="_collidable_coll__map">
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -210,11 +210,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a265fb4ef01dc1997494374205181a6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4368969a86c2e6fe908bfdd7ae8f7908"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a4368969a86c2e6fe908bfdd7ae8f7908">getInverseInertia</a> ()</td></tr>
 <tr class="separator:a4368969a86c2e6fe908bfdd7ae8f7908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeb14a34d7c7dc47b0c3c51a25a44e64"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#abeb14a34d7c7dc47b0c3c51a25a44e64">updatePoints</a> ()</td></tr>
-<tr class="separator:abeb14a34d7c7dc47b0c3c51a25a44e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4597915c92e32ea10220808da31c750"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#ac4597915c92e32ea10220808da31c750">print</a> ()</td></tr>
-<tr class="memdesc:ac4597915c92e32ea10220808da31c750"><td class="mdescLeft">&#160;</td><td class="mdescRight">to be removed.  <a href="#ac4597915c92e32ea10220808da31c750">More...</a><br /></td></tr>
-<tr class="separator:ac4597915c92e32ea10220808da31c750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -269,9 +264,6 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:aef9f604795e30d09737aee26beb128ae"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#aef9f604795e30d09737aee26beb128ae">m_fInverseMomentOfInertia</a></td></tr>
 <tr class="memdesc:aef9f604795e30d09737aee26beb128ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse moment of inertia.  <a href="#aef9f604795e30d09737aee26beb128ae">More...</a><br /></td></tr>
 <tr class="separator:aef9f604795e30d09737aee26beb128ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13a62d6d9fb69397c5ad03e6ec1c3b2d"><td class="memItemLeft" align="right" valign="top">sf::VertexArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d">m_vaPoints</a></td></tr>
-<tr class="memdesc:a13a62d6d9fb69397c5ad03e6ec1c3b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points to be drawn (to be removed)  <a href="#a13a62d6d9fb69397c5ad03e6ec1c3b2d">More...</a><br /></td></tr>
-<tr class="separator:a13a62d6d9fb69397c5ad03e6ec1c3b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5392bcb0ef0fef2e60b68a447e4d0ae7"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7">m_sprite</a></td></tr>
 <tr class="memdesc:a5392bcb0ef0fef2e60b68a447e4d0ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite to be drawn to the window.  <a href="#a5392bcb0ef0fef2e60b68a447e4d0ae7">More...</a><br /></td></tr>
 <tr class="separator:a5392bcb0ef0fef2e60b68a447e4d0ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -732,32 +724,6 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac4597915c92e32ea10220808da31c750"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Collidable::print </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>to be removed. </p>
-<p>to be removed. </p>
-
-</div>
-</div>
 <a class="anchor" id="a8ff9b7822edd612abd581437343f76b0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1036,31 +1002,6 @@ Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="abeb14a34d7c7dc47b0c3c51a25a44e64"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Collidable::updatePoints </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="class_o_b_b.html#a3103d775e6ba4b27a80263ea14826309">OBB</a>, and <a class="el" href="class_circle.html#afe23c30a1bbc5e831b72063aef91b38f">Circle</a>.</p>
 
 </div>
 </div>
@@ -1387,28 +1328,6 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sprite to be drawn to the window. </p>
-
-</div>
-</div>
-<a class="anchor" id="a13a62d6d9fb69397c5ad03e6ec1c3b2d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sf::VertexArray Collidable::m_vaPoints</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Points to be drawn (to be removed) </p>
 
 </div>
 </div>

@@ -21,7 +21,6 @@ var class_collidable =
     [ "isMoving", "class_collidable.html#a8d46b697385b10bc9447f1ac18a587a6", null ],
     [ "isRotating", "class_collidable.html#aac30412922899257b1ad166dd444da2e", null ],
     [ "moved", "class_collidable.html#a75d5c8313b38f6016938f1b4aef5465c", null ],
-    [ "print", "class_collidable.html#ac4597915c92e32ea10220808da31c750", null ],
     [ "resolveCollision", "class_collidable.html#a8ff9b7822edd612abd581437343f76b0", null ],
     [ "setAcceleration", "class_collidable.html#a669e3a62211f10242fdd9d18ed160356", null ],
     [ "setFrictionCoefficient", "class_collidable.html#ae245dadba8e78387701796177e1e635e", null ],
@@ -35,7 +34,6 @@ var class_collidable =
     [ "setThrust", "class_collidable.html#a2fa1b52be385f9ff2cf08670a9606cc1", null ],
     [ "setVelocity", "class_collidable.html#af6355717261e9475643232f31ec46424", null ],
     [ "update", "class_collidable.html#a7279e719dd96da33f127aa791fd908c6", null ],
-    [ "updatePoints", "class_collidable.html#abeb14a34d7c7dc47b0c3c51a25a44e64", null ],
     [ "updateSprite", "class_collidable.html#a656ce92dd3e3f1b1981eb79c97ed3115", null ],
     [ "m_fAngularAcceleration", "class_collidable.html#a376aa200ba174a1cea17766fbcbda760", null ],
     [ "m_fAngularVelocity", "class_collidable.html#a5a6501f0c062b6c24f3121c5c68b59d4", null ],
@@ -50,6 +48,5 @@ var class_collidable =
     [ "m_fvPosition", "class_collidable.html#ac72f55f30a447a47bf165ce8d7584027", null ],
     [ "m_fvThrust", "class_collidable.html#ad88d617204dde9a1abc37e013e7c3d51", null ],
     [ "m_fvVelocity", "class_collidable.html#a3a46aab76b8a8651ca93f601f62c05fd", null ],
-    [ "m_sprite", "class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7", null ],
-    [ "m_vaPoints", "class_collidable.html#a13a62d6d9fb69397c5ad03e6ec1c3b2d", null ]
+    [ "m_sprite", "class_collidable.html#a5392bcb0ef0fef2e60b68a447e4d0ae7", null ]
 ];
