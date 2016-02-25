@@ -1,23 +1,11 @@
 /*! 
+ * \mainpage Race %Game
+ *
+ * \brief Course work presented to Dr. Simon Coupland as part of the Object
+ * Oriented Design and Development with C++ module of Bsc Intelligent Systems course, at De Montfort University.
+ *
+ * \date 25/02/2016
+ * \author Vitor Augusto Andrioli
+ *
+ */
 
-* \mainpage Course Work - IMAT2605
-
-* \brief Brief explanation 2
-
-* More details explanation
-
-*
-*/
-
-/*! \mainpage My Personal Index Page
-*
-* \section intro_sec Introduction
-*
-* This is the introduction.
-*
-* \section install_sec Installation
-*
-* \subsection step1 Step 1: Opening the box
-*
-* etc...
-*/

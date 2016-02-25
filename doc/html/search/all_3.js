@@ -23,6 +23,5 @@ var searchData=
   ['collidablefactory_2ecpp',['collidableFactory.cpp',['../collidable_factory_8cpp.html',1,'']]],
   ['collidablefactory_2eh',['collidableFactory.h',['../collidable_factory_8h.html',1,'']]],
   ['controlinput',['controlInput',['../class_car.html#a1b8b6e8701e2866dcb0db2213ef760c4',1,'Car']]],
-  ['crossproduct',['crossProduct',['../class_vector2_d.html#af488e28c772a8c3725b677ece8dd5666',1,'Vector2D::crossProduct(Vector2D&lt; G &gt; *pOtherVector)'],['../class_vector2_d.html#a5d05faaee31dd6f71dfdc4a57502e4f8',1,'Vector2D::crossProduct(double fScalar)']]],
-  ['course_20work_20_2d_20imat2605',['Course Work - IMAT2605',['../index.html',1,'']]]
+  ['crossproduct',['crossProduct',['../class_vector2_d.html#af488e28c772a8c3725b677ece8dd5666',1,'Vector2D::crossProduct(Vector2D&lt; G &gt; *pOtherVector)'],['../class_vector2_d.html#a5d05faaee31dd6f71dfdc4a57502e4f8',1,'Vector2D::crossProduct(double fScalar)']]]
 ];

@@ -15,6 +15,7 @@
  * \date 25/02/2016
  *
  * \todo Change the minimap to display a bigger image of the cars, and to use a smaller texture for the background.
+ * \todo Add a criteria for winning or losing the game, such as timer or getting to finish line.
  */
 
 #ifndef GAME_H

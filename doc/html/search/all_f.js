@@ -18,8 +18,6 @@ var searchData=
   ['setx',['setX',['../class_vector2_d.html#a6c5526343de1af297d3cc4baca03a9b1',1,'Vector2D']]],
   ['sety',['setY',['../class_vector2_d.html#ac7ba076a26efb04c2e590a0cdd3fd20e',1,'Vector2D']]],
   ['squaredmagnitude',['squaredMagnitude',['../class_vector2_d.html#af4162d18ba5939bd0175ae01ad6f0221',1,'Vector2D']]],
-  ['stdafx_2ecpp',['stdafx.cpp',['../stdafx_8cpp.html',1,'']]],
-  ['stdafx_2eh',['stdafx.h',['../stdafx_8h.html',1,'']]],
   ['stopping_5fspeed',['STOPPING_SPEED',['../car_8h.html#aa1b87ef5f6e8c6860c16abd5067c8fc1',1,'car.h']]],
   ['stopping_5fvelocity',['STOPPING_VELOCITY',['../collidable_8h.html#ab0c66d6ea635c31bc2e8f08f64f47c8f',1,'collidable.h']]]
 ];

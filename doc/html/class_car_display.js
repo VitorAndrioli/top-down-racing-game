@@ -6,6 +6,6 @@ var class_car_display =
     [ "draw", "class_car_display.html#a12cf3cf94a339fd2a066bb4aa5db8747", null ],
     [ "update", "class_car_display.html#af279cec8da2d04a72b3fb395dbd5c28b", null ],
     [ "m_fMaximumSpeedSquared", "class_car_display.html#aa10f8cf583e187d61a49495723e1c76e", null ],
-    [ "m_velocimeter", "class_car_display.html#afa690dbcaa3f740b9b3cefba75223763", null ],
-    [ "m_velocimeterPointer", "class_car_display.html#a94d2d06092db796f5dfc0512f52e8f5e", null ]
+    [ "m_speedometer", "class_car_display.html#afd9485dd730bea294d50bcb946060ab8", null ],
+    [ "m_speedometerPointer", "class_car_display.html#a30fd5fb0e8a20bbacb4055d0e3c46475", null ]
 ];

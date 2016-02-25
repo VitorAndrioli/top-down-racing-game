@@ -68,10 +68,10 @@ public:
 	void setWheelTexture(shared_ptr<sf::Texture> pTexture); //!< Sets front wheels texture.
 	void setVelocity(Vector2D<double> fvVelocity); //!< Updates velocity. Checks for maximum and minimum normal and reverse speed.
 	double getFrictionCoefficient(); //!< Returns different coefficient for reverse gear.
-	CarDisplay* getDisplay(); //!< Gets pointer to display (velocimeter).
+	CarDisplay* getDisplay(); //!< Gets pointer to display (speedometer).
 
 protected:
-	CarDisplay m_display; //!< Analog velocimeter.
+	CarDisplay m_display; //!< Analog speedometer.
 	double m_fSteeringOrientation; //!< Orientation of front wheels.
 	double m_fWheelBase; //!< Distance between front and rear wheels.
 	sf::Sprite m_rightWheelSprite; //!< Sprite for the right frontal wheel.

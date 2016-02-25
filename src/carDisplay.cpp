@@ -10,7 +10,7 @@ CarDisplay::CarDisplay()
 }
 
 /*!
- * Allocates respectives textures to velocimeter and pointer.
+ * Allocates respectives textures to speedometer and pointer.
  *
  * \param fMaximumSpeed Maximum speed the car can achieve.
  */
@@ -30,7 +30,7 @@ CarDisplay::CarDisplay(double fMaximumSpeed) : m_fMaximumSpeedSquared(fMaximumSp
 }
 
 /*!
- * Uses maximum and current speed to find the right orientation for the velocimeter's pointer.
+ * Uses maximum and current speed to find the right orientation for the speedometer's pointer.
  *
  * \param fSpeedSquared Car's current velocity (squared).
  */

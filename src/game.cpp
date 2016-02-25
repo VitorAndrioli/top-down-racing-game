@@ -136,7 +136,7 @@ void Game::update(float timestep)
 	
 	// Updates timer
 	m_fTimer += timestep;
-	sprintf_s<sizeof(timerBuffer)>(timerBuffer, "%02.0f:%02.0f:%02.0f", floor(m_fTimer / 3600.0), floor(fmod(m_fTimer, 3600.0) / 60.0), fmod(m_fTimer, 60.0));
+	sprintf_s<sizeof(timerBuffer)>(timerBuffer, "%02.0f:%02.0f:%02.0f", floor(m_fTimer / 3600.0), floor(fmod(m_fTimer, 3600.0) / 60.0), floor(fmod(m_fTimer, 60.0)));
 	m_timerText.setString(timerBuffer);
 	
 	// Updates first player.

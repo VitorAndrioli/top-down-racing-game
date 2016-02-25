@@ -5,7 +5,7 @@
 
 /*!
  * \class CarDisplay carDisplay.h "carDisplay.h"
- * \brief Displays velocity of a Car instance as an analog velocimeter.
+ * \brief Displays velocity of a Car instance as an analog speedometer.
  *
  * Uses car maximum speed and current speed to show the current velocity to the player.
  *
@@ -33,7 +33,7 @@ public:
 	void update(double fSpeedSquared); //!< Updates pointer's orientation.
 
 private:
-	sf::Sprite m_speedometer; //!< Velocimeter sprite.
+	sf::Sprite m_speedometer; //!< Speedometer sprite.
 	sf::Sprite m_speedometerPointer; //!< Pointer sprite.
 	double m_fMaximumSpeedSquared; //!< Maximum speed the car can achieve. Use squared value to avoid using sqrt() function.
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const; //!< Virtual draw method inherited from Drawable class.
